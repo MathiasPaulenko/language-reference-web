@@ -1,0 +1,254 @@
+@import "tailwindcss";
+
+@theme {
+  /* Typography */
+  --font-display: "Fraunces", ui-serif, Georgia, serif;
+  --font-script: "Allura", cursive;
+  --font-body: "Public Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+  /* Paper & ink palette */
+  --color-paper: #faf6ef;
+  --color-paper-deep: #f1e9da;
+  --color-paper-darker: #e5dac5;
+  --color-ink: #1b1815;
+  --color-ink-soft: #4a4339;
+  --color-ink-faint: #8a7f70;
+  --color-line: #e3d9c6;
+
+  /* Brand accent — atlas terracotta */
+  --color-accent: #b4452a;
+  --color-accent-soft: #d9714f;
+}
+
+/* Per-analyzed-language colors live in src/config/languages.ts (single
+   source of truth) and are applied inline, so they are intentionally not
+   defined here. */
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Pinyin / ruby annotation styling */
+  ruby {
+    ruby-position: over;
+    ruby-align: center;
+    line-height: 2.8;
+  }
+
+  ruby rt {
+    font-size: 0.85em;
+    font-family: var(--font-mono);
+    color: var(--color-ink);
+    opacity: 1;
+    text-align: center;
+    letter-spacing: 0.02em;
+    transition: color 0.2s ease, transform 0.2s ease;
+  }
+
+  ruby:hover rt {
+    color: var(--color-accent);
+    transform: scale(1.15);
+    transform-origin: center top;
+  }
+
+  /* Ensure pinyin doesn't get cut off in tables or cards */
+  td ruby, th ruby, .bg-paper ruby, .bg-paper-deep ruby {
+    line-height: 3.2;
+  }
+
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background-color: var(--color-accent);
+    color: var(--color-paper);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+  }
+}
+
+@layer components {
+  /* Subtle paper grain / topographic backdrop */
+  .bg-topo {
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(27, 24, 21, 0.04) 1px, transparent 0);
+    background-size: 22px 22px;
+  }
+
+  /* Language-specific full-bleed section backgrounds */
+  .spanish-section,
+  .english-section,
+  .chinese-section {
+    position: relative;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    padding: 2rem 1.25rem;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .spanish-section + .english-section,
+  .spanish-section + .chinese-section,
+  .english-section + .spanish-section,
+  .english-section + .chinese-section,
+  .chinese-section + .spanish-section,
+  .chinese-section + .english-section {
+    margin-top: 0.5rem;
+  }
+
+  .spanish-section {
+    background: rgba(180, 69, 42, 0.025);
+    box-shadow: inset 3px 0 0 rgba(180, 69, 42, 0.25);
+  }
+  .english-section {
+    background: rgba(43, 92, 138, 0.025);
+    box-shadow: inset 3px 0 0 rgba(43, 92, 138, 0.25);
+  }
+  .chinese-section {
+    background: rgba(47, 122, 107, 0.025);
+    box-shadow: inset 3px 0 0 rgba(47, 122, 107, 0.25);
+  }
+
+  @media (min-width: 640px) {
+    .spanish-section,
+    .english-section,
+    .chinese-section {
+      padding: 2.5rem 2rem;
+    }
+  }
+
+  @media (min-width: 960px) {
+    .spanish-section,
+    .english-section,
+    .chinese-section {
+      padding: 2.5rem calc((100vw - 56rem) / 2);
+    }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    animation: reveal 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+}
+
+@keyframes reveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Drifting typography particles — hero background decoration */
+@keyframes drift-typo {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.06;
+  }
+  90% {
+    opacity: 0.06;
+  }
+  100% {
+    transform: translate(var(--drift-x), var(--drift-y)) rotate(var(--drift-r));
+    opacity: 0;
+  }
+}
+
+.hero-typo-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-typo-bg .typo-particle {
+  position: absolute;
+  font-family: var(--font-display);
+  font-size: clamp(0.7rem, 1.2vw, 1rem);
+  font-weight: 600;
+  color: var(--color-ink);
+  opacity: 0;
+  animation: drift-typo linear infinite;
+  user-select: none;
+  --drift-x: 40px;
+  --drift-y: -30px;
+  --drift-r: 8deg;
+}
+
+.hero-typo-bg .typo-particle--xs { font-size: clamp(0.25rem, 0.35vw, 0.35rem); opacity: 0.1; }
+.hero-typo-bg .typo-particle--sm { font-size: clamp(0.4rem, 0.65vw, 0.6rem); }
+.hero-typo-bg .typo-particle--lg { font-size: clamp(1.2rem, 2.2vw, 2rem); font-weight: 700; }
+.hero-typo-bg .typo-particle--xl { font-size: clamp(1.8rem, 4vw, 3.5rem); font-weight: 700; }
+
+.hero-typo-bg .typo-particle:nth-child(1)  { top: 8%;  left: 5%;   --drift-x: 60px;  --drift-y: -40px;  --drift-r: 12deg;  animation-delay: 0s;    animation-duration: 3s; }
+.hero-typo-bg .typo-particle:nth-child(2)  { top: 15%; left: 12%;  --drift-x: -50px; --drift-y: 30px;   --drift-r: -8deg;  animation-delay: 0.08s; animation-duration: 4s; font-family: var(--font-script); }
+.hero-typo-bg .typo-particle:nth-child(3)  { top: 5%;  left: 25%;  --drift-x: 40px;  --drift-y: 50px;   --drift-r: 5deg;   animation-delay: 0.15s; animation-duration: 3s; }
+.hero-typo-bg .typo-particle:nth-child(4)  { top: 22%; left: 35%;  --drift-x: -60px; --drift-y: -20px;  --drift-r: -10deg; animation-delay: 0.22s; animation-duration: 5s; }
+.hero-typo-bg .typo-particle:nth-child(5)  { top: 10%; left: 48%;  --drift-x: 30px;  --drift-y: -50px;  --drift-r: 15deg;  animation-delay: 0.3s;  animation-duration: 3s; font-family: var(--font-script); }
+.hero-typo-bg .typo-particle:nth-child(6)  { top: 18%; left: 58%;  --drift-x: -40px; --drift-y: 40px;   --drift-r: -6deg;  animation-delay: 0.38s; animation-duration: 4s; }
+.hero-typo-bg .typo-particle:nth-child(7)  { top: 6%;  left: 70%;  --drift-x: 50px;  --drift-y: -30px;  --drift-r: 10deg;  animation-delay: 0.45s; animation-duration: 3s; }
+.hero-typo-bg .typo-particle:nth-child(8)  { top: 20%; left: 82%;  --drift-x: -30px; --drift-y: -40px;  --drift-r: -12deg; animation-delay: 0.52s; animation-duration: 5s; font-family: var(--font-script); }
+.hero-typo-bg .typo-particle:nth-child(9)  { top: 12%; left: 92%;  --drift-x: 20px;  --drift-y: 50px;   --drift-r: 7deg;   animation-delay: 0.6s;  animation-duration: 3s; }
+.hero-typo-bg .typo-particle:nth-child(10) { top: 30%; left: 3%;   --drift-x: -50px; --drift-y: -30px;  --drift-r: -5deg;  animation-delay: 0.68s; animation-duration: 4s; font-family: var(--font-script); }
+.hero-typo-bg .typo-particle:nth-child(11) { top: 35%; left: 15%;  --drift-x: 40px;  --drift-y: 40px;   --drift-r: 8deg;   animation-delay: 0.75s; animation-duration: 3s; }
+.hero-typo-bg .typo-particle:nth-child(12) { top: 28%; left: 28%;  --drift-x: -60px; --drift-y: -20px;  --drift-r: -15deg; animation-delay: 0.82s; animation-duration: 5s; }
+.hero-typo-bg .typo-particle:nth-child(13) { top: 38%; left: 42%;  --drift-x: 30px;  --drift-y: -40px;  --drift-r: 6deg;   animation-delay: 0.9s;  animation-duration: 4s; font-family: var(--font-script); }
+.hero-typo-bg .typo-particle:nth-child(14) { top: 32%; left: 55%;  --drift-x: -40px; --drift-y: 30px;   --drift-r: -10deg; animation-delay: 0.98s; animation-duration: 3s; }
+.hero-typo-bg .typo-particle:nth-child(15) { top: 40%; left: 68%;  --drift-x: 50px;  --drift-y: -30px;  --drift-r: 12deg;  animation-delay: 1.05s; animation-duration: 4s; font-family: var(--font-script); }
+.hero-typo-bg .typo-particle:nth-child(16) { top: 33%; left: 78%;  --drift-x: -30px; --drift-y: -50px;  --drift-r: -7deg;  animation-delay: 1.12s; animation-duration: 3s; }
+.hero-typo-bg .typo-particle:nth-child(17) { top: 42%; left: 88%;  --drift-x: 40px;  --drift-y: 20px;   --drift-r: 5deg;   animation-delay: 0.04s; animation-duration: 5s; font-family: var(--font-script); }
+.hero-typo-bg .typo-particle:nth-child(18) { top: 48%; left: 8%;   --drift-x: -50px; --drift-y: -40px;  --drift-r: -12deg; animation-delay: 0.12s; animation-duration: 4s; }
+.hero-typo-bg .typo-particle:nth-child(19) { top: 52%; left: 20%;  --drift-x: 60px;  --drift-y: 30px;   --drift-r: 8deg;   animation-delay: 0.2s;  animation-duration: 3s; }
+.hero-typo-bg .typo-particle:nth-child(20) { top: 45%; left: 33%;  --drift-x: -40px; --drift-y: -30px;  --drift-r: -5deg;  animation-delay: 0.28s; animation-duration: 5s; font-family: var(--font-script); }
+.hero-typo-bg .typo-particle:nth-child(21) { top: 55%; left: 48%;  --drift-x: 30px;  --drift-y: 50px;   --drift-r: 10deg;  animation-delay: 0.36s; animation-duration: 3s; }
+.hero-typo-bg .typo-particle:nth-child(22) { top: 50%; left: 62%;  --drift-x: -60px; --drift-y: -20px;  --drift-r: -8deg;  animation-delay: 0.44s; animation-duration: 4s; font-family: var(--font-script); }
+.hero-typo-bg .typo-particle:nth-child(23) { top: 58%; left: 75%;  --drift-x: 40px;  --drift-y: -40px;  --drift-r: 15deg;  animation-delay: 0.52s; animation-duration: 5s; }
+.hero-typo-bg .typo-particle:nth-child(24) { top: 48%; left: 85%;  --drift-x: -30px; --drift-y: 40px;   --drift-r: -6deg;  animation-delay: 0.6s;  animation-duration: 3s; }
+.hero-typo-bg .typo-particle:nth-child(25) { top: 62%; left: 5%;   --drift-x: 50px;  --drift-y: -30px;  --drift-r: 7deg;   animation-delay: 0.68s; animation-duration: 4s; font-family: var(--font-script); }
+.hero-typo-bg .typo-particle:nth-child(26) { top: 68%; left: 18%;  --drift-x: -40px; --drift-y: -40px;  --drift-r: -10deg; animation-delay: 0.76s; animation-duration: 3s; }
+.hero-typo-bg .typo-particle:nth-child(27) { top: 65%; left: 32%;  --drift-x: 60px;  --drift-y: 20px;   --drift-r: 12deg;  animation-delay: 0.84s; animation-duration: 5s; }
+.hero-typo-bg .typo-particle:nth-child(28) { top: 72%; left: 45%;  --drift-x: -30px; --drift-y: -50px;  --drift-r: -5deg;  animation-delay: 0.92s; animation-duration: 4s; font-family: var(--font-script); }
+.hero-typo-bg .typo-particle:nth-child(29) { top: 70%; left: 58%;  --drift-x: 40px;  --drift-y: 30px;   --drift-r: 8deg;   animation-delay: 1s;    animation-duration: 3s; }
+.hero-typo-bg .typo-particle:nth-child(30) { top: 78%; left: 72%;  --drift-x: -50px; --drift-y: -30px;  --drift-r: -12deg; animation-delay: 1.08s; animation-duration: 5s; font-family: var(--font-script); }
+.hero-typo-bg .typo-particle:nth-child(31) { top: 75%; left: 85%;  --drift-x: 30px;  --drift-y: 40px;   --drift-r: 6deg;   animation-delay: 1.16s; animation-duration: 4s; }
+.hero-typo-bg .typo-particle:nth-child(32) { top: 82%; left: 10%;  --drift-x: -60px; --drift-y: -20px;  --drift-r: -8deg;  animation-delay: 0.06s; animation-duration: 3s; font-family: var(--font-script); }
+.hero-typo-bg .typo-particle:nth-child(33) { top: 85%; left: 25%;  --drift-x: 50px;  --drift-y: -40px;  --drift-r: 10deg;  animation-delay: 0.14s; animation-duration: 5s; }
+.hero-typo-bg .typo-particle:nth-child(34) { top: 88%; left: 40%;  --drift-x: -40px; --drift-y: 30px;   --drift-r: -6deg;  animation-delay: 0.22s; animation-duration: 3s; }
+.hero-typo-bg .typo-particle:nth-child(35) { top: 90%; left: 52%;  --drift-x: 60px;  --drift-y: -30px;  --drift-r: 12deg;  animation-delay: 0.3s;  animation-duration: 4s; font-family: var(--font-script); }
+.hero-typo-bg .typo-particle:nth-child(36) { top: 85%; left: 68%;  --drift-x: -30px; --drift-y: -40px;  --drift-r: -10deg; animation-delay: 0.38s; animation-duration: 3s; }
+.hero-typo-bg .typo-particle:nth-child(37) { top: 92%; left: 80%;  --drift-x: 40px;  --drift-y: 20px;   --drift-r: 5deg;   animation-delay: 0.46s; animation-duration: 5s; font-family: var(--font-script); }
+.hero-typo-bg .typo-particle:nth-child(38) { top: 95%; left: 92%;  --drift-x: -50px; --drift-y: -30px;  --drift-r: -8deg;  animation-delay: 0.54s; animation-duration: 4s; }
+.hero-typo-bg .typo-particle:nth-child(39) { top: 3%;  left: 38%;  --drift-x: 20px;  --drift-y: 60px;   --drift-r: 15deg;  animation-delay: 0.62s; animation-duration: 3s; font-family: var(--font-script); }
+.hero-typo-bg .typo-particle:nth-child(40) { top: 60%; left: 95%;  --drift-x: -40px; --drift-y: -20px;  --drift-r: -5deg;  animation-delay: 0.7s;  animation-duration: 4s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-typo-bg .typo-particle {
+    animation: none;
+    opacity: 0.02;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}

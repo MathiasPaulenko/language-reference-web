@@ -1,0 +1,245 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { sectionPath, withPinyin } from '../../../lib/utils';
+import { getUI, languageName } from '../../../i18n';
+import { interfaceLocales, analyzedLanguages, getAnalyzedLanguage, type LocaleCode, type AnalyzedLanguageCode } from '../../../config/languages';
+import FlagIcon from '../../../components/astro/FlagIcon.astro';
+
+export async function getStaticPaths() {
+  const paths = [];
+  for (const locale of interfaceLocales) {
+    for (const lang of analyzedLanguages) {
+      paths.push({
+        params: { lang: locale.code, slug: lang.code },
+      });
+    }
+  }
+  return paths;
+}
+
+const { slug } = Astro.params;
+const lang = Astro.params.lang as LocaleCode;
+const ui = getUI(lang);
+
+const language = getAnalyzedLanguage(slug);
+if (!language) {
+  throw new Error(`Unknown language: ${slug}`);
+}
+
+const allTopics = await getCollection('topics');
+const topics = allTopics
+  .filter((t) => !t.data.draft && t.data.comparisonTable && t.data.comparisonTable.length > 0)
+  .sort((a, b) => a.data.title.localeCompare(b.data.title));
+
+const diffStyles: Record<string, { label: string; bg: string; text: string }> = {
+  beginner: { label: 'Beginner', bg: '#e8f5e9', text: '#2e7d32' },
+  intermediate: { label: 'Intermediate', bg: '#fff3e0', text: '#ef6c00' },
+  advanced: { label: 'Advanced', bg: '#fce4ec', text: '#c62828' },
+};
+---
+
+<BaseLayout
+  title={`${languageName(ui, slug as AnalyzedLanguageCode)} Grammar — ${ui.site.name}`}
+  description={`Explore grammar topics for ${languageName(ui, slug as AnalyzedLanguageCode)}. Understand how ${languageName(ui, slug as AnalyzedLanguageCode)} handles key grammatical concepts.`}
+  lang={lang}
+>
+  {/* Hero */}
+  <section class="border-b border-line" style={`background-color: ${language.color}30`}>
+    <div class="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24">
+      <div class="flex items-center gap-3">
+        <span class="flex h-12 w-12 items-center justify-center rounded-full" style={`background-color: ${language.color}40`}>
+          <FlagIcon code={slug} size={28} />
+        </span>
+        <p class="font-mono text-sm font-bold uppercase tracking-[0.2em]" style={`color: ${language.color}`}>{ui.nav.languages}</p>
+      </div>
+      <h1 class="mt-6 max-w-2xl font-display text-4xl font-semibold tracking-tight text-ink sm:text-5xl">
+        {languageName(ui, slug as AnalyzedLanguageCode)} Grammar
+      </h1>
+      <p class="mt-4 max-w-2xl text-lg text-ink-soft">
+        Explore {topics.length} grammar topics for {languageName(ui, slug as AnalyzedLanguageCode)}. Each concept explained with real examples — no comparisons, just the rules that matter.
+      </p>
+    </div>
+  </section>
+
+  {/* Topics Grid */}
+  <section class="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24" id="topics-list">
+    <div class="flex items-end justify-between gap-6">
+      <div>
+        <p class="font-mono text-xs font-bold uppercase tracking-[0.2em]" style={`color: ${language.color}`}>{ui.nav.topics}</p>
+        <h2 class="mt-3 font-display text-3xl font-semibold tracking-tight sm:text-4xl">Grammar Topics</h2>
+        <p class="mt-3 max-w-xl text-ink-soft">Each topic shows how {languageName(ui, slug as AnalyzedLanguageCode)} handles the concept, with examples and common pitfalls.</p>
+      </div>
+    </div>
+
+    {/* Filters */}
+    <div class="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+      <div class="relative max-w-md flex-1">
+        <input
+          type="text"
+          id="topic-search"
+          placeholder={ui.topics.filterSearch}
+          class="w-full rounded-xl border border-line bg-paper px-4 py-2.5 pl-10 text-sm text-ink placeholder:text-ink-faint focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent/30"
+        />
+        <svg class="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-ink-faint" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+      </div>
+      <div class="flex flex-wrap gap-2" id="difficulty-filters">
+        {[
+          { key: 'all', label: ui.topics.filterAll },
+          { key: 'beginner', label: ui.topics.filterBeginner },
+          { key: 'intermediate', label: ui.topics.filterIntermediate },
+          { key: 'advanced', label: ui.topics.filterAdvanced },
+        ].map((btn) => (
+          <button
+            data-filter={btn.key}
+            class={`filter-btn rounded-full border px-4 py-1.5 text-sm font-medium transition-all ${
+              btn.key === 'all'
+                ? 'border-accent bg-accent text-paper'
+                : 'border-line bg-paper text-ink-soft hover:border-ink-faint hover:text-ink'
+            }`}
+          >
+            {btn.label}
+          </button>
+        ))}
+      </div>
+    </div>
+
+    <p class="mt-4 text-sm text-ink-faint" id="topics-count">{topics.length} topics</p>
+
+    <p class="mt-8 hidden text-center text-sm text-ink-faint" id="no-results">No topics match your search.</p>
+
+    <div class="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3" id="topics-grid">
+      {topics.map((topic, idx) => {
+        const diff = topic.data.difficulty || 'beginner';
+        const style = diffStyles[diff] || diffStyles.beginner;
+        const topicUrl = sectionPath(lang, 'topics', topic.id) + `?lang=${slug}`;
+
+        // Extract this language's column from comparison table
+        const previewRows = topic.data.comparisonTable?.slice(0, 3) || [];
+
+        return (
+          <a
+            href={topicUrl}
+            class="topic-card group flex flex-col rounded-2xl border border-line bg-paper p-6 transition-all duration-300 hover:-translate-y-1 hover:border-accent/30 hover:shadow-lg hover:shadow-accent/5"
+            data-index={idx}
+            data-difficulty={topic.data.difficulty || 'beginner'}
+            data-title={topic.data.title.toLowerCase()}
+            data-desc={topic.data.description.toLowerCase()}
+          >
+            {/* Header */}
+            <div class="flex items-center justify-between gap-3">
+              <h3 class="font-display text-xl font-semibold tracking-tight text-ink transition-colors group-hover:text-accent">
+                {topic.data.title}
+              </h3>
+              <span
+                class="difficulty-badge rounded-full px-2.5 py-0.5 font-mono text-[10px] font-bold uppercase tracking-wider"
+                style={`background:${style.bg};color:${style.text}`}
+              >
+                {style.label}
+              </span>
+            </div>
+
+            <p class="mt-2 flex-1 text-sm leading-relaxed text-ink-soft" set:html={lang === 'zh' ? topic.data.description : withPinyin(topic.data.description)} />
+
+            {/* Preview of this language's values */}
+            {previewRows.length > 0 && (
+              <div class="mt-4 space-y-2 rounded-xl bg-paper-deep p-3">
+                {previewRows.map((row) => (
+                  <div class="flex items-start gap-2">
+                    <span class="mt-0.5 h-1.5 w-1.5 flex-shrink-0 rounded-full" style={`background-color: ${language.color}`} />
+                    <div>
+                      <p class="font-mono text-[10px] uppercase tracking-wider text-ink-faint">{row.concept}</p>
+                      <p class="text-sm font-medium text-ink" set:html={withPinyin(row.values[slug as AnalyzedLanguageCode] || '—')} />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            <span class="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-ink-faint transition-colors group-hover:text-accent">
+              {ui.comparisons.readFullArticle}
+              <span class="transition-transform group-hover:translate-x-1">→</span>
+            </span>
+          </a>
+        );
+      })}
+    </div>
+  </section>
+
+  {/* CTA to comparison tool */}
+  <section class="border-t border-line bg-paper-deep">
+    <div class="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24">
+      <div class="flex flex-col items-center text-center">
+        <p class="font-mono text-xs font-bold uppercase tracking-[0.2em] text-accent">Compare</p>
+        <h2 class="mt-3 font-display text-3xl font-semibold tracking-tight sm:text-4xl">Want to see how {languageName(ui, slug as AnalyzedLanguageCode)} compares?</h2>
+        <p class="mt-4 max-w-2xl text-lg text-ink-soft">Switch to the comparison tool to see the same concepts side-by-side with Spanish, English and Chinese.</p>
+        <a
+          href={sectionPath(lang, 'comparisons')}
+          class="mt-8 inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3 text-sm font-semibold text-paper transition-transform hover:-translate-y-0.5"
+        >
+          {ui.comparisons.toolTitle}
+          <span>→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    (function() {
+      const searchInput = document.getElementById('topic-search');
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      const grid = document.getElementById('topics-grid');
+      const allCards = Array.from(document.querySelectorAll('.topic-card'));
+      const countLabel = document.getElementById('topics-count');
+      const noResults = document.getElementById('no-results');
+
+      let activeFilter = 'all';
+
+      function update() {
+        const query = searchInput?.value.toLowerCase().trim() || '';
+
+        const visible = allCards.filter((card) => {
+          const diff = card.getAttribute('data-difficulty') || '';
+          const title = card.getAttribute('data-title') || '';
+          const desc = card.getAttribute('data-desc') || '';
+
+          const matchesSearch = !query || title.includes(query) || desc.includes(query);
+          const matchesLevel = activeFilter === 'all' || diff === activeFilter;
+          return matchesSearch && matchesLevel;
+        });
+
+        visible.sort((a, b) => {
+          return parseInt(a.getAttribute('data-index') || '0') - parseInt(b.getAttribute('data-index') || '0');
+        });
+
+        grid.innerHTML = '';
+        visible.forEach((card) => grid.appendChild(card));
+
+        if (countLabel) countLabel.textContent = visible.length + ' topics';
+        if (noResults) noResults.classList.toggle('hidden', visible.length > 0);
+      }
+
+      searchInput?.addEventListener('input', update);
+
+      filterBtns.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          activeFilter = btn.getAttribute('data-filter') || 'all';
+
+          filterBtns.forEach((b) => {
+            const isActive = b.getAttribute('data-filter') === activeFilter;
+            b.classList.toggle('border-accent', isActive);
+            b.classList.toggle('bg-accent', isActive);
+            b.classList.toggle('text-paper', isActive);
+            b.classList.toggle('border-line', !isActive);
+            b.classList.toggle('bg-paper', !isActive);
+            b.classList.toggle('text-ink-soft', !isActive);
+            b.classList.toggle('hover:border-ink-faint', !isActive);
+            b.classList.toggle('hover:text-ink', !isActive);
+          });
+
+          update();
+        });
+      });
+    })();
+  </script>
+</BaseLayout>

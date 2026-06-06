@@ -1,0 +1,639 @@
+---
+import { render } from 'astro:content';
+import { localePath, sectionPath, withPinyin } from '../../lib/utils';
+import { getUI, languageName } from '../../i18n';
+import { analyzedLanguages, getAnalyzedLanguage, type LocaleCode, type AnalyzedLanguageCode } from '../../config/languages';
+import FlagIcon from './FlagIcon.astro';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  entry: CollectionEntry<'topics'> | CollectionEntry<'comparisons'> | CollectionEntry<'languages'> | CollectionEntry<'guides'> | CollectionEntry<'cheatsheets'>;
+  lang: LocaleCode;
+}
+
+const { entry, lang } = Astro.props;
+const { Content } = await render(entry);
+const ui = getUI(lang);
+
+const diffStyles: Record<string, { label: string; bg: string; text: string }> = {
+  beginner: { label: 'Beginner', bg: '#e8f5e9', text: '#2e7d32' },
+  intermediate: { label: 'Intermediate', bg: '#fff3e0', text: '#ef6c00' },
+  advanced: { label: 'Advanced', bg: '#fce4ec', text: '#c62828' },
+};
+---
+
+<article class="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24" id="topic-article">
+  {/* ===== Section 1: Header + Language Selector + Overview ===== */}
+  <header>
+    <div class="reveal flex items-center justify-between gap-4" style="animation-delay:0ms">
+      <p class="font-mono text-xs font-bold uppercase tracking-[0.2em] text-accent">{ui.nav.topics}</p>
+      {entry.data.difficulty && (
+        <span
+          class="rounded-full px-2.5 py-0.5 font-mono text-[10px] font-bold uppercase tracking-wider"
+          style={`background:${diffStyles[entry.data.difficulty].bg};color:${diffStyles[entry.data.difficulty].text}`}
+        >
+          {diffStyles[entry.data.difficulty].label}
+        </span>
+      )}
+    </div>
+    <h1 class="reveal mt-4 font-display text-4xl font-semibold tracking-tight text-ink sm:text-5xl" style="animation-delay:80ms">
+      {entry.data.title}
+    </h1>
+    {entry.data.description && (
+      <p class="reveal mt-4 text-lg leading-relaxed text-ink-soft" style="animation-delay:160ms" set:html={lang === 'zh' ? entry.data.description : withPinyin(entry.data.description)} />
+    )}
+  </header>
+
+  {/* Breadcrumb */}
+  <nav aria-label="Breadcrumb" class="reveal mt-6 flex items-center gap-2 text-xs text-ink-faint" style="animation-delay:200ms">
+    <a href={localePath(lang)} class="transition-colors hover:text-accent">{ui.nav.home}</a>
+    <span>/</span>
+    <a href={sectionPath(lang, 'topics')} class="transition-colors hover:text-accent">{ui.nav.topics}</a>
+    <span>/</span>
+    <span class="text-ink-soft">{entry.data.title}</span>
+  </nav>
+
+  {/* Language Selector */}
+  {entry.data.comparisonTable && entry.data.comparisonTable.length > 0 && (
+    <div class="reveal mt-8 rounded-2xl border border-line bg-paper-deep p-5 shadow-sm" style="animation-delay:240ms">
+      <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <p class="font-mono text-xs font-bold uppercase tracking-[0.2em] text-accent">{ui.comparisons.compareLanguages}</p>
+        <div class="flex gap-2">
+          <button id="lang-select-all" class="rounded-full border border-line bg-paper px-3 py-1 text-xs font-medium text-ink-soft transition-colors hover:border-accent hover:text-accent">{ui.comparisons.selectAll}</button>
+          <button id="lang-deselect-all" class="rounded-full border border-line bg-paper px-3 py-1 text-xs font-medium text-ink-soft transition-colors hover:border-accent hover:text-accent">{ui.comparisons.deselectAll}</button>
+        </div>
+      </div>
+      <div class="mt-4 flex flex-wrap gap-2" id="lang-selector">
+        {analyzedLanguages.map((l) => (
+          <button
+            type="button"
+            class="lang-chip rounded-full border border-line bg-paper px-4 py-2 text-sm font-medium text-ink-soft transition-all hover:border-accent/30"
+            data-lang={l.code}
+            data-checked="true"
+            aria-pressed="true"
+          >
+            <span class="flex items-center gap-2">
+              <FlagIcon code={l.code} size={14} />
+              {languageName(ui, l.code)}
+              <span class="chip-check ml-0.5 h-3.5 w-3.5 text-current opacity-100 transition-opacity" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+              </span>
+            </span>
+          </button>
+        ))}
+      </div>
+    </div>
+  )}
+
+  {/* Table of Contents */}
+  {entry.data.comparisonTable && entry.data.comparisonTable.length > 0 && (
+    <nav class="mt-6 rounded-xl border border-line bg-paper-deep/40 p-4 sm:p-5">
+      <p class="flex items-center gap-2 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-ink-faint">
+        <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h7"/></svg>
+        {ui.article.tableOfContents}
+      </p>
+      <ul class="mt-3 flex flex-wrap gap-2">
+        <li>
+          <a href="#section-overview" class="inline-flex items-center gap-1.5 rounded-full border border-line bg-paper px-3 py-1 text-xs font-medium text-ink-soft transition-all hover:border-accent hover:text-accent">
+            <span class="h-1.5 w-1.5 rounded-full bg-accent" />
+            {ui.nav.topics}
+          </a>
+        </li>
+        {analyzedLanguages.map((l) => (
+          <li data-lang-toc={l.code}>
+            <a href={`#section-${l.code}`} class="inline-flex items-center gap-1.5 rounded-full border border-line bg-paper px-3 py-1 text-xs font-medium text-ink-soft transition-all hover:border-accent hover:text-accent">
+              <span class="h-1.5 w-1.5 rounded-full" style={`background-color: ${l.color}`} />
+              {languageName(ui, l.code)}
+            </a>
+          </li>
+        ))}
+        <li>
+          <a href="#section-comparison" class="inline-flex items-center gap-1.5 rounded-full border border-line bg-paper px-3 py-1 text-xs font-medium text-ink-soft transition-all hover:border-accent hover:text-accent">
+            <span class="h-1.5 w-1.5 rounded-full bg-accent" />
+            {ui.comparisons.comparisonAtAGlance}
+          </a>
+        </li>
+        {entry.data.keyTakeaways && entry.data.keyTakeaways.length > 0 && (
+          <li>
+            <a href="#section-takeaways" class="inline-flex items-center gap-1.5 rounded-full border border-line bg-paper px-3 py-1 text-xs font-medium text-ink-soft transition-all hover:border-accent hover:text-accent">
+              <span class="h-1.5 w-1.5 rounded-full bg-accent" />
+              {ui.article.keyTakeaways}
+            </a>
+          </li>
+        )}
+        <li>
+          <a href="#section-meta" class="inline-flex items-center gap-1.5 rounded-full border border-line bg-paper px-3 py-1 text-xs font-medium text-ink-soft transition-all hover:border-accent hover:text-accent">
+            <span class="h-1.5 w-1.5 rounded-full bg-accent" />
+            {ui.article.relatedTopics}
+          </a>
+        </li>
+      </ul>
+    </nav>
+  )}
+
+  {/* Overview */}
+  <section class="mt-10" id="section-overview">
+    {entry.data.overview && (
+      <p class="text-lg leading-relaxed text-ink-soft" set:html={lang === 'zh' ? entry.data.overview : withPinyin(entry.data.overview)} />
+    )}
+    <div id="overview-lang-bullets" class="mt-6 space-y-2" />
+  </section>
+
+  {/* MDX body rendered hidden; JS moves per-language blocks into sections below */}
+  <div id="mdx-body" class="hidden">
+    <Content />
+  </div>
+
+  {/* ===== Section 2: Per-language narrative + examples + flashcards + mistakes ===== */}
+  {entry.data.comparisonTable && entry.data.comparisonTable.length > 0 && (
+    <div class="mt-16 space-y-12">
+      {analyzedLanguages.map((l) => {
+        const mistakesForLang = entry.data.commonMistakes?.filter((m) => m.language === l.code) ?? [];
+        return (
+          <section class="lang-section" id={`section-${l.code}`} data-lang-section={l.code}>
+            {/* Narrative moved here by client JS from #mdx-body */}
+            <div
+              class="lang-narrative text-ink-soft leading-relaxed [&_h2]:mt-10 [&_h2]:mb-4 [&_h2]:font-display [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:tracking-tight [&_h2]:text-ink [&_h3]:mt-6 [&_h3]:mb-3 [&_h3]:font-display [&_h3]:text-xl [&_h3]:font-semibold [&_h3]:tracking-tight [&_h3]:text-ink [&_p]:mb-4 [&_ul]:mb-4 [&_ul]:list-disc [&_ul]:pl-5 [&_li]:mb-1 [&_table]:my-8 [&_table]:w-full [&_table]:border-collapse [&_table]:text-left [&_table]:text-sm [&_table]:rounded-2xl [&_table]:border [&_table]:border-line [&_table]:shadow-sm [&_thead_tr]:bg-paper-deep [&_th]:border-b [&_th]:border-line [&_th]:p-4 [&_th]:font-display [&_th]:font-semibold [&_th]:text-ink [&_th]:align-top [&_td]:border-b [&_td]:border-line [&_td]:p-4 [&_td]:align-top [&_td]:leading-relaxed [&_tr:last-child_td]:border-b-0 [&_tbody_tr]:transition-colors [&_tbody_tr:hover]:bg-paper-deep/40"
+              data-lang-narrative={l.code}
+            />
+
+            <div class="group mt-6 rounded-2xl border border-line bg-paper p-6 transition-all duration-300 hover:border-accent/30 hover:shadow-lg hover:shadow-accent/5">
+              <h3 class="flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-[0.2em] text-accent">
+                <span class="h-2 w-2 flex-shrink-0 rounded-full" style={`background-color: ${l.color}`} />
+                {ui.article.examples}
+              </h3>
+              <div class="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-3">
+                {entry.data.comparisonTable.map((row) => (
+                  <div class="group/card flex flex-col rounded-xl border border-line bg-paper-deep/40 p-4 transition-all duration-200 hover:border-accent/30 hover:bg-paper-deep hover:shadow-sm">
+                    <div class="flex items-center gap-2">
+                      <span class="h-1.5 w-1.5 flex-shrink-0 rounded-full" style={`background-color: ${l.color}`} />
+                      <p class="font-mono text-[10px] uppercase tracking-wider text-ink-faint">{row.concept}</p>
+                    </div>
+                    <p class="mt-2 text-base font-medium text-ink" set:html={withPinyin(row.values[l.code] ?? '—')} />
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {mistakesForLang.length > 0 && (
+              <div class="mt-6 space-y-4">
+                <h3 class="flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-[0.2em] text-accent">
+                  <span class="h-2 w-2 flex-shrink-0 rounded-full" style={`background-color: ${l.color}`} />
+                  {ui.article.commonMistakes}
+                </h3>
+                {mistakesForLang.map((m) => (
+                  <div class="group relative overflow-hidden rounded-xl border border-line bg-paper-deep p-5 pl-6 transition-all duration-300 hover:-translate-y-0.5 hover:border-accent/30 hover:shadow-lg hover:shadow-accent/5">
+                    <span class="absolute inset-y-0 left-0 w-1" style={`background-color: ${l.color}`} />
+                    <p class="font-medium text-accent" set:html={lang === 'zh' ? m.mistake : withPinyin(m.mistake)} />
+                    <p class="mt-1 text-ink-soft" set:html={lang === 'zh' ? m.correction : withPinyin(m.correction)} />
+                    {m.note && <p class="mt-1 text-sm text-ink-faint" set:html={lang === 'zh' ? m.note : withPinyin(m.note)} />}
+                  </div>
+                ))}
+              </div>
+            )}
+          </section>
+        );
+      })}
+    </div>
+  )}
+
+  {/* Section break */}
+  <div class="my-12 flex items-center justify-center gap-4 sm:my-16">
+    <span class="h-px flex-1 max-w-[120px] bg-line" />
+    <span class="flex h-8 w-8 items-center justify-center rounded-full border border-line bg-paper">
+      <svg class="h-3.5 w-3.5 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
+    </span>
+    <span class="h-px flex-1 max-w-[120px] bg-line" />
+  </div>
+
+  {/* ===== Section 3: Comparison + Examples in Context ===== */}
+  {(entry.data.summaryTable || entry.data.comparisonTable) && (
+    <section class="mt-16" id="section-comparison">
+      {(entry.data.summaryTable ?? entry.data.comparisonTable) && (
+        <>
+          <div class="flex items-center gap-3">
+            <span class="h-6 w-1 flex-shrink-0 rounded-full bg-accent" />
+            <h2 class="font-display text-2xl font-semibold tracking-tight text-ink">{ui.comparisons.comparisonAtAGlance}</h2>
+          </div>
+          <div id="glance-wrapper" class="mt-6 overflow-x-auto rounded-2xl border border-line bg-paper shadow-sm">
+            <table class="min-w-full border-collapse text-left [&_tbody_tr]:transition-colors [&_tbody_tr]:hover:bg-paper-deep" id="glance-table">
+              <thead>
+                <tr class="border-b border-line">
+                  <th class="p-3 sm:p-5 font-mono text-xs uppercase tracking-wider text-ink-faint whitespace-nowrap">{ui.topics.title}</th>
+                  {analyzedLanguages.map((l) => (
+                    <th class="comparison-col p-3 sm:p-5 font-display text-sm sm:text-base font-semibold whitespace-nowrap" data-lang={l.code}>
+                      <span class="flex items-center gap-2">
+                        <FlagIcon code={l.code} size={18} />
+                        {languageName(ui, l.code)}
+                      </span>
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {(entry.data.summaryTable ?? entry.data.comparisonTable)!.map((row, i, arr) => (
+                  <tr class={i < arr.length - 1 ? 'border-b border-line cursor-default' : 'cursor-default'}>
+                    <td class="p-3 sm:p-5 text-sm font-medium text-ink-faint whitespace-nowrap">{row.concept}</td>
+                    {analyzedLanguages.map((l) => {
+                      const raw = row.values[l.code] ?? '—';
+                      const processed = lang === 'zh' || l.code === 'chinese' ? raw : withPinyin(raw);
+                      return (
+                        <td class="comparison-col p-3 sm:p-5 font-display text-base whitespace-nowrap" data-lang={l.code} set:html={processed} />
+                      );
+                    })}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <div id="glance-empty" class="hidden mt-6 rounded-2xl border border-line bg-paper-deep p-8 text-center">
+            <p class="text-sm text-ink-faint">{ui.comparisons.selectLanguageToView}</p>
+          </div>
+        </>
+      )}
+
+      {entry.data.comparisonTable && entry.data.comparisonTable.length > 0 && (
+        <div class="mt-16">
+          <div class="flex items-center gap-3">
+            <span class="h-6 w-1 flex-shrink-0 rounded-full bg-accent" />
+            <h2 class="font-display text-2xl font-semibold tracking-tight text-ink">{ui.comparisons.sideBySide}</h2>
+          </div>
+          <div id="sidebyside-wrapper" class="mt-6 overflow-x-auto rounded-2xl border border-line bg-paper shadow-sm">
+            <table class="min-w-full border-collapse text-left [&_tbody_tr]:transition-colors [&_tbody_tr]:hover:bg-paper-deep" id="comparison-table">
+              <thead>
+                <tr class="border-b border-line">
+                  <th class="p-3 sm:p-5 font-mono text-xs uppercase tracking-wider text-ink-faint whitespace-nowrap">{ui.topics.title}</th>
+                  {analyzedLanguages.map((l) => (
+                    <th class="comparison-col p-3 sm:p-5 font-display text-sm sm:text-base font-semibold whitespace-nowrap" data-lang={l.code}>
+                      <span class="flex items-center gap-2">
+                        <FlagIcon code={l.code} size={18} />
+                        {languageName(ui, l.code)}
+                      </span>
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {entry.data.comparisonTable.map((row, i) => (
+                  <tr class={i < entry.data.comparisonTable!.length - 1 ? 'border-b border-line cursor-default' : 'cursor-default'}>
+                    <td class="p-3 sm:p-5 text-sm font-medium text-ink-faint whitespace-nowrap">{row.concept}</td>
+                    {analyzedLanguages.map((l) => {
+                      const raw = row.values[l.code] ?? '—';
+                      const processed = lang === 'zh' || l.code === 'chinese' ? raw : withPinyin(raw);
+                      return (
+                        <td class="comparison-col p-3 sm:p-5 font-display text-base whitespace-nowrap" data-lang={l.code} set:html={processed} />
+                      );
+                    })}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <div id="sidebyside-empty" class="hidden mt-6 rounded-2xl border border-line bg-paper-deep p-8 text-center">
+            <p class="text-sm text-ink-faint">{ui.comparisons.selectLanguageToView}</p>
+          </div>
+        </div>
+      )}
+
+      {entry.data.comparisonTable && entry.data.comparisonTable.length > 0 && (
+        <div class="mt-16">
+          <div class="flex items-center gap-3">
+            <span class="h-6 w-1 flex-shrink-0 rounded-full bg-accent" />
+            <h2 class="font-display text-2xl font-semibold tracking-tight text-ink">{ui.article.examplesInContext}</h2>
+          </div>
+          <div id="examples-wrapper" class="mt-6 space-y-6">
+            {entry.data.comparisonTable.map((row) => (
+              <div class="rounded-2xl border border-line bg-paper p-6 transition-all duration-300 hover:border-accent/30 hover:shadow-lg hover:shadow-accent/5">
+                <p class="font-mono text-xs font-bold uppercase tracking-[0.2em] text-accent">{row.concept}</p>
+                <div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-3">
+                  {analyzedLanguages.map((l) => {
+                    const raw = row.values[l.code] ?? '—';
+                    const processed = lang === 'zh' || l.code === 'chinese' ? raw : withPinyin(raw);
+                    return (
+                      <div class="comparison-col relative overflow-hidden rounded-xl border border-line bg-paper-deep p-4 pt-5 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md" data-lang={l.code}>
+                        <span class="absolute inset-x-0 top-0 h-1" style={`background-color: ${l.color}`} />
+                        <p class="flex items-center gap-2 font-mono text-[10px] font-bold uppercase tracking-wider text-ink-faint">
+                          <FlagIcon code={l.code} size={12} />
+                          {languageName(ui, l.code)}
+                        </p>
+                        <p class="mt-2 text-base font-medium text-ink" set:html={processed} />
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            ))}
+          </div>
+          <div id="examples-empty" class="hidden mt-6 rounded-2xl border border-line bg-paper-deep p-8 text-center">
+            <p class="text-sm text-ink-faint">{ui.comparisons.selectLanguageToView}</p>
+          </div>
+        </div>
+      )}
+    </section>
+  )}
+
+  {/* Section break */}
+  <div class="my-12 flex items-center justify-center gap-4 sm:my-16">
+    <span class="h-px flex-1 max-w-[120px] bg-line" />
+    <span class="flex h-8 w-8 items-center justify-center rounded-full border border-line bg-paper">
+      <svg class="h-3.5 w-3.5 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
+    </span>
+    <span class="h-px flex-1 max-w-[120px] bg-line" />
+  </div>
+
+  {/* ===== Section 4: Key Takeaways ===== */}
+  {entry.data.keyTakeaways && entry.data.keyTakeaways.length > 0 && (
+    <section class="mt-16" id="section-takeaways">
+      <div class="flex items-center gap-3">
+        <span class="h-6 w-1 flex-shrink-0 rounded-full bg-accent" />
+        <h2 class="font-display text-2xl font-semibold tracking-tight text-ink">{ui.article.keyTakeaways}</h2>
+      </div>
+      <div class="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
+        {entry.data.keyTakeaways.map((item) => (
+          <div class="flex items-start gap-3 rounded-xl border border-line bg-paper-deep p-4">
+            <span class="mt-1 h-2 w-2 flex-shrink-0 rounded-full bg-accent" />
+            <p class="text-sm leading-relaxed text-ink-soft">{item}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+  )}
+
+  {/* ===== Section 5: Related Topics + Prerequisites + Last Updated ===== */}
+  <section class="mt-16" id="section-meta">
+    {(entry.data.relatedTopics?.length || entry.data.prerequisites?.length) && (
+      <div class="grid grid-cols-1 gap-6 sm:grid-cols-2" id="meta-grid">
+        {entry.data.relatedTopics && entry.data.relatedTopics.length > 0 && (
+          <div id="related-wrap" class="rounded-xl border border-line bg-paper-deep/50 p-4 text-center transition-all duration-300 hover:border-accent/30 hover:shadow-lg hover:shadow-accent/5">
+            <p class="inline-flex items-center justify-center gap-1.5 font-mono text-xs font-bold uppercase tracking-[0.2em] text-accent">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+              {ui.article.relatedTopics}
+            </p>
+            <div class="mt-2 flex flex-wrap justify-center gap-2" id="related-list">
+              {entry.data.relatedTopics.map((topic) => (
+                <a href={sectionPath(lang, 'topics', topic)} class="rounded-full border border-line bg-paper px-3 py-1.5 text-xs font-medium text-ink shadow-sm transition-all hover:-translate-y-0.5 hover:border-accent hover:text-accent hover:shadow-md">
+                  {topic}
+                </a>
+              ))}
+            </div>
+          </div>
+        )}
+        {entry.data.prerequisites && entry.data.prerequisites.length > 0 && (
+          <div id="prereq-wrap" class="rounded-xl border border-line bg-paper-deep/50 p-4 text-center transition-all duration-300 hover:border-accent/30 hover:shadow-lg hover:shadow-accent/5">
+            <p class="inline-flex items-center justify-center gap-1.5 font-mono text-xs font-bold uppercase tracking-[0.2em] text-accent">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/><path d="M6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>
+              {ui.article.prerequisites}
+            </p>
+            <div class="mt-2 flex flex-wrap justify-center gap-2" id="prereq-list">
+              {entry.data.prerequisites.map((topic) => (
+                <a href={sectionPath(lang, 'topics', topic)} class="rounded-full border border-line bg-paper px-3 py-1.5 text-xs font-medium text-ink shadow-sm transition-all hover:-translate-y-0.5 hover:border-accent hover:text-accent hover:shadow-md">
+                  {topic}
+                </a>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+    )}
+
+    {entry.data.lastUpdated && (
+      <p class="mt-16 font-mono text-xs text-ink-faint">
+        {ui.article.lastUpdated}: {entry.data.lastUpdated.toLocaleDateString(lang, { year: 'numeric', month: 'long', day: 'numeric' })}
+      </p>
+    )}
+  </section>
+
+  {/* Floating Language Widget */}
+  {entry.data.comparisonTable && entry.data.comparisonTable.length > 0 && (
+    <div id="lang-widget" class="fixed bottom-4 right-4 z-50 sm:bottom-6 sm:right-6">
+      <button
+        id="lang-widget-toggle"
+        class="flex h-10 w-10 items-center justify-center rounded-full border border-line bg-paper shadow-lg transition-all hover:scale-105 hover:shadow-xl sm:h-12 sm:w-12"
+        aria-label={ui.comparisons.compareLanguages}
+      >
+        <svg class="h-4 w-4 sm:h-5 sm:w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+      </button>
+      <div
+        id="lang-widget-panel"
+        class="fixed inset-x-2 bottom-20 hidden max-h-[70vh] overflow-y-auto rounded-2xl border border-line bg-paper-deep p-4 shadow-xl sm:absolute sm:inset-x-auto sm:bottom-14 sm:right-0 sm:w-80 sm:max-h-[60vh]"
+      >
+        <div class="flex items-center justify-between">
+          <p class="font-mono text-xs font-bold uppercase tracking-[0.2em] text-accent">{ui.comparisons.compareLanguages}</p>
+          <button id="lang-widget-close" class="rounded p-1 text-ink-faint transition-colors hover:bg-paper hover:text-ink">✕</button>
+        </div>
+        <div class="mt-3 flex flex-wrap gap-2" id="lang-widget-selector">
+          {analyzedLanguages.map((l) => (
+            <button
+              type="button"
+              class="lang-chip rounded-full border border-line bg-paper px-3 py-1.5 text-xs font-medium text-ink-soft transition-all hover:border-accent/30"
+              data-lang={l.code}
+              data-checked="true"
+              aria-pressed="true"
+            >
+              <span class="flex items-center gap-1.5">
+                <FlagIcon code={l.code} size={12} />
+                {languageName(ui, l.code)}
+                <span class="chip-check ml-0.5 h-3 w-3 text-current opacity-100 transition-opacity" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                </span>
+              </span>
+            </button>
+          ))}
+        </div>
+        <div class="mt-3 flex gap-2">
+          <button id="lang-widget-select-all" class="flex-1 rounded-full border border-line bg-paper px-2 py-1 text-[10px] font-medium text-ink-soft transition-colors hover:border-accent hover:text-accent">{ui.comparisons.selectAll}</button>
+          <button id="lang-widget-deselect-all" class="flex-1 rounded-full border border-line bg-paper px-2 py-1 text-[10px] font-medium text-ink-soft transition-colors hover:border-accent hover:text-accent">{ui.comparisons.deselectAll}</button>
+        </div>
+      </div>
+    </div>
+  )}
+</article>
+
+<script is:inline>
+  (function() {
+    function distributeNarrative() {
+      var mdxBody = document.getElementById('mdx-body');
+      if (!mdxBody) return;
+
+      var chips = document.querySelectorAll('#lang-selector .lang-chip, #lang-widget-selector .lang-chip');
+      var langs = new Set();
+      chips.forEach(function(c) { var l = c.getAttribute('data-lang'); if (l) langs.add(l); });
+
+      // Move full language sections to per-language narrative containers
+      langs.forEach(function(l) {
+        var target = document.querySelector('[data-lang-narrative="' + l + '"]');
+        if (!target) return;
+
+        var block = mdxBody.querySelector('[data-lang="' + l + '"].' + l + '-section');
+        if (!block) block = mdxBody.querySelector('.' + l + '-section');
+
+        if (block) {
+          target.appendChild(block);
+        }
+      });
+
+      // Move overview bullets (data-lang without section class) to overview container
+      var overviewTarget = document.getElementById('overview-lang-bullets');
+      if (overviewTarget) {
+        langs.forEach(function(l) {
+          var bullets = mdxBody.querySelectorAll('[data-lang="' + l + '"]');
+          Array.from(bullets).forEach(function(bullet) {
+            if (!bullet.classList.contains(l + '-section')) {
+              overviewTarget.appendChild(bullet);
+            }
+          });
+        });
+      }
+    }
+
+    function initLangFilter() {
+      var selector = document.getElementById('lang-selector');
+      var widgetSelector = document.getElementById('lang-widget-selector');
+      if (!selector && !widgetSelector) return;
+
+      distributeNarrative();
+
+      var allChips = document.querySelectorAll('.lang-chip');
+
+      // If URL has ?lang=xxx, filter to that language only
+      var urlParams = new URLSearchParams(window.location.search);
+      var forcedLang = urlParams.get('lang');
+      if (forcedLang) {
+        allChips.forEach(function(chip) {
+          var chipLang = chip.getAttribute('data-lang');
+          setChecked(chip, chipLang === forcedLang);
+        });
+        // Clean URL without reloading
+        window.history.replaceState({}, '', window.location.pathname);
+      }
+      var selectAllBtn = document.getElementById('lang-select-all');
+      var deselectAllBtn = document.getElementById('lang-deselect-all');
+      var widgetSelectAll = document.getElementById('lang-widget-select-all');
+      var widgetDeselectAll = document.getElementById('lang-widget-deselect-all');
+      var comparisonCols = document.querySelectorAll('.comparison-col');
+      var langSections = document.querySelectorAll('.lang-section');
+      var tocLangItems = document.querySelectorAll('[data-lang-toc]');
+      var overviewLangs = document.querySelectorAll('[data-lang]');
+      var widgetToggle = document.getElementById('lang-widget-toggle');
+      var widgetPanel = document.getElementById('lang-widget-panel');
+      var widgetClose = document.getElementById('lang-widget-close');
+      var widget = document.getElementById('lang-widget');
+      var glanceWrapper = document.getElementById('glance-wrapper');
+      var glanceEmpty = document.getElementById('glance-empty');
+      var sidebysideWrapper = document.getElementById('sidebyside-wrapper');
+      var sidebysideEmpty = document.getElementById('sidebyside-empty');
+      var examplesWrapper = document.getElementById('examples-wrapper');
+      var examplesEmpty = document.getElementById('examples-empty');
+
+      function isChecked(chip) { return chip.getAttribute('data-checked') === 'true'; }
+      function setChecked(chip, checked) {
+        chip.setAttribute('data-checked', String(checked));
+        chip.setAttribute('aria-pressed', String(checked));
+      }
+
+      function getActiveLangs() {
+        var active = new Set();
+        allChips.forEach(function(chip) {
+          var lang = chip.getAttribute('data-lang');
+          if (isChecked(chip) && lang) active.add(lang);
+        });
+        return active;
+      }
+
+      function update() {
+        var active = getActiveLangs();
+
+        if (active.size === 0) {
+          if (glanceWrapper) glanceWrapper.classList.add('hidden');
+          if (glanceEmpty) glanceEmpty.classList.remove('hidden');
+          if (sidebysideWrapper) sidebysideWrapper.classList.add('hidden');
+          if (sidebysideEmpty) sidebysideEmpty.classList.remove('hidden');
+          if (examplesWrapper) examplesWrapper.classList.add('hidden');
+          if (examplesEmpty) examplesEmpty.classList.remove('hidden');
+        } else {
+          if (glanceWrapper) glanceWrapper.classList.remove('hidden');
+          if (glanceEmpty) glanceEmpty.classList.add('hidden');
+          if (sidebysideWrapper) sidebysideWrapper.classList.remove('hidden');
+          if (sidebysideEmpty) sidebysideEmpty.classList.add('hidden');
+          if (examplesWrapper) examplesWrapper.classList.remove('hidden');
+          if (examplesEmpty) examplesEmpty.classList.add('hidden');
+        }
+
+        allChips.forEach(function(chip) {
+          var check = chip.querySelector('.chip-check');
+          if (isChecked(chip)) {
+            chip.classList.add('border-accent', 'text-accent');
+            chip.classList.remove('border-line', 'text-ink-soft');
+            if (check) check.classList.remove('opacity-0');
+          } else {
+            chip.classList.remove('border-accent', 'text-accent');
+            chip.classList.add('border-line', 'text-ink-soft');
+            if (check) check.classList.add('opacity-0');
+          }
+        });
+
+        comparisonCols.forEach(function(col) {
+          var lang = col.getAttribute('data-lang');
+          if (lang) { col.style.display = active.has(lang) ? '' : 'none'; }
+        });
+
+        langSections.forEach(function(sec) {
+          var lang = sec.getAttribute('data-lang-section');
+          if (lang) { sec.style.display = active.has(lang) ? '' : 'none'; }
+        });
+
+        overviewLangs.forEach(function(el) {
+          var lang = el.getAttribute('data-lang');
+          if (lang && !el.classList.contains('lang-section') && !el.classList.contains('comparison-col') && !el.closest('#lang-selector') && !el.closest('#lang-widget-selector')) {
+            el.style.display = active.has(lang) ? '' : 'none';
+          }
+        });
+
+        tocLangItems.forEach(function(el) {
+          var lang = el.getAttribute('data-lang-toc');
+          if (lang) { el.style.display = active.has(lang) ? '' : 'none'; }
+        });
+      }
+
+      allChips.forEach(function(chip) {
+        chip.addEventListener('click', function(e) {
+          e.stopPropagation();
+          var lang = chip.getAttribute('data-lang');
+          var newState = !isChecked(chip);
+          allChips.forEach(function(c) {
+            if (c.getAttribute('data-lang') === lang) {
+              setChecked(c, newState);
+            }
+          });
+          update();
+        });
+      });
+
+      function setAll(checked) {
+        allChips.forEach(function(chip) { setChecked(chip, checked); });
+        update();
+      }
+      selectAllBtn?.addEventListener('click', function() { setAll(true); });
+      deselectAllBtn?.addEventListener('click', function() { setAll(false); });
+      widgetSelectAll?.addEventListener('click', function() { setAll(true); });
+      widgetDeselectAll?.addEventListener('click', function() { setAll(false); });
+
+      widgetToggle?.addEventListener('click', function() { widgetPanel?.classList.toggle('hidden'); });
+      widgetClose?.addEventListener('click', function() { widgetPanel?.classList.add('hidden'); });
+      document.addEventListener('click', function(e) {
+        var target = e.target;
+        if (widgetPanel && !widgetPanel.classList.contains('hidden') && widget && !widget.contains(target)) {
+          widgetPanel.classList.add('hidden');
+        }
+      });
+
+      update();
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initLangFilter);
+    } else {
+      initLangFilter();
+    }
+  })();
+</script>

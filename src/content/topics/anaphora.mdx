@@ -1,0 +1,273 @@
+---
+title: "Anaphora"
+description: "How Spanish, English and Chinese refer back to previously mentioned entities."
+locale: "en"
+topic: "anaphora"
+difficulty: "advanced"
+overview: "Anaphora is the use of expressions that depend on prior context for their interpretation. All three languages use pronouns, but their systems differ in null subjects, reflexives, and binding domains."
+comparisonTable:
+  - concept: "John said he would come"
+    values:
+      spanish: "Juan dijo que él vendría (él optional, ambiguous)"
+      english: "John said that he would come (he = John or other)"
+      chinese: "<ruby>约<rt>Yuē</rt></ruby><ruby>翰<rt>hàn</rt></ruby><ruby>说<rt>shuō</rt></ruby><ruby>他<rt>tā</rt></ruby><ruby>会<rt>huì</rt></ruby><ruby>来<rt>lái</rt></ruby> (<ruby>他<rt>tā</rt></ruby> ambiguous)"
+  - concept: "John saw himself"
+    values:
+      spanish: "Juan se vio a sí mismo (se = reflexive, sí mismo = emphatic)"
+      english: "John saw himself (himself = reflexive)"
+      chinese: "<ruby>约<rt>Yuē</rt></ruby><ruby>翰<rt>hàn</rt></ruby><ruby>看<rt>kàn</rt></ruby><ruby>见<rt>jiàn</rt></ruby><ruby>他<rt>tā</rt></ruby><ruby>自<rt>zì</rt></ruby><ruby>己<rt>jǐ</rt></ruby> (<ruby>他<rt>tā</rt></ruby><ruby>自<rt>zì</rt></ruby><ruby>己<rt>jǐ</rt></ruby> = reflexive)"
+  - concept: "John's book and Mary's book"
+    values:
+      spanish: "el libro de Juan y el de María (el de = pronoun)"
+      english: "John's book and Mary's (Mary's = possessive pronoun)"
+      chinese: "<ruby>约<rt>Yuē</rt></ruby><ruby>翰<rt>hàn</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>书<rt>shū</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>玛<rt>Mǎ</rt></ruby><ruby>丽<rt>lì</rt></ruby><ruby>的<rt>de</rt></ruby> (<ruby>的<rt>de</rt></ruby> = possessive marker, noun omitted)"
+  - concept: "Each other"
+    values:
+      spanish: "Juan y María se ven (reciprocal = same as reflexive se)"
+      english: "John and Mary see each other (each other = reciprocal)"
+      chinese: "<ruby>约<rt>Yuē</rt></ruby><ruby>翰<rt>hàn</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>玛<rt>Mǎ</rt></ruby><ruby>丽<rt>lì</rt></ruby><ruby>互<rt>hù</rt></ruby><ruby>相<rt>xiāng</rt></ruby><ruby>看<rt>kàn</rt></ruby> (<ruby>互<rt>hù</rt></ruby><ruby>相<rt>xiāng</rt></ruby> = reciprocal)"
+  - concept: "Do so (pro-verb)"
+    values:
+      spanish: "Juan lo hizo (lo = pronoun, hizo = verb)"
+      english: "John did so (so = pro-form)"
+      chinese: "<ruby>约<rt>Yuē</rt></ruby><ruby>翰<rt>hàn</rt></ruby><ruby>这<rt>zhè</rt></ruby><ruby>么<rt>me</rt></ruby><ruby>做<rt>zuò</rt></ruby><ruby>了<rt>le</rt></ruby> (<ruby>这<rt>zhè</rt></ruby><ruby>么<rt>mó</rt></ruby> = so, <ruby>做<rt>zuò</rt></ruby> = do)"
+  - concept: "One...the other"
+    values:
+      spanish: "uno...el otro"
+      english: "one...the other"
+      chinese: "<ruby>一<rt>yí</rt></ruby><ruby>个<rt>ge</rt></ruby>...<ruby>另<rt>lìng</rt></ruby><ruby>一<rt>yí</rt></ruby><ruby>个<rt>ge</rt></ruby>"
+  - concept: "Null subject in coordinated clause"
+    values:
+      spanish: "Juan vino y ___ se fue (null subject, same referent)"
+      english: "John came and he left (he = same or different)"
+      chinese: "<ruby>约<rt>Yuē</rt></ruby><ruby>翰<rt>hàn</rt></ruby><ruby>来<rt>lái</rt></ruby><ruby>了<rt>le</rt></ruby>，<ruby>他<rt>tā</rt></ruby><ruby>又<rt>yòu</rt></ruby><ruby>走<rt>zǒu</rt></ruby><ruby>了<rt>le</rt></ruby> (<ruby>他<rt>tā</rt></ruby> explicit or null)"
+  - concept: "Binding domain (reflexive must have local antecedent)"
+    values:
+      spanish: "Juan dijo que Pedro se vio a sí mismo (sí mismo = Pedro, NOT Juan)"
+      english: "John said that Peter saw himself (himself = Peter, NOT John)"
+      chinese: "<ruby>约<rt>Yuē</rt></ruby><ruby>翰<rt>hàn</rt></ruby><ruby>说<rt>shuō</rt></ruby><ruby>彼<rt>bǐ</rt></ruby><ruby>得<rt>dé</rt></ruby><ruby>看<rt>kàn</rt></ruby><ruby>见<rt>jiàn</rt></ruby><ruby>他<rt>tā</rt></ruby><ruby>自<rt>zì</rt></ruby><ruby>己<rt>jǐ</rt></ruby> (<ruby>他<rt>tā</rt></ruby><ruby>自<rt>zì</rt></ruby><ruby>己<rt>jǐ</rt></ruby> = Peter, NOT John)"
+commonMistakes:
+  - mistake: "Using null subject in English where pronoun is required"
+    correction: "John came and he left (NOT John came and left for different subjects)"
+    note: "English allows subject drop only with same-subject coordinated clauses."
+  - mistake: "Using non-reflexive pronoun where reflexive is required in English"
+    correction: "John saw himself (NOT John saw him when same person)"
+    note: "English requires reflexive pronouns when subject and object are the same."
+  - mistake: "Omitting explicit subject in Chinese when referent is unclear"
+    correction: "<ruby>约<rt>yuē</rt></ruby><ruby>翰<rt>hàn</rt></ruby><ruby>来<rt>lái</rt></ruby><ruby>了<rt>le</rt></ruby>，<ruby>他<rt>tā</rt></ruby><ruby>也<rt>yě</rt></ruby><ruby>走<rt>zǒu</rt></ruby><ruby>了<rt>le</rt></ruby> (<ruby>他<rt>tā</rt></ruby> explicit when context doesn't clarify)"
+    note: "Chinese allows null subjects but may require explicit pronouns for clarity."
+  - mistake: "Assuming Spanish reflexive se always means reflexive action"
+    correction: "Juan y María se ven = reciprocal (each other), NOT reflexive (themselves)"
+    note: "Spanish uses the same form for reflexive and reciprocal; context disambiguates."
+relatedTopics:
+  - "pronouns"
+  - "reflexives"
+  - "reciprocal"
+  - "pro-drop"
+prerequisites:
+  - "pronouns"
+keyTakeaways:
+  - "Spanish: Pro-drop allows null subjects with anaphoric interpretation. Reflexive and reciprocal share the se form. Clitics (lo, la, le) are used for o..."
+  - "English: Non-pro-drop; pronouns required. Reflexives (myself, yourself) are distinct from non-reflexives. Each other marks reciprocity."
+  - "Chinese: Pro-drop in discourse. Reflexives use 自zì己jǐ preceded by a pronoun. Reciprocals use 互hù相xiāng. No grammatical gender on pronouns."
+  - "Key concepts compared: John said he would come, John saw himself, John's book and Mary's book."
+lastUpdated: 2026-06-04
+draft: false
+---
+
+## Overview
+
+Anaphora refers back to previously mentioned entities using pronouns, null elements, or other referring expressions.
+
+- **Spanish**: Pro-drop allows null subjects with anaphoric interpretation. Reflexive and reciprocal share the *se* form. Clitics (*lo, la, le*) are used for object anaphora.
+- **English**: Non-pro-drop; pronouns required. Reflexives (*myself, yourself*) are distinct from non-reflexives. *Each other* marks reciprocity.
+- **Chinese**: Pro-drop in discourse. Reflexives use *<ruby>自<rt>zì</rt></ruby><ruby>己<rt>jǐ</rt></ruby>* preceded by a pronoun. Reciprocals use *<ruby>互<rt>hù</rt></ruby><ruby>相<rt>xiāng</rt></ruby>*. No grammatical gender on pronouns.
+
+---
+
+<div class="spanish-section">
+
+## Spanish
+
+### Personal pronouns (anaphoric)
+
+| Function | Form | Example |
+|---|---|---|
+| Subject | él/ella/ellos/ellas | *Juan dijo que **él** vendría.* |
+| Direct object | lo/la/los/las | *Vi a Juan. **Lo** vi.* |
+| Indirect object | le/les | *Di un libro a María. **Le** di un libro.* |
+
+### Reflexive
+
+- *Juan **se** vio.* (John saw himself.)
+- *María **se** lavó.* (María washed herself.)
+
+### Reciprocal (same form as reflexive)
+
+- *Juan y María **se** ven.* (John and Mary see each other.)
+- *Pedro y Luisa **se** quieren.* (Pedro and Luisa love each other.)
+
+**Note**: Context disambiguates reflexive from reciprocal.
+
+### Emphatic reflexive
+
+- *Juan lo hizo **sí mismo**.* (John did it himself.)
+- *Ella **misma** lo dijo.* (She herself said it.)
+
+### Possessive anaphora
+
+- *El libro de Juan y **el de** María.* (John's book and María's.)
+- *Mi coche y **el tuyo**.* (My car and yours.)
+
+### Null subject anaphora
+
+- *Juan vino y **(él)** se fue.* (John came and (he) left.)
+- *Cuando **(él)** llegó, todos se fueron.* (When (he) arrived, everyone left.)
+
+</div>
+
+<div class="english-section">
+
+## English
+
+### Personal pronouns (anaphoric)
+
+| Function | Form | Example |
+|---|---|---|
+| Subject | he/she/they | *John said that **he** would come.* |
+| Object | him/her/them | *I saw John. I saw **him**.* |
+| Possessive | his/hers/theirs | *This is John's. It's **his**.* |
+
+### Reflexive pronouns
+
+- *myself, yourself, himself, herself, itself, ourselves, yourselves, themselves*
+- *John saw **himself**.*
+- *Mary bought **herself** a gift.*
+
+### Reciprocal pronouns
+
+- *each other* (two entities)
+- *one another* (more than two — traditional distinction, often blurred)
+- *John and Mary saw **each other**.*
+
+### Emphatic reflexive
+
+- *John **himself** did it.*
+- *She **herself** said it.*
+
+### Pro-verbs (do so / do it / do the same)
+
+- *John left early, and Mary **did so** too.*
+- *I think so. / I hope so. / I suppose so.*
+
+### Possessive anaphora
+
+- *John's book and **Mary's**.* (Mary's = Mary's book)
+- *My car and **yours**.* (yours = your car)
+
+### One (pro-NP)
+
+- *I want a red car, not a blue **one**.*
+- *Your idea is a good **one**.*
+
+</div>
+
+<div class="chinese-section">
+
+## Chinese
+
+### Personal pronouns (anaphoric)
+
+| Function | Form | Example |
+|---|---|---|
+| Subject/object | <ruby>他<rt>tā</rt></ruby>/<ruby>她<rt>tā</rt></ruby>/<ruby>它<rt>tā</rt></ruby>/<ruby>他<rt>tā</rt></ruby><ruby>们<rt>mén</rt></ruby> | <ruby>约<rt>Yuē</rt></ruby><ruby>翰<rt>hàn</rt></ruby><ruby>说<rt>shuō</rt></ruby><ruby>他<rt>tā</rt></ruby><ruby>会<rt>huì</rt></ruby><ruby>来<rt>lái</rt></ruby>。 |
+| Possessive | <ruby>他<rt>tā</rt></ruby><ruby>的<rt>de</rt></ruby>/<ruby>她<rt>tā</rt></ruby><ruby>的<rt>de</rt></ruby>/<ruby>他<rt>tā</rt></ruby><ruby>们<rt>mén</rt></ruby><ruby>的<rt>de</rt></ruby> | <ruby>这<rt>zhè</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>他<rt>tā</rt></ruby><ruby>的<rt>de</rt></ruby>。 |
+
+**Note**: <ruby>他<rt>tā</rt></ruby> = he/him, <ruby>她<rt>tā</rt></ruby> = she/her (written distinction only, same pronunciation).
+
+### Reflexive
+
+**Pronoun + <ruby>自<rt>zì</rt></ruby><ruby>己<rt>jǐ</rt></ruby>**:
+
+- <ruby>他<rt>tā</rt></ruby><ruby>自<rt>zì</rt></ruby><ruby>己<rt>jǐ</rt></ruby> (himself)
+- <ruby>我<rt>wǒ</rt></ruby><ruby>自<rt>zì</rt></ruby><ruby>己<rt>jǐ</rt></ruby> (myself)
+- <ruby>我<rt>wǒ</rt></ruby><ruby>们<rt>men</rt></ruby><ruby>自<rt>zì</rt></ruby><ruby>己<rt>jǐ</rt></ruby> (ourselves)
+
+- <ruby>他<rt>tā</rt></ruby><ruby>看<rt>kàn</rt></ruby><ruby>见<rt>jiàn</rt></ruby><ruby>他<rt>tā</rt></ruby><ruby>自<rt>zì</rt></ruby><ruby>己<rt>jǐ</rt></ruby>。(He saw himself.)
+
+### Reciprocal
+
+**<ruby>互<rt>hù</rt></ruby><ruby>相<rt>xiāng</rt></ruby>** (each other):
+
+- <ruby>他<rt>tā</rt></ruby><ruby>们<rt>men</rt></ruby><ruby>互<rt>hù</rt></ruby><ruby>相<rt>xiāng</rt></ruby><ruby>帮<rt>bāng</rt></ruby><ruby>助<rt>zhù</rt></ruby>。(They help each other.)
+- <ruby>约<rt>Yuē</rt></ruby><ruby>翰<rt>hàn</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>玛<rt>Mǎ</rt></ruby><ruby>丽<rt>lì</rt></ruby><ruby>互<rt>hù</rt></ruby><ruby>相<rt>xiāng</rt></ruby><ruby>看<rt>kàn</rt></ruby>。(John and Mary look at each other.)
+
+### Null subject anaphora
+
+- A: <ruby>约<rt>Yuē</rt></ruby><ruby>翰<rt>hàn</rt></ruby><ruby>来<rt>lái</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>吗<rt>ma</rt></ruby>？(Did John come?)
+- B: (<ruby>他<rt>tā</rt></ruby>)<ruby>来<rt>lái</rt></ruby><ruby>了<rt>le</rt></ruby>。((He) came.)
+
+### Possessive anaphora
+
+- <ruby>约<rt>Yuē</rt></ruby><ruby>翰<rt>hàn</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>书<rt>shū</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>玛<rt>Mǎ</rt></ruby><ruby>丽<rt>lì</rt></ruby><ruby>的<rt>de</rt></ruby>。(John's book and María's.)
+
+**Note**: The noun is omitted after <ruby>的<rt>de</rt></ruby>.
+
+### Pro-verb
+
+- <ruby>这<rt>zhè</rt></ruby><ruby>么<rt>me</rt></ruby><ruby>做<rt>zuò</rt></ruby> (do so — this-way do)
+- <ruby>那<rt>nà</rt></ruby><ruby>样<rt>yàng</rt></ruby><ruby>做<rt>zuò</rt></ruby> (do that way)
+
+</div>
+
+## Comparison at a glance
+
+| Feature | Spanish | English | Chinese |
+|---|---|---|---|
+| Subject pronoun | Optional (pro-drop) | Required | Optional (discourse) |
+| Reflexive | se / sí mismo | myself/himself/etc. | <ruby>自<rt>zì</rt></ruby><ruby>己<rt>jǐ</rt></ruby> |
+| Reciprocal | se (same as reflexive) | each other / one another | <ruby>互<rt>hù</rt></ruby><ruby>相<rt>xiāng</rt></ruby> |
+| Emphatic | sí mismo / él mismo | himself / she herself | <ruby>他<rt>tā</rt></ruby><ruby>自<rt>zì</rt></ruby><ruby>己<rt>jǐ</rt></ruby> |
+| Possessive pro-NP | el de / el mío | Mary's / yours | <ruby>玛<rt>mǎ</rt></ruby><ruby>丽<rt>lì</rt></ruby><ruby>的<rt>de</rt></ruby> |
+| Pro-verb | lo hizo | did so | <ruby>这<rt>zhè</rt></ruby><ruby>么<rt>mó</rt></ruby><ruby>做<rt>zuò</rt></ruby> |
+| Null object | Limited | No | Common |
+
+---
+
+## Examples in context
+
+### John saw himself
+- **ES**: *Juan se vio.* / *Juan se vio a sí mismo.*
+- **EN**: *John saw himself.*
+- **ZH**: <ruby>约<rt>Yuē</rt></ruby><ruby>翰<rt>hàn</rt></ruby><ruby>看<rt>kàn</rt></ruby><ruby>见<rt>jiàn</rt></ruby><ruby>他<rt>tā</rt></ruby><ruby>自<rt>zì</rt></ruby><ruby>己<rt>jǐ</rt></ruby>。
+
+### John and Mary see each other
+- **ES**: *Juan y María se ven.*
+- **EN**: *John and Mary see each other.*
+- **ZH**: <ruby>约<rt>Yuē</rt></ruby><ruby>翰<rt>hàn</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>玛<rt>Mǎ</rt></ruby><ruby>丽<rt>lì</rt></ruby><ruby>互<rt>hù</rt></ruby><ruby>相<rt>xiāng</rt></ruby><ruby>看<rt>kàn</rt></ruby>。
+
+### John's book and Mary's
+- **ES**: *el libro de Juan y el de María*
+- **EN**: *John's book and Mary's*
+- **ZH**: <ruby>约<rt>Yuē</rt></ruby><ruby>翰<rt>hàn</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>书<rt>shū</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>玛<rt>Mǎ</rt></ruby><ruby>丽<rt>lì</rt></ruby><ruby>的<rt>de</rt></ruby>
+
+---
+
+## Common mistakes
+
+1. **Spanish speakers learning English**: *John saw him* (same person) → *John saw **himself***
+
+2. **English speakers learning Spanish**: *Juan y María se ven a sí mismos* → *Juan y María **se ven*** (reciprocal, not reflexive)
+
+3. **English speakers learning Chinese**: *<ruby>他<rt>tā</rt></ruby><ruby>看<rt>kàn</rt></ruby><ruby>见<rt>jiàn</rt></ruby><ruby>自<rt>zì</rt></ruby><ruby>己<rt>jǐ</rt></ruby>* (ambiguous) → *<ruby>他<rt>tā</rt></ruby><ruby>看<rt>kàn</rt></ruby><ruby>见<rt>jiàn</rt></ruby>**<ruby>他<rt>tā</rt></ruby><ruby>自<rt>zì</rt></ruby><ruby>己<rt>jǐ</rt></ruby>*** (clear reflexive)
+
+4. **Chinese speakers learning English**: *John and Mary see themselves* → *John and Mary see **each other*** (reciprocal)
+
+---
+
+## Related topics
+
+- **Pronouns**: How pronoun systems work
+- **Reflexives**: How reflexive constructions work
+- **Reciprocal**: How reciprocal constructions work
+- **Pro-Drop**: How null subjects work

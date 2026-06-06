@@ -1,0 +1,449 @@
+---
+import type { GetStaticPaths } from 'astro';
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { sectionPath } from '../../../lib/utils';
+import { getUI, languageName } from '../../../i18n';
+import {
+  interfaceLocales,
+  analyzedLanguages,
+  type LocaleCode,
+} from '../../../config/languages';
+
+export const getStaticPaths = (() =>
+  interfaceLocales.map((locale) => ({
+    params: { lang: locale.code },
+  }))) satisfies GetStaticPaths;
+
+const lang = Astro.params.lang as LocaleCode;
+const ui = getUI(lang);
+
+const allTopics = await getCollection('topics');
+const topicsWithTable = allTopics
+  .filter((t) => !t.data.draft && t.data.comparisonTable && t.data.comparisonTable.length > 0)
+  .sort((a, b) => a.data.title.localeCompare(b.data.title));
+
+const comparisonData = topicsWithTable.map((t) => ({
+  id: t.id,
+  title: t.data.title,
+  description: t.data.description,
+  difficulty: t.data.difficulty,
+  overview: t.data.overview || '',
+  url: sectionPath(lang, 'topics', t.id),
+  comparisonTable: t.data.comparisonTable,
+  commonMistakes: t.data.commonMistakes || [],
+  relatedTopics: t.data.relatedTopics || [],
+  prerequisites: t.data.prerequisites || [],
+}));
+
+const diffStyles: Record<string, { bg: string; text: string; label: string }> = {
+  beginner:    { bg: '#e8f5e9', text: '#2f7a6b', label: ui.topics.filterBeginner },
+  intermediate:{ bg: '#fff3e0', text: '#b4452a', label: ui.topics.filterIntermediate },
+  advanced:    { bg: '#ffebee', text: '#b4452a', label: ui.topics.filterAdvanced },
+};
+
+const langs = analyzedLanguages.map((l) => ({
+  code: l.code,
+  name: languageName(ui, l.code),
+  color: l.color,
+}));
+---
+
+<BaseLayout
+  title={`${ui.comparisons.toolTitle} — ${ui.site.name}`}
+  description={ui.comparisons.toolSubtitle}
+  lang={lang}
+>
+  <!-- Hero -->
+  <section class="border-b border-line bg-[#3d3630]">
+    <div class="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24">
+      <p class="font-mono text-sm font-bold uppercase tracking-[0.2em] text-accent">{ui.nav.comparisons}</p>
+      <h1 class="mt-4 max-w-2xl font-display text-4xl font-semibold tracking-tight text-paper sm:text-5xl">{ui.comparisons.toolTitle}</h1>
+      <p class="mt-4 max-w-xl text-lg text-paper/70">{ui.comparisons.toolSubtitle}</p>
+    </div>
+  </section>
+
+  <!-- Tool -->
+  <section class="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24" id="comparison-tool">
+    <!-- Controls -->
+    <div class="flex flex-col gap-6 rounded-2xl border border-line bg-paper p-6 sm:flex-row sm:items-start sm:gap-8">
+      <!-- Topic selector -->
+      <div class="flex-1">
+        <label for="topic-select" class="block font-mono text-xs font-bold uppercase tracking-[0.2em] text-accent">{ui.comparisons.selectTopic}</label>
+        <div class="relative mt-2">
+          <select
+            id="topic-select"
+            class="w-full appearance-none rounded-xl border border-line bg-paper-deep px-4 py-3 pr-10 text-sm text-ink focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent/30"
+          >
+            {
+              comparisonData.map((t) => (
+                <option value={t.id}>{t.title}</option>
+              ))
+            }
+          </select>
+          <svg class="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-ink-faint" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>
+        </div>
+      </div>
+
+      <!-- Language toggles (dropdown) -->
+      <div class="relative" id="lang-dropdown-wrap">
+        <span class="block font-mono text-xs font-bold uppercase tracking-[0.2em] text-accent">{ui.comparisons.compareLanguages}</span>
+        <button
+          type="button"
+          id="lang-dropdown-btn"
+          class="mt-2 flex items-center gap-2 rounded-xl border border-line bg-paper-deep px-4 py-3 text-sm text-ink transition-colors hover:border-ink-faint"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          <span class="flex -space-x-1" id="lang-dots">
+            {langs.map((l) => (
+              <span class="inline-block h-2.5 w-2.5 rounded-full ring-2 ring-paper-deep" style={`background-color:${l.color}`} data-dot={l.code} />
+            ))}
+          </span>
+          <span id="lang-count">{langs.length} languages</span>
+          <svg class="ml-1 h-4 w-4 text-ink-faint transition-transform" id="lang-chevron" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+
+        <div
+          id="lang-dropdown"
+          class="absolute left-0 top-full z-10 mt-2 hidden w-56 rounded-xl border border-line bg-paper p-2 shadow-lg shadow-ink/5"
+        >
+          <div class="flex gap-2 border-b border-line px-1 pb-2">
+            <button type="button" id="select-all-btn" class="flex-1 rounded-lg px-2 py-1.5 text-xs font-medium text-ink transition-colors hover:bg-paper-deep">{ui.comparisons.selectAll}</button>
+            <button type="button" id="deselect-all-btn" class="flex-1 rounded-lg px-2 py-1.5 text-xs font-medium text-ink transition-colors hover:bg-paper-deep">{ui.comparisons.deselectAll}</button>
+          </div>
+          <div class="max-h-60 overflow-y-auto pt-1">
+            {langs.map((l) => (
+              <label class="flex cursor-pointer items-center gap-3 rounded-lg px-3 py-2 transition-colors hover:bg-paper-deep" data-lang={l.code}>
+                <input type="checkbox" checked class="h-4 w-4 accent-accent" data-lang={l.code} />
+                <span class="inline-block h-2.5 w-2.5 rounded-full" style={`background-color:${l.color}`} />
+                <span class="text-sm font-medium text-ink">{l.name}</span>
+              </label>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Table -->
+    <div class="mt-8 overflow-hidden rounded-2xl border border-line bg-paper" id="table-container">
+      <div class="border-b border-line bg-paper-deep px-6 py-4">
+        <div class="flex items-center gap-3">
+          <h2 class="font-display text-xl font-semibold tracking-tight text-ink" id="table-title">{comparisonData[0]?.title ?? ''}</h2>
+          <span
+            id="difficulty-badge"
+            class="rounded-full px-2.5 py-0.5 font-mono text-[10px] font-bold uppercase tracking-wider"
+            style={`background:${diffStyles[comparisonData[0]?.difficulty || 'beginner'].bg};color:${diffStyles[comparisonData[0]?.difficulty || 'beginner'].text}`}
+          >
+            {diffStyles[comparisonData[0]?.difficulty || 'beginner'].label}
+          </span>
+        </div>
+        <div class="mt-1 flex items-center justify-between">
+          <p class="text-sm text-ink-faint" id="table-desc">{comparisonData[0]?.description ?? ''}</p>
+          <div class="flex items-center gap-4">
+            <span class="font-mono text-xs text-ink-faint" id="concepts-count">{comparisonData[0]?.comparisonTable?.length ?? 0} {ui.comparisons.conceptsCompared}</span>
+            <button type="button" id="copy-link-btn" class="inline-flex items-center gap-1.5 rounded-lg border border-line bg-paper px-3 py-1.5 text-xs font-medium text-ink transition-colors hover:border-accent hover:text-accent">
+              <svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+              <span id="copy-link-text">{ui.comparisons.copyLink}</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-sm" id="comparison-table">
+          <thead>
+            <tr class="border-b border-line bg-paper-deep">
+              <th class="px-6 py-3 font-mono text-xs font-bold uppercase tracking-wider text-ink-faint">Concept</th>
+              {
+                langs.map((l) => (
+                  <th class={`lang-col px-6 py-3 font-mono text-xs font-bold uppercase tracking-wider text-ink-faint`} data-lang={l.code}>
+                    <span class="flex items-center gap-2">
+                      <span class="inline-block h-2 w-2 rounded-full" style={`background-color:${l.color}`} />
+                      {l.name}
+                    </span>
+                  </th>
+                ))
+              }
+            </tr>
+          </thead>
+          <tbody id="table-body">
+            <!-- Rendered by JS -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Related topics & Prerequisites -->
+      <div class="border-t border-line px-6 py-4">
+        <div id="meta-grid" class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <div id="related-topics-wrap" class="rounded-xl border border-line bg-paper-deep/50 p-4 text-center">
+            <p class="inline-flex items-center justify-center gap-1.5 font-mono text-xs font-bold uppercase tracking-[0.2em] text-accent">
+              <svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244"/></svg>
+              {ui.article.relatedTopics}
+            </p>
+            <div class="mt-3 flex flex-wrap justify-center gap-2" id="related-topics-list">
+              <!-- Rendered by JS -->
+            </div>
+          </div>
+          <div id="prerequisites-wrap" class="rounded-xl border border-line bg-paper-deep/50 p-4 text-center">
+            <p class="inline-flex items-center justify-center gap-1.5 font-mono text-xs font-bold uppercase tracking-[0.2em] text-accent">
+              <svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"/></svg>
+              {ui.article.prerequisites}
+            </p>
+            <div class="mt-3 flex flex-wrap justify-center gap-2" id="prerequisites-list">
+              <!-- Rendered by JS -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="border-t border-line px-6 py-4">
+        <a
+          href={comparisonData[0]?.url ?? '#'}
+          id="article-link"
+          class="group inline-flex items-center gap-2 text-sm font-semibold text-accent transition-colors hover:text-accent/80"
+        >
+          {ui.comparisons.readFullArticle}
+          <span class="transition-transform group-hover:translate-x-1">→</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Empty state (hidden by default) -->
+    <div class="mt-8 hidden rounded-2xl border border-line bg-paper p-12 text-center" id="empty-state">
+      <p class="text-ink-faint">{ui.placeholders.noContent}</p>
+    </div>
+  </section>
+
+  <!-- Embedded data -->
+  <script type="application/json" id="topics-data" set:html={JSON.stringify(comparisonData)} />
+  <script type="application/json" id="langs-data" set:html={JSON.stringify(langs)} />
+  <script type="application/json" id="ui-data" set:html={JSON.stringify({
+    conceptsCompared: ui.comparisons.conceptsCompared,
+    copyLink: ui.comparisons.copyLink,
+    copied: ui.comparisons.copied,
+  })} />
+
+  <script>
+    (function() {
+      const topicsEl = document.getElementById('topics-data');
+      const langsEl = document.getElementById('langs-data');
+      const uiEl = document.getElementById('ui-data');
+      const uiData = uiEl ? JSON.parse(uiEl.textContent || '{}') : { conceptsCompared: '', copyLink: '', copied: '' };
+      const topics: { id: string; title: string; description: string; difficulty: string; overview: string; url: string; comparisonTable: { concept: string; values: Record<string, string> }[]; commonMistakes: { mistake: string; correction: string; note?: string }[]; relatedTopics: string[]; prerequisites: string[] }[] = topicsEl ? JSON.parse(topicsEl.textContent || '[]') : [];
+      const langs: { code: string; name: string; color: string }[] = langsEl ? JSON.parse(langsEl.textContent || '[]') : [];
+
+      const select = document.getElementById('topic-select') as HTMLSelectElement;
+      const dropdownBtn = document.getElementById('lang-dropdown-btn');
+      const dropdown = document.getElementById('lang-dropdown');
+      const dropdownWrap = document.getElementById('lang-dropdown-wrap');
+      const chevron = document.getElementById('lang-chevron');
+      const langCount = document.getElementById('lang-count');
+      const toggles = document.querySelectorAll<HTMLInputElement>('#lang-dropdown input[type="checkbox"]');
+      const selectAllBtn = document.getElementById('select-all-btn');
+      const deselectAllBtn = document.getElementById('deselect-all-btn');
+      const tableBody = document.getElementById('table-body');
+      const tableTitle = document.getElementById('table-title');
+      const tableDesc = document.getElementById('table-desc');
+      const conceptsCount = document.getElementById('concepts-count');
+      const copyLinkBtn = document.getElementById('copy-link-btn');
+      const copyLinkText = document.getElementById('copy-link-text');
+      const diffBadge = document.getElementById('difficulty-badge');
+      const relatedWrap = document.getElementById('related-topics-wrap');
+      const relatedList = document.getElementById('related-topics-list');
+      const prereqWrap = document.getElementById('prerequisites-wrap');
+      const prereqList = document.getElementById('prerequisites-list');
+      const metaGrid = document.getElementById('meta-grid');
+      const articleLink = document.getElementById('article-link') as HTMLAnchorElement;
+      const emptyState = document.getElementById('empty-state');
+      const tableContainer = document.getElementById('table-container');
+
+      function getActiveLangs(): string[] {
+        return Array.from(toggles)
+          .filter((cb) => cb.checked)
+          .map((cb) => cb.getAttribute('data-lang') || '');
+      }
+
+      function updateLangUI() {
+        const active = getActiveLangs();
+        const count = active.length;
+        const total = langs.length;
+
+        if (langCount) langCount.textContent = count + (count === 1 ? ' language' : ' languages');
+
+        langs.forEach((l) => {
+          const dot = document.querySelector<HTMLElement>(`#lang-dots [data-dot="${l.code}"]`);
+          if (dot) dot.style.display = active.includes(l.code) ? '' : 'none';
+        });
+      }
+
+      function render(topicId: string) {
+        const topic = topics.find((t) => t.id === topicId);
+        if (!topic) return;
+
+        const activeLangs = getActiveLangs();
+
+        if (tableTitle) tableTitle.textContent = topic.title;
+        if (tableDesc) tableDesc.textContent = topic.description;
+        if (conceptsCount) conceptsCount.textContent = `${topic.comparisonTable.length} ${uiData.conceptsCompared}`;
+        if (diffBadge) {
+          if (topic.difficulty) {
+            diffBadge.classList.remove('hidden');
+            const diffStyle = topic.difficulty === 'beginner'
+              ? { bg: '#e8f5e9', text: '#2f7a6b', label: 'Beginner' }
+              : topic.difficulty === 'intermediate'
+                ? { bg: '#fff3e0', text: '#b4452a', label: 'Intermediate' }
+                : { bg: '#ffebee', text: '#b4452a', label: 'Advanced' };
+            diffBadge.textContent = diffStyle.label;
+            diffBadge.style.backgroundColor = diffStyle.bg;
+            diffBadge.style.color = diffStyle.text;
+          } else {
+            diffBadge.classList.add('hidden');
+          }
+        }
+        if (articleLink) articleLink.href = topic.url;
+
+        // Show/hide language columns
+        document.querySelectorAll<HTMLTableCellElement>('th.lang-col, td.lang-col').forEach((cell) => {
+          const code = cell.getAttribute('data-lang');
+          cell.style.display = code && activeLangs.includes(code) ? '' : 'none';
+        });
+
+        if (tableBody) {
+          tableBody.innerHTML = topic.comparisonTable.map((row) => {
+            const langCells = langs
+              .map((l) => {
+                const val = row.values[l.code] ?? '—';
+                const display = activeLangs.includes(l.code) ? '' : 'display:none;';
+                return `<td class="lang-col px-6 py-3 text-ink" data-lang="${l.code}" style="${display}">${val}</td>`;
+              })
+              .join('');
+            return `<tr class="border-b border-line transition-colors hover:bg-[#f2f0ec]">
+              <td class="px-6 py-3 font-semibold text-ink">${row.concept}</td>
+              ${langCells}
+            </tr>`;
+          }).join('');
+        }
+
+        // Related topics
+        if (relatedWrap && relatedList) {
+          const hasRelated = topic.relatedTopics && topic.relatedTopics.length > 0;
+          relatedWrap.style.display = hasRelated ? '' : 'none';
+          if (hasRelated) {
+            relatedList.innerHTML = topic.relatedTopics.map((rt) => {
+              const rtTopic = topics.find((t) => t.id === rt);
+              if (!rtTopic) return '';
+              return `<a href="${rtTopic.url}" class="rounded-full border border-line bg-paper px-3 py-1.5 text-xs font-medium text-ink shadow-sm transition-all hover:-translate-y-0.5 hover:border-accent hover:text-accent hover:shadow-md">${rtTopic.title}</a>`;
+            }).filter(Boolean).join('');
+          }
+        }
+
+        // Prerequisites
+        if (prereqWrap && prereqList) {
+          const hasPrereq = topic.prerequisites && topic.prerequisites.length > 0;
+          prereqWrap.style.display = hasPrereq ? '' : 'none';
+          if (hasPrereq) {
+            prereqList.innerHTML = topic.prerequisites.map((pr) => {
+              const prTopic = topics.find((t) => t.id === pr);
+              if (!prTopic) return '';
+              return `<a href="${prTopic.url}" class="rounded-full border border-line bg-paper px-3 py-1.5 text-xs font-medium text-ink shadow-sm transition-all hover:-translate-y-0.5 hover:border-accent hover:text-accent hover:shadow-md">${prTopic.title}</a>`;
+            }).filter(Boolean).join('');
+          }
+        }
+
+        // Span full width when only one section is visible
+        if (metaGrid) {
+          const hasRelated = topic.relatedTopics && topic.relatedTopics.length > 0;
+          const hasPrereq = topic.prerequisites && topic.prerequisites.length > 0;
+          if (hasRelated && !hasPrereq) {
+            relatedWrap?.classList.add('sm:col-span-2');
+            prereqWrap?.classList.remove('sm:col-span-2');
+          } else if (!hasRelated && hasPrereq) {
+            prereqWrap?.classList.add('sm:col-span-2');
+            relatedWrap?.classList.remove('sm:col-span-2');
+          } else {
+            relatedWrap?.classList.remove('sm:col-span-2');
+            prereqWrap?.classList.remove('sm:col-span-2');
+          }
+        }
+
+        const hasContent = topic.comparisonTable.length > 0 && activeLangs.length > 0;
+        if (tableContainer) tableContainer.classList.toggle('hidden', !hasContent);
+        if (emptyState) emptyState.classList.toggle('hidden', hasContent);
+
+        updateLangUI();
+      }
+
+      // Dropdown open/close
+      function toggleDropdown() {
+        const isOpen = dropdown?.classList.contains('hidden') === false;
+        dropdown?.classList.toggle('hidden', isOpen);
+        dropdownBtn?.setAttribute('aria-expanded', String(!isOpen));
+        chevron?.classList.toggle('rotate-180', !isOpen);
+      }
+
+      function closeDropdown() {
+        dropdown?.classList.add('hidden');
+        dropdownBtn?.setAttribute('aria-expanded', 'false');
+        chevron?.classList.remove('rotate-180');
+      }
+
+      dropdownBtn?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleDropdown();
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!dropdownWrap?.contains(e.target as Node)) closeDropdown();
+      });
+
+      // Init from URL or first topic
+      const params = new URLSearchParams(window.location.search);
+      const initialTopic = params.get('topic') || topics[0]?.id || '';
+      if (select) select.value = initialTopic;
+      render(initialTopic);
+
+      // Select all / deselect all
+      selectAllBtn?.addEventListener('click', () => {
+        toggles.forEach((cb) => { cb.checked = true; });
+        const id = select?.value || '';
+        render(id);
+      });
+
+      deselectAllBtn?.addEventListener('click', () => {
+        toggles.forEach((cb) => { cb.checked = false; });
+        const id = select?.value || '';
+        render(id);
+      });
+
+      // Copy link
+      copyLinkBtn?.addEventListener('click', async () => {
+        const url = new URL(window.location.href);
+        url.searchParams.set('topic', select?.value || '');
+        try {
+          await navigator.clipboard.writeText(url.toString());
+          if (copyLinkText) copyLinkText.textContent = uiData.copied;
+          setTimeout(() => {
+            if (copyLinkText) copyLinkText.textContent = uiData.copyLink;
+          }, 2000);
+        } catch {}
+      });
+
+      // Event listeners
+      select?.addEventListener('change', () => {
+        const id = select.value;
+        render(id);
+        const url = new URL(window.location.href);
+        url.searchParams.set('topic', id);
+        window.history.replaceState({}, '', url);
+      });
+
+      toggles.forEach((cb) => {
+        cb.addEventListener('change', () => {
+          const id = select?.value || '';
+          render(id);
+        });
+      });
+    })();
+  </script>
+</BaseLayout>

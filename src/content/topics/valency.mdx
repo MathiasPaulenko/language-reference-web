@@ -1,0 +1,344 @@
+---
+title: "Valency & Argument Structure"
+description: "How Spanish, English and Chinese distinguish transitive, intransitive, and ditransitive verbs."
+locale: "en"
+topic: "valency"
+difficulty: "intermediate"
+overview: "Valency is the number of arguments a verb requires. Spanish and English have similar valency patterns. Chinese uses serial verb constructions and coverbs for complex argument structures."
+comparisonTable:
+  - concept: "Sleep (intransitive: 1 argument)"
+    values:
+      spanish: "Juan duerme (subject only)"
+      english: "John sleeps (subject only)"
+      chinese: "<ruby>约<rt>Yuē</rt></ruby><ruby>翰<rt>hàn</rt></ruby><ruby>睡<rt>shuì</rt></ruby><ruby>觉<rt>jiào</rt></ruby> (subject only)"
+  - concept: "Read a book (transitive: 2 arguments)"
+    values:
+      spanish: "Juan lee un libro (subject + direct object)"
+      english: "John reads a book (subject + direct object)"
+      chinese: "<ruby>约<rt>Yuē</rt></ruby><ruby>翰<rt>hàn</rt></ruby><ruby>读<rt>dú</rt></ruby><ruby>书<rt>shū</rt></ruby> (subject + object)"
+  - concept: "Give Mary a book (ditransitive: 3 arguments)"
+    values:
+      spanish: "Juan da un libro a María (S + DO + IO with a)"
+      english: "John gives Mary a book (S + IO + DO) / John gives a book to Mary"
+      chinese: "<ruby>约<rt>Yuē</rt></ruby><ruby>翰<rt>hàn</rt></ruby><ruby>给<rt>gěi</rt></ruby><ruby>玛<rt>Mǎ</rt></ruby><ruby>丽<rt>lì</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>本<rt>běn</rt></ruby><ruby>书<rt>shū</rt></ruby> (subject + <ruby>给<rt>gěi</rt></ruby> + recipient + object)"
+  - concept: "The door opened (unaccusative: 1 argument, patient)"
+    values:
+      spanish: "La puerta se abrió (patient subject + se)"
+      english: "The door opened (patient subject, no marking)"
+      chinese: "<ruby>门<rt>mén</rt></ruby><ruby>开<rt>kāi</rt></ruby><ruby>了<rt>le</rt></ruby> (patient subject, no marking)"
+  - concept: "John opened the door (causative: agent + patient)"
+    values:
+      spanish: "Juan abrió la puerta (agent + patient)"
+      english: "John opened the door (agent + patient)"
+      chinese: "<ruby>约<rt>Yuē</rt></ruby><ruby>翰<rt>hàn</rt></ruby><ruby>开<rt>kāi</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>门<rt>mén</rt></ruby> (agent + patient + <ruby>了<rt>le</rt></ruby>)"
+  - concept: "Put the book on the table (locative: 3 arguments)"
+    values:
+      spanish: "Juan puso el libro en la mesa (S + DO + PP)"
+      english: "John put the book on the table (S + DO + PP)"
+      chinese: "<ruby>约<rt>Yuē</rt></ruby><ruby>翰<rt>hàn</rt></ruby><ruby>把<rt>bǎ</rt></ruby><ruby>书<rt>shū</rt></ruby><ruby>放<rt>fàng</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>桌<rt>zhuō</rt></ruby><ruby>子<rt>zi</rt></ruby><ruby>上<rt>shàng</rt></ruby> (<ruby>把<rt>bǎ</rt></ruby> + object + verb + location)"
+  - concept: "John broke the vase (causative transitive)"
+    values:
+      spanish: "Juan rompió el jarrón (agent + patient)"
+      english: "John broke the vase (agent + patient)"
+      chinese: "<ruby>约<rt>Yuē</rt></ruby><ruby>翰<rt>hàn</rt></ruby><ruby>打<rt>dǎ</rt></ruby><ruby>破<rt>pò</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>花<rt>huā</rt></ruby><ruby>瓶<rt>píng</rt></ruby> (agent + resultative verb + patient)"
+  - concept: "The vase broke (intransitive alternation)"
+    values:
+      spanish: "El jarrón se rompió (se = detransitivizer)"
+      english: "The vase broke (labile verb, no marking)"
+      chinese: "<ruby>花<rt>huā</rt></ruby><ruby>瓶<rt>píng</rt></ruby><ruby>破<rt>pò</rt></ruby><ruby>了<rt>le</rt></ruby> (labile verb, no marking)"
+commonMistakes:
+  - mistake: "Using English ditransitive directly in Spanish without a"
+    correction: "Juan dio un libro a María (NOT Juan dio María un libro)"
+    note: "Spanish ditransitive requires a before the indirect object."
+  - mistake: "Omitting the recipient marker in Chinese ditransitive"
+    correction: "<ruby>他<rt>tā</rt></ruby><ruby>给<rt>gěi</rt></ruby><ruby>玛<rt>mǎ</rt></ruby><ruby>丽<rt>lì</rt></ruby><ruby>一<rt>yī</rt></ruby><ruby>本<rt>běn</rt></ruby><ruby>书<rt>shū</rt></ruby> (<ruby>给<rt>gěi</rt></ruby> marks recipient); NOT <ruby>他<rt>tā</rt></ruby><ruby>玛<rt>mǎ</rt></ruby><ruby>丽<rt>lì</rt></ruby><ruby>一<rt>yī</rt></ruby><ruby>本<rt>běn</rt></ruby><ruby>书<rt>shū</rt></ruby>"
+    note: "Chinese requires <ruby>给<rt>gěi</rt></ruby> before the recipient in ditransitive constructions."
+  - mistake: "Using intransitive break without se in Spanish"
+    correction: "El jarrón se rompió (NOT El jarrón rompió)"
+    note: "Spanish requires se for patient-subject (anticausative) verbs."
+  - mistake: "Confusing causative and intransitive forms in English"
+    correction: "The cook opened the door (causative) vs The door opened (intransitive)"
+    note: "English labile verbs allow the same form for both causative and intransitive."
+relatedTopics:
+  - "transitivity"
+  - "causatives"
+  - "semantic-roles"
+  - "passive"
+prerequisites:
+  - "transitivity"
+  - "verb-tenses"
+keyTakeaways:
+  - "Key concepts compared: Sleep (intransitive: 1 argument), Read a book (transitive: 2 arguments), Give Mary a book (ditransitive: 3 arguments)."
+  - "Understanding valency & argument structure across languages prevents common transfer errors."
+lastUpdated: 2026-06-04
+draft: false
+---
+
+## Overview
+
+Valency is the number of arguments a verb takes.
+
+- **Intransitive**: 1 argument (subject) — *sleep, arrive, fall*
+- **Transitive**: 2 arguments (subject + object) — *read, eat, see*
+- **Ditransitive**: 3 arguments (subject + indirect object + direct object) — *give, tell, show*
+
+Some verbs are **labile** (same form for transitive and intransitive): English *break, open, melt*. Spanish requires *se* for the intransitive. Chinese uses the same form.
+
+---
+
+<div class="spanish-section">
+
+## Spanish
+
+### Intransitive
+
+One argument (subject):
+
+- *Juan **duerme**.* (John sleeps.)
+- *María **llegó**.* (María arrived.)
+- *El niño **cayó**.* (The child fell.)
+
+**Note**: Spanish intransitive verbs never take a direct object.
+
+### Transitive
+
+Two arguments:
+
+- *Juan **lee** un libro.* (John reads a book.)
+- *María **come** una manzana.* (María eats an apple.)
+- *Pedro **ve** la televisión.* (Pedro watches TV.)
+
+### Ditransitive
+
+Three arguments with *a* before the indirect object:
+
+- *Juan **dio** un libro **a** María.* (John gave a book to María.)
+- *Le **dije** la verdad **a** Pedro.* (I told Pedro the truth.)
+- *Me **mostró** las fotos.* (He showed me the photos.)
+
+**Dative clitic duplication**:
+
+- *Le **di** un libro **a** María.* (I gave a book to María. — le = a María)
+- *Les **dije** la verdad **a** ellos.* (I told them the truth.)
+
+**Note**: The indirect object is often doubled by a clitic.
+
+### Reflexive (intransitivizing)
+
+Many verbs become intransitive with *se*:
+
+- *Juan **se cayó**.* (John fell down. — se adds completive)
+- *El vaso **se rompió**.* (The glass broke. — se marks spontaneous)
+- *La puerta **se abrió**.* (The door opened. — se marks spontaneous)
+
+### Causative/inchoative pairs
+
+Spanish often uses different verbs:
+
+| Causative (transitive) | Inchoative (intransitive) |
+|---|---|
+| romper (break) | romperse (break — spontaneous) |
+| abrir (open) | abrirse (open — spontaneous) |
+| quemar (burn) | quemarse (burn — spontaneous) |
+| morir (die) | matar (kill) |
+
+**Note**: Spanish uses *se* for spontaneous/uncaused events.
+
+### Unaccusative verbs
+
+Verbs whose single argument is a patient:
+
+- *Llegó Juan.* / *Juan llegó.* (John arrived. — patient = subject)
+- *Murió el perro.* (The dog died. — patient = subject)
+- *Cayó la hoja.* (The leaf fell. — patient = subject)
+
+</div>
+
+<div class="english-section">
+
+## English
+
+### Intransitive
+
+One argument:
+
+- *John **sleeps**.*
+- *Mary **arrived**.*
+- *The child **fell**.*
+
+### Transitive
+
+Two arguments:
+
+- *John **reads** a book.*
+- *Mary **eats** an apple.*
+- *Peter **watches** TV.*
+
+### Ditransitive
+
+Two patterns:
+
+**Pattern A**: Subject + Indirect Object + Direct Object
+
+- *John **gave** Mary a book.*
+- *I **told** him the truth.*
+- *She **showed** me the photos.*
+
+**Pattern B**: Subject + Direct Object + to/for + Indirect Object
+
+- *John **gave** a book **to** Mary.*
+- *I **told** the truth **to** him.*
+- *She **bought** a gift **for** me.*
+
+**Note**: Some verbs allow only one pattern:
+
+- ✅ *John **gave** Mary a book.* / ✅ *John **gave** a book to Mary.*
+- ✅ *John **donated** a book to the library.* / ❌ *John **donated** the library a book.*
+
+### Labile verbs (causative alternation)
+
+Same verb for transitive and intransitive:
+
+| Causative (agent) | Inchoative (patient) |
+|---|---|
+| John **opened** the door. | The door **opened**. |
+| John **broke** the vase. | The vase **broke**. |
+| John **melted** the butter. | The butter **melted**. |
+| John **dropped** the book. | The book **dropped**. |
+
+**Note**: English allows this alternation freely.
+
+### Complex transitive (object + complement)
+
+- *John **made** Mary **happy**.* (object + adjective)
+- *They **elected** him **president**.* (object + noun)
+- *I **found** the book **interesting**.* (object + adjective)
+
+### Prepositional verbs
+
+Two arguments, one is a PP:
+
+- *John **looks at** Mary.* (look = verb, at Mary = PP)
+- *Mary **listens to** music.*
+- *Peter **waits for** the bus.*
+
+### Phrasal verbs
+
+- *John **turned on** the light.* (particle verb)
+- *Mary **put away** her clothes.*
+
+</div>
+
+<div class="chinese-section">
+
+## Chinese
+
+### Intransitive
+
+One argument:
+
+- <ruby>约<rt>Yuē</rt></ruby><ruby>翰<rt>hàn</rt></ruby><ruby>睡<rt>shuì</rt></ruby><ruby>觉<rt>jiào</rt></ruby>。(John sleeps.)
+- <ruby>玛<rt>Mǎ</rt></ruby><ruby>丽<rt>lì</rt></ruby><ruby>来<rt>lái</rt></ruby><ruby>了<rt>le</rt></ruby>。(María arrived.)
+
+### Transitive
+
+Two arguments:
+
+- <ruby>约<rt>Yuē</rt></ruby><ruby>翰<rt>hàn</rt></ruby><ruby>读<rt>dú</rt></ruby><ruby>书<rt>shū</rt></ruby>。(John reads a book.)
+- <ruby>玛<rt>Mǎ</rt></ruby><ruby>丽<rt>lì</rt></ruby><ruby>吃<rt>chī</rt></ruby><ruby>苹<rt>píng</rt></ruby><ruby>果<rt>guǒ</rt></ruby>。(María eats an apple.)
+
+### Ditransitive
+
+**<ruby>给<rt>gěi</rt></ruby> + recipient + object**:
+
+- <ruby>约<rt>Yuē</rt></ruby><ruby>翰<rt>hàn</rt></ruby><ruby>给<rt>gěi</rt></ruby><ruby>玛<rt>Mǎ</rt></ruby><ruby>丽<rt>lì</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>本<rt>běn</rt></ruby><ruby>书<rt>shū</rt></ruby>。(John gave María a book.)
+- <ruby>我<rt>wǒ</rt></ruby><ruby>告<rt>gào</rt></ruby><ruby>诉<rt>su</rt></ruby><ruby>他<rt>tā</rt></ruby><ruby>真<rt>zhēn</rt></ruby><ruby>相<rt>xiàng</rt></ruby>。(I told him the truth.)
+- <ruby>我<rt>wǒ</rt></ruby><ruby>给<rt>gěi</rt></ruby><ruby>他<rt>tā</rt></ruby><ruby>买<rt>mǎi</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>礼<rt>lǐ</rt></ruby><ruby>物<rt>wù</rt></ruby>。(I bought him a gift.)
+
+**Note**: <ruby>给<rt>gěi</rt></ruby> is required before the recipient.
+
+### Serial verb construction
+
+Chinese uses serial verbs where English uses a single transitive verb:
+
+- <ruby>我<rt>wǒ</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>医<rt>yī</rt></ruby><ruby>院<rt>yuàn</rt></ruby><ruby>看<rt>kàn</rt></ruby><ruby>医<rt>yī</rt></ruby><ruby>生<rt>shēng</rt></ruby>。(I go to the hospital see doctor = I went to the hospital to see a doctor.)
+- <ruby>他<rt>tā</rt></ruby><ruby>拿<rt>ná</rt></ruby><ruby>书<rt>shū</rt></ruby><ruby>给<rt>gěi</rt></ruby><ruby>我<rt>wǒ</rt></ruby>。(He took a book gave me = He took a book and gave it to me.)
+
+### <ruby>把<rt>bǎ</rt></ruby> construction (disposal)
+
+When the object is affected/dislodged:
+
+- <ruby>他<rt>tā</rt></ruby><ruby>把<rt>bǎ</rt></ruby><ruby>门<rt>mén</rt></ruby><ruby>开<rt>kāi</rt></ruby><ruby>了<rt>le</rt></ruby>。(He opened the door. — disposal)
+- <ruby>我<rt>wǒ</rt></ruby><ruby>把<rt>bǎ</rt></ruby><ruby>书<rt>shū</rt></ruby><ruby>放<rt>fàng</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>桌<rt>zhuō</rt></ruby><ruby>子<rt>zi</rt></ruby><ruby>上<rt>shàng</rt></ruby>。(I put the book on the table.)
+
+**Note**: <ruby>把<rt>bǎ</rt></ruby> raises the object before the verb, marking affectedness.
+
+### Labile verbs
+
+Chinese, like English, allows labile verbs:
+
+- <ruby>约<rt>Yuē</rt></ruby><ruby>翰<rt>hàn</rt></ruby><ruby>开<rt>kāi</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>门<rt>mén</rt></ruby>。(John opened the door.)
+- <ruby>门<rt>mén</rt></ruby><ruby>开<rt>kāi</rt></ruby><ruby>了<rt>le</rt></ruby>。(The door opened.)
+- <ruby>约<rt>Yuē</rt></ruby><ruby>翰<rt>hàn</rt></ruby><ruby>打<rt>dǎ</rt></ruby><ruby>破<rt>pò</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>花<rt>huā</rt></ruby><ruby>瓶<rt>píng</rt></ruby>。(John broke the vase.)
+- <ruby>花<rt>huā</rt></ruby><ruby>瓶<rt>píng</rt></ruby><ruby>破<rt>pò</rt></ruby><ruby>了<rt>le</rt></ruby>。(The vase broke.)
+
+### Coverbs as argument markers
+
+Chinese coverbs (formerly verbs) mark arguments:
+
+- <ruby>在<rt>zài</rt></ruby><ruby>北<rt>běi</rt></ruby><ruby>京<rt>jīng</rt></ruby><ruby>学<rt>xué</rt></ruby><ruby>习<rt>xí</rt></ruby> (study at Beijing = study in Beijing)
+- <ruby>从<rt>cóng</rt></ruby><ruby>学<rt>xué</rt></ruby><ruby>校<rt>xiào</rt></ruby><ruby>回<rt>huí</rt></ruby><ruby>来<rt>lái</rt></ruby> (from school return = return from school)
+- <ruby>给<rt>gěi</rt></ruby><ruby>朋<rt>péng</rt></ruby><ruby>友<rt>yǒu</rt></ruby><ruby>写<rt>xiě</rt></ruby><ruby>信<rt>xìn</rt></ruby> (for friend write letter = write a letter to a friend)
+
+</div>
+
+## Comparison at a glance
+
+| Valency | Spanish | English | Chinese |
+|---------|---------|---------|---------|
+| Intransitive | Subject only | Subject only | Subject only |
+| Transitive | S + DO | S + DO | S + O |
+| Ditransitive | S + DO + a + IO | S + IO + DO / S + DO + to IO | S + <ruby>给<rt>gěi</rt></ruby> + recipient + O |
+| Labile | Se marks intransitive | Same form | Same form |
+| Object disposal | Clitic doubling | Word order | <ruby>把<rt>bǎ</rt></ruby> + O + V |
+| Causative | Hacer + infinitive | Make + bare infinitive | <ruby>让<rt>ràng</rt></ruby>/<ruby>叫<rt>jiào</rt></ruby> + O + V |
+
+---
+
+## Examples in context
+
+### Give María a book
+- **ES**: *Juan dio un libro a María.*
+- **EN**: *John gave Mary a book.* / *John gave a book to Mary.*
+- **ZH**: <ruby>约<rt>Yuē</rt></ruby><ruby>翰<rt>hàn</rt></ruby><ruby>给<rt>gěi</rt></ruby><ruby>玛<rt>Mǎ</rt></ruby><ruby>丽<rt>lì</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>本<rt>běn</rt></ruby><ruby>书<rt>shū</rt></ruby>。
+
+### The door opened
+- **ES**: *La puerta se abrió.*
+- **EN**: *The door opened.*
+- **ZH**: <ruby>门<rt>mén</rt></ruby><ruby>开<rt>kāi</rt></ruby><ruby>了<rt>le</rt></ruby>。
+
+### Put the book on the table
+- **ES**: *Juan puso el libro en la mesa.*
+- **EN**: *John put the book on the table.*
+- **ZH**: <ruby>约<rt>Yuē</rt></ruby><ruby>翰<rt>hàn</rt></ruby><ruby>把<rt>bǎ</rt></ruby><ruby>书<rt>shū</rt></ruby><ruby>放<rt>fàng</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>桌<rt>zhuō</rt></ruby><ruby>子<rt>zi</rt></ruby><ruby>上<rt>shàng</rt></ruby>。
+
+---
+
+## Common mistakes
+
+1. **English speakers learning Spanish**: *John gave Mary a book* → *Juan dio un libro **a** María* (a required)
+
+2. **Spanish speakers learning English**: *Juan gave a book María* → *John gave **Mary** a book* (dative shift)
+
+3. **English speakers learning Chinese**: *<ruby>他<rt>tā</rt></ruby><ruby>给<rt>gěi</rt></ruby><ruby>玛<rt>mǎ</rt></ruby><ruby>丽<rt>lì</rt></ruby><ruby>书<rt>shū</rt></ruby>* → *<ruby>他<rt>tā</rt></ruby>**<ruby>给<rt>gěi</rt></ruby>**<ruby>玛<rt>mǎ</rt></ruby><ruby>丽<rt>lì</rt></ruby>**<ruby>一<rt>yī</rt></ruby><ruby>本<rt>běn</rt></ruby>**<ruby>书<rt>shū</rt></ruby>* (<ruby>给<rt>gěi</rt></ruby> + classifier required)
+
+4. **Chinese speakers learning Spanish**: *La puerta abrió* → *La puerta **se** abrió* (se required)
+
+---
+
+## Related topics
+
+- **Transitivity**: How verb argument structure works
+- **Causatives**: How causative constructions work
+- **Semantic Roles**: How arguments map to syntax
+- **Passive**: How passive voice changes valency

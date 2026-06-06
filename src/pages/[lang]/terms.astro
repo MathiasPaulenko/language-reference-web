@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { localeCodes, DEFAULT_LOCALE } from '../../config/languages';
+import { getUI } from '../../i18n';
+
+export function getStaticPaths() {
+  return localeCodes.map((lang) => ({ params: { lang } }));
+}
+
+const { lang = DEFAULT_LOCALE } = Astro.params;
+const ui = getUI(lang);
+---
+
+<BaseLayout
+  title={`${ui.footer.terms} | Grammar Atlas`}
+  description="Terms of service for Grammar Atlas."
+  lang={lang}
+>
+  <main class="mx-auto max-w-2xl px-5 py-20 sm:px-8">
+    <p class="font-mono text-xs font-bold uppercase tracking-[0.2em] text-accent">Legal</p>
+    <h1 class="mt-3 font-display text-4xl font-semibold tracking-tight">{ui.footer.terms}</h1>
+    <p class="mt-6 leading-relaxed text-ink-soft">
+      This page will contain the Terms of Service for Grammar Atlas.
+    </p>
+  </main>
+</BaseLayout>

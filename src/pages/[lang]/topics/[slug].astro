@@ -1,0 +1,39 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ContentArticle from '../../../components/astro/ContentArticle.astro';
+import { getUI } from '../../../i18n';
+import { interfaceLocales, type LocaleCode } from '../../../config/languages';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('topics');
+  const paths = [];
+  for (const entry of entries.filter((e) => !e.data.draft)) {
+    for (const locale of interfaceLocales) {
+      paths.push({
+        params: { lang: locale.code, slug: entry.id },
+        props: { entry, lang: locale.code },
+      });
+    }
+  }
+  return paths;
+}
+
+const { entry, lang } = Astro.props;
+const ui = getUI(lang as LocaleCode);
+---
+
+<BaseLayout
+  title={`${entry.data.title} — ${ui.site.name}`}
+  description={entry.data.description}
+  lang={lang}
+  jsonLd={{
+    '@type': 'LearningResource',
+    name: entry.data.title,
+    description: entry.data.description,
+    inLanguage: lang,
+    dateModified: entry.data.lastUpdated?.toISOString(),
+  }}
+>
+  <ContentArticle entry={entry} lang={lang} />
+</BaseLayout>

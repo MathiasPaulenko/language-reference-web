@@ -1,0 +1,208 @@
+---
+import type { GetStaticPaths } from 'astro';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { localePath } from '../../../lib/utils';
+import { getUI } from '../../../i18n';
+import { interfaceLocales, type LocaleCode } from '../../../config/languages';
+
+export const getStaticPaths = (() =>
+  interfaceLocales.flatMap((locale) => [
+    { params: { lang: locale.code, slug: 'words' } },
+    { params: { lang: locale.code, slug: 'phrases' } },
+    { params: { lang: locale.code, slug: 'expressions' } },
+    { params: { lang: locale.code, slug: 'frequency-lists' } },
+    { params: { lang: locale.code, slug: undefined } },
+  ])) satisfies GetStaticPaths;
+
+const lang = Astro.params.lang as LocaleCode;
+const ui = getUI(lang);
+const slug = Astro.params.slug;
+
+const vocabCards = [
+  {
+    key: 'words',
+    title: ui.nav.words,
+    desc: 'Curated word lists organized by topic and frequency. Learn the most useful words first.',
+    icon: 'book',
+    count: '2,400+',
+  },
+  {
+    key: 'phrases',
+    title: ui.nav.phrases,
+    desc: 'Essential phrases for everyday situations. Greetings, requests, questions, and more.',
+    icon: 'message',
+    count: '800+',
+  },
+  {
+    key: 'expressions',
+    title: ui.nav.expressions,
+    desc: 'Idiomatic expressions and colloquialisms that native speakers actually use.',
+    icon: 'zap',
+    count: '350+',
+  },
+  {
+    key: 'frequency-lists',
+    title: ui.nav.frequencyLists,
+    desc: 'Words ranked by real-world usage frequency. Start with the ones that matter most.',
+    icon: 'bar-chart',
+    count: 'Top 1,000',
+  },
+];
+
+const freqBars = [
+  { word: 'the / el / 的', pct: 100 },
+  { word: 'be / ser / 是', pct: 78 },
+  { word: 'and / y / 和', pct: 65 },
+  { word: 'to / a / 去', pct: 58 },
+  { word: 'of / de / 的', pct: 52 },
+  { word: 'a / un / 一', pct: 45 },
+  { word: 'in / en / 在', pct: 40 },
+  { word: 'have / tener / 有', pct: 35 },
+];
+---
+
+{slug ? (
+  <BaseLayout title={`${ui.nav.vocabulary} — ${ui.site.name}`} description={ui.nav.vocabulary} lang={lang}>
+    <section class="mx-auto max-w-4xl px-5 py-16 sm:px-8 sm:py-24 text-center">
+      <p class="font-mono text-xs uppercase tracking-[0.2em] text-accent">{ui.nav.vocabulary}</p>
+      <h1 class="mt-4 font-display text-4xl font-semibold tracking-tight text-ink sm:text-5xl">{ui.placeholders.comingSoon}</h1>
+      <p class="mt-6 text-lg text-ink-soft">{ui.placeholders.noContent}</p>
+      <a href={`/${lang}/`} class="mt-8 inline-block text-sm font-semibold text-accent hover:underline">{ui.error.backToHome}</a>
+    </section>
+  </BaseLayout>
+) : (
+  <BaseLayout title={`${ui.landing.vocabularyTitle} — ${ui.site.name}`} description={ui.landing.vocabularyDesc} lang={lang}>
+    {/* Hero */}
+    <section class="border-b border-line bg-[#3d3630]">
+      <div class="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24">
+        <p class="font-mono text-sm font-bold uppercase tracking-[0.2em] text-accent">{ui.landing.vocabularyTitle}</p>
+        <h1 class="mt-4 max-w-2xl font-display text-4xl font-semibold tracking-tight text-paper sm:text-5xl">{ui.landing.vocabularySubtitle}</h1>
+        <p class="mt-4 max-w-xl text-lg text-paper/70">{ui.landing.vocabularyDesc}</p>
+      </div>
+    </section>
+
+    {/* How Vocabulary Works */}
+    <section class="border-y border-line bg-paper-deep">
+      <div class="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24">
+        <p class="font-mono text-xs font-bold uppercase tracking-[0.2em] text-accent">Method</p>
+        <h2 class="mt-3 font-display text-3xl font-semibold tracking-tight sm:text-4xl">{ui.landing.howVocabularyTitle}</h2>
+        <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {[
+            { num: '01', title: ui.landing.howVocabulary1Title, body: ui.landing.howVocabulary1Body },
+            { num: '02', title: ui.landing.howVocabulary2Title, body: ui.landing.howVocabulary2Body },
+            { num: '03', title: ui.landing.howVocabulary3Title, body: ui.landing.howVocabulary3Body },
+            { num: '04', title: ui.landing.howVocabulary4Title, body: ui.landing.howVocabulary4Body },
+          ].map((step) => (
+            <div class="group relative flex flex-col rounded-2xl border border-line bg-paper p-6 transition-all duration-300 hover:-translate-y-1 hover:border-accent/30 hover:shadow-lg hover:shadow-accent/5">
+              <div class="flex items-center gap-3">
+                <span class="flex h-10 w-10 items-center justify-center rounded-full bg-accent/10 font-mono text-sm font-bold text-accent transition-colors group-hover:bg-accent group-hover:text-paper">
+                  {step.num}
+                </span>
+              </div>
+              <h3 class="mt-5 font-display text-lg font-semibold tracking-tight text-ink transition-colors group-hover:text-accent">
+                {step.title}
+              </h3>
+              <p class="mt-2 text-sm leading-relaxed text-ink-soft">{step.body}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* Cards */}
+    <section class="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24" id="vocab-categories">
+      <p class="font-mono text-xs font-bold uppercase tracking-[0.2em] text-accent">Categories</p>
+      <h2 class="mt-3 font-display text-3xl font-semibold tracking-tight sm:text-4xl">What you can learn</h2>
+
+      <div class="mt-10 grid gap-6 sm:grid-cols-2">
+        {vocabCards.map((card) => (
+          <div id={`vocab-${card.key}`} class="scroll-mt-24">
+            <a href={localePath(lang, `vocabulary/${card.key}`)} class="group flex flex-col rounded-2xl border border-line bg-paper p-8 transition-all hover:shadow-lg hover:border-accent/30">
+            <div class="flex items-start justify-between">
+              <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-accent/10 text-accent transition-transform group-hover:scale-110">
+                {card.icon === 'book' && (
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                )}
+                {card.icon === 'message' && (
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                )}
+                {card.icon === 'zap' && (
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                )}
+                {card.icon === 'bar-chart' && (
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg>
+                )}
+              </div>
+              <span class="rounded-full bg-paper-deep px-3 py-1 font-mono text-xs font-semibold text-ink-faint">{card.count}</span>
+            </div>
+            <h3 class="mt-6 font-display text-2xl font-semibold tracking-tight text-ink transition-colors group-hover:text-accent">{card.title}</h3>
+            <p class="mt-2 flex-1 text-sm leading-relaxed text-ink-soft">{card.desc}</p>
+            <span class="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-accent transition-transform group-hover:translate-x-1">
+              Explore <span>→</span>
+            </span>
+          </a>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    {/* Frequency visualization */}
+    <section class="border-t border-line bg-paper-deep">
+      <div class="mx-auto max-w-3xl px-5 py-16 sm:px-8 sm:py-24">
+        <p class="font-mono text-xs font-bold uppercase tracking-[0.2em] text-accent">Preview</p>
+        <h2 class="mt-3 font-display text-3xl font-semibold tracking-tight sm:text-4xl">Most frequent words</h2>
+        <p class="mt-3 text-ink-soft">A sneak peek at the top words across all three languages. These few words account for a large portion of everyday speech.</p>
+
+        <div class="mt-10 space-y-4">
+          {freqBars.map((bar) => (
+            <div class="group flex items-center gap-4">
+              <span class="w-28 shrink-0 text-sm font-medium text-ink sm:w-36">{bar.word}</span>
+              <div class="h-8 flex-1 overflow-hidden rounded-lg bg-paper">
+                <div
+                  class="flex h-full items-center rounded-lg px-3 transition-all duration-700 group-hover:bg-accent/80"
+                  style={`width:${bar.pct}%; background: rgba(180, 69, 42, ${0.15 + (bar.pct / 200)})`}
+                >
+                  <span class="text-xs font-semibold text-ink">{bar.pct}%</span>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* Where to go next */}
+    <section class="border-t border-line bg-paper-deep">
+      <div class="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24">
+        <p class="font-mono text-xs font-bold uppercase tracking-[0.2em] text-accent">Explore</p>
+        <h2 class="mt-3 font-display text-3xl font-semibold tracking-tight sm:text-4xl">Where to go next</h2>
+
+        <div class="mt-10 grid gap-6 sm:grid-cols-2">
+          {vocabCards.map((card) => (
+            <a href={localePath(lang, `vocabulary/${card.key}`)} class="group flex flex-col rounded-2xl border border-line bg-paper p-8 transition-all hover:shadow-lg hover:border-accent/30">
+              <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-accent/10 text-accent transition-transform group-hover:scale-110">
+                {card.icon === 'book' && (
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                )}
+                {card.icon === 'message' && (
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                )}
+                {card.icon === 'zap' && (
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                )}
+                {card.icon === 'bar-chart' && (
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg>
+                )}
+              </div>
+              <h3 class="mt-6 font-display text-2xl font-semibold tracking-tight text-ink transition-colors group-hover:text-accent">{card.title}</h3>
+              <p class="mt-2 flex-1 text-sm leading-relaxed text-ink-soft">{card.desc}</p>
+              <span class="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-accent transition-transform group-hover:translate-x-1">
+                Explore <span>→</span>
+              </span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  </BaseLayout>
+)}

@@ -1,0 +1,30 @@
+---
+import type { GetStaticPaths } from 'astro';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { getUI } from '../../../i18n';
+import { interfaceLocales, type LocaleCode } from '../../../config/languages';
+
+export const getStaticPaths = (() =>
+  interfaceLocales.map((locale) => ({
+    params: { lang: locale.code },
+  }))) satisfies GetStaticPaths;
+
+const lang = Astro.params.lang as LocaleCode;
+const ui = getUI(lang);
+---
+
+<BaseLayout title={`${ui.nav.cheatsheets} — ${ui.site.name}`} description={ui.site.tagline} lang={lang}>
+  <section class="bg-topo border-b border-line">
+    <div class="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24">
+      <p class="font-mono text-xs uppercase tracking-[0.2em] text-accent">{ui.nav.cheatsheets}</p>
+      <h1 class="mt-4 max-w-2xl font-display text-4xl font-semibold tracking-tight sm:text-5xl">{ui.nav.cheatsheets}</h1>
+      <p class="mt-4 max-w-xl text-lg text-ink-soft">Quick-reference tables for common grammar patterns.</p>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24">
+    <div class="rounded-2xl border border-line bg-paper p-12 text-center">
+      <p class="text-ink-faint">Cheatsheets will appear here as content is added.</p>
+    </div>
+  </section>
+</BaseLayout>

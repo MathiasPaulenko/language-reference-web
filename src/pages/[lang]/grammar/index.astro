@@ -1,0 +1,169 @@
+---
+import type { GetStaticPaths } from 'astro';
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { sectionPath, withPinyin } from '../../../lib/utils';
+import { getUI, languageName } from '../../../i18n';
+import { interfaceLocales, analyzedLanguages, type LocaleCode } from '../../../config/languages';
+import FlagIcon from '../../../components/astro/FlagIcon.astro';
+
+export const getStaticPaths = (() =>
+  interfaceLocales.map((locale) => ({
+    params: { lang: locale.code },
+  }))) satisfies GetStaticPaths;
+
+const lang = Astro.params.lang as LocaleCode;
+const ui = getUI(lang);
+
+const allTopics = await getCollection('topics');
+const topics = allTopics
+  .filter((t) => !t.data.draft)
+  .sort((a, b) => a.data.title.localeCompare(b.data.title));
+---
+
+<BaseLayout title={`${ui.landing.grammarTitle} — ${ui.site.name}`} description={ui.landing.grammarDesc} lang={lang}>
+  {/* Hero */}
+  <section class="border-b border-line bg-[#3d3630]">
+    <div class="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24">
+      <p class="font-mono text-sm font-bold uppercase tracking-[0.2em] text-accent">{ui.landing.grammarTitle}</p>
+      <h1 class="mt-4 max-w-2xl font-display text-4xl font-semibold tracking-tight text-paper sm:text-5xl">{ui.landing.grammarSubtitle}</h1>
+      <p class="mt-4 max-w-xl text-lg text-paper/70">{ui.landing.grammarDesc}</p>
+    </div>
+  </section>
+
+  {/* How Grammar Works */}
+  <section class="border-y border-line bg-paper-deep">
+    <div class="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24">
+      <p class="font-mono text-xs font-bold uppercase tracking-[0.2em] text-accent">Method</p>
+      <h2 class="mt-3 font-display text-3xl font-semibold tracking-tight sm:text-4xl">{ui.landing.howGrammarTitle}</h2>
+      <p class="mt-4 max-w-3xl text-lg leading-relaxed text-ink-soft">{ui.landing.grammarDesc}</p>
+      <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {[
+          { num: '01', title: ui.landing.howGrammar1Title, body: ui.landing.howGrammar1Body },
+          { num: '02', title: ui.landing.howGrammar2Title, body: ui.landing.howGrammar2Body },
+          { num: '03', title: ui.landing.howGrammar3Title, body: ui.landing.howGrammar3Body },
+          { num: '04', title: ui.landing.howGrammar4Title, body: ui.landing.howGrammar4Body },
+        ].map((step, i, arr) => (
+          <div class="group relative flex flex-col rounded-2xl border border-line bg-paper p-6 transition-all duration-300 hover:-translate-y-1 hover:border-accent/30 hover:shadow-lg hover:shadow-accent/5">
+            <div class="flex items-center gap-3">
+              <span class="flex h-10 w-10 items-center justify-center rounded-full bg-accent/10 font-mono text-sm font-bold text-accent transition-colors group-hover:bg-accent group-hover:text-paper">
+                {step.num}
+              </span>
+              {i < arr.length - 1 && (
+                <div class="hidden lg:block absolute top-10 left-full h-px w-6 border-t-2 border-dashed border-accent/20" />
+              )}
+            </div>
+            <h3 class="mt-5 font-display text-lg font-semibold tracking-tight text-ink transition-colors group-hover:text-accent">
+              {step.title}
+            </h3>
+            <p class="mt-2 text-sm leading-relaxed text-ink-soft">{step.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* Grammar Concepts (Topics) */}
+  <section class="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-28">
+    <div class="flex items-end justify-between gap-6">
+      <div>
+        <p class="font-mono text-xs font-bold uppercase tracking-[0.2em] text-accent">{ui.nav.topics}</p>
+        <h2 class="mt-3 font-display text-3xl font-semibold tracking-tight sm:text-4xl">{ui.topics.title}</h2>
+        <p class="mt-3 max-w-xl text-ink-soft">{ui.topics.subtitle}</p>
+      </div>
+    </div>
+
+    <div class="mt-12 grid gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-2 lg:grid-cols-3">
+      {
+        topics.slice(0, 8).map((topic, i) => (
+          <a
+            href={sectionPath(lang, 'topics', topic.id)}
+            class="group flex flex-col bg-paper p-7 transition-colors hover:bg-paper-deep"
+          >
+            <span class="font-mono text-xs text-ink-faint">{String(i + 1).padStart(2, '0')}</span>
+            <h3 class="mt-4 font-display text-2xl font-semibold tracking-tight text-ink transition-colors group-hover:text-accent">
+              {topic.data.title}
+            </h3>
+            <p class="mt-2 flex-1 text-sm leading-relaxed text-ink-soft" set:html={lang === 'zh' ? topic.data.description : withPinyin(topic.data.description)} />
+            <span class="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-ink-faint transition-colors group-hover:text-accent">
+              {ui.article.explanation}
+              <span class="transition-transform group-hover:translate-x-1">→</span>
+            </span>
+          </a>
+        ))
+      }
+      <a
+        href={sectionPath(lang, 'topics')}
+        class="group flex flex-col items-center justify-center bg-paper-deep p-7 transition-colors hover:bg-accent/5"
+      >
+        <span class="font-display text-lg font-semibold text-ink transition-colors group-hover:text-accent">
+          {ui.topics.viewAll}
+        </span>
+        <span class="mt-2 inline-flex items-center gap-1.5 text-sm font-semibold text-accent transition-transform group-hover:translate-x-1">
+          →
+        </span>
+      </a>
+    </div>
+  </section>
+
+  {/* Side-by-side comparison */}
+  <section class="border-y border-line bg-paper-deep">
+    <div class="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-28">
+      <p class="font-mono text-xs font-bold uppercase tracking-[0.2em] text-accent">{ui.nav.comparisons}</p>
+      <h2 class="mt-3 font-display text-3xl font-semibold tracking-tight sm:text-4xl">{ui.comparisons.title}</h2>
+      <p class="mt-3 max-w-xl text-ink-soft">{ui.comparisons.subtitle}</p>
+      <p class="mt-2 max-w-3xl text-base leading-relaxed text-ink">{ui.comparisons.description}</p>
+
+      <div class="mt-6 grid gap-4 sm:grid-cols-3">
+        {
+          analyzedLanguages.map((l) => (
+            <div class="flex flex-col items-center rounded-2xl border border-line bg-paper p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:border-accent/30 hover:shadow-lg hover:shadow-accent/5">
+              <div class="flex h-12 w-12 items-center justify-center rounded-full" style={`background-color: ${l.color}15`}>
+                <FlagIcon code={l.code} size={24} />
+              </div>
+              <span class="mt-3 font-display text-sm font-semibold uppercase tracking-wider text-ink-faint">{languageName(ui, l.code)}</span>
+              <div class="mt-4 rounded-xl bg-paper-deep px-4 py-3">
+                <p class="font-display text-base font-semibold text-ink" set:html={l.code === 'spanish' ? 'el libro <span class="text-ink-faint">/ un libro</span>' : l.code === 'english' ? 'the book <span class="text-ink-faint">/ a book</span>' : '<ruby>这<rt>zhè</rt></ruby><ruby>本<rt>běn</rt></ruby><ruby>书<rt>shū</rt></ruby> <span class="text-ink-faint">/ <ruby>一<rt>yì</rt></ruby><ruby>本<rt>běn</rt></ruby><ruby>书<rt>shū</rt></ruby></span>'} />
+              </div>
+              <p class="mt-3 text-xs leading-relaxed text-ink-faint">
+                {l.code === 'spanish' ? 'Articles for all references' : l.code === 'english' ? 'Articles only for specifics' : 'Demonstratives + measure words'}
+              </p>
+            </div>
+          ))
+        }
+      </div>
+
+      <div class="mt-10">
+        <p class="font-mono text-xs font-bold uppercase tracking-[0.2em] text-accent">{ui.comparisons.whyCompareTitle}</p>
+        <div class="mt-4 grid gap-4 sm:grid-cols-3">
+          <div class="rounded-2xl border border-line bg-paper p-5 transition-all duration-300 hover:-translate-y-1 hover:border-accent/30 hover:shadow-lg hover:shadow-accent/5">
+            <span class="font-display text-2xl font-bold text-accent">01</span>
+            <h3 class="mt-2 font-display text-sm font-semibold uppercase tracking-wider text-ink">{ui.comparisons.whyCompare1Title}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-ink-soft">{ui.comparisons.whyCompare1Body}</p>
+          </div>
+          <div class="rounded-2xl border border-line bg-paper p-5 transition-all duration-300 hover:-translate-y-1 hover:border-accent/30 hover:shadow-lg hover:shadow-accent/5">
+            <span class="font-display text-2xl font-bold text-accent">02</span>
+            <h3 class="mt-2 font-display text-sm font-semibold uppercase tracking-wider text-ink">{ui.comparisons.whyCompare2Title}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-ink-soft">{ui.comparisons.whyCompare2Body}</p>
+          </div>
+          <div class="rounded-2xl border border-line bg-paper p-5 transition-all duration-300 hover:-translate-y-1 hover:border-accent/30 hover:shadow-lg hover:shadow-accent/5">
+            <span class="font-display text-2xl font-bold text-accent">03</span>
+            <h3 class="mt-2 font-display text-sm font-semibold uppercase tracking-wider text-ink">{ui.comparisons.whyCompare3Title}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-ink-soft">{ui.comparisons.whyCompare3Body}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-8 flex items-center justify-center">
+        <a
+          href={sectionPath(lang, 'comparisons')}
+          class="group inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3 text-sm font-semibold text-paper transition-transform hover:-translate-y-0.5"
+        >
+          {ui.comparisons.seeAllComparisons}
+          <span class="transition-transform group-hover:translate-x-1">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

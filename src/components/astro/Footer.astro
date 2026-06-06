@@ -1,0 +1,89 @@
+---
+import { localePath, sectionPath } from '../../lib/utils';
+import { getUI, languageName } from '../../i18n';
+import { DEFAULT_LOCALE, analyzedLanguages, type LocaleCode } from '../../config/languages';
+import FlagIcon from './FlagIcon.astro';
+
+interface Props {
+  lang?: LocaleCode;
+}
+
+const { lang = DEFAULT_LOCALE } = Astro.props;
+const ui = getUI(lang);
+
+const columns = [
+  {
+    title: ui.nav.topics,
+    links: [
+      { label: ui.nav.topics, href: sectionPath(lang, 'topics') },
+      { label: ui.nav.comparisons, href: sectionPath(lang, 'comparisons') },
+      { label: ui.nav.guides, href: sectionPath(lang, 'guides') },
+      { label: ui.nav.cheatsheets, href: sectionPath(lang, 'cheatsheets') },
+    ],
+  },
+  {
+    title: ui.nav.languages,
+    links: analyzedLanguages.map((l) => ({
+      label: languageName(ui, l.code),
+      href: sectionPath(lang, 'languages', l.code),
+    })),
+  },
+  {
+    title: ui.footer.cookies,
+    links: [
+      { label: ui.footer.privacy, href: `${localePath(lang)}/privacy` },
+      { label: ui.footer.terms, href: `${localePath(lang)}/terms` },
+      { label: ui.footer.cookies, href: `${localePath(lang)}/cookies` },
+    ],
+  },
+];
+
+const year = new Date().getFullYear();
+---
+
+<footer data-pagefind-ignore class="border-t border-line bg-paper-darker">
+  <div class="mx-auto max-w-6xl px-5 py-10 sm:px-8">
+    <div class="grid gap-8 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
+      <div>
+        <a href={localePath(lang)} class="font-display text-2xl font-semibold tracking-tight">
+          Grammar<span class="text-ink-faint">Atlas</span>
+        </a>
+        <p class="mt-4 text-pretty text-sm leading-relaxed text-ink-soft">
+          {ui.footer.rights}
+        </p>
+        <div class="mt-6 flex flex-wrap items-center gap-3">
+          {
+            analyzedLanguages.map((l) => (
+              <span class="inline-block transition-transform duration-200 hover:scale-110">
+                <FlagIcon code={l.code} size={20} />
+              </span>
+            ))
+          }
+        </div>
+      </div>
+
+      {
+        columns.map((col) => (
+          <div>
+            <h3 class="font-display text-sm font-semibold uppercase tracking-wider text-ink">
+              {col.title}
+            </h3>
+            <ul class="mt-4 space-y-2.5">
+              {col.links.map((link) => (
+                <li>
+                  <a href={link.href} class="text-sm text-ink-soft transition-colors hover:text-accent">
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="mt-8 border-t border-line pt-5 text-center text-xs text-ink-faint">
+      <p>© {year} Grammar Atlas</p>
+    </div>
+  </div>
+</footer>

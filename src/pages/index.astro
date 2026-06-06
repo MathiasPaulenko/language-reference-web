@@ -1,0 +1,21 @@
+---
+import { DEFAULT_LOCALE } from '../config/languages';
+import { localePath } from '../lib/utils';
+
+// Static landing redirect: GitHub Pages has no server, so we emit an HTML
+// page that forwards visitors to the default-locale home (/en/).
+const target = localePath(DEFAULT_LOCALE);
+---
+
+<!DOCTYPE html>
+<html lang={DEFAULT_LOCALE}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="refresh" content={`0; url=${target}`} />
+    <link rel="canonical" href={target} />
+    <title>Grammar Atlas</title>
+  </head>
+  <body>
+    <p>Redirecting to <a href={target}>Grammar Atlas</a>…</p>
+  </body>
+</html>

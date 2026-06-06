@@ -1,0 +1,248 @@
+---
+title: "Binding & Reflexivity"
+description: "How Spanish, English and Chinese constrain the relationship between pronouns and their antecedents."
+locale: "en"
+topic: "binding"
+difficulty: "advanced"
+overview: "Binding theory governs the relationship between anaphors (reflexives), pronouns, and full NPs with respect to their antecedents. English and Spanish require local antecedents for reflexives. Chinese allows long-distance reflexives."
+comparisonTable:
+  - concept: "John saw himself (local binding)"
+    values:
+      spanish: "Juan se vio a sí mismo (se = Juan, local)"
+      english: "John saw himself (himself = John, local)"
+      chinese: "<ruby>约<rt>Yuē</rt></ruby><ruby>翰<rt>hàn</rt></ruby><ruby>看<rt>kàn</rt></ruby><ruby>见<rt>jiàn</rt></ruby><ruby>他<rt>tā</rt></ruby><ruby>自<rt>zì</rt></ruby><ruby>己<rt>jǐ</rt></ruby> (<ruby>他<rt>tā</rt></ruby><ruby>自<rt>zì</rt></ruby><ruby>己<rt>jǐ</rt></ruby> = John, local)"
+  - concept: "John said Peter saw himself (must be Peter)"
+    values:
+      spanish: "Juan dijo que Pedro se vio a sí mismo (sí mismo = Pedro, NOT Juan)"
+      english: "John said that Peter saw himself (himself = Peter, NOT John)"
+      chinese: "<ruby>约<rt>Yuē</rt></ruby><ruby>翰<rt>hàn</rt></ruby><ruby>说<rt>shuō</rt></ruby><ruby>彼<rt>bǐ</rt></ruby><ruby>得<rt>dé</rt></ruby><ruby>看<rt>kàn</rt></ruby><ruby>见<rt>jiàn</rt></ruby><ruby>他<rt>tā</rt></ruby><ruby>自<rt>zì</rt></ruby><ruby>己<rt>jǐ</rt></ruby> (<ruby>他<rt>tā</rt></ruby><ruby>自<rt>zì</rt></ruby><ruby>己<rt>jǐ</rt></ruby> = Peter, but can = John in some dialects)"
+  - concept: "John saw him (him ≠ John)"
+    values:
+      spanish: "Juan lo vio (lo = someone else, NOT Juan)"
+      english: "John saw him (him ≠ John)"
+      chinese: "<ruby>约<rt>Yuē</rt></ruby><ruby>翰<rt>hàn</rt></ruby><ruby>看<rt>kàn</rt></ruby><ruby>见<rt>jiàn</rt></ruby><ruby>他<rt>tā</rt></ruby> (<ruby>他<rt>tā</rt></ruby> = someone else, ambiguous in context)"
+  - concept: "John's mother loves him (him = John, not local)"
+    values:
+      spanish: "La madre de Juan lo quiere (lo = Juan)"
+      english: "John's mother loves him (him = John)"
+      chinese: "<ruby>约<rt>Yuē</rt></ruby><ruby>翰<rt>hàn</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>妈<rt>mā</rt></ruby><ruby>妈<rt>ma</rt></ruby><ruby>爱<rt>ài</rt></ruby><ruby>他<rt>tā</rt></ruby> (<ruby>他<rt>tā</rt></ruby> = John)"
+  - concept: "Each other (reciprocal)"
+    values:
+      spanish: "Juan y María se ven (se = each other)"
+      english: "John and Mary see each other"
+      chinese: "<ruby>约<rt>Yuē</rt></ruby><ruby>翰<rt>hàn</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>玛<rt>Mǎ</rt></ruby><ruby>丽<rt>lì</rt></ruby><ruby>互<rt>hù</rt></ruby><ruby>相<rt>xiāng</rt></ruby><ruby>看<rt>kàn</rt></ruby> (<ruby>互<rt>hù</rt></ruby><ruby>相<rt>xiāng</rt></ruby> = each other)"
+  - concept: "John washed (intransitive / middle)"
+    values:
+      spanish: "Juan se lavó (se = reflexive/anticausative)"
+      english: "John washed (ambiguous: transitive with object omitted, or middle)"
+      chinese: "<ruby>约<rt>Yuē</rt></ruby><ruby>翰<rt>hàn</rt></ruby><ruby>洗<rt>xǐ</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>澡<rt>zǎo</rt></ruby> (<ruby>洗<rt>xǐ</rt></ruby><ruby>澡<rt>zǎo</rt></ruby> = wash-bath = bathe, no reflexive needed)"
+  - concept: "John believes himself to be smart"
+    values:
+      spanish: "Juan se cree inteligente (se = Juan, exceptional binding domain)"
+      english: "John believes himself to be smart (himself = John, exceptional case)"
+      chinese: "<ruby>约<rt>Yuē</rt></ruby><ruby>翰<rt>hàn</rt></ruby><ruby>相<rt>xiāng</rt></ruby><ruby>信<rt>xìn</rt></ruby><ruby>他<rt>tā</rt></ruby><ruby>自<rt>zì</rt></ruby><ruby>己<rt>jǐ</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>聪<rt>cōng</rt></ruby><ruby>明<rt>míng</rt></ruby> (<ruby>他<rt>tā</rt></ruby><ruby>自<rt>zì</rt></ruby><ruby>己<rt>jǐ</rt></ruby> = John)"
+  - concept: "Only John voted for him (him = John, bound by focus)"
+    values:
+      spanish: "Solo Juan votó por él (él = Juan, bound by solo)"
+      english: "Only John voted for him (him = John, bound by only)"
+      chinese: "<ruby>只<rt>zhǐ</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>约<rt>Yuē</rt></ruby><ruby>翰<rt>hàn</rt></ruby><ruby>投<rt>tóu</rt></ruby><ruby>票<rt>piào</rt></ruby><ruby>给<rt>gěi</rt></ruby><ruby>他<rt>tā</rt></ruby><ruby>自<rt>zì</rt></ruby><ruby>己<rt>jǐ</rt></ruby> (<ruby>他<rt>tā</rt></ruby><ruby>自<rt>zì</rt></ruby><ruby>己<rt>jǐ</rt></ruby> = John, explicit)"
+commonMistakes:
+  - mistake: "Using non-reflexive pronoun for same-subject object in English"
+    correction: "John saw himself (NOT John saw him when same person)"
+    note: "English requires reflexive pronouns when co-indexed with the local subject."
+  - mistake: "Assuming Chinese reflexives have the same binding domain as English"
+    correction: "Chinese <ruby>自<rt>zì</rt></ruby><ruby>己<rt>jǐ</rt></ruby> can have long-distance antecedents in some contexts"
+    note: "Chinese <ruby>自<rt>zì</rt></ruby><ruby>己<rt>jǐ</rt></ruby> allows long-distance binding in a way English himself does not."
+  - mistake: "Using reflexive where non-reflexive is required in English"
+    correction: "John believes he is smart (NOT John believes himself is smart — ungrammatical)"
+    note: "English himself cannot be the subject of a finite clause."
+  - mistake: "Confusing Spanish reflexive se with passive se"
+    correction: "Juan se vio (reflexive: Juan saw himself); Se venden casas (passive: houses are sold)"
+    note: "Spanish se has multiple functions; context and verb semantics disambiguate."
+relatedTopics:
+  - "anaphora"
+  - "reflexives"
+  - "reciprocal"
+  - "pronouns"
+prerequisites:
+  - "pronouns"
+  - "anaphora"
+keyTakeaways:
+  - "Spanish: Local binding for reflexives (se, sí mismo). Pronouns (lo, le) must be free in local domain. Se is multifunctional (reflexive, reciprocal, p..."
+  - "English: Strict local binding for reflexives (himself). Long-distance reflexives are ungrammatical. Exceptional case marking extends the binding doma..."
+  - "Chinese: 自zì己jǐ allows long-distance binding in some contexts. Local binding is preferred but not strictly required. 互hù相xiāng is strictly reciprocal..."
+  - "Key concepts compared: John saw himself (local binding), John said Peter saw himself (must be Peter), John saw him (him ≠ John)."
+lastUpdated: 2026-06-04
+draft: false
+---
+
+## Overview
+
+Binding theory explains how pronouns and reflexives relate to their antecedents.
+
+- **Principle A**: Anaphors (reflexives) must be bound in their local domain.
+- **Principle B**: Pronouns must be free (not bound) in their local domain.
+- **Principle C**: Full NPs must be free everywhere.
+
+- **Spanish**: Local binding for reflexives (*se, sí mismo*). Pronouns (*lo, le*) must be free in local domain. *Se* is multifunctional (reflexive, reciprocal, passive, impersonal).
+- **English**: Strict local binding for reflexives (*himself*). Long-distance reflexives are ungrammatical. Exceptional case marking extends the binding domain for some verbs.
+- **Chinese**: *<ruby>自<rt>zì</rt></ruby><ruby>己<rt>jǐ</rt></ruby>* allows long-distance binding in some contexts. Local binding is preferred but not strictly required. *<ruby>互<rt>hù</rt></ruby><ruby>相<rt>xiāng</rt></ruby>* is strictly reciprocal.
+
+---
+
+<div class="spanish-section">
+
+## Spanish
+
+### Reflexive binding (local)
+
+- *Juan **se** vio.* (John saw himself. — se bound by Juan)
+- *María **se** lavó.* (María washed herself.)
+
+**Emphatic**:
+- *Juan lo hizo **sí mismo**.* (John did it himself.)
+- *Ella **misma** lo dijo.* (She herself said it.)
+
+### Long-distance prohibited
+
+- *Juan dijo que Pedro **se** vio.* (Pedro saw himself. — se = Pedro, NOT Juan)
+- *Juan dijo que Pedro vio a **él**.* (Pedro saw him. — él = someone else, NOT Juan)
+
+### Pronoun must be free locally
+
+- *Juan lo vio.* (John saw him. — lo ≠ Juan)
+- *Juan dijo que Pedro lo vio.* (Pedro saw him. — lo = someone else)
+
+**Note**: To refer to Juan, use a full NP: *Juan dijo que Pedro vio a Juan.*
+
+### Se functions
+
+| Function | Example |
+|---|---|
+| Reflexive | Juan **se** vio. |
+| Reciprocal | Juan y María **se** ven. |
+| Passive | **Se** venden casas. |
+| Impersonal | **Se** dice que... |
+| Inchoative | La puerta **se** abrió. |
+
+</div>
+
+<div class="english-section">
+
+## English
+
+### Reflexive binding (strictly local)
+
+- *John saw **himself**.* (himself = John)
+- *Mary bought **herself** a gift.*
+
+### Long-distance prohibited
+
+- *John said that Peter saw **himself**.* (himself = Peter, NOT John)
+- *John said that Peter saw **him**.* (him = someone else, NOT John or Peter)
+
+### Exceptional case marking
+
+Some verbs allow an extended binding domain:
+- *John believes **himself** to be smart.* (himself = John, crosses clause boundary)
+- *John wants **himself** to win.* (himself = John)
+
+### Pronoun must be free locally
+
+- *John loves **him**.* (him ≠ John)
+- *John's mother loves **him**.* (him = John — non-local is OK)
+
+### Reflexive vs non-reflexive
+
+| Context | Correct | Incorrect |
+|---|---|---|
+| Same subject-object | John saw **himself**. | ~~John saw him.~~ |
+| Different referent | John saw **him**. | — |
+| Subject of finite clause | John thinks **he** is smart. | ~~John thinks himself is smart.~~ |
+| Object of infinitive | John wants **himself** to win. | — |
+
+### Possessive reflexives
+
+- *John loves **his own** car.* (emphatic)
+- *John saw **his own** reflection.*
+
+</div>
+
+<div class="chinese-section">
+
+## Chinese
+
+### Reflexive (local and long-distance)
+
+**Local**:
+- <ruby>他<rt>tā</rt></ruby><ruby>看<rt>kàn</rt></ruby><ruby>见<rt>jiàn</rt></ruby><ruby>他<rt>tā</rt></ruby><ruby>自<rt>zì</rt></ruby><ruby>己<rt>jǐ</rt></ruby>。(He saw himself.)
+
+**Long-distance (possible in some contexts)**:
+- <ruby>约<rt>Yuē</rt></ruby><ruby>翰<rt>hàn</rt></ruby><ruby>说<rt>shuō</rt></ruby><ruby>彼<rt>bǐ</rt></ruby><ruby>得<rt>dé</rt></ruby><ruby>知<rt>zhī</rt></ruby><ruby>道<rt>dào</rt></ruby><ruby>他<rt>tā</rt></ruby><ruby>自<rt>zì</rt></ruby><ruby>己<rt>jǐ</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>聪<rt>cōng</rt></ruby><ruby>明<rt>míng</rt></ruby>。(John said that Peter knows that he himself is smart. — <ruby>他<rt>tā</rt></ruby><ruby>自<rt>zì</rt></ruby><ruby>己<rt>jǐ</rt></ruby> can refer to John in some dialects/contexts)
+
+**Note**: Chinese <ruby>自<rt>zì</rt></ruby><ruby>己<rt>jǐ</rt></ruby> allows long-distance binding more freely than English himself.
+
+### Pronoun binding
+
+- <ruby>约<rt>Yuē</rt></ruby><ruby>翰<rt>hàn</rt></ruby><ruby>说<rt>shuō</rt></ruby><ruby>他<rt>tā</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>聪<rt>cōng</rt></ruby><ruby>明<rt>míng</rt></ruby>。(John said that he is smart. — <ruby>他<rt>tā</rt></ruby> = John or someone else, ambiguous)
+
+### Reciprocal
+
+- <ruby>他<rt>tā</rt></ruby><ruby>们<rt>men</rt></ruby><ruby>互<rt>hù</rt></ruby><ruby>相<rt>xiāng</rt></ruby><ruby>帮<rt>bāng</rt></ruby><ruby>助<rt>zhù</rt></ruby>。(They help each other.)
+
+### <ruby>自<rt>zì</rt></ruby><ruby>己<rt>jǐ</rt></ruby> as emphatic
+
+- <ruby>我<rt>wǒ</rt></ruby><ruby>自<rt>zì</rt></ruby><ruby>己<rt>jǐ</rt></ruby><ruby>做<rt>zuò</rt></ruby><ruby>的<rt>de</rt></ruby>。(I myself did it.)
+
+</div>
+
+## Comparison at a glance
+
+| Feature | Spanish | English | Chinese |
+|---|---|---|---|
+| Reflexive | se, sí mismo | myself/himself | <ruby>自<rt>zì</rt></ruby><ruby>己<rt>jǐ</rt></ruby> |
+| Local binding | Required | Required | Preferred |
+| Long-distance | Prohibited | Prohibited | Allowed in some contexts |
+| Reciprocal | se (same as reflexive) | each other / one another | <ruby>互<rt>hù</rt></ruby><ruby>相<rt>xiāng</rt></ruby> |
+| Pronoun locally | Must be free | Must be free | Ambiguous |
+| Emphatic | sí mismo, él mismo | himself, his own | <ruby>自<rt>zì</rt></ruby><ruby>己<rt>jǐ</rt></ruby> |
+
+---
+
+## Examples in context
+
+### John saw himself
+- **ES**: *Juan se vio.*
+- **EN**: *John saw himself.*
+- **ZH**: <ruby>约<rt>Yuē</rt></ruby><ruby>翰<rt>hàn</rt></ruby><ruby>看<rt>kàn</rt></ruby><ruby>见<rt>jiàn</rt></ruby><ruby>他<rt>tā</rt></ruby><ruby>自<rt>zì</rt></ruby><ruby>己<rt>jǐ</rt></ruby>。
+
+### Peter saw himself (not John)
+- **ES**: *Pedro se vio.* (se = Pedro)
+- **EN**: *Peter saw himself.* (himself = Peter)
+- **ZH**: <ruby>彼<rt>bǐ</rt></ruby><ruby>得<rt>dé</rt></ruby><ruby>看<rt>kàn</rt></ruby><ruby>见<rt>jiàn</rt></ruby><ruby>他<rt>tā</rt></ruby><ruby>自<rt>zì</rt></ruby><ruby>己<rt>jǐ</rt></ruby>。
+
+### John's mother loves him
+- **ES**: *La madre de Juan lo quiere.* (lo = Juan)
+- **EN**: *John's mother loves him.* (him = John)
+- **ZH**: <ruby>约<rt>Yuē</rt></ruby><ruby>翰<rt>hàn</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>妈<rt>mā</rt></ruby><ruby>妈<rt>ma</rt></ruby><ruby>爱<rt>ài</rt></ruby><ruby>他<rt>tā</rt></ruby>。
+
+---
+
+## Common mistakes
+
+1. **English speakers learning Spanish**: *Juan lo vio* for reflexive → *Juan **se** vio*
+
+2. **Spanish speakers learning English**: *John saw him* (same person) → *John saw **himself***
+
+3. **English speakers learning Chinese**: Assuming <ruby>自<rt>zì</rt></ruby><ruby>己<rt>jǐ</rt></ruby> has strict local binding like himself → <ruby>自<rt>zì</rt></ruby><ruby>己<rt>jǐ</rt></ruby> allows more flexibility
+
+4. **Chinese speakers learning English**: *John believes himself is smart* → *John believes **he** is smart* (himself cannot be subject of finite clause)
+
+---
+
+## Related topics
+
+- **Anaphora**: How reference works
+- **Reflexives**: How reflexive constructions work
+- **Reciprocal**: How reciprocal constructions work
+- **Pronouns**: How pronoun systems work

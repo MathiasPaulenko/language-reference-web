@@ -1,0 +1,81 @@
+---
+import type { GetStaticPaths } from 'astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { interfaceLocales, type LocaleCode } from '../../config/languages';
+import { getUI } from '../../i18n';
+
+export const getStaticPaths = (() =>
+  interfaceLocales.map((locale) => ({
+    params: { lang: locale.code },
+  }))) satisfies GetStaticPaths;
+
+const lang = Astro.params.lang as LocaleCode;
+const ui = getUI(lang);
+---
+
+<BaseLayout title={`${ui.nav.search} — ${ui.site.name}`} description={ui.site.tagline} lang={lang}>
+  <section class="mx-auto max-w-3xl px-5 py-16 sm:px-8 sm:py-24">
+    <h1 class="font-display text-3xl font-semibold tracking-tight sm:text-4xl">{ui.nav.search}</h1>
+    <p class="mt-3 text-ink-soft">{ui.site.tagline}</p>
+
+    <div id="search" class="mt-10"></div>
+    <p id="search-status" class="mt-4 text-sm text-ink-faint">{ui.search.loading}</p>
+  </section>
+</BaseLayout>
+
+<script>
+  const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+  const searchEl = document.getElementById('search');
+  const statusEl = document.getElementById('search-status');
+
+  async function init() {
+    try {
+      const mod = await import(/* @vite-ignore */ `${base}/pagefind/pagefind-ui.js`);
+      if (mod.PagefindUI && searchEl) {
+        new mod.PagefindUI({
+          element: '#search',
+          showSubResults: true,
+          showImages: false,
+          translations: {
+            placeholder: 'Search grammar topics, comparisons, guides…',
+            clear_search: 'Clear',
+            load_more: 'Load more results',
+            search_label: 'Search',
+            filters_label: 'Filters',
+            zero_results: 'No results for [SEARCH_TERM]',
+            many_results: '[COUNT] results for [SEARCH_TERM]',
+            one_result: '1 result for [SEARCH_TERM]',
+            alt_search: 'No results for [SEARCH_TERM]. Showing results for [DIFFERENT_TERM] instead.',
+          },
+        });
+        if (statusEl) statusEl.style.display = 'none';
+      }
+    } catch (err) {
+      console.warn('Pagefind UI not available (run build first):', err);
+      if (searchEl) searchEl.innerHTML = '<p class="text-ink-faint">Search index not available in development. Run <code>npm run build</code> to generate it.</p>';
+    }
+  }
+
+  init();
+</script>
+
+<style is:global>
+  /* Pagefind UI theme overrides to match editorial design */
+  .pagefind-ui {
+    --pagefind-ui-scale: 1;
+    --pagefind-ui-primary: #b4452a;
+    --pagefind-ui-text: #1a1a1a;
+    --pagefind-ui-background: #faf8f5;
+    --pagefind-ui-border: #e5e0d8;
+    --pagefind-ui-tag: #f4f1ec;
+    --pagefind-ui-font: 'Public Sans', ui-sans-serif, system-ui, sans-serif;
+  }
+  .pagefind-ui .pagefind-ui__search-input {
+    border-radius: 9999px !important;
+    padding: 0.75rem 1.25rem !important;
+    font-size: 1rem !important;
+  }
+  .pagefind-ui .pagefind-ui__search-clear {
+    border-radius: 9999px !important;
+  }
+</style>

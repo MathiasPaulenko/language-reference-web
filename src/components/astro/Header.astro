@@ -1,0 +1,183 @@
+---
+import { localePath, sectionPath } from '../../lib/utils';
+import { getUI, languageName } from '../../i18n';
+import { interfaceLocales, analyzedLanguages, DEFAULT_LOCALE, type LocaleCode } from '../../config/languages';
+import FlagIcon from './FlagIcon.astro';
+
+interface Props {
+  lang?: LocaleCode;
+}
+
+const { lang = DEFAULT_LOCALE } = Astro.props;
+const ui = getUI(lang);
+
+---
+
+<header
+  data-pagefind-ignore
+  class="sticky top-0 z-50 border-b border-line bg-paper/85 backdrop-blur-md"
+>
+  <div class="mx-auto flex h-16 max-w-6xl items-center justify-between gap-6 px-5 sm:px-8">
+    <a
+      href={localePath(lang)}
+      class="group flex items-baseline gap-2 font-display text-xl font-semibold tracking-tight text-ink"
+    >
+      <span
+        class="inline-block h-2.5 w-2.5 translate-y-[-2px] rounded-full bg-accent transition-transform group-hover:scale-125"
+        aria-hidden="true"
+      ></span>
+      Grammar<span class="text-ink-faint">Atlas</span>
+    </a>
+
+    <nav class="hidden h-16 items-center gap-0 md:flex" aria-label="Primary">
+      {/* Grammar */}
+      <div class="group relative flex h-16 items-center">
+        <a href={localePath(lang, 'grammar')} class="flex items-center gap-1 px-3 text-sm font-medium text-ink-soft transition-colors hover:text-ink">
+          {ui.nav.grammar}
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true" class="transition-transform duration-200 group-hover:rotate-180">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </a>
+        <div class="invisible absolute left-0 top-full z-50 w-48 overflow-hidden rounded-xl border border-line bg-paper shadow-lg opacity-0 transition-all duration-150 group-hover:visible group-hover:opacity-100">
+          <div class="py-2">
+            <a href={sectionPath(lang, 'topics')} class="block px-4 py-2 text-sm text-ink-soft transition-colors hover:bg-paper-deep hover:text-ink">{ui.nav.topics}</a>
+            <a href={sectionPath(lang, 'comparisons')} class="block px-4 py-2 text-sm text-ink-soft transition-colors hover:bg-paper-deep hover:text-ink">{ui.nav.comparisons}</a>
+          </div>
+        </div>
+      </div>
+
+      {/* Languages */}
+      <a href={localePath(lang, 'languages')} class="flex h-16 items-center px-3 text-sm font-medium text-ink-soft transition-colors hover:text-ink">
+        {ui.nav.languages}
+      </a>
+
+      {/* Vocabulary */}
+      <div class="group relative flex h-16 items-center">
+        <a href={localePath(lang, 'vocabulary')} class="flex items-center gap-1 px-3 text-sm font-medium text-ink-soft transition-colors hover:text-ink">
+          {ui.nav.vocabulary}
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true" class="transition-transform duration-200 group-hover:rotate-180">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </a>
+        <div class="invisible absolute left-0 top-full z-50 w-52 overflow-hidden rounded-xl border border-line bg-paper shadow-lg opacity-0 transition-all duration-150 group-hover:visible group-hover:opacity-100">
+          <div class="py-2">
+            <a href={localePath(lang, 'vocabulary/words')} class="block px-4 py-2 text-sm text-ink-soft transition-colors hover:bg-paper-deep hover:text-ink">{ui.nav.words}</a>
+            <a href={localePath(lang, 'vocabulary/phrases')} class="block px-4 py-2 text-sm text-ink-soft transition-colors hover:bg-paper-deep hover:text-ink">{ui.nav.phrases}</a>
+            <a href={localePath(lang, 'vocabulary/expressions')} class="block px-4 py-2 text-sm text-ink-soft transition-colors hover:bg-paper-deep hover:text-ink">{ui.nav.expressions}</a>
+            <a href={localePath(lang, 'vocabulary/frequency-lists')} class="block px-4 py-2 text-sm text-ink-soft transition-colors hover:bg-paper-deep hover:text-ink">{ui.nav.frequencyLists}</a>
+          </div>
+        </div>
+      </div>
+
+      {/* Learning Paths */}
+      <div class="group relative flex h-16 items-center">
+        <button class="flex items-center gap-1 px-3 text-sm font-medium text-ink-soft transition-colors hover:text-ink">
+          {ui.nav.learningPaths}
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true" class="transition-transform duration-200 group-hover:rotate-180">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </button>
+        <div class="invisible absolute left-0 top-full z-50 w-48 overflow-hidden rounded-xl border border-line bg-paper shadow-lg opacity-0 transition-all duration-150 group-hover:visible group-hover:opacity-100">
+          <div class="py-2">
+            {analyzedLanguages.map((l) => (
+              <a href={localePath(lang, `learning-paths/${l.code}`)} class="flex items-center gap-2 px-4 py-2 text-sm text-ink-soft transition-colors hover:bg-paper-deep hover:text-ink">
+                <FlagIcon code={l.code} size={14} />
+                {languageName(ui, l.code)}
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Flashcards */}
+      <div class="group relative flex h-16 items-center">
+        <button class="flex items-center gap-1 px-3 text-sm font-medium text-ink-soft transition-colors hover:text-ink">
+          {ui.nav.flashcards}
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true" class="transition-transform duration-200 group-hover:rotate-180">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </button>
+        <div class="invisible absolute left-0 top-full z-50 w-48 overflow-hidden rounded-xl border border-line bg-paper shadow-lg opacity-0 transition-all duration-150 group-hover:visible group-hover:opacity-100">
+          <div class="py-2">
+            <a href={localePath(lang, 'flashcards/grammar')} class="block px-4 py-2 text-sm text-ink-soft transition-colors hover:bg-paper-deep hover:text-ink">{ui.nav.grammar}</a>
+            <a href={localePath(lang, 'flashcards/vocabulary')} class="block px-4 py-2 text-sm text-ink-soft transition-colors hover:bg-paper-deep hover:text-ink">{ui.nav.vocabulary}</a>
+            <a href={localePath(lang, 'flashcards/phrases')} class="block px-4 py-2 text-sm text-ink-soft transition-colors hover:bg-paper-deep hover:text-ink">{ui.nav.phrases}</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="flex items-center gap-3">
+      <a
+        href={localePath(lang, 'search')}
+        class="flex items-center gap-2 rounded-full border border-line px-3 py-1.5 text-sm text-ink-faint transition-colors hover:border-ink-faint hover:text-ink"
+        aria-label={ui.nav.search}
+      >
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <circle cx="11" cy="11" r="7"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <span class="hidden sm:inline">{ui.nav.search}</span>
+      </a>
+
+      <div class="relative">
+        <button
+          id="lang-toggle"
+          class="flex items-center gap-1 rounded-full border border-line px-2.5 py-1.5 text-lg transition-colors hover:bg-paper-deep"
+          aria-haspopup="true"
+          aria-expanded="false"
+          aria-label={ui.footer.interfaceLanguage}
+        >
+          <FlagIcon code={lang} size={20} />
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" class="transition-transform text-ink-faint" id="lang-chevron">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </button>
+
+        <div
+          id="lang-menu"
+          class="absolute right-0 top-full z-50 mt-2 hidden w-40 overflow-hidden rounded-xl border border-line bg-paper shadow-lg"
+          role="menu"
+        >
+          {
+            interfaceLocales.map((locale) => (
+              <a
+                href={localePath(locale.code)}
+                hreflang={locale.htmlLang}
+                role="menuitem"
+                aria-current={locale.code === lang ? 'true' : undefined}
+                class="flex items-center gap-2.5 px-4 py-2.5 text-sm text-ink-soft transition-colors hover:bg-paper-deep hover:text-ink aria-[current]:font-semibold aria-[current]:text-ink"
+              >
+                <FlagIcon code={locale.code} size={20} />
+                {locale.label}
+              </a>
+            ))
+          }
+        </div>
+      </div>
+
+      <script>
+        const toggle = document.getElementById('lang-toggle');
+        const menu = document.getElementById('lang-menu');
+        const chevron = document.getElementById('lang-chevron');
+
+        if (toggle && menu) {
+          toggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const isOpen = !menu.classList.contains('hidden');
+            menu.classList.toggle('hidden', isOpen);
+            toggle.setAttribute('aria-expanded', String(!isOpen));
+            if (chevron) chevron.style.transform = isOpen ? '' : 'rotate(180deg)';
+          });
+
+          document.addEventListener('click', () => {
+            menu.classList.add('hidden');
+            toggle.setAttribute('aria-expanded', 'false');
+            if (chevron) chevron.style.transform = '';
+          });
+        }
+      </script>
+    </div>
+  </div>
+</header>
+

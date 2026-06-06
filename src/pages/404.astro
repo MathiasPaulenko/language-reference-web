@@ -1,0 +1,24 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { localePath } from '../lib/utils';
+import { getUI } from '../i18n';
+import { DEFAULT_LOCALE, type LocaleCode } from '../config/languages';
+
+const lang: LocaleCode = DEFAULT_LOCALE;
+const ui = getUI(lang);
+---
+
+<BaseLayout title={`404 — ${ui.site.name}`} description={ui.error.notFoundDescription} lang={lang}>
+  <section class="mx-auto max-w-3xl px-5 py-32 text-center sm:px-8">
+    <p class="font-mono text-xs uppercase tracking-[0.2em] text-accent">404</p>
+    <h1 class="mt-4 font-display text-5xl font-semibold tracking-tight text-ink sm:text-6xl">{ui.error.notFound}</h1>
+    <p class="mt-6 text-lg text-ink-soft">{ui.error.notFoundDescription}</p>
+    <a
+      href={localePath(lang)}
+      class="mt-10 inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3 text-sm font-semibold text-paper transition-transform hover:-translate-y-0.5"
+    >
+      {ui.error.backToHome}
+      <span>→</span>
+    </a>
+  </section>
+</BaseLayout>

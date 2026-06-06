@@ -1,0 +1,32 @@
+---
+// Inline SVG flags for cross-browser / cross-OS compatibility.
+// Windows emoji fonts often render flags as two-letter codes (GB, ES, CN).
+// SVG guarantees the correct visual regardless of system fonts.
+interface Props {
+  code: string; // 'spanish' | 'english' | 'chinese'  OR  'es' | 'en' | 'zh'
+  size?: number; // px
+}
+
+const { code, size = 20 } = Astro.props;
+
+const lookup: Record<string, string> = {
+  spanish: 'es',
+  english: 'gb',
+  chinese: 'cn',
+  es: 'es',
+  en: 'gb',
+  zh: 'cn',
+};
+
+const country = lookup[code] ?? code;
+
+const flags: Record<string, string> = {
+  es: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" width="${size}" height="${size * 0.75}"><path fill="#AA151B" d="M0 0h640v480H0z"/><path fill="#F1BF00" d="M0 120h640v240H0z"/></svg>`,
+  gb: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" width="${size}" height="${size * 0.75}"><path fill="#012169" d="M0 0h640v480H0z"/><path fill="#FFF" d="M75 0l244 180L562 0h78v62L400 240l240 178v62h-80L320 301 81 480H0v-60l239-178L0 64V0h75z"/><path fill="#C8102E" d="M424 281l216 159v-41L450 281h-26zm-184 20l6 35L54 480H0v-41l240-178zM640 0v29L391 223l-29-20L580 0h69zM0 0l239 176-28 20L0 41V0z"/><path fill="#FFF" d="M241 0v480h160V0H241zM0 160v160h640V160H0z"/><path fill="#C8102E" d="M0 193v96h640v-96H0zM273 0v480h96V0h-96z"/></svg>`,
+  cn: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" width="${size}" height="${size * 0.75}"><path fill="#DE2910" d="M0 0h640v480H0z"/><g fill="#FFDE00"><path d="M137.6 76.8l16.4 50.5h53.1l-43 31.2 16.4 50.5-43-31.2-43 31.2 16.4-50.5-43-31.2h53.1z"/><path d="M274.4 33.6l5.3 16.4h17.2l-13.9 10.1 5.3 16.4-13.9-10.1-13.9 10.1 5.3-16.4-13.9-10.1h17.2z"/><path d="M314.4 73.6l5.3 16.4h17.2l-13.9 10.1 5.3 16.4-13.9-10.1-13.9 10.1 5.3-16.4-13.9-10.1h17.2z"/><path d="M334.4 133.6l5.3 16.4h17.2l-13.9 10.1 5.3 16.4-13.9-10.1-13.9 10.1 5.3-16.4-13.9-10.1h17.2z"/><path d="M314.4 193.6l5.3 16.4h17.2l-13.9 10.1 5.3 16.4-13.9-10.1-13.9 10.1 5.3-16.4-13.9-10.1h17.2z"/></g></svg>`,
+};
+
+const svg = flags[country] ?? '';
+---
+
+<Fragment set:html={svg} />

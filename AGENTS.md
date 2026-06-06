@@ -20,7 +20,7 @@ Users compare how the same grammar concept works across multiple languages while
 | Content | **MDX** + Astro Content Layer API (Zod schemas, `glob` loader) |
 | Styling | **Tailwind CSS v4** (CSS-first, `@theme` tokens) |
 | Search | **Pagefind** (static, no backend) |
-| Analytics | Google Analytics (initial) |
+| Analytics | **Google Analytics 4** (measurement ID: `G-R0H8MJ5V1P`) |
 | Deployment | **GitHub Pages** + GitHub Actions |
 
 ---
@@ -42,7 +42,18 @@ language-reference-web/
 │   │   └── BaseLayout.astro # SEO, hreflang, fonts, header/footer
 │   ├── pages/
 │   │   ├── [lang]/          # Locale-prefixed routes (en, es, zh…)
-│   │   │   └── index.astro  # Localized homepage
+│   │   │   ├── index.astro              # Localized homepage
+│   │   │   ├── vocabulary/
+│   │   │   │   ├── [...slug].astro      # Vocabulary landing page
+│   │   │   │   └── words.astro          # Essential words table (paginated)
+│   │   │   ├── grammar/
+│   │   │   ├── flashcards/
+│   │   │   ├── learning-paths/
+│   │   │   ├── topics/
+│   │   │   ├── comparisons/
+│   │   │   ├── guides/
+│   │   │   ├── cheatsheets/
+│   │   │   └── languages/
 │   │   └── index.astro      # Root redirect → /en/
 │   ├── content/
 │   │   ├── config.ts        # Zod schemas (Content Layer API)
@@ -50,7 +61,8 @@ language-reference-web/
 │   │   ├── topics/          # Language-agnostic grammar concepts
 │   │   ├── comparisons/     # Side-by-side grammar comparisons
 │   │   ├── guides/          # Audience-oriented guides
-│   │   └── cheatsheets/     # Quick-reference tables
+│   │   ├── cheatsheets/     # Quick-reference tables
+│   │   └── vocabulary/      # Word lists and phrase collections (MDX with frontmatter)
 │   ├── i18n/
 │   │   ├── index.ts         # getUI(locale), languageName(ui, code)
 │   │   ├── en.json          # UI strings (canonical)
@@ -60,6 +72,7 @@ language-reference-web/
 │   │   └── utils.ts         # withBase(), localePath(), sectionPath()
 │   └── styles/
 │       └── global.css       # Tailwind v4 tokens, animations, base styles
+├── scripts/                 # Build/generation scripts (translation caches, MDX generators)
 ├── public/                  # Static assets
 ├── .github/
 │   └── workflows/

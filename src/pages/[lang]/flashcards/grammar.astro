@@ -205,8 +205,8 @@ const cardsJson = JSON.stringify(cards);
         return;
       }
       const card = filteredCards[currentIdx];
-      frontText.textContent = card.front;
-      backText.textContent = card.back;
+      frontText.innerHTML = card.front.replace(/\n/g, '<br>');
+      backText.innerHTML = card.back;
       frontLabel.textContent = card.type === 'mistake' ? 'Common Mistake' : card.topic;
       backLabel.textContent = card.type === 'mistake' ? 'Correction' : languageLabel(card.language);
       counterEl.textContent = `Card ${currentIdx + 1} of ${filteredCards.length}`;

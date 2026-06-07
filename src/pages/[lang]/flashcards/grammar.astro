@@ -1,0 +1,287 @@
+---
+import type { GetStaticPaths } from 'astro';
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { localePath } from '../../../lib/utils';
+import { getUI, languageName } from '../../../i18n';
+import { interfaceLocales, analyzedLanguages, type LocaleCode } from '../../../config/languages';
+import FlagIcon from '../../../components/astro/FlagIcon.astro';
+
+export const getStaticPaths = (() =>
+  interfaceLocales.map((locale) => ({
+    params: { lang: locale.code },
+  }))) satisfies GetStaticPaths;
+
+const lang = Astro.params.lang as LocaleCode;
+const ui = getUI(lang);
+
+const allTopics = await getCollection('topics');
+const published = allTopics.filter((t) => !t.data.draft);
+
+// Build flashcards from comparisonTable + commonMistakes
+interface Flashcard {
+  id: number;
+  front: string;
+  back: string;
+  topic: string;
+  language: string;
+  type: 'comparison' | 'mistake';
+}
+
+let idCounter = 0;
+const cards: Flashcard[] = [];
+
+published.forEach((topic) => {
+  // Comparison table cards
+  const table = topic.data.comparisonTable ?? topic.data.summaryTable;
+  if (table) {
+    table.forEach((row) => {
+      analyzedLanguages.forEach((l) => {
+        const val = row.values[l.code];
+        if (val && val !== '—') {
+          cards.push({
+            id: idCounter++,
+            front: `${topic.data.title} — ${row.concept}\n(${languageName(ui, l.code)})`,
+            back: val,
+            topic: topic.data.title,
+            language: l.code,
+            type: 'comparison',
+          });
+        }
+      });
+    });
+  }
+
+  // Common mistakes cards
+  if (topic.data.commonMistakes) {
+    topic.data.commonMistakes.forEach((m) => {
+      if (m.language) {
+        cards.push({
+          id: idCounter++,
+          front: `Common mistake (${languageName(ui, m.language)})\n${m.mistake}`,
+          back: `Correction:\n${m.correction}`,
+          topic: topic.data.title,
+          language: m.language,
+          type: 'mistake',
+        });
+      }
+    });
+  }
+});
+
+// Shuffle cards
+for (let i = cards.length - 1; i > 0; i--) {
+  const j = Math.floor(Math.random() * (i + 1));
+  [cards[i], cards[j]] = [cards[j], cards[i]];
+}
+
+// Re-assign IDs after shuffle
+cards.forEach((c, i) => { c.id = i; });
+
+const cardsJson = JSON.stringify(cards);
+---
+
+<BaseLayout
+  title={`${ui.nav.grammar} Flashcards — ${ui.site.name}`}
+  description={`Study grammar concepts with ${cards.length} interactive flashcards.`}
+  lang={lang}
+>
+  {/* Hero */}
+  <section class="border-b border-line bg-[#2a2520]">
+    <div class="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24">
+      <p class="font-mono text-xs uppercase tracking-[0.2em] text-accent">Flashcards</p>
+      <h1 class="mt-4 max-w-2xl font-display text-4xl font-semibold tracking-tight text-paper sm:text-5xl">{ui.nav.grammar} Flashcards</h1>
+      <p class="mt-4 max-w-xl text-lg text-paper/70">Flip cards to test your knowledge. {cards.length} grammar flashcards across all three languages.</p>
+    </div>
+  </section>
+
+  {/* Breadcrumb */}
+  <nav aria-label="Breadcrumb" class="mx-auto mt-6 flex max-w-6xl items-center gap-2 px-5 text-xs text-ink-faint sm:px-8">
+    <a href={localePath(lang)} class="transition-colors hover:text-accent">{ui.nav.home}</a>
+    <span>/</span>
+    <a href={localePath(lang, 'flashcards')} class="transition-colors hover:text-accent">{ui.nav.flashcards}</a>
+    <span>/</span>
+    <span class="text-ink-soft">{ui.nav.grammar}</span>
+  </nav>
+
+  {/* Controls */}
+  <section class="mx-auto mt-8 max-w-4xl px-5 sm:px-8">
+    <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+      {/* Language filter */}
+      <div class="flex flex-wrap gap-2" id="lang-filters">
+        <button data-lang="all" class="filter-btn rounded-full border border-accent bg-accent px-4 py-1.5 text-xs font-medium text-paper transition-all">All</button>
+        {analyzedLanguages.map((l) => (
+          <button data-lang={l.code} class="filter-btn rounded-full border border-line bg-paper px-4 py-1.5 text-xs font-medium text-ink-soft transition-all hover:border-accent hover:text-accent">
+            <span class="flex items-center gap-1.5">
+              <FlagIcon code={l.code} size={12} />
+              {languageName(ui, l.code)}
+            </span>
+          </button>
+        ))}
+      </div>
+      {/* Counter */}
+      <p class="font-mono text-sm text-ink-faint" id="card-counter">Card 1 of {cards.length}</p>
+    </div>
+  </section>
+
+  {/* Flashcard viewer */}
+  <section class="mx-auto mt-8 max-w-2xl px-5 pb-16 sm:px-8">
+    <div class="perspective-[1000px] w-full">
+      <div
+        id="flashcard"
+        class="relative aspect-[4/3] w-full cursor-pointer rounded-2xl border-2 border-line bg-paper shadow-lg transition-all duration-500"
+        style="transform-style: preserve-3d;"
+      >
+        {/* Front */}
+        <div
+          id="card-front"
+          class="absolute inset-0 flex flex-col items-center justify-center rounded-2xl bg-paper p-8"
+          style="backface-visibility: hidden;"
+        >
+          <span class="font-mono text-[10px] uppercase tracking-wider text-ink-faint" id="front-label">Concept</span>
+          <p class="mt-4 text-center font-display text-xl font-semibold text-ink sm:text-2xl" id="front-text">Loading...</p>
+          <span class="mt-6 text-xs text-ink-faint">Click or press Space to flip</span>
+        </div>
+        {/* Back */}
+        <div
+          id="card-back"
+          class="absolute inset-0 flex flex-col items-center justify-center rounded-2xl bg-paper p-8"
+          style="backface-visibility: hidden; transform: rotateY(180deg);"
+        >
+          <span class="font-mono text-[10px] uppercase tracking-wider text-accent" id="back-label">Answer</span>
+          <p class="mt-4 text-center font-display text-xl font-semibold text-ink sm:text-2xl" id="back-text">Loading...</p>
+          <span class="mt-6 text-xs text-ink-faint">Click or press Space to flip back</span>
+        </div>
+      </div>
+    </div>
+
+    {/* Navigation */}
+    <div class="mt-8 flex items-center justify-center gap-4">
+      <button
+        id="btn-prev"
+        class="flex h-12 w-12 items-center justify-center rounded-full border border-line bg-paper text-ink-soft transition-all hover:border-accent hover:text-accent"
+        aria-label="Previous card"
+      >
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <button
+        id="btn-flip"
+        class="rounded-full bg-accent px-8 py-3 font-display text-sm font-semibold text-paper transition-all hover:bg-accent/90 hover:shadow-lg"
+      >
+        Flip
+      </button>
+      <button
+        id="btn-next"
+        class="flex h-12 w-12 items-center justify-center rounded-full border border-line bg-paper text-ink-soft transition-all hover:border-accent hover:text-accent"
+        aria-label="Next card"
+      >
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
+    </div>
+
+    {/* Keyboard hint */}
+    <p class="mt-4 text-center text-xs text-ink-faint">← → arrows to navigate · Space to flip</p>
+  </section>
+
+  <script define:vars={{ cardsJson }}>
+    const allCards = JSON.parse(cardsJson);
+    let currentIdx = 0;
+    let filteredCards = [...allCards];
+    let isFlipped = false;
+
+    const cardEl = document.getElementById('flashcard');
+    const frontText = document.getElementById('front-text');
+    const backText = document.getElementById('back-text');
+    const frontLabel = document.getElementById('front-label');
+    const backLabel = document.getElementById('back-label');
+    const counterEl = document.getElementById('card-counter');
+    const filterBtns = document.querySelectorAll('.filter-btn');
+
+    function updateCard() {
+      if (filteredCards.length === 0) {
+        frontText.textContent = 'No cards match this filter.';
+        backText.textContent = 'Try a different language.';
+        counterEl.textContent = '0 cards';
+        return;
+      }
+      const card = filteredCards[currentIdx];
+      frontText.textContent = card.front;
+      backText.textContent = card.back;
+      frontLabel.textContent = card.type === 'mistake' ? 'Common Mistake' : card.topic;
+      backLabel.textContent = card.type === 'mistake' ? 'Correction' : languageLabel(card.language);
+      counterEl.textContent = `Card ${currentIdx + 1} of ${filteredCards.length}`;
+
+      // Reset flip
+      isFlipped = false;
+      cardEl.style.transform = '';
+    }
+
+    function languageLabel(code) {
+      const labels = { spanish: 'Spanish', english: 'English', chinese: 'Chinese' };
+      return labels[code] || code;
+    }
+
+    function flip() {
+      isFlipped = !isFlipped;
+      cardEl.style.transform = isFlipped ? 'rotateY(180deg)' : '';
+    }
+
+    function next() {
+      if (filteredCards.length === 0) return;
+      currentIdx = (currentIdx + 1) % filteredCards.length;
+      updateCard();
+    }
+
+    function prev() {
+      if (filteredCards.length === 0) return;
+      currentIdx = (currentIdx - 1 + filteredCards.length) % filteredCards.length;
+      updateCard();
+    }
+
+    function setFilter(langCode) {
+      if (langCode === 'all') {
+        filteredCards = [...allCards];
+      } else {
+        filteredCards = allCards.filter((c) => c.language === langCode);
+      }
+      currentIdx = 0;
+      updateCard();
+
+      filterBtns.forEach((btn) => {
+        const isActive = btn.getAttribute('data-lang') === langCode;
+        btn.classList.toggle('border-accent', isActive);
+        btn.classList.toggle('bg-accent', isActive);
+        btn.classList.toggle('text-paper', isActive);
+        btn.classList.toggle('border-line', !isActive);
+        btn.classList.toggle('bg-paper', !isActive);
+        btn.classList.toggle('text-ink-soft', !isActive);
+      });
+    }
+
+    // Event listeners
+    cardEl?.addEventListener('click', flip);
+    document.getElementById('btn-flip')?.addEventListener('click', flip);
+    document.getElementById('btn-next')?.addEventListener('click', next);
+    document.getElementById('btn-prev')?.addEventListener('click', prev);
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === ' ' || e.key === 'Spacebar') {
+        e.preventDefault();
+        flip();
+      } else if (e.key === 'ArrowRight') {
+        next();
+      } else if (e.key === 'ArrowLeft') {
+        prev();
+      }
+    });
+
+    filterBtns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        setFilter(btn.getAttribute('data-lang'));
+      });
+    });
+
+    // Init
+    updateCard();
+  </script>
+</BaseLayout>

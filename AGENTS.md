@@ -49,6 +49,8 @@ language-reference-web/
 │   │   │   ├── grammar/
 │   │   │   ├── flashcards/
 │   │   │   ├── learning-paths/
+│   │   │   │   ├── [...slug].astro      # Landing page
+│   │   │   │   └── [languageCode].astro # Per-language roadmap
 │   │   │   ├── topics/
 │   │   │   ├── comparisons/
 │   │   │   ├── guides/
@@ -151,7 +153,73 @@ language-reference-web/
 - Maintain accessible color contrast ratios.
 - Avoid `!important` in Tailwind utilities.
 
-### 7. SEO & GEO
+### 7. Design Consistency
+
+All landing and index pages must follow the same visual system.
+
+#### Hero Section (Universal)
+Every hero must use **exactly** this structure:
+```
+<section class="border-b border-line bg-[#2a2520]">
+  <div class="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24">
+    <p class="font-mono text-xs uppercase tracking-[0.2em] text-accent">
+      {section_label}
+    </p>
+    <h1 class="mt-4 max-w-2xl font-display text-4xl font-semibold tracking-tight text-paper sm:text-5xl">
+      {page_title}
+    </h1>
+    <p class="mt-4 max-w-xl text-lg text-paper/70">
+      {page_description}
+    </p>
+  </div>
+</section>
+```
+- **Background**: always `bg-[#2a2520]` (dark warm brown)
+- **Label**: `text-xs`, `uppercase`, `tracking-[0.2em]`, `text-accent`. No `font-bold`.
+- **Title**: `text-paper` (white-ish)
+- **Description**: `text-paper/70`
+- **No `mt-8` or extra offsets** on the `<section>` element
+
+#### Method Section
+After the hero, every landing page should show a "How it Works" section:
+```
+<section class="border-y border-line bg-paper-deep">
+  <p class="font-mono text-xs font-bold uppercase tracking-[0.2em] text-accent">Method</p>
+  <h2 class="mt-3 font-display text-3xl font-semibold tracking-tight sm:text-4xl">{title}</h2>
+  {/* 4 numbered cards in a grid */}
+</section>
+```
+- Cards: `rounded-2xl border border-line bg-paper`, numbered `01–04` in a circle
+- Hover: `-translate-y-1`, `border-accent/30`, `shadow-lg`
+
+#### Cards (Categories / Languages / Paths)
+All card grids must use this pattern:
+```
+<a class="group relative flex flex-col overflow-hidden rounded-2xl border border-line bg-paper transition-all hover:shadow-lg hover:border-accent/20">
+  {/* Optional color bar */}
+  <div class="h-1.5 w-full" style={`background:${color}`} />
+  <div class="flex flex-1 flex-col p-8">
+    {/* Icon + title + code */}
+    {/* Description */}
+    {/* Metadata grid with hover reveal */}
+    <span class="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold ...">
+      CTA <span>→</span>
+    </span>
+  </div>
+</a>
+```
+- 3-column grid on desktop: `grid gap-6 sm:grid-cols-2 lg:grid-cols-3`
+- Arrow CTA with `group-hover:translate-x-1`
+
+#### Vocabulary Sub-Pages
+Words, phrases, expressions, and frequency-lists share a **common layout**:
+- Same hero structure (see above)
+- Breadcrumb nav below hero
+- Language filter buttons
+- Paginated table or grid
+- Client-side vanilla TS for filtering (no framework)
+
+### 8. SEO & GEO
 
 - Every page needs: title, description, canonical URL, OG tags, `hreflang` alternates.
 - Add structured data (JSON-LD) for grammar concepts.

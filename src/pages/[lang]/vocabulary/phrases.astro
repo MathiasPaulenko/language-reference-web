@@ -23,6 +23,32 @@ if (!entry) {
 }
 
 const vocabData = entry.data;
+const totalPages = Math.ceil((vocabData.entries || []).length / 20);
+
+function range(start: number, end: number) {
+  const out = [];
+  for (let i = start; i <= end; i++) out.push(i);
+  return out;
+}
+
+function getPageItems(currentPage: number) {
+  if (totalPages <= 7) return range(0, totalPages - 1).map(p => ({ type: 'page', value: p }));
+  if (currentPage <= 3) {
+    return [...range(0, 4).map(p => ({ type: 'page' as const, value: p })), { type: 'gap' as const, value: -1 }, { type: 'page' as const, value: totalPages - 1 }];
+  }
+  if (currentPage >= totalPages - 4) {
+    return [{ type: 'page' as const, value: 0 }, { type: 'gap' as const, value: -1 }, ...range(totalPages - 5, totalPages - 1).map(p => ({ type: 'page' as const, value: p }))];
+  }
+  return [
+    { type: 'page' as const, value: 0 },
+    { type: 'gap' as const, value: -1 },
+    ...range(currentPage - 2, currentPage + 2).map(p => ({ type: 'page' as const, value: p })),
+    { type: 'gap' as const, value: -1 },
+    { type: 'page' as const, value: totalPages - 1 },
+  ];
+}
+
+const initialPageItems = getPageItems(0);
 ---
 
 <BaseLayout
@@ -103,8 +129,8 @@ const vocabData = entry.data;
             </tr>
           </thead>
           <tbody>
-            {vocabData.entries.map((item) => (
-              <tr class="vocab-row border-b border-line transition-colors hover:bg-paper-deep/50">
+            {vocabData.entries.map((item, idx) => (
+              <tr class="vocab-row border-b border-line transition-colors hover:bg-paper-deep/50" data-page={Math.floor(idx / 20)}>
                 <td class="px-5 py-4 font-display text-base font-semibold text-ink">{item.word}</td>
                 {analyzedLanguages.map((l) => (
                   <td class="vocab-col px-5 py-4 text-ink-soft" data-lang={l.code} set:html={withPinyin(item.translations[l.code] || '—')} />
@@ -115,6 +141,19 @@ const vocabData = entry.data;
           </tbody>
         </table>
       </div>
+
+      {/* Pagination */}
+      <nav aria-label="Pagination" class="mt-6 flex items-center justify-between" id="pagination">
+        <button id="page-prev" class="rounded-full border border-line bg-paper px-4 py-2 text-sm font-medium text-ink-soft transition-colors hover:border-accent hover:text-accent disabled:opacity-30 disabled:cursor-not-allowed">Previous</button>
+        <div id="page-numbers" class="flex items-center gap-1">
+          {initialPageItems.map((item) => (
+            item.type === 'gap'
+              ? <span class="page-gap px-1.5 text-sm text-ink-faint">...</span>
+              : <button class="page-num rounded-full border border-line bg-paper px-3.5 py-2 text-sm font-medium text-ink-soft transition-colors hover:border-accent hover:text-accent" data-page={item.value}>{item.value + 1}</button>
+          ))}
+        </div>
+        <button id="page-next" class="rounded-full border border-line bg-paper px-4 py-2 text-sm font-medium text-ink-soft transition-colors hover:border-accent hover:text-accent disabled:opacity-30 disabled:cursor-not-allowed">Next</button>
+      </nav>
     </section>
   )}
 
@@ -131,9 +170,60 @@ const vocabData = entry.data;
       var cols = document.querySelectorAll('.vocab-col');
       var table = document.getElementById('vocab-table');
       var empty = document.getElementById('vocab-empty');
+      var rows = document.querySelectorAll('.vocab-row');
+      var prevBtn = document.getElementById('page-prev');
+      var nextBtn = document.getElementById('page-next');
+      var pageContainer = document.getElementById('page-numbers');
+      var perPage = 20;
+      var totalPages = Math.ceil(rows.length / perPage);
+      var currentPage = 0;
 
       function isChecked(el) { return el.getAttribute('data-checked') === 'true'; }
       function setChecked(el, v) { el.setAttribute('data-checked', String(v)); el.setAttribute('aria-pressed', String(v)); }
+
+      function range(a, b) { var o = []; for (var i = a; i <= b; i++) o.push(i); return o; }
+
+      function getPageItems() {
+        if (totalPages <= 7) return range(0, totalPages - 1);
+        if (currentPage <= 3) return range(0, 4).concat([-1, totalPages - 1]);
+        if (currentPage >= totalPages - 4) return [0, -1].concat(range(totalPages - 5, totalPages - 1));
+        return [0, -1].concat(range(currentPage - 2, currentPage + 2)).concat([-1, totalPages - 1]);
+      }
+
+      function renderButtons() {
+        if (!pageContainer) return;
+        var items = getPageItems();
+        var html = '';
+        for (var i = 0; i < items.length; i++) {
+          var p = items[i];
+          if (p === -1) {
+            html += '<span class="page-gap px-1.5 text-sm text-ink-faint">...</span>';
+          } else {
+            var activeCls = p === currentPage ? 'border-accent text-accent' : 'border-line text-ink-soft';
+            html += '<button class="page-num rounded-full border bg-paper px-3.5 py-2 text-sm font-medium transition-colors hover:border-accent hover:text-accent ' + activeCls + '" data-page="' + p + '">' + (p + 1) + '</button>';
+          }
+        }
+        pageContainer.innerHTML = html;
+        var btns = pageContainer.querySelectorAll('.page-num');
+        for (var j = 0; j < btns.length; j++) {
+          (function(btn) {
+            btn.addEventListener('click', function() {
+              showPage(parseInt(btn.getAttribute('data-page'), 10));
+            });
+          })(btns[j]);
+        }
+      }
+
+      function showPage(page) {
+        currentPage = page;
+        for (var i = 0; i < rows.length; i++) {
+          var rp = parseInt(rows[i].getAttribute('data-page'), 10);
+          rows[i].style.display = (rp === currentPage) ? '' : 'none';
+        }
+        renderButtons();
+        if (prevBtn) prevBtn.disabled = currentPage === 0;
+        if (nextBtn) nextBtn.disabled = currentPage >= totalPages - 1;
+      }
 
       function updateLangFilter() {
         var active = {};
@@ -195,7 +285,20 @@ const vocabData = entry.data;
         });
       }
 
+      if (prevBtn) {
+        prevBtn.addEventListener('click', function() {
+          if (currentPage > 0) showPage(currentPage - 1);
+        });
+      }
+
+      if (nextBtn) {
+        nextBtn.addEventListener('click', function() {
+          if (currentPage < totalPages - 1) showPage(currentPage + 1);
+        });
+      }
+
       updateLangFilter();
+      showPage(0);
     })();
   </script>
 </BaseLayout>

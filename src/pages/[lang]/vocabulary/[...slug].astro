@@ -7,10 +7,6 @@ import { interfaceLocales, type LocaleCode } from '../../../config/languages';
 
 export const getStaticPaths = (() =>
   interfaceLocales.flatMap((locale) => [
-    { params: { lang: locale.code, slug: 'words' } },
-    { params: { lang: locale.code, slug: 'phrases' } },
-    { params: { lang: locale.code, slug: 'expressions' } },
-    { params: { lang: locale.code, slug: 'frequency-lists' } },
     { params: { lang: locale.code, slug: undefined } },
   ])) satisfies GetStaticPaths;
 
@@ -61,17 +57,7 @@ const freqBars = [
 ];
 ---
 
-{slug ? (
-  <BaseLayout title={`${ui.nav.vocabulary} — ${ui.site.name}`} description={ui.nav.vocabulary} lang={lang}>
-    <section class="mx-auto max-w-4xl px-5 py-16 sm:px-8 sm:py-24 text-center">
-      <p class="font-mono text-xs uppercase tracking-[0.2em] text-accent">{ui.nav.vocabulary}</p>
-      <h1 class="mt-4 font-display text-4xl font-semibold tracking-tight text-ink sm:text-5xl">{ui.placeholders.comingSoon}</h1>
-      <p class="mt-6 text-lg text-ink-soft">{ui.placeholders.noContent}</p>
-      <a href={`/${lang}/`} class="mt-8 inline-block text-sm font-semibold text-accent hover:underline">{ui.error.backToHome}</a>
-    </section>
-  </BaseLayout>
-) : (
-  <BaseLayout title={`${ui.landing.vocabularyTitle} — ${ui.site.name}`} description={ui.landing.vocabularyDesc} lang={lang}>
+<BaseLayout title={`${ui.landing.vocabularyTitle} — ${ui.site.name}`} description={ui.landing.vocabularyDesc} lang={lang}>
     {/* Hero */}
     <section class="border-b border-line bg-[#3d3630]">
       <div class="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24">
@@ -172,4 +158,3 @@ const freqBars = [
     </section>
 
   </BaseLayout>
-)}

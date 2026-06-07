@@ -120,7 +120,7 @@ const stages = [
             <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {topics.map((topic, idx) => (
                 <a
-                  href={sectionPath(lang, 'topics', topic.id)}
+                  href={`${sectionPath(lang, 'topics', topic.id)}?lang=${languageCode}`}
                   class="group flex flex-col rounded-xl border border-line bg-paper p-6 transition-all hover:shadow-lg hover:border-accent/20"
                   style={`border-left: 3px solid ${stage.color}`}
                 >

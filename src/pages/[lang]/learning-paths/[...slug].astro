@@ -91,47 +91,46 @@ const pathSteps = [
     {/* Language paths */}
     <section class="border-t border-line bg-paper-deep">
       <div class="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24">
-        <p class="font-mono text-xs uppercase tracking-[0.2em] text-accent">Choose a path</p>
+        <p class="font-mono text-xs font-bold uppercase tracking-[0.2em] text-accent">Choose a path</p>
         <h2 class="mt-3 font-display text-3xl font-semibold tracking-tight sm:text-4xl">Start learning</h2>
 
         <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {analyzedLanguages.map((l) => (
-            <a href={localePath(lang, `learning-paths/${l.code}`)} class="group flex flex-col rounded-2xl border border-line bg-paper p-8 transition-all hover:shadow-lg hover:border-accent/20">
-              <div class="flex items-center gap-3">
-                <span class="flex h-10 w-10 items-center justify-center rounded-full" style={`background:${l.color}15`}>
-                  <FlagIcon code={l.code} size={20} />
-                </span>
-                <h3 class="font-display text-2xl font-semibold tracking-tight text-ink transition-colors group-hover:text-accent">{languageName(ui, l.code)}</h3>
-              </div>
-              <p class="mt-4 flex-1 text-sm leading-relaxed text-ink-soft">A structured journey through {languageName(ui, l.code)} grammar and vocabulary. From first concepts to advanced usage.</p>
-              <span class="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-accent transition-transform group-hover:translate-x-1">
-                Start path <span>→</span>
-              </span>
-            </a>
-          ))}
-        </div>
-      </div>
-    </section>
+            <a href={localePath(lang, `learning-paths/${l.code}`)} class="group relative flex flex-col overflow-hidden rounded-2xl border border-line bg-paper transition-all hover:shadow-lg hover:border-accent/20">
+              {/* Color bar */}
+              <div class="h-1.5 w-full" style={`background:${l.color}`} />
+              <div class="flex flex-1 flex-col p-8">
+                <div class="flex items-center gap-3">
+                  <span class="flex h-10 w-10 items-center justify-center rounded-full" style={`background:${l.color}15`}>
+                    <FlagIcon code={l.code} size={20} />
+                  </span>
+                  <div>
+                    <h3 class="font-display text-2xl font-semibold tracking-tight text-ink">{languageName(ui, l.code)}</h3>
+                    <p class="font-mono text-xs uppercase tracking-wider text-ink-faint">{l.code}</p>
+                  </div>
+                </div>
+                <p class="mt-4 flex-1 text-sm leading-relaxed text-ink-soft">A structured journey through {languageName(ui, l.code)} grammar and vocabulary. From first concepts to advanced usage.</p>
 
-    {/* Where to go next */}
-    <section class="border-t border-line bg-paper-deep">
-      <div class="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24">
-        <p class="font-mono text-xs uppercase tracking-[0.2em] text-accent">Explore</p>
-        <h2 class="mt-3 font-display text-3xl font-semibold tracking-tight sm:text-4xl">Where to go next</h2>
+                {/* Stage grid */}
+                <div class="mt-5 grid grid-cols-2 gap-3 rounded-xl bg-paper-deep p-4 opacity-60 transition-opacity group-hover:opacity-100">
+                  <div>
+                    <p class="font-mono text-[10px] uppercase tracking-wider text-ink-faint">Foundations</p>
+                    <p class="mt-0.5 font-display text-sm font-semibold text-ink">Beginner</p>
+                  </div>
+                  <div>
+                    <p class="font-mono text-[10px] uppercase tracking-wider text-ink-faint">Building</p>
+                    <p class="mt-0.5 font-display text-sm font-semibold text-ink">Intermediate</p>
+                  </div>
+                  <div class="col-span-2">
+                    <p class="font-mono text-[10px] uppercase tracking-wider text-ink-faint">Final stage</p>
+                    <p class="mt-0.5 font-display text-sm font-semibold text-ink">Advanced mastery</p>
+                  </div>
+                </div>
 
-        <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {analyzedLanguages.map((l) => (
-            <a href={localePath(lang, `learning-paths/${l.code}`)} class="group flex flex-col rounded-2xl border border-line bg-paper p-8 transition-all hover:shadow-lg hover:border-accent/20">
-              <div class="flex items-center gap-3">
-                <span class="flex h-10 w-10 items-center justify-center rounded-full" style={`background:${l.color}15`}>
-                  <FlagIcon code={l.code} size={20} />
+                <span class="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-ink-faint transition-colors group-hover:text-accent">
+                  Start path <span class="transition-transform group-hover:translate-x-1">→</span>
                 </span>
-                <h3 class="font-display text-2xl font-semibold tracking-tight text-ink transition-colors group-hover:text-accent">{languageName(ui, l.code)}</h3>
               </div>
-              <p class="mt-4 flex-1 text-sm leading-relaxed text-ink-soft">Follow the structured path through {languageName(ui, l.code)} grammar and vocabulary.</p>
-              <span class="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-accent transition-transform group-hover:translate-x-1">
-                Start {languageName(ui, l.code)} path <span>→</span>
-              </span>
             </a>
           ))}
         </div>

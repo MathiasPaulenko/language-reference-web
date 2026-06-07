@@ -52,6 +52,19 @@ const stages = [
     color: '#2b5c8a',
   },
 ];
+
+function getLevelLabel(difficulty: string, langCode: string): string {
+  if (langCode === 'chinese') {
+    if (difficulty === 'beginner') return 'HSK 1–2';
+    if (difficulty === 'intermediate') return 'HSK 3–4';
+    if (difficulty === 'advanced') return 'HSK 5–6';
+  }
+  // Default: CEFR for English, Spanish, etc.
+  if (difficulty === 'beginner') return 'A1–A2';
+  if (difficulty === 'intermediate') return 'B1–B2';
+  if (difficulty === 'advanced') return 'C1–C2';
+  return difficulty;
+}
 ---
 
 <BaseLayout
@@ -127,7 +140,7 @@ const stages = [
                   <div class="flex items-center justify-between">
                     <span class="font-mono text-xs text-ink-faint">{String(idx + 1).padStart(2, '0')}</span>
                     <span class="rounded-full bg-paper-deep px-2 py-0.5 font-mono text-[10px] font-bold uppercase tracking-wider text-ink-faint">
-                      {stage.label}
+                      {getLevelLabel(topic.data.difficulty ?? 'beginner', languageCode)}
                     </span>
                   </div>
                   <h3 class="mt-3 font-display text-lg font-semibold tracking-tight text-ink transition-colors group-hover:text-accent">

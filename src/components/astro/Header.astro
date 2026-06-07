@@ -75,21 +75,9 @@ const ui = getUI(lang);
       </a>
 
       {/* Flashcards */}
-      <div class="group relative flex h-16 items-center">
-        <button class="flex items-center gap-1 px-3 text-sm font-medium text-ink-soft transition-colors hover:text-ink">
-          {ui.nav.flashcards}
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true" class="transition-transform duration-200 group-hover:rotate-180">
-            <polyline points="6 9 12 15 18 9"></polyline>
-          </svg>
-        </button>
-        <div class="invisible absolute left-0 top-full z-50 w-48 overflow-hidden rounded-xl border border-line bg-paper shadow-lg opacity-0 transition-all duration-150 group-hover:visible group-hover:opacity-100">
-          <div class="py-2">
-            <a href={localePath(lang, 'flashcards/grammar')} class="block px-4 py-2 text-sm text-ink-soft transition-colors hover:bg-paper-deep hover:text-ink">{ui.nav.grammar}</a>
-            <a href={localePath(lang, 'flashcards/vocabulary')} class="block px-4 py-2 text-sm text-ink-soft transition-colors hover:bg-paper-deep hover:text-ink">{ui.nav.vocabulary}</a>
-            <a href={localePath(lang, 'flashcards/phrases')} class="block px-4 py-2 text-sm text-ink-soft transition-colors hover:bg-paper-deep hover:text-ink">{ui.nav.phrases}</a>
-          </div>
-        </div>
-      </div>
+      <a href={localePath(lang, 'flashcards')} class="flex h-16 items-center px-3 text-sm font-medium text-ink-soft transition-colors hover:text-ink">
+        {ui.nav.flashcards}
+      </a>
     </nav>
 
     <div class="flex items-center gap-3">

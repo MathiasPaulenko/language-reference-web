@@ -4,7 +4,7 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import { localePath, sectionPath } from '../../../lib/utils';
 import { getUI, languageName } from '../../../i18n';
-import { interfaceLocales, analyzedLanguages, type LocaleCode } from '../../../config/languages';
+import { interfaceLocales, analyzedLanguages, type LocaleCode, type AnalyzedLanguageCode } from '../../../config/languages';
 import FlagIcon from '../../../components/astro/FlagIcon.astro';
 
 export const getStaticPaths = (() =>
@@ -16,7 +16,7 @@ export const getStaticPaths = (() =>
 
 const lang = Astro.params.lang as LocaleCode;
 const ui = getUI(lang);
-const languageCode = Astro.params.languageCode as string;
+const languageCode = Astro.params.languageCode as AnalyzedLanguageCode;
 
 const language = analyzedLanguages.find((l) => l.code === languageCode);
 if (!language) {
@@ -60,16 +60,13 @@ const stages = [
   lang={lang}
 >
   {/* Hero */}
-  <section class="border-b border-line" style={`background:${language.color}15`}>
+  <section class="border-b border-line bg-[#2a2520]">
     <div class="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24">
-      <div class="flex items-center gap-2">
-        <span class="h-3 w-3 rounded-full" style={`background:${language.color}`} />
-        <p class="font-mono text-xs uppercase tracking-[0.2em] text-ink-faint">{ui.nav.learningPaths}</p>
-      </div>
-      <h1 class="mt-4 max-w-2xl font-display text-4xl font-semibold tracking-tight text-ink sm:text-5xl">
+      <p class="font-mono text-xs uppercase tracking-[0.2em] text-accent">{ui.nav.learningPaths}</p>
+      <h1 class="mt-4 max-w-2xl font-display text-4xl font-semibold tracking-tight text-paper sm:text-5xl">
         {languageName(ui, languageCode)} Learning Path
       </h1>
-      <p class="mt-4 max-w-xl text-lg text-ink-soft">
+      <p class="mt-4 max-w-xl text-lg text-paper/70">
         A structured journey from first concepts to advanced usage. Follow the stages in order, or jump to the topic you need.
       </p>
     </div>

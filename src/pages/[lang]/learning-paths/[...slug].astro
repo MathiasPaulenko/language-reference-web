@@ -8,9 +8,6 @@ import FlagIcon from '../../../components/astro/FlagIcon.astro';
 
 export const getStaticPaths = (() =>
   interfaceLocales.flatMap((locale) => [
-    { params: { lang: locale.code, slug: 'spanish' } },
-    { params: { lang: locale.code, slug: 'english' } },
-    { params: { lang: locale.code, slug: 'chinese' } },
     { params: { lang: locale.code, slug: undefined } },
   ])) satisfies GetStaticPaths;
 
@@ -27,17 +24,7 @@ const pathSteps = [
 ];
 ---
 
-{slug ? (
-  <BaseLayout title={`${ui.nav.learningPaths} — ${ui.site.name}`} description={ui.nav.learningPaths} lang={lang}>
-    <section class="mx-auto max-w-4xl px-5 py-16 sm:px-8 sm:py-24 text-center">
-      <p class="font-mono text-xs uppercase tracking-[0.2em] text-accent">{ui.nav.learningPaths}</p>
-      <h1 class="mt-4 font-display text-4xl font-semibold tracking-tight text-ink sm:text-5xl">{ui.placeholders.comingSoon}</h1>
-      <p class="mt-6 text-lg text-ink-soft">{ui.placeholders.noContent}</p>
-      <a href={`/${lang}/`} class="mt-8 inline-block text-sm font-semibold text-accent hover:underline">{ui.error.backToHome}</a>
-    </section>
-  </BaseLayout>
-) : (
-  <BaseLayout title={`${ui.landing.learningPathsTitle} — ${ui.site.name}`} description={ui.landing.learningPathsDesc} lang={lang}>
+<BaseLayout title={`${ui.landing.learningPathsTitle} — ${ui.site.name}`} description={ui.landing.learningPathsDesc} lang={lang}>
     {/* Hero */}
     <section class="border-b border-line bg-[#2a2520]">
       <div class="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24">
@@ -151,4 +138,3 @@ const pathSteps = [
       </div>
     </section>
   </BaseLayout>
-)}

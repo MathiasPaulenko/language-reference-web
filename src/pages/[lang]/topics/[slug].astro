@@ -32,11 +32,15 @@ export async function getStaticPaths() {
 const { entry, lang } = Astro.props;
 const ui = getUI(lang as LocaleCode);
 const topicUrl = Astro.site ? new URL(Astro.url.pathname, Astro.site).toString() : Astro.url.pathname;
+
+// Keep titles under 60 chars: drop site name if the full title would be too long
+const fullTitle = `${entry.data.title} | ${ui.site.name}`;
+const pageTitle = fullTitle.length <= 60 ? fullTitle : entry.data.title;
 const topicsIndexUrl = Astro.site ? new URL(Astro.url.pathname.replace(/[^/]+\/$/, ''), Astro.site).toString() : Astro.url.pathname.replace(/[^/]+\/$/, '');
 ---
 
 <BaseLayout
-  title={`${entry.data.title} — ${ui.site.name}`}
+  title={pageTitle}
   description={entry.data.description}
   lang={lang}
   jsonLd={[

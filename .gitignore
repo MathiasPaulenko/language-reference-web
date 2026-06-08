@@ -33,3 +33,6 @@ public/pagefind/
 
 # reference files
 ref/
+
+# local-use scripts (not needed in production)
+scripts/find-untranslated.cjs

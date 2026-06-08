@@ -1,6 +1,9 @@
 ---
 import { DEFAULT_LOCALE } from '../config/languages';
 import { localePath } from '../lib/utils';
+import { getUI } from '../i18n';
+
+const ui = getUI(DEFAULT_LOCALE);
 
 // Static landing redirect: GitHub Pages has no server, so we emit an HTML
 // page that forwards visitors to the default-locale home (/en/).
@@ -23,6 +26,6 @@ const target = localePath(DEFAULT_LOCALE);
     <meta property="og:image" content="https://grammarnavigator.com/og-image.jpg" />
   </head>
   <body>
-    <p>Redirecting to <a href={target}>Grammar Navigator</a>…</p>
+    <p>{ui.redirect.redirectingTo} <a href={target}>{ui.site.name}</a>…</p>
   </body>
 </html>

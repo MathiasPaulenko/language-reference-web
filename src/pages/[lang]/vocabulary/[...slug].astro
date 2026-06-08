@@ -18,28 +18,28 @@ const vocabCards = [
   {
     key: 'words',
     title: ui.nav.words,
-    desc: 'Curated word lists organized by topic and frequency. Learn the most useful words first.',
+    desc: ui.landing.vocabWordsDesc,
     icon: 'book',
     count: '999',
   },
   {
     key: 'phrases',
     title: ui.nav.phrases,
-    desc: 'Essential phrases for everyday situations. Greetings, requests, questions, and more.',
+    desc: ui.landing.vocabPhrasesDesc,
     icon: 'message',
     count: '500',
   },
   {
     key: 'expressions',
     title: ui.nav.expressions,
-    desc: 'Idiomatic expressions and colloquialisms that native speakers actually use.',
+    desc: ui.landing.vocabExpressionsDesc,
     icon: 'zap',
     count: '100',
   },
   {
     key: 'frequency-lists',
     title: ui.nav.frequencyLists,
-    desc: 'Words ranked by real-world usage frequency. Start with the ones that matter most.',
+    desc: ui.landing.vocabFreqDesc,
     icon: 'bar-chart',
     count: '100',
   },
@@ -87,8 +87,8 @@ const vocabCards = [
 
     {/* Cards */}
     <section class="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24" id="vocab-categories">
-      <p class="font-mono text-xs font-bold uppercase tracking-[0.2em] text-accent">Categories</p>
-      <h2 class="mt-3 font-display text-3xl font-semibold tracking-tight sm:text-4xl">What you can learn</h2>
+      <p class="font-mono text-xs font-bold uppercase tracking-[0.2em] text-accent">{ui.landing.vocabCategories}</p>
+      <h2 class="mt-3 font-display text-3xl font-semibold tracking-tight sm:text-4xl">{ui.landing.vocabWhatLearn}</h2>
 
       <div class="mt-10 grid gap-6 sm:grid-cols-2">
         {vocabCards.map((card) => (

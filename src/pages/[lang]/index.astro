@@ -172,13 +172,13 @@ const steps = [
     </div>
   </section>
 
-  <!-- Grammar Concepts (Topics) — PRIMARY NAVIGATION -->
+  <!-- Grammar Concepts (Topics) -->
   <section class="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-28">
     <div class="flex items-end justify-between gap-6">
       <div>
-        <p class="font-mono text-xs font-bold uppercase tracking-[0.2em] text-accent">{ui.nav.topics}</p>
-        <h2 class="mt-3 font-display text-3xl font-semibold tracking-tight sm:text-4xl">{ui.topics.title}</h2>
-        <p class="mt-3 max-w-xl text-ink-soft">{ui.topics.subtitle}</p>
+        <p class="font-mono text-xs font-bold uppercase tracking-[0.2em] text-accent">{ui.nav.grammar}</p>
+        <h2 class="mt-3 font-display text-3xl font-semibold tracking-tight sm:text-4xl">{ui.landing.grammarTitle}</h2>
+        <p class="mt-3 max-w-xl text-ink-soft">{ui.landing.grammarDesc}</p>
       </div>
     </div>
 
@@ -215,6 +215,177 @@ const steps = [
     </div>
   </section>
 
+  <!-- Languages -->
+  <section class="border-y border-line bg-paper-deep">
+    <div class="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-28">
+      <p class="font-mono text-xs font-bold uppercase tracking-[0.2em] text-accent">{ui.nav.languages}</p>
+      <h2 class="mt-3 font-display text-3xl font-semibold tracking-tight sm:text-4xl">{ui.landing.languagesTitle}</h2>
+      <p class="mt-3 max-w-xl text-ink-soft">{ui.landing.languagesDesc}</p>
+
+      <div class="mt-12 grid gap-6 sm:grid-cols-3">
+        {
+          analyzedLanguages.map((l) => (
+            <a
+              href={sectionPath(lang, 'languages', l.code)}
+              class="group relative flex flex-col overflow-hidden rounded-2xl border border-line bg-paper transition-all hover:-translate-y-1 hover:border-accent/20 hover:shadow-lg"
+            >
+              <div class="h-1.5 w-full" style={`background:${l.color}`} />
+              <div class="flex flex-1 flex-col p-8">
+                <div class="flex items-center gap-3">
+                  <span class="flex h-10 w-10 items-center justify-center rounded-full" style={`background:${l.color}15`}>
+                    <FlagIcon code={l.code} size={20} />
+                  </span>
+                  <h3 class="font-display text-xl font-semibold tracking-tight text-ink">{languageName(ui, l.code)}</h3>
+                </div>
+                <p class="mt-3 flex-1 text-sm leading-relaxed text-ink-soft">
+                  {ui.languages.heroDesc.replace('{language}', languageName(ui, l.code)).replace('{count}', String(topics.length))}
+                </p>
+                <span class="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-accent">
+                  {ui.languages.grammarSuffix}
+                  <span class="transition-transform group-hover:translate-x-1">→</span>
+                </span>
+              </div>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Vocabulary -->
+  <section class="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-28">
+    <p class="font-mono text-xs font-bold uppercase tracking-[0.2em] text-accent">{ui.nav.vocabulary}</p>
+    <h2 class="mt-3 font-display text-3xl font-semibold tracking-tight sm:text-4xl">{ui.landing.vocabularyTitle}</h2>
+    <p class="mt-3 max-w-xl text-ink-soft">{ui.landing.vocabularyDesc}</p>
+
+    <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <a href={localePath(lang, 'vocabulary/words')} class="group relative flex flex-col overflow-hidden rounded-2xl border border-line bg-paper transition-all hover:-translate-y-1 hover:border-accent/20 hover:shadow-lg">
+        <div class="h-1.5 w-full bg-[#3b6ea5]" />
+        <div class="flex flex-1 flex-col p-8">
+          <h3 class="font-display text-xl font-semibold tracking-tight text-ink">{ui.nav.words}</h3>
+          <p class="mt-3 flex-1 text-sm leading-relaxed text-ink-soft">Curated word lists organized by usefulness. Learn the most common words first.</p>
+          <span class="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-accent">
+            Explore
+            <span class="transition-transform group-hover:translate-x-1">→</span>
+          </span>
+        </div>
+      </a>
+      <a href={localePath(lang, 'vocabulary/phrases')} class="group relative flex flex-col overflow-hidden rounded-2xl border border-line bg-paper transition-all hover:-translate-y-1 hover:border-accent/20 hover:shadow-lg">
+        <div class="h-1.5 w-full bg-[#b4452a]" />
+        <div class="flex flex-1 flex-col p-8">
+          <h3 class="font-display text-xl font-semibold tracking-tight text-ink">{ui.nav.phrases}</h3>
+          <p class="mt-3 flex-1 text-sm leading-relaxed text-ink-soft">Everyday phrases and expressions for real conversations.</p>
+          <span class="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-accent">
+            Explore
+            <span class="transition-transform group-hover:translate-x-1">→</span>
+          </span>
+        </div>
+      </a>
+      <a href={localePath(lang, 'vocabulary/expressions')} class="group relative flex flex-col overflow-hidden rounded-2xl border border-line bg-paper transition-all hover:-translate-y-1 hover:border-accent/20 hover:shadow-lg">
+        <div class="h-1.5 w-full bg-[#2f7a6b]" />
+        <div class="flex flex-1 flex-col p-8">
+          <h3 class="font-display text-xl font-semibold tracking-tight text-ink">{ui.nav.expressions}</h3>
+          <p class="mt-3 flex-1 text-sm leading-relaxed text-ink-soft">Idiomatic expressions and colloquialisms across languages.</p>
+          <span class="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-accent">
+            Explore
+            <span class="transition-transform group-hover:translate-x-1">→</span>
+          </span>
+        </div>
+      </a>
+      <a href={localePath(lang, 'vocabulary/frequency-lists')} class="group relative flex flex-col overflow-hidden rounded-2xl border border-line bg-paper transition-all hover:-translate-y-1 hover:border-accent/20 hover:shadow-lg">
+        <div class="h-1.5 w-full bg-[#8c7f70]" />
+        <div class="flex flex-1 flex-col p-8">
+          <h3 class="font-display text-xl font-semibold tracking-tight text-ink">{ui.nav.frequencyLists}</h3>
+          <p class="mt-3 flex-1 text-sm leading-relaxed text-ink-soft">Frequency-based lists ranked by real-world usage.</p>
+          <span class="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-accent">
+            Explore
+            <span class="transition-transform group-hover:translate-x-1">→</span>
+          </span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- Learning Paths -->
+  <section class="border-y border-line bg-paper-deep">
+    <div class="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-28">
+      <p class="font-mono text-xs font-bold uppercase tracking-[0.2em] text-accent">{ui.nav.learningPaths}</p>
+      <h2 class="mt-3 font-display text-3xl font-semibold tracking-tight sm:text-4xl">{ui.landing.learningPathsTitle}</h2>
+      <p class="mt-3 max-w-xl text-ink-soft">{ui.landing.learningPathsDesc}</p>
+
+      <div class="mt-12 grid gap-6 sm:grid-cols-3">
+        {
+          analyzedLanguages.map((l) => (
+            <a
+              href={localePath(lang, `learning-paths/${l.code}`)}
+              class="group relative flex flex-col overflow-hidden rounded-2xl border border-line bg-paper transition-all hover:-translate-y-1 hover:border-accent/20 hover:shadow-lg"
+            >
+              <div class="h-1.5 w-full" style={`background:${l.color}`} />
+              <div class="flex flex-1 flex-col p-8">
+                <div class="flex items-center gap-3">
+                  <span class="flex h-10 w-10 items-center justify-center rounded-full" style={`background:${l.color}15`}>
+                    <FlagIcon code={l.code} size={20} />
+                  </span>
+                  <h3 class="font-display text-xl font-semibold tracking-tight text-ink">{languageName(ui, l.code)}</h3>
+                </div>
+                <p class="mt-3 flex-1 text-sm leading-relaxed text-ink-soft">
+                  {ui.learningPaths.heroDesc}
+                </p>
+                <span class="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-accent">
+                  {ui.learningPaths.learn}
+                  <span class="transition-transform group-hover:translate-x-1">→</span>
+                </span>
+              </div>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Flashcards -->
+  <section class="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-28">
+    <p class="font-mono text-xs font-bold uppercase tracking-[0.2em] text-accent">{ui.nav.flashcards}</p>
+    <h2 class="mt-3 font-display text-3xl font-semibold tracking-tight sm:text-4xl">{ui.landing.flashcardsTitle}</h2>
+    <p class="mt-3 max-w-xl text-ink-soft">{ui.landing.flashcardsDesc}</p>
+
+    <div class="mt-12 grid gap-6 sm:grid-cols-3">
+      <a href={localePath(lang, 'flashcards/grammar')} class="group relative flex flex-col overflow-hidden rounded-2xl border border-line bg-paper transition-all hover:-translate-y-1 hover:border-accent/20 hover:shadow-lg">
+        <div class="h-1.5 w-full bg-accent" />
+        <div class="flex flex-1 flex-col p-8">
+          <h3 class="font-display text-xl font-semibold tracking-tight text-ink">{ui.nav.grammar}</h3>
+          <p class="mt-3 flex-1 text-sm leading-relaxed text-ink-soft">Reinforce grammar concepts with interactive flip cards.</p>
+          <span class="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-accent">
+            Start deck
+            <span class="transition-transform group-hover:translate-x-1">→</span>
+          </span>
+        </div>
+      </a>
+      <a href={localePath(lang, 'flashcards/vocabulary')} class="group relative flex flex-col overflow-hidden rounded-2xl border border-line bg-paper transition-all hover:-translate-y-1 hover:border-accent/20 hover:shadow-lg">
+        <div class="h-1.5 w-full bg-[#3b6ea5]" />
+        <div class="flex flex-1 flex-col p-8">
+          <h3 class="font-display text-xl font-semibold tracking-tight text-ink">{ui.nav.vocabulary}</h3>
+          <p class="mt-3 flex-1 text-sm leading-relaxed text-ink-soft">Build your vocabulary one card at a time.</p>
+          <span class="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-accent">
+            Start deck
+            <span class="transition-transform group-hover:translate-x-1">→</span>
+          </span>
+        </div>
+      </a>
+      <a href={localePath(lang, 'flashcards/phrases')} class="group relative flex flex-col overflow-hidden rounded-2xl border border-line bg-paper transition-all hover:-translate-y-1 hover:border-accent/20 hover:shadow-lg">
+        <div class="h-1.5 w-full bg-[#2f7a6b]" />
+        <div class="flex flex-1 flex-col p-8">
+          <h3 class="font-display text-xl font-semibold tracking-tight text-ink">{ui.nav.phrases}</h3>
+          <p class="mt-3 flex-1 text-sm leading-relaxed text-ink-soft">Master common phrases with spaced repetition.</p>
+          <span class="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-accent">
+            Start deck
+            <span class="transition-transform group-hover:translate-x-1">→</span>
+          </span>
+        </div>
+      </a>
+    </div>
+  </section>
+
   <!-- How it Works -->
   <section id="how-it-works" class="border-y border-line bg-paper-deep">
     <div class="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-28">
@@ -242,74 +413,6 @@ const steps = [
           ))
         }
       </div>
-
-      <div class="mt-12 flex items-center justify-center">
-        <a
-          href={sectionPath(lang, 'topics')}
-          class="inline-flex items-center gap-2 rounded-full bg-ink px-8 py-4 text-base font-semibold text-paper transition-transform hover:-translate-y-0.5"
-        >
-          {ui.hero.ctaPrimary}
-          <span class="transition-transform group-hover:translate-x-1">→</span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Side-by-side comparison — SECONDARY -->
-  <section class="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-28">
-    <p class="font-mono text-xs font-bold uppercase tracking-[0.2em] text-accent">{ui.nav.comparisons}</p>
-    <h2 class="mt-3 font-display text-3xl font-semibold tracking-tight sm:text-4xl">{ui.comparisons.title}</h2>
-    <p class="mt-3 max-w-xl text-ink-soft">{ui.comparisons.subtitle}</p>
-    <p class="mt-2 max-w-3xl text-base leading-relaxed text-ink">{ui.comparisons.description}</p>
-
-    <div class="mt-6 grid gap-4 sm:grid-cols-3">
-      {
-        analyzedLanguages.map((l) => (
-          <div class="flex flex-col items-center rounded-2xl border border-line bg-paper p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:border-accent/30 hover:shadow-lg hover:shadow-accent/5">
-            <div class="flex h-12 w-12 items-center justify-center rounded-full" style={`background-color: ${l.color}15`}>
-              <FlagIcon code={l.code} size={24} />
-            </div>
-            <span class="mt-3 font-display text-sm font-semibold uppercase tracking-wider text-ink-faint">{languageName(ui, l.code)}</span>
-            <div class="mt-4 rounded-xl bg-paper-deep px-4 py-3">
-              <p class="font-display text-base font-semibold text-ink" set:html={l.code === 'spanish' ? 'el libro <span class="text-ink-faint">/ un libro</span>' : l.code === 'english' ? 'the book <span class="text-ink-faint">/ a book</span>' : '<ruby>这<rt>zhè</rt></ruby><ruby>本<rt>běn</rt></ruby><ruby>书<rt>shū</rt></ruby> <span class="text-ink-faint">/ <ruby>一<rt>yì</rt></ruby><ruby>本<rt>běn</rt></ruby><ruby>书<rt>shū</rt></ruby></span>'} />
-            </div>
-            <p class="mt-3 text-xs leading-relaxed text-ink-faint">
-              {l.code === 'spanish' ? 'Articles for all references' : l.code === 'english' ? 'Articles only for specifics' : 'Demonstratives + measure words'}
-            </p>
-          </div>
-        ))
-      }
-    </div>
-
-    <div class="mt-10">
-      <p class="font-mono text-xs font-bold uppercase tracking-[0.2em] text-accent">{ui.comparisons.whyCompareTitle}</p>
-      <div class="mt-4 grid gap-4 sm:grid-cols-3">
-        <div class="rounded-2xl border border-line bg-paper-deep p-5">
-          <span class="font-display text-2xl font-bold text-accent">01</span>
-          <h3 class="mt-2 font-display text-sm font-semibold uppercase tracking-wider text-ink">{ui.comparisons.whyCompare1Title}</h3>
-          <p class="mt-2 text-sm leading-relaxed text-ink-soft">{ui.comparisons.whyCompare1Body}</p>
-        </div>
-        <div class="rounded-2xl border border-line bg-paper-deep p-5">
-          <span class="font-display text-2xl font-bold text-accent">02</span>
-          <h3 class="mt-2 font-display text-sm font-semibold uppercase tracking-wider text-ink">{ui.comparisons.whyCompare2Title}</h3>
-          <p class="mt-2 text-sm leading-relaxed text-ink-soft">{ui.comparisons.whyCompare2Body}</p>
-        </div>
-        <div class="rounded-2xl border border-line bg-paper-deep p-5">
-          <span class="font-display text-2xl font-bold text-accent">03</span>
-          <h3 class="mt-2 font-display text-sm font-semibold uppercase tracking-wider text-ink">{ui.comparisons.whyCompare3Title}</h3>
-          <p class="mt-2 text-sm leading-relaxed text-ink-soft">{ui.comparisons.whyCompare3Body}</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="mt-8 flex items-center justify-center">
-      <a
-        href={sectionPath(lang, 'comparisons')}
-        class="group inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3 text-sm font-semibold text-paper transition-transform hover:-translate-y-0.5"
-      >
-        {ui.comparisons.seeAllComparisons}
-        <span class="transition-transform group-hover:translate-x-1">→</span>
-      </a>
     </div>
   </section>
 </BaseLayout>

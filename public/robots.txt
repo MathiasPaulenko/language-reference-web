@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://mathiaspaulenko.github.io/language-reference-web/sitemap-index.xml
+Sitemap: https://grammarnavigator.com/sitemap-index.xml

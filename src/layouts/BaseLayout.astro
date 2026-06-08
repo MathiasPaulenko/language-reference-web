@@ -45,7 +45,13 @@ const altUrl = (href: string) => new URL(href, Astro.site).toString();
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <meta name="theme-color" content="#b4452a" />
+    <meta name="apple-mobile-web-app-title" content="Grammar Navigator" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
     <link rel="canonical" href={canonical} />
+    <link rel="manifest" href="/manifest.json" />
 
     {
       altList.map((alt) => (
@@ -55,11 +61,22 @@ const altUrl = (href: string) => new URL(href, Astro.site).toString();
     <link rel="alternate" hreflang="x-default" href={altUrl(localePath(DEFAULT_LOCALE))} />
 
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Grammar Navigator" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:locale" content={locale.htmlLang} />
+    <meta property="og:image" content="https://grammarnavigator.com/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Grammar Navigator — Understand grammar through language comparison" />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@GrammarNavigator" />
+    <meta name="twitter:creator" content="@GrammarNavigator" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="https://grammarnavigator.com/og-image.jpg" />
+    <meta name="twitter:image:alt" content="Grammar Navigator — Understand grammar through language comparison" />
 
     {jsonLd && <JsonLd data={jsonLd} />}
 

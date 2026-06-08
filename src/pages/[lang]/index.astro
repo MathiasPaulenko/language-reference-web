@@ -50,13 +50,29 @@ const steps = [
   title={`${ui.site.name} — ${ui.site.tagline}`}
   description={ui.hero.body}
   lang={lang}
-  jsonLd={{
-    '@type': 'WebSite',
-    name: ui.site.name,
-    description: ui.site.tagline,
-    url: Astro.site ? new URL(localePath(lang), Astro.site).toString() : undefined,
-    inLanguage: lang,
-  }}
+  jsonLd={[
+    {
+      '@type': 'WebSite',
+      name: ui.site.name,
+      description: ui.site.tagline,
+      url: Astro.site ? new URL(localePath(lang), Astro.site).toString() : undefined,
+      inLanguage: lang,
+      publisher: {
+        '@type': 'Organization',
+        name: 'Grammar Navigator',
+        url: 'https://grammarnavigator.com',
+        logo: 'https://grammarnavigator.com/favicon.svg',
+      },
+    },
+    {
+      '@type': 'Organization',
+      name: 'Grammar Navigator',
+      url: 'https://grammarnavigator.com',
+      logo: 'https://grammarnavigator.com/favicon.svg',
+      sameAs: [],
+      description: ui.site.tagline,
+    },
+  ]}
 >
   <!-- Hero -->
   <section class="relative overflow-hidden border-b border-line bg-gradient-to-br from-[#ece3d0] via-[#f1ead8] to-[#e2d6c2]">

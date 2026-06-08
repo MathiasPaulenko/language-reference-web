@@ -1,0 +1,27 @@
+{
+  "name": "Grammar Navigator",
+  "short_name": "GrammarNav",
+  "description": "Understand grammar through language comparison. Spanish, English and Chinese grammar reference.",
+  "start_url": "/en/",
+  "display": "standalone",
+  "background_color": "#faf6ef",
+  "theme_color": "#b4452a",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "en",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["education", "reference"]
+}

@@ -31,19 +31,53 @@ export async function getStaticPaths() {
 
 const { entry, lang } = Astro.props;
 const ui = getUI(lang as LocaleCode);
+const topicUrl = Astro.site ? new URL(Astro.url.pathname, Astro.site).toString() : Astro.url.pathname;
+const topicsIndexUrl = Astro.site ? new URL(Astro.url.pathname.replace(/[^/]+\/$/, ''), Astro.site).toString() : Astro.url.pathname.replace(/[^/]+\/$/, '');
 ---
 
 <BaseLayout
   title={`${entry.data.title} — ${ui.site.name}`}
   description={entry.data.description}
   lang={lang}
-  jsonLd={{
-    '@type': 'LearningResource',
-    name: entry.data.title,
-    description: entry.data.description,
-    inLanguage: lang,
-    dateModified: entry.data.lastUpdated?.toISOString(),
-  }}
+  jsonLd={[
+    {
+      '@type': 'LearningResource',
+      name: entry.data.title,
+      description: entry.data.description,
+      inLanguage: lang,
+      dateModified: entry.data.lastUpdated?.toISOString(),
+      author: {
+        '@type': 'Organization',
+        name: 'Grammar Navigator',
+        url: 'https://grammarnavigator.com',
+      },
+      about: ['Spanish grammar', 'English grammar', 'Chinese grammar'],
+      educationalLevel: entry.data.difficulty,
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: ui.nav.home,
+          item: Astro.site ? new URL(`/${lang}/`, Astro.site).toString() : `/${lang}/`,
+        },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: ui.nav.topics,
+          item: topicsIndexUrl,
+        },
+        {
+          '@type': 'ListItem',
+          position: 3,
+          name: entry.data.title,
+          item: topicUrl,
+        },
+      ],
+    },
+  ]}
 >
   <ContentArticle entry={entry} lang={lang} />
 </BaseLayout>

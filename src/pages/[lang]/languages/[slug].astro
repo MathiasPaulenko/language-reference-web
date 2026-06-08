@@ -33,15 +33,15 @@ const topics = allTopics
   .sort((a, b) => a.data.title.localeCompare(b.data.title));
 
 const diffStyles: Record<string, { label: string; bg: string; text: string }> = {
-  beginner: { label: 'Beginner', bg: '#e8f5e9', text: '#2e7d32' },
-  intermediate: { label: 'Intermediate', bg: '#fff3e0', text: '#ef6c00' },
-  advanced: { label: 'Advanced', bg: '#fce4ec', text: '#c62828' },
+  beginner: { label: ui.topics.filterBeginner, bg: '#e8f5e9', text: '#2e7d32' },
+  intermediate: { label: ui.topics.filterIntermediate, bg: '#fff3e0', text: '#ef6c00' },
+  advanced: { label: ui.topics.filterAdvanced, bg: '#fce4ec', text: '#c62828' },
 };
 ---
 
 <BaseLayout
-  title={`${languageName(ui, slug as AnalyzedLanguageCode)} Grammar — ${ui.site.name}`}
-  description={`Explore grammar topics for ${languageName(ui, slug as AnalyzedLanguageCode)}. Understand how ${languageName(ui, slug as AnalyzedLanguageCode)} handles key grammatical concepts.`}
+  title={`${languageName(ui, slug as AnalyzedLanguageCode)} ${ui.languages.grammarSuffix} — ${ui.site.name}`}
+  description={ui.languages.heroDesc.replace('{count}', String(topics.length)).replace('{language}', languageName(ui, slug as AnalyzedLanguageCode))}
   lang={lang}
 >
   {/* Hero */}
@@ -54,10 +54,10 @@ const diffStyles: Record<string, { label: string; bg: string; text: string }> = 
         <p class="font-mono text-sm font-bold uppercase tracking-[0.2em]" style={`color: ${language.color}`}>{ui.nav.languages}</p>
       </div>
       <h1 class="mt-6 max-w-2xl font-display text-4xl font-semibold tracking-tight text-ink sm:text-5xl">
-        {languageName(ui, slug as AnalyzedLanguageCode)} Grammar
+        {languageName(ui, slug as AnalyzedLanguageCode)} {ui.languages.grammarSuffix}
       </h1>
       <p class="mt-4 max-w-2xl text-lg text-ink-soft">
-        Explore {topics.length} grammar topics for {languageName(ui, slug as AnalyzedLanguageCode)}. Each concept explained with real examples — no comparisons, just the rules that matter.
+        {ui.languages.heroDesc.replace('{count}', String(topics.length)).replace('{language}', languageName(ui, slug as AnalyzedLanguageCode))}
       </p>
     </div>
   </section>
@@ -67,8 +67,8 @@ const diffStyles: Record<string, { label: string; bg: string; text: string }> = 
     <div class="flex items-end justify-between gap-6">
       <div>
         <p class="font-mono text-xs font-bold uppercase tracking-[0.2em]" style={`color: ${language.color}`}>{ui.nav.topics}</p>
-        <h2 class="mt-3 font-display text-3xl font-semibold tracking-tight sm:text-4xl">Grammar Topics</h2>
-        <p class="mt-3 max-w-xl text-ink-soft">Each topic shows how {languageName(ui, slug as AnalyzedLanguageCode)} handles the concept, with examples and common pitfalls.</p>
+        <h2 class="mt-3 font-display text-3xl font-semibold tracking-tight sm:text-4xl">{ui.languages.grammarTopics}</h2>
+        <p class="mt-3 max-w-xl text-ink-soft">{ui.languages.topicDesc.replace('{language}', languageName(ui, slug as AnalyzedLanguageCode))}</p>
       </div>
     </div>
 
@@ -104,9 +104,9 @@ const diffStyles: Record<string, { label: string; bg: string; text: string }> = 
       </div>
     </div>
 
-    <p class="mt-4 text-sm text-ink-faint" id="topics-count">{topics.length} topics</p>
+    <p class="mt-4 text-sm text-ink-faint" id="topics-count" data-count-template={ui.topics.count}>{ui.topics.count.replace('{count}', String(topics.length))}</p>
 
-    <p class="mt-8 hidden text-center text-sm text-ink-faint" id="no-results">No topics match your search.</p>
+    <p class="mt-8 hidden text-center text-sm text-ink-faint" id="no-results">{ui.topics.noResults}</p>
 
     <div class="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3" id="topics-grid">
       {topics.map((topic, idx) => {
@@ -215,7 +215,7 @@ const diffStyles: Record<string, { label: string; bg: string; text: string }> = 
         grid.innerHTML = '';
         visible.forEach((card) => grid.appendChild(card));
 
-        if (countLabel) countLabel.textContent = visible.length + ' topics';
+        if (countLabel) countLabel.textContent = (countLabel.getAttribute('data-count-template') || '{count} topics').replace('{count}', String(visible.length));
         if (noResults) noResults.classList.toggle('hidden', visible.length > 0);
       }
 

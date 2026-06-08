@@ -15,14 +15,26 @@ const lang = Astro.params.lang as LocaleCode;
 const ui = getUI(lang);
 
 const allTopics = await getCollection('topics');
-const published = allTopics
-  .filter((t) => !t.data.draft)
+// Group by topic field, prefer current locale with fallback to 'en'
+const topicsByTopic = new Map();
+for (const t of allTopics.filter((t) => !t.data.draft)) {
+  const topicKey = t.data.topic;
+  const existing = topicsByTopic.get(topicKey);
+  if (!existing) {
+    topicsByTopic.set(topicKey, t);
+  } else if (t.data.locale === lang) {
+    topicsByTopic.set(topicKey, t);
+  } else if (t.data.locale === 'en' && existing.data.locale !== lang) {
+    topicsByTopic.set(topicKey, t);
+  }
+}
+const published = Array.from(topicsByTopic.values())
   .sort((a, b) => a.data.title.localeCompare(b.data.title));
 
 const diffStyles: Record<string, { bg: string; text: string; label: string }> = {
-  beginner:    { bg: '#e8f5e9', text: '#2f7a6b', label: 'Beginner' },
-  intermediate:{ bg: '#fff3e0', text: '#b4452a', label: 'Intermediate' },
-  advanced:    { bg: '#ffebee', text: '#b4452a', label: 'Advanced' },
+  beginner:    { bg: '#e8f5e9', text: '#2f7a6b', label: ui.topics.filterBeginner },
+  intermediate:{ bg: '#fff3e0', text: '#b4452a', label: ui.topics.filterIntermediate },
+  advanced:    { bg: '#ffebee', text: '#b4452a', label: ui.topics.filterAdvanced },
 };
 ---
 
@@ -31,7 +43,7 @@ const diffStyles: Record<string, { bg: string; text: string; label: string }> = 
     <div class="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24">
       <p class="font-mono text-xs uppercase tracking-[0.2em] text-accent">{ui.nav.topics}</p>
       <h1 class="mt-4 max-w-2xl font-display text-4xl font-semibold tracking-tight text-paper sm:text-5xl">{ui.topics.title}</h1>
-      <p class="mt-4 max-w-xl text-lg text-paper/70">{published.length} grammar concepts documented across Spanish, English, and Chinese.</p>
+      <p class="mt-4 max-w-xl text-lg text-paper/70">{ui.topics.heroDesc.replace('{count}', String(published.length))}</p>
     </div>
   </section>
 
@@ -68,13 +80,13 @@ const diffStyles: Record<string, { bg: string; text: string; label: string }> = 
       </div>
     </div>
 
-    <p class="mt-4 text-sm text-ink-faint" id="topics-count">{published.length} topics</p>
+    <p class="mt-4 text-sm text-ink-faint" id="topics-count" data-count-template={ui.topics.count}>{ui.topics.count.replace('{count}', String(published.length))}</p>
 
     <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3" id="topics-grid">
       {
         published.map((topic, idx) => (
           <a
-            href={sectionPath(lang, 'topics', topic.id)}
+            href={sectionPath(lang, 'topics', topic.data.topic)}
             class="topic-card group flex flex-col rounded-xl border border-line bg-paper p-7 transition-colors hover:bg-paper-deep"
             data-index={idx}
             data-difficulty={topic.data.difficulty}
@@ -102,7 +114,7 @@ const diffStyles: Record<string, { bg: string; text: string; label: string }> = 
       }
     </div>
 
-    <p class="mt-8 hidden text-center text-sm text-ink-faint" id="no-results">No topics match your search.</p>
+    <p class="mt-8 hidden text-center text-sm text-ink-faint" id="no-results">{ui.topics.noResults}</p>
   </section>
 
   <script>
@@ -136,7 +148,7 @@ const diffStyles: Record<string, { bg: string; text: string; label: string }> = 
         grid.innerHTML = '';
         visible.forEach((card) => grid.appendChild(card));
 
-        if (countLabel) countLabel.textContent = visible.length + ' topics';
+        if (countLabel) countLabel.textContent = (countLabel.getAttribute('data-count-template') || '{count} topics').replace('{count}', String(visible.length));
         if (noResults) noResults.classList.toggle('hidden', visible.length > 0);
       }
 

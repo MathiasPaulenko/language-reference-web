@@ -35,7 +35,11 @@
   "languages": {
     "spanish": "Español",
     "english": "Inglés",
-    "chinese": "Chino"
+    "chinese": "Chino",
+    "grammarSuffix": "Gramática",
+    "grammarTopics": "Temas de Gramática",
+    "topicDesc": "Cada tema muestra cómo maneja el concepto el {language}, con ejemplos y errores comunes.",
+    "heroDesc": "Explora {count} temas gramaticales para {language}. Cada concepto explicado con ejemplos reales — sin comparaciones, solo las reglas que importan."
   },
   "topics": {
     "title": "Conceptos gramaticales",
@@ -45,7 +49,45 @@
     "filterAll": "Todos",
     "filterBeginner": "Principiante",
     "filterIntermediate": "Intermedio",
-    "filterAdvanced": "Avanzado"
+    "filterAdvanced": "Avanzado",
+    "count": "{count} temas",
+    "noResults": "Ningún tema coincide con tu búsqueda.",
+    "heroDesc": "{count} conceptos gramaticales documentados en español, inglés y chino."
+  },
+  "guides": {
+    "heroDesc": "Guías orientadas a estudiantes y profesores."
+  },
+  "cheatsheets": {
+    "heroDesc": "Tablas de referencia rápida para patrones gramaticales comunes."
+  },
+  "legal": {
+    "label": "Legal",
+    "cookiesDesc": "Esta página contendrá la Política de Cookies de Grammar Atlas.",
+    "privacyDesc": "Esta página contendrá la Política de Privacidad de Grammar Atlas.",
+    "termsDesc": "Esta página contendrá los Términos de Servicio de Grammar Atlas."
+  },
+  "learningPaths": {
+    "pathSuffix": "Ruta de Aprendizaje",
+    "heroDesc": "Un recorrido estructurado desde los primeros conceptos hasta el uso avanzado. Sigue las etapas en orden, o salta al tema que necesites.",
+    "stageBeginnerLabel": "Fundamentos",
+    "stageBeginnerDesc": "Empieza aquí. Estos conceptos forman la base del idioma.",
+    "stageIntermediateLabel": "Bloques de construcción",
+    "stageIntermediateDesc": "Amplía tu alcance. Conecta ideas y expresa más matices.",
+    "stageAdvancedLabel": "Dominio",
+    "stageAdvancedDesc": "Refina tu dominio. Maneja distinciones sutiles y estructuras complejas.",
+    "topicsCount": "{count} temas",
+    "learn": "Aprender"
+  },
+  "pagefind": {
+    "placeholder": "Buscar temas, comparaciones, guías…",
+    "clear_search": "Limpiar",
+    "load_more": "Cargar más resultados",
+    "search_label": "Buscar",
+    "filters_label": "Filtros",
+    "zero_results": "No hay resultados para [SEARCH_TERM]",
+    "many_results": "[COUNT] resultados para [SEARCH_TERM]",
+    "one_result": "1 resultado para [SEARCH_TERM]",
+    "alt_search": "No hay resultados para [SEARCH_TERM]. Mostrando resultados para [DIFFERENT_TERM] en su lugar."
   },
   "comparisons": {
     "title": "Comparación lado a lado",
@@ -112,6 +154,7 @@
     "draft": "Borrador"
   },
   "landing": {
+    "methodLabel": "Método",
     "grammarTitle": "Gramática",
     "grammarSubtitle": "El núcleo de Grammar Atlas",
     "grammarDesc": "Cada concepto gramatical explicado entre idiomas. En lugar de aprender tres gramáticas separadas, aprende un concepto y compara tres soluciones.",
@@ -172,6 +215,53 @@
     "howFlashcards3Body": "Recorre el mazo a tu propio ritmo. Las tarjetas se barajan para mantener tu cerebro activo.",
     "howFlashcards4Title": "Domina y repite",
     "howFlashcards4Body": "Revisa los mazos regularmente. La repetición espaciada ayuda a consolidar el conocimiento."
+  },
+  "flashcards": {
+    "tryIt": "Pruébalo",
+    "flipACard": "Gira una tarjeta",
+    "demoInstruction": "Haz clic en la tarjeta para ver la respuesta. Así funciona cada flashcard en Grammar Atlas.",
+    "clickToReveal": "Haz clic para revelar la respuesta",
+    "decks": "Mazos",
+    "chooseADeck": "Elige un mazo",
+    "startDeck": "Empezar mazo",
+    "all": "Todos",
+    "cardCounter": "Tarjeta {current} de {total}",
+    "concept": "Concepto",
+    "answer": "Respuesta",
+    "word": "Palabra",
+    "translation": "Traducción",
+    "phrase": "Frase",
+    "flip": "Girar",
+    "clickToFlip": "Haz clic o presiona Espacio para girar",
+    "clickToFlipBack": "Haz clic o presiona Espacio para volver",
+    "previousCard": "Tarjeta anterior",
+    "nextCard": "Siguiente tarjeta",
+    "keyboardHint": "← → flechas para navegar · Espacio para girar",
+    "noCardsMatch": "Ninguna tarjeta coincide con este filtro.",
+    "tryDifferentLanguage": "Prueba otro idioma.",
+    "zeroCards": "0 tarjetas",
+    "commonMistake": "Error común",
+    "correction": "Corrección",
+    "loading": "Cargando...",
+    "demoQuestion": "¿Cómo se forman preguntas en chino sin cambiar el orden de las palabras?",
+    "demoAnswer": "Añade 吗 (ma) al final de la oración.",
+    "demoExample": "你去 = Tú vas. 你去吗？ = ¿Vas tú?",
+    "grammarDesc": "Pon a prueba tus conocimientos de reglas gramaticales en los tres idiomas. Desde artículos hasta cópulas cero.",
+    "vocabularyDesc": "Memoriza palabras con repetición espaciada. Palabras, traducciones y oraciones de ejemplo.",
+    "phrasesDesc": "Practica frases y expresiones comunes. Construye fluidez una frase a la vez.",
+    "grammarTitle": "Flashcards de Gramática",
+    "vocabularyTitle": "Flashcards de Vocabulario",
+    "phrasesTitle": "Flashcards de Frases",
+    "grammarMetaDesc": "Estudia conceptos gramaticales con {count} flashcards interactivas.",
+    "vocabularyMetaDesc": "Estudia vocabulario con {count} flashcards interactivas.",
+    "phrasesMetaDesc": "Estudia frases con {count} flashcards interactivas."
+  },
+  "vocabulary": {
+    "word": "Palabra",
+    "phrase": "Frase",
+    "definition": "Definición",
+    "previous": "Anterior",
+    "next": "Siguiente"
   },
   "placeholders": {
     "comingSoon": "Próximamente",

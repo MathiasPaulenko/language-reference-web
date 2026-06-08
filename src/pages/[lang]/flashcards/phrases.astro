@@ -54,16 +54,16 @@ const cardsJson = JSON.stringify(cards);
 ---
 
 <BaseLayout
-  title={`Phrases Flashcards — ${ui.site.name}`}
-  description={`Study phrases with ${cards.length} interactive flashcards.`}
+  title={`${ui.flashcards.phrasesTitle} — ${ui.site.name}`}
+  description={ui.flashcards.phrasesMetaDesc.replace('{count}', String(cards.length))}
   lang={lang}
 >
   {/* Hero */}
   <section class="border-b border-line bg-[#2a2520]">
     <div class="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24">
-      <p class="font-mono text-xs uppercase tracking-[0.2em] text-accent">Flashcards</p>
-      <h1 class="mt-4 max-w-2xl font-display text-4xl font-semibold tracking-tight text-paper sm:text-5xl">Phrases Flashcards</h1>
-      <p class="mt-4 max-w-xl text-lg text-paper/70">Flip cards to memorize phrases. {cards.length} phrase flashcards across all three languages.</p>
+      <p class="font-mono text-xs uppercase tracking-[0.2em] text-accent">{ui.landing.flashcardsTitle}</p>
+      <h1 class="mt-4 max-w-2xl font-display text-4xl font-semibold tracking-tight text-paper sm:text-5xl">{ui.flashcards.phrasesTitle}</h1>
+      <p class="mt-4 max-w-xl text-lg text-paper/70">{ui.flashcards.phrasesMetaDesc.replace('{count}', String(cards.length))}</p>
     </div>
   </section>
 
@@ -73,14 +73,14 @@ const cardsJson = JSON.stringify(cards);
     <span>/</span>
     <a href={localePath(lang, 'flashcards')} class="transition-colors hover:text-accent">{ui.nav.flashcards}</a>
     <span>/</span>
-    <span class="text-ink-soft">Phrases</span>
+    <span class="text-ink-soft">{ui.nav.phrases}</span>
   </nav>
 
   {/* Controls */}
   <section class="mx-auto mt-8 max-w-4xl px-5 sm:px-8">
     <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
       <div class="flex flex-wrap gap-2" id="lang-filters">
-        <button data-lang="all" class="filter-btn rounded-full border border-accent bg-accent px-4 py-1.5 text-xs font-medium text-paper transition-all">All</button>
+        <button data-lang="all" class="filter-btn rounded-full border border-accent bg-accent px-4 py-1.5 text-xs font-medium text-paper transition-all">{ui.flashcards.all}</button>
         {analyzedLanguages.map((l) => (
           <button data-lang={l.code} class="filter-btn rounded-full border border-line bg-paper px-4 py-1.5 text-xs font-medium text-ink-soft transition-all hover:border-accent hover:text-accent">
             <span class="flex items-center gap-1.5">
@@ -90,7 +90,7 @@ const cardsJson = JSON.stringify(cards);
           </button>
         ))}
       </div>
-      <p class="font-mono text-sm text-ink-faint" id="card-counter">Card 1 of {cards.length}</p>
+      <p class="font-mono text-sm text-ink-faint" id="card-counter">{ui.flashcards.cardCounter.replace('{current}', '1').replace('{total}', String(cards.length))}</p>
     </div>
   </section>
 
@@ -99,31 +99,43 @@ const cardsJson = JSON.stringify(cards);
     <div class="perspective-[1000px] w-full">
       <div id="flashcard" class="relative aspect-[4/3] w-full cursor-pointer rounded-2xl border-2 border-line bg-paper shadow-lg transition-all duration-500" style="transform-style: preserve-3d;">
         <div id="card-front" class="absolute inset-0 flex flex-col items-center justify-center rounded-2xl bg-paper p-8" style="backface-visibility: hidden;">
-          <span class="font-mono text-[10px] uppercase tracking-wider text-ink-faint" id="front-label">Phrase</span>
-          <p class="mt-4 text-center font-display text-2xl font-semibold text-ink sm:text-3xl" id="front-text">Loading...</p>
-          <span class="mt-6 text-xs text-ink-faint">Click or press Space to flip</span>
+          <span class="font-mono text-[10px] uppercase tracking-wider text-ink-faint" id="front-label">{ui.flashcards.phrase}</span>
+          <p class="mt-4 text-center font-display text-2xl font-semibold text-ink sm:text-3xl" id="front-text">{ui.flashcards.loading}</p>
+          <span class="mt-6 text-xs text-ink-faint">{ui.flashcards.clickToFlip}</span>
         </div>
         <div id="card-back" class="absolute inset-0 flex flex-col items-center justify-center rounded-2xl bg-paper p-8" style="backface-visibility: hidden; transform: rotateY(180deg);">
-          <span class="font-mono text-[10px] uppercase tracking-wider text-accent" id="back-label">Translation</span>
-          <p class="mt-4 text-center font-display text-2xl font-semibold text-ink sm:text-3xl" id="back-text">Loading...</p>
-          <span class="mt-6 text-xs text-ink-faint">Click or press Space to flip back</span>
+          <span class="font-mono text-[10px] uppercase tracking-wider text-accent" id="back-label">{ui.flashcards.translation}</span>
+          <p class="mt-4 text-center font-display text-2xl font-semibold text-ink sm:text-3xl" id="back-text">{ui.flashcards.loading}</p>
+          <span class="mt-6 text-xs text-ink-faint">{ui.flashcards.clickToFlipBack}</span>
         </div>
       </div>
     </div>
 
     <div class="mt-8 flex items-center justify-center gap-4">
-      <button id="btn-prev" class="flex h-12 w-12 items-center justify-center rounded-full border border-line bg-paper text-ink-soft transition-all hover:border-accent hover:text-accent" aria-label="Previous card">
+      <button id="btn-prev" class="flex h-12 w-12 items-center justify-center rounded-full border border-line bg-paper text-ink-soft transition-all hover:border-accent hover:text-accent" aria-label={ui.flashcards.previousCard}>
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
       </button>
-      <button id="btn-flip" class="rounded-full bg-accent px-8 py-3 font-display text-sm font-semibold text-paper transition-all hover:bg-accent/90 hover:shadow-lg">Flip</button>
-      <button id="btn-next" class="flex h-12 w-12 items-center justify-center rounded-full border border-line bg-paper text-ink-soft transition-all hover:border-accent hover:text-accent" aria-label="Next card">
+      <button id="btn-flip" class="rounded-full bg-accent px-8 py-3 font-display text-sm font-semibold text-paper transition-all hover:bg-accent/90 hover:shadow-lg">{ui.flashcards.flip}</button>
+      <button id="btn-next" class="flex h-12 w-12 items-center justify-center rounded-full border border-line bg-paper text-ink-soft transition-all hover:border-accent hover:text-accent" aria-label={ui.flashcards.nextCard}>
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
       </button>
     </div>
-    <p class="mt-4 text-center text-xs text-ink-faint">← → arrows to navigate · Space to flip</p>
+    <p class="mt-4 text-center text-xs text-ink-faint">{ui.flashcards.keyboardHint}</p>
   </section>
 
-  <script define:vars={{ cardsJson }}>
+  <script define:vars={{ cardsJson, uiJson: JSON.stringify({
+    all: ui.flashcards.all,
+    cardCounter: ui.flashcards.cardCounter,
+    phrase: ui.flashcards.phrase,
+    translation: ui.flashcards.translation,
+    noCardsMatch: ui.flashcards.noCardsMatch,
+    tryDifferentLanguage: ui.flashcards.tryDifferentLanguage,
+    zeroCards: ui.flashcards.zeroCards,
+    spanish: ui.languages.spanish,
+    english: ui.languages.english,
+    chinese: ui.languages.chinese,
+  }) }}>
+    const uiStr = JSON.parse(uiJson);
     const allCards = JSON.parse(cardsJson);
     let currentIdx = 0;
     let filteredCards = [...allCards];
@@ -139,23 +151,23 @@ const cardsJson = JSON.stringify(cards);
 
     function updateCard() {
       if (filteredCards.length === 0) {
-        frontText.textContent = 'No cards match this filter.';
-        backText.textContent = 'Try a different language.';
-        counterEl.textContent = '0 cards';
+        frontText.textContent = uiStr.noCardsMatch;
+        backText.textContent = uiStr.tryDifferentLanguage;
+        counterEl.textContent = uiStr.zeroCards;
         return;
       }
       const card = filteredCards[currentIdx];
       frontText.innerHTML = card.front.replace(/\n/g, '<br>');
       backText.innerHTML = card.back;
-      frontLabel.textContent = 'Phrase';
+      frontLabel.textContent = uiStr.phrase;
       backLabel.textContent = languageLabel(card.language);
-      counterEl.textContent = `Card ${currentIdx + 1} of ${filteredCards.length}`;
+      counterEl.textContent = uiStr.cardCounter.replace('{current}', String(currentIdx + 1)).replace('{total}', String(filteredCards.length));
       isFlipped = false;
       cardEl.style.transform = '';
     }
 
     function languageLabel(code) {
-      const labels = { spanish: 'Spanish', english: 'English', chinese: 'Chinese' };
+      const labels = { spanish: uiStr.spanish, english: uiStr.english, chinese: uiStr.chinese };
       return labels[code] || code;
     }
 

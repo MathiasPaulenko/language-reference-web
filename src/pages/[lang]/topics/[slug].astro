@@ -7,11 +7,21 @@ import { interfaceLocales, type LocaleCode } from '../../../config/languages';
 
 export async function getStaticPaths() {
   const entries = await getCollection('topics');
-  const paths = [];
+  // Group by topic field
+  const byTopic = new Map();
   for (const entry of entries.filter((e) => !e.data.draft)) {
+    const topicKey = entry.data.topic;
+    if (!byTopic.has(topicKey)) byTopic.set(topicKey, new Map());
+    byTopic.get(topicKey).set(entry.data.locale, entry);
+  }
+
+  const paths = [];
+  for (const [topicId, localeMap] of byTopic) {
     for (const locale of interfaceLocales) {
+      const entry = localeMap.get(locale.code) || localeMap.get('en');
+      if (!entry) continue;
       paths.push({
-        params: { lang: locale.code, slug: entry.id },
+        params: { lang: locale.code, slug: topicId },
         props: { entry, lang: locale.code },
       });
     }

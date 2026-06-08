@@ -17,15 +17,14 @@ const redirects = Object.entries(sectionSlugs).reduce((acc, [section, byLocale])
   for (const code of localeCodes) {
     const localized = byLocale[code];
     if (localized !== section) {
-      acc[`/language-reference-web/${code}/${localized}/`] = `/language-reference-web/${code}/${section}/`;
+      acc[`/${code}/${localized}/`] = `/${code}/${section}/`;
     }
   }
   return acc;
 }, {});
 
 export default defineConfig({
-  site: 'https://mathiaspaulenko.github.io',
-  base: '/language-reference-web',
+  site: 'https://grammarnavigator.com',
   trailingSlash: 'always',
   i18n: {
     defaultLocale: DEFAULT_LOCALE,

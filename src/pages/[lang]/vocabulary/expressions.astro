@@ -116,7 +116,7 @@ const initialPageItems = getPageItems(0);
         <table class="w-full text-sm">
           <thead>
             <tr class="border-b border-line bg-paper-deep">
-              <th class="px-5 py-3 text-left font-mono text-xs font-bold uppercase tracking-wider text-ink-faint">Phrase</th>
+              <th class="px-5 py-3 text-left font-mono text-xs font-bold uppercase tracking-wider text-ink-faint">{ui.vocabulary.phrase}</th>
               {analyzedLanguages.map((l) => (
                 <th class="vocab-col px-5 py-3 text-left font-mono text-xs font-bold uppercase tracking-wider text-ink-faint" data-lang={l.code}>
                   <span class="inline-flex items-center gap-1.5">
@@ -125,7 +125,7 @@ const initialPageItems = getPageItems(0);
                   </span>
                 </th>
               ))}
-              <th class="px-5 py-3 text-left font-mono text-xs font-bold uppercase tracking-wider text-ink-faint">Definition</th>
+              <th class="px-5 py-3 text-left font-mono text-xs font-bold uppercase tracking-wider text-ink-faint">{ui.vocabulary.definition}</th>
             </tr>
           </thead>
           <tbody>
@@ -144,7 +144,7 @@ const initialPageItems = getPageItems(0);
 
       {/* Pagination */}
       <nav aria-label="Pagination" class="mt-6 flex items-center justify-between" id="pagination">
-        <button id="page-prev" class="rounded-full border border-line bg-paper px-4 py-2 text-sm font-medium text-ink-soft transition-colors hover:border-accent hover:text-accent disabled:opacity-30 disabled:cursor-not-allowed">Previous</button>
+        <button id="page-prev" class="rounded-full border border-line bg-paper px-4 py-2 text-sm font-medium text-ink-soft transition-colors hover:border-accent hover:text-accent disabled:opacity-30 disabled:cursor-not-allowed">{ui.vocabulary.previous}</button>
         <div id="page-numbers" class="flex items-center gap-1">
           {initialPageItems.map((item) => (
             item.type === 'gap'
@@ -152,7 +152,7 @@ const initialPageItems = getPageItems(0);
               : <button class="page-num rounded-full border border-line bg-paper px-3.5 py-2 text-sm font-medium text-ink-soft transition-colors hover:border-accent hover:text-accent" data-page={item.value}>{item.value + 1}</button>
           ))}
         </div>
-        <button id="page-next" class="rounded-full border border-line bg-paper px-4 py-2 text-sm font-medium text-ink-soft transition-colors hover:border-accent hover:text-accent disabled:opacity-30 disabled:cursor-not-allowed">Next</button>
+        <button id="page-next" class="rounded-full border border-line bg-paper px-4 py-2 text-sm font-medium text-ink-soft transition-colors hover:border-accent hover:text-accent disabled:opacity-30 disabled:cursor-not-allowed">{ui.vocabulary.next}</button>
       </nav>
     </section>
   )}

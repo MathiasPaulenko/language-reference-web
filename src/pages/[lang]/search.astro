@@ -23,7 +23,18 @@ const ui = getUI(lang);
   </section>
 </BaseLayout>
 
-<script>
+<script define:vars={{ pagefindTranslations: JSON.stringify({
+  placeholder: ui.pagefind.placeholder,
+  clear_search: ui.pagefind.clear_search,
+  load_more: ui.pagefind.load_more,
+  search_label: ui.pagefind.search_label,
+  filters_label: ui.pagefind.filters_label,
+  zero_results: ui.pagefind.zero_results,
+  many_results: ui.pagefind.many_results,
+  one_result: ui.pagefind.one_result,
+  alt_search: ui.pagefind.alt_search,
+}), searchIndexMissing: ui.placeholders.searchIndexMissing }}>
+  const translations = JSON.parse(pagefindTranslations);
   const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   const searchEl = document.getElementById('search');
   const statusEl = document.getElementById('search-status');
@@ -36,23 +47,13 @@ const ui = getUI(lang);
           element: '#search',
           showSubResults: true,
           showImages: false,
-          translations: {
-            placeholder: 'Search grammar topics, comparisons, guides…',
-            clear_search: 'Clear',
-            load_more: 'Load more results',
-            search_label: 'Search',
-            filters_label: 'Filters',
-            zero_results: 'No results for [SEARCH_TERM]',
-            many_results: '[COUNT] results for [SEARCH_TERM]',
-            one_result: '1 result for [SEARCH_TERM]',
-            alt_search: 'No results for [SEARCH_TERM]. Showing results for [DIFFERENT_TERM] instead.',
-          },
+          translations,
         });
         if (statusEl) statusEl.style.display = 'none';
       }
     } catch (err) {
       console.warn('Pagefind UI not available (run build first):', err);
-      if (searchEl) searchEl.innerHTML = '<p class="text-ink-faint">Search index not available in development. Run <code>npm run build</code> to generate it.</p>';
+      if (searchEl) searchEl.innerHTML = `<p class="text-ink-faint">${searchIndexMissing}</p>`;
     }
   }
 

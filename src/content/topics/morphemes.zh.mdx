@@ -1,0 +1,373 @@
+---
+title: "词素与形态学"
+description: "西班牙语、英语和汉语如何从词素构建词语。"
+locale: "zh"
+topic: "morphemes"
+difficulty: "advanced"
+overview: "西班牙语和英语使用屈折形态（复数、变位、格）和派生形态（前缀、后缀）。汉语是分析语：不使用屈折。通过复合和自由词素来构词。"
+comparisonTable:
+  - concept: "名词复数"
+    values:
+      spanish: "gato → gatos（后缀）"
+      english: "cat → cats（后缀）"
+      chinese: "<ruby>猫<rt>māo</rt></ruby> → <ruby>猫<rt>māo</rt></ruby>（无变化，复数由语境决定）"
+  - concept: "动词变位（时态）"
+    values:
+      spanish: "hablo, hablas, habló（词素变化）"
+      english: "walks, walked, walking（后缀）"
+      chinese: "<ruby>走<rt>zǒu</rt></ruby>（无变化，可选时间助词）"
+  - concept: "复合构词"
+    values:
+      spanish: "limpiaparabrisas（擦+挡风玻璃）"
+      english: "raincoat（rain+coat）"
+      chinese: "<ruby>电<rt>diàn</rt></ruby><ruby>脑<rt>nǎo</rt></ruby>（电+脑）"
+  - concept: "否定前缀"
+    values:
+      spanish: "in-, des-, a-：imposible, descontento, amoral"
+      english: "un-, in-, dis-：unhappy, impossible, dislike"
+      chinese: "<ruby>不<rt>bù</rt></ruby> / <ruby>没<rt>méi</rt></ruby>（自由词素，非黏着前缀）"
+  - concept: "指小/指大"
+    values:
+      spanish: "-ito, -illo, -ote：gatito, casona"
+      english: "-let, -y：piglet, doggy"
+      chinese: "<ruby>小<rt>xiǎo</rt></ruby> / <ruby>子<rt>zi</rt></ruby> / <ruby>儿<rt>ér</rt></ruby>：小猫，猫儿"
+  - concept: "形容词派生"
+    values:
+      spanish: "-oso, -ico, -al：peligroso, histórico, musical"
+      english: "-ful, -ous, -ic：dangerous, historic, musical"
+      chinese: "<ruby>的<rt>de</rt></ruby>（助词，非黏着后缀）"
+  - concept: "是黏着语还是孤立语"
+    values:
+      spanish: "屈折语（融合词素）"
+      english: "屈折语（分离后缀）"
+      chinese: "孤立语/分析语（无屈折）"
+  - concept: "是否必须有词根"
+    values:
+      spanish: "大多数词语有黏着词根"
+      english: "大多数词语有黏着词根"
+      chinese: "所有词语都是自由词素"
+commonMistakes:
+  - mistake: "假设所有语言都在动词上标记时态"
+    correction: "汉语不变化动词；时态由副词和助词表达"
+    note: "西班牙语和英语使用者期待动词形态变化。"
+  - mistake: "假设汉语复数需要标记"
+    correction: "汉语没有复数：三只猫——猫这个词不变"
+    note: "西班牙语和英语使用者期待 -s。"
+  - mistake: "将汉语形容词当作黏着后缀处理"
+    correction: "的 是独立助词，非黏着后缀：美丽的花"
+    note: "的 在形态学上与西班牙语和英语后缀不同。"
+  - mistake: "西班牙语/英语中过度泛化前缀"
+    correction: "In- 是拉丁语（imposible），un- 是日耳曼语（unhappy）；并非所有前缀都能自由组合"
+    note: "派生需要词汇知识——并非所有词缀都是能产的。"
+relatedTopics:
+  - "word-formation"
+  - "nouns"
+  - "verbs"
+  - "classifiers"
+keyTakeaways:
+  - "西班牙语：屈折形态（性、数、人称、时态、式）和派生形态。拉丁/希腊语源前缀后缀能产。词素常为黏着的。"
+  - "英语：屈折形态极少（复数 -s，过去时 -ed，进行时 -ing）但派生广泛（拉丁/希腊/日耳曼前缀后缀）。复合词常见。"
+  - "汉语：无屈折。所有词语都是自由词素。复合是主要策略。功能助词（的、了、着、过）是独立词素，非黏着词缀。"
+  - "核心对比概念：复数（猫）、时态（走了）、复合词（raincoat）、否定（impossible）。"
+lastUpdated: 2026-06-04
+draft: false
+---
+
+## 概述
+
+词素是词语中最小的意义单位。不同语言组合词素的方式差异巨大。
+
+- **西班牙语**：屈折形态（性、数、人称、时态、式）和派生形态。拉丁/希腊语源前缀后缀能产。词素常为黏着的。
+- **英语**：屈折形态极少（复数 -s，过去时 -ed，进行时 -ing）但派生广泛（拉丁/希腊/日耳曼前缀后缀）。复合词常见。
+- **汉语**：无屈折。所有词语都是自由词素。复合是主要策略。功能助词（的、了、着、过）是独立词素，非黏着词缀。
+
+---
+
+<div class="spanish-section">
+
+## 西班牙语
+
+### 屈折形态
+
+西班牙语对动词和名词/形容词进行**屈折变化**：
+
+| 范畴 | 例子 | 词素 |
+|---|---|---|
+| 复数 | gato → gatos | -s |
+| 性 | gato / gata | -o / -a |
+| 人称（动词） | hablo, hablas, habla | -o, -as, -a |
+| 时态（动词） | hablé, hablaba, hablaré | -é, -aba, -aré |
+| 式（动词） | hable（虚拟式） | -e |
+| 过去分词 | hablado | -ado |
+| 副动词 | hablando | -ando |
+
+### 前缀派生
+
+| 前缀 | 含义 | 例子 |
+|---|---|---|
+| in-/im- | 否定 | imposible, incompleto |
+| des- | 否定/反转 | descontento, deshacer |
+| re- | 再次 | rehacer, reescribir |
+| anti- | 反对 | antiguo, antinatural |
+| super- | 超过 | supermercado, superhombre |
+| sub- | 下面 | subterráneo, submarino |
+| pre- | 之前 | prehistoria, prever |
+| post- | 之后 | postguerra, posmoderno |
+| auto- | 自己 | automóvil, autobiografía |
+
+### 后缀派生
+
+| 后缀 | 含义 | 例子 |
+|---|---|---|
+| -oso | 性质 | peligroso, hermoso |
+| -ico/-ica | 相关 | histórico, político |
+| -al | 相关 | musical, cultural |
+| -mente | 副词 | rápidamente, felizmente |
+| -ción/-sión | 动作名词 | educación, decisión |
+| -dor/-dora | 施事者 | trabajador, cantadora |
+| -ble | 能力 | comible, legible |
+| -ito/-ita | 指小 | gatito, mesita |
+| -ote/-ota | 指大 | casona, mujerota |
+| -ismo/-ista | 主义/支持者 | socialismo, pianista |
+
+### 复合构词
+
+- limpiaparabrisas（擦+挡风玻璃）
+- sacacorchos（拔+软木塞）
+- abrelatas（开+罐头）
+- paraguas（挡+雨）
+- rascacielos（刮+天）
+- ferrocarril（铁+轨道——来自拉丁语）
+- parabrisas（挡+风）
+
+### 自由词素与黏着词素
+
+| 自由词素 | 黏着词素 |
+|---|---|
+| gato, casa, alto | -oso, -ción, in-, des- |
+| caminar, beber, leer | -ar, -er, -ir（单独无意义） |
+
+西班牙语两者都有，但派生主要使用黏着词缀。
+
+</div>
+
+<div class="english-section">
+
+## 英语
+
+### 最小屈折形态
+
+英语只有约8个屈折词素：
+
+| 范畴 | 例子 | 词素 |
+|---|---|---|
+| 复数 | cat → cats | -s / -es / -ies |
+| 所有格 | cat → cat's | -'s |
+| 第三人称单数 | walk → walks | -s |
+| 过去时 | walk → walked | -ed |
+| 进行时 | walk → walking | -ing |
+| 过去分词 | walk → walked | -ed |
+| 比较级 | tall → taller | -er |
+| 最高级 | tall → tallest | -est |
+
+### 前缀派生
+
+| 前缀 | 含义 | 例子 |
+|---|---|---|
+| un- | 否定（日耳曼） | unhappy, unkind |
+| in-/im-/ir-/il- | 否定（拉丁） | impossible, illegal, irregular |
+| dis- | 否定/反转 | dislike, disconnect |
+| re- | 再次 | rewrite, rebuild |
+| anti- | 反对 | antiviral, antifreeze |
+| super- | 超过 | superhuman, supermarket |
+| sub- | 下面 | submarine, subzero |
+| pre- | 之前 | prehistoric, preview |
+| post- | 之后 | postwar, postgraduate |
+| auto- | 自己 | automobile, automatic |
+| non- | 非 | nonstop, nonviolent |
+| over- / under- | 过度/不足 | overeat, undercooked |
+| mis- | 错误 | misunderstand, misplace |
+| co- | 共同 | cooperate, coauthor |
+| ex- | 前任 | ex-president, ex-wife |
+| self- | 自己 | self-aware, self-control |
+
+### 后缀派生
+
+| 后缀 | 含义 | 例子 |
+|---|---|---|
+| -ful | 充满 | beautiful, helpful |
+| -less | 无 | homeless, fearless |
+| -ness | 状态/性质 | happiness, kindness |
+| -ment | 结果/动作 | government, movement |
+| -tion/-sion | 动作名词 | education, decision |
+| -er/-or | 施事者 | worker, actor |
+| -able/-ible | 能力 | readable, legible |
+| -ous | 性质 | dangerous, nervous |
+| -ive | 倾向 | active, creative |
+| -ly | 副词 | quickly, happily |
+| -en | 使成为 | darken, strengthen |
+| -ize/-ise | 使 | modernize, apologize |
+| -hood | 集体状态 | childhood, neighborhood |
+| -ship | 状态/关系 | friendship, leadership |
+| -let | 指小 | piglet, booklet |
+| -y / -ie | 亲昵指小 | doggy, daddy |
+
+### 复合构词
+
+- blackboard（black+board）
+- toothbrush（tooth+brush）
+- notebook（note+book）
+- sunrise（sun+rise）
+- handwriting（hand+writing）
+- bedroom（bed+room）
+- dishwasher（dish+washer）
+- snowman（snow+man）
+- raincoat（rain+coat）
+- overlook（over+look——也是复合动词）
+
+### 英语双式词
+
+同一概念，不同来源：
+
+| 本土/日耳曼 | 拉丁/法语 |
+|---|---|
+| kingly | royal |
+| time | temporal |
+| holy | sacred |
+| ask | inquire |
+| freedom | liberty |
+
+### 形态分析
+
+- **un-happi-ness**：un-（否定）+ happy（词根）+ -ness（名词化）
+- **re-write-able**：re-（再次）+ write（词根）+ -able（能力）
+- **co-oper-ate**：co-（共同）+ oper（工作——来自拉丁语）+ -ate（动词）
+
+</div>
+
+<div class="chinese-section">
+
+## 汉语
+
+### 无屈折
+
+汉语**不**变化名词、动词或形容词：
+
+- 猫 = 猫/猫们（无变化）
+- 走 = 走/走了/走过（无变化）
+- 大 = 大（无性、无数）
+
+### 复合构词（主要策略）
+
+| 复合词 | 成分 | 含义 |
+|---|---|---|
+| 电脑 | 电+脑 | 电脑 |
+| 电话 | 电+话 | 电话 |
+| 火车 | 火+车 | 火车 |
+| 飞机 | 飞+机 | 飞机 |
+| 洗手间 | 洗+手+间 | 洗手间 |
+| 超市 | 超+市 | 超市 |
+| 地铁 | 地+铁 | 地铁 |
+| 公共汽车 | 公+共+汽+车 | 公共汽车 |
+| 北京 | 北+京 | 北京 |
+
+### 自由词素
+
+每个汉字都是具有意义的自由词素：
+
+- 人 = 人
+- 大 = 大
+- 水 = 水
+- 走 = 走
+- 来 = 来
+- 上 = 上
+- 下 = 下
+
+### 功能助词（非词缀）
+
+| 助词 | 用途 | 例子 |
+|---|---|---|
+| 的 | 形容词/领属 | 美丽**的**花 |
+| 了 | 状态变化/完成 | 吃**了**（吃了/吃完了） |
+| 着 | 持续进行 | 走**着**（正在走） |
+| 过 | 过去经历 | 去**过**（去过） |
+| 地 | 副词 | 快**地**走（快走） |
+| 得 | 程度补语 | 走**得**很快（走得很快） |
+
+**重要**：这些助词是**独立词**，非黏着词缀。不与词根融合。
+
+### 重叠
+
+汉语使用重叠表达多种效果：
+
+- 看看（看一看——委婉）
+- 人人（每个人——分配）
+- 妈妈（妈妈——亲昵）
+- 爸爸（爸爸——亲昵）
+
+### 词缀（非常有限）
+
+- 子：桌子，椅子——轻微名词化
+- 儿：花儿（小花——北方方言）
+- 们：我们，朋友们——人称复数
+
+### 比较：复数词素
+
+- 3 cats（英语：后缀）
+- 3 gatos（西班牙语：后缀）
+- 三只猫（汉语：猫不变——数词+量词表达数量）
+
+</div>
+
+---
+
+## 一览对比
+
+| 策略 | 西班牙语 | 英语 | 汉语 |
+|----------|---------|---------|---------|
+| 屈折 | 广泛（动词、性、数） | 极少（复数、过去、-ing） | 无 |
+| 派生（前缀） | 拉丁/希腊语源能产 | 日耳曼/拉丁/希腊语源 | 无（自由词素） |
+| 派生（后缀） | 广泛（-oso, -ción, -mente） | 广泛（-ness, -ful, -ly, -tion） | 非常有限（-子, -儿, -们） |
+| 复合 | 常见（limpiaparabrisas） | 非常常见（blackboard） | **主要策略**（电脑） |
+| 自由词素 | 一些 | 一些 | **所有** |
+| 功能助词 | 黏着附着词 | 分离助动词 | **独立助词**（的, 了, 着, 过） |
+
+---
+
+## 语境中的例子
+
+### 小猫
+- **ES**: gatito（-ito，指小）
+- **EN**: kitty / kitten（-y，本土词）
+- **ZH**: 小猫（小+猫——复合）
+
+### 不可能
+- **ES**: imposible（in- + posible）
+- **EN**: impossible（im- + possible）
+- **ZH**: 不可能（不+可+能——复合）
+
+### 快乐地
+- **ES**: felizmente（feliz + -mente）
+- **EN**: happily（happy + -ly）
+- **ZH**: 开心地（开心+副词助词地——独立助词）
+
+---
+
+## 常见错误
+
+1. **西班牙语/英语母语者学汉语**：期待动词屈折变化：他走了过去 → 他走过去**了**（了 跟在动词后，不融合）
+
+2. **汉语母语者学英语**：忘记复数：three book → three book**s**
+
+3. **汉语母语者学西班牙语**：忘记性一致：un persona → una persona
+
+4. **英语母语者学西班牙语**：到处加 -s：la problema → el problema（不规则阳性）
+
+---
+
+## 相关主题
+
+- **Word Formation**：每种语言如何创造新词
+- **Nouns**：性和数如何与形态学互动
+- **Verbs**：时态和式如何通过形态表达
+- **Classifiers**：汉语量词如何作为自由词素运作

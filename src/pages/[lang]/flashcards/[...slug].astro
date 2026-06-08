@@ -14,9 +14,9 @@ const lang = Astro.params.lang as LocaleCode;
 const ui = getUI(lang);
 
 const flashcards = [
-  { key: 'grammar', title: ui.nav.grammar, desc: 'Test your knowledge of grammar rules across all three languages. From articles to zero copulas.', icon: 'layers' },
-  { key: 'vocabulary', title: ui.nav.vocabulary, desc: 'Memorize words with spaced repetition. Words, translations, and example sentences.', icon: 'book' },
-  { key: 'phrases', title: ui.nav.phrases, desc: 'Practice common phrases and expressions. Build fluency one phrase at a time.', icon: 'message' },
+  { key: 'grammar', title: ui.nav.grammar, desc: ui.flashcards.grammarDesc, icon: 'layers' },
+  { key: 'vocabulary', title: ui.nav.vocabulary, desc: ui.flashcards.vocabularyDesc, icon: 'book' },
+  { key: 'phrases', title: ui.nav.phrases, desc: ui.flashcards.phrasesDesc, icon: 'message' },
 ];
 ---
 
@@ -33,7 +33,7 @@ const flashcards = [
     {/* How Flashcards Work */}
     <section class="border-y border-line bg-paper-deep">
       <div class="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24">
-        <p class="font-mono text-xs font-bold uppercase tracking-[0.2em] text-accent">Method</p>
+        <p class="font-mono text-xs font-bold uppercase tracking-[0.2em] text-accent">{ui.landing.methodLabel}</p>
         <h2 class="mt-3 font-display text-3xl font-semibold tracking-tight sm:text-4xl">{ui.landing.howFlashcardsTitle}</h2>
         <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {[
@@ -60,24 +60,24 @@ const flashcards = [
 
     {/* Flip card demo */}
     <section class="mx-auto max-w-3xl px-5 py-16 sm:px-8 sm:py-24">
-      <p class="font-mono text-xs uppercase tracking-[0.2em] text-accent">Try it</p>
-      <h2 class="mt-3 font-display text-3xl font-semibold tracking-tight sm:text-4xl">Flip a card</h2>
-      <p class="mt-3 text-ink-soft">Click the card below to see the answer. This is how every flashcard in Grammar Atlas works.</p>
+      <p class="font-mono text-xs uppercase tracking-[0.2em] text-accent">{ui.flashcards.tryIt}</p>
+      <h2 class="mt-3 font-display text-3xl font-semibold tracking-tight sm:text-4xl">{ui.flashcards.flipACard}</h2>
+      <p class="mt-3 text-ink-soft">{ui.flashcards.demoInstruction}</p>
 
       <div class="mt-10 flex justify-center">
         <div class="perspective-[1000px] w-80 sm:w-96">
           <div id="demo-card" class="flip-card relative h-56 w-full cursor-pointer" style="transform-style: preserve-3d; transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);">
             {/* Front */}
             <div class="absolute inset-0 flex flex-col items-center justify-center rounded-2xl border-2 border-accent/20 bg-paper shadow-sm" style="backface-visibility: hidden;">
-              <span class="font-mono text-xs uppercase tracking-wider text-ink-faint">Grammar</span>
-              <p class="mt-3 px-6 text-center font-display text-xl font-semibold text-ink">How do you form questions in Chinese without changing word order?</p>
-              <span class="mt-6 text-xs text-ink-faint">Click to reveal answer</span>
+              <span class="font-mono text-xs uppercase tracking-wider text-ink-faint">{ui.nav.grammar}</span>
+              <p class="mt-3 px-6 text-center font-display text-xl font-semibold text-ink">{ui.flashcards.demoQuestion}</p>
+              <span class="mt-6 text-xs text-ink-faint">{ui.flashcards.clickToReveal}</span>
             </div>
             {/* Back */}
             <div class="absolute inset-0 flex flex-col items-center justify-center rounded-2xl border-2 border-accent bg-accent/5 shadow-sm" style="backface-visibility: hidden; transform: rotateY(180deg);">
-              <span class="font-mono text-xs uppercase tracking-wider text-accent">Answer</span>
-              <p class="mt-3 px-6 text-center font-display text-lg font-semibold text-ink">Add 吗 (ma) at the end of the statement.</p>
-              <p class="mt-2 px-6 text-center text-sm text-ink-soft">你去 = You go. 你去吗？ = Do you go?</p>
+              <span class="font-mono text-xs uppercase tracking-wider text-accent">{ui.flashcards.answer}</span>
+              <p class="mt-3 px-6 text-center font-display text-lg font-semibold text-ink">{ui.flashcards.demoAnswer}</p>
+              <p class="mt-2 px-6 text-center text-sm text-ink-soft">{ui.flashcards.demoExample}</p>
             </div>
           </div>
         </div>
@@ -98,8 +98,8 @@ const flashcards = [
     {/* Deck cards */}
     <section class="border-t border-line bg-paper-deep">
       <div class="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24">
-        <p class="font-mono text-xs uppercase tracking-[0.2em] text-accent">Decks</p>
-        <h2 class="mt-3 font-display text-3xl font-semibold tracking-tight sm:text-4xl">Choose a deck</h2>
+        <p class="font-mono text-xs uppercase tracking-[0.2em] text-accent">{ui.flashcards.decks}</p>
+        <h2 class="mt-3 font-display text-3xl font-semibold tracking-tight sm:text-4xl">{ui.flashcards.chooseADeck}</h2>
 
         <div class="mt-10 grid gap-6 sm:grid-cols-3">
           {flashcards.map((deck) => (
@@ -118,7 +118,7 @@ const flashcards = [
               <h3 class="mt-6 font-display text-2xl font-semibold tracking-tight text-ink transition-colors group-hover:text-accent">{deck.title}</h3>
               <p class="mt-2 flex-1 text-sm leading-relaxed text-ink-soft">{deck.desc}</p>
               <span class="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-accent transition-transform group-hover:translate-x-1">
-                Start deck <span>→</span>
+                {ui.flashcards.startDeck} <span>→</span>
               </span>
             </a>
           ))}

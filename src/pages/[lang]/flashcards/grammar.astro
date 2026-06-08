@@ -58,8 +58,8 @@ published.forEach((topic) => {
       if (m.language) {
         cards.push({
           id: idCounter++,
-          front: `Common mistake (${languageName(ui, m.language)})\n${m.mistake}`,
-          back: `Correction:\n${m.correction}`,
+          front: `${ui.flashcards.commonMistake} (${languageName(ui, m.language)})\n${m.mistake}`,
+          back: `${ui.flashcards.correction}:\n${m.correction}`,
           topic: topic.data.title,
           language: m.language,
           type: 'mistake',
@@ -82,16 +82,16 @@ const cardsJson = JSON.stringify(cards);
 ---
 
 <BaseLayout
-  title={`${ui.nav.grammar} Flashcards — ${ui.site.name}`}
-  description={`Study grammar concepts with ${cards.length} interactive flashcards.`}
+  title={`${ui.flashcards.grammarTitle} — ${ui.site.name}`}
+  description={ui.flashcards.grammarMetaDesc.replace('{count}', String(cards.length))}
   lang={lang}
 >
   {/* Hero */}
   <section class="border-b border-line bg-[#2a2520]">
     <div class="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24">
-      <p class="font-mono text-xs uppercase tracking-[0.2em] text-accent">Flashcards</p>
-      <h1 class="mt-4 max-w-2xl font-display text-4xl font-semibold tracking-tight text-paper sm:text-5xl">{ui.nav.grammar} Flashcards</h1>
-      <p class="mt-4 max-w-xl text-lg text-paper/70">Flip cards to test your knowledge. {cards.length} grammar flashcards across all three languages.</p>
+      <p class="font-mono text-xs uppercase tracking-[0.2em] text-accent">{ui.landing.flashcardsTitle}</p>
+      <h1 class="mt-4 max-w-2xl font-display text-4xl font-semibold tracking-tight text-paper sm:text-5xl">{ui.flashcards.grammarTitle}</h1>
+      <p class="mt-4 max-w-xl text-lg text-paper/70">{ui.flashcards.grammarMetaDesc.replace('{count}', String(cards.length))}</p>
     </div>
   </section>
 
@@ -109,7 +109,7 @@ const cardsJson = JSON.stringify(cards);
     <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
       {/* Language filter */}
       <div class="flex flex-wrap gap-2" id="lang-filters">
-        <button data-lang="all" class="filter-btn rounded-full border border-accent bg-accent px-4 py-1.5 text-xs font-medium text-paper transition-all">All</button>
+        <button data-lang="all" class="filter-btn rounded-full border border-accent bg-accent px-4 py-1.5 text-xs font-medium text-paper transition-all">{ui.flashcards.all}</button>
         {analyzedLanguages.map((l) => (
           <button data-lang={l.code} class="filter-btn rounded-full border border-line bg-paper px-4 py-1.5 text-xs font-medium text-ink-soft transition-all hover:border-accent hover:text-accent">
             <span class="flex items-center gap-1.5">
@@ -120,7 +120,7 @@ const cardsJson = JSON.stringify(cards);
         ))}
       </div>
       {/* Counter */}
-      <p class="font-mono text-sm text-ink-faint" id="card-counter">Card 1 of {cards.length}</p>
+      <p class="font-mono text-sm text-ink-faint" id="card-counter">{ui.flashcards.cardCounter.replace('{current}', '1').replace('{total}', String(cards.length))}</p>
     </div>
   </section>
 
@@ -138,9 +138,9 @@ const cardsJson = JSON.stringify(cards);
           class="absolute inset-0 flex flex-col items-center justify-center rounded-2xl bg-paper p-8"
           style="backface-visibility: hidden;"
         >
-          <span class="font-mono text-[10px] uppercase tracking-wider text-ink-faint" id="front-label">Concept</span>
-          <p class="mt-4 text-center font-display text-xl font-semibold text-ink sm:text-2xl" id="front-text">Loading...</p>
-          <span class="mt-6 text-xs text-ink-faint">Click or press Space to flip</span>
+          <span class="font-mono text-[10px] uppercase tracking-wider text-ink-faint" id="front-label">{ui.flashcards.concept}</span>
+          <p class="mt-4 text-center font-display text-xl font-semibold text-ink sm:text-2xl" id="front-text">{ui.flashcards.loading}</p>
+          <span class="mt-6 text-xs text-ink-faint">{ui.flashcards.clickToFlip}</span>
         </div>
         {/* Back */}
         <div
@@ -148,9 +148,9 @@ const cardsJson = JSON.stringify(cards);
           class="absolute inset-0 flex flex-col items-center justify-center rounded-2xl bg-paper p-8"
           style="backface-visibility: hidden; transform: rotateY(180deg);"
         >
-          <span class="font-mono text-[10px] uppercase tracking-wider text-accent" id="back-label">Answer</span>
-          <p class="mt-4 text-center font-display text-xl font-semibold text-ink sm:text-2xl" id="back-text">Loading...</p>
-          <span class="mt-6 text-xs text-ink-faint">Click or press Space to flip back</span>
+          <span class="font-mono text-[10px] uppercase tracking-wider text-accent" id="back-label">{ui.flashcards.answer}</span>
+          <p class="mt-4 text-center font-display text-xl font-semibold text-ink sm:text-2xl" id="back-text">{ui.flashcards.loading}</p>
+          <span class="mt-6 text-xs text-ink-faint">{ui.flashcards.clickToFlipBack}</span>
         </div>
       </div>
     </div>
@@ -160,7 +160,7 @@ const cardsJson = JSON.stringify(cards);
       <button
         id="btn-prev"
         class="flex h-12 w-12 items-center justify-center rounded-full border border-line bg-paper text-ink-soft transition-all hover:border-accent hover:text-accent"
-        aria-label="Previous card"
+        aria-label={ui.flashcards.previousCard}
       >
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
       </button>
@@ -168,22 +168,36 @@ const cardsJson = JSON.stringify(cards);
         id="btn-flip"
         class="rounded-full bg-accent px-8 py-3 font-display text-sm font-semibold text-paper transition-all hover:bg-accent/90 hover:shadow-lg"
       >
-        Flip
+        {ui.flashcards.flip}
       </button>
       <button
         id="btn-next"
         class="flex h-12 w-12 items-center justify-center rounded-full border border-line bg-paper text-ink-soft transition-all hover:border-accent hover:text-accent"
-        aria-label="Next card"
+        aria-label={ui.flashcards.nextCard}
       >
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
       </button>
     </div>
 
     {/* Keyboard hint */}
-    <p class="mt-4 text-center text-xs text-ink-faint">← → arrows to navigate · Space to flip</p>
+    <p class="mt-4 text-center text-xs text-ink-faint">{ui.flashcards.keyboardHint}</p>
   </section>
 
-  <script define:vars={{ cardsJson }}>
+  <script define:vars={{ cardsJson, uiJson: JSON.stringify({
+    all: ui.flashcards.all,
+    cardCounter: ui.flashcards.cardCounter,
+    concept: ui.flashcards.concept,
+    answer: ui.flashcards.answer,
+    commonMistake: ui.flashcards.commonMistake,
+    correction: ui.flashcards.correction,
+    noCardsMatch: ui.flashcards.noCardsMatch,
+    tryDifferentLanguage: ui.flashcards.tryDifferentLanguage,
+    zeroCards: ui.flashcards.zeroCards,
+    spanish: ui.languages.spanish,
+    english: ui.languages.english,
+    chinese: ui.languages.chinese,
+  }) }}>
+    const uiStr = JSON.parse(uiJson);
     const allCards = JSON.parse(cardsJson);
     let currentIdx = 0;
     let filteredCards = [...allCards];
@@ -199,25 +213,24 @@ const cardsJson = JSON.stringify(cards);
 
     function updateCard() {
       if (filteredCards.length === 0) {
-        frontText.textContent = 'No cards match this filter.';
-        backText.textContent = 'Try a different language.';
-        counterEl.textContent = '0 cards';
+        frontText.textContent = uiStr.noCardsMatch;
+        backText.textContent = uiStr.tryDifferentLanguage;
+        counterEl.textContent = uiStr.zeroCards;
         return;
       }
       const card = filteredCards[currentIdx];
       frontText.innerHTML = card.front.replace(/\n/g, '<br>');
       backText.innerHTML = card.back;
-      frontLabel.textContent = card.type === 'mistake' ? 'Common Mistake' : card.topic;
-      backLabel.textContent = card.type === 'mistake' ? 'Correction' : languageLabel(card.language);
-      counterEl.textContent = `Card ${currentIdx + 1} of ${filteredCards.length}`;
+      frontLabel.textContent = card.type === 'mistake' ? uiStr.commonMistake : card.topic;
+      backLabel.textContent = card.type === 'mistake' ? uiStr.correction : languageLabel(card.language);
+      counterEl.textContent = uiStr.cardCounter.replace('{current}', String(currentIdx + 1)).replace('{total}', String(filteredCards.length));
 
-      // Reset flip
       isFlipped = false;
       cardEl.style.transform = '';
     }
 
     function languageLabel(code) {
-      const labels = { spanish: 'Spanish', english: 'English', chinese: 'Chinese' };
+      const labels = { spanish: uiStr.spanish, english: uiStr.english, chinese: uiStr.chinese };
       return labels[code] || code;
     }
 
@@ -258,7 +271,6 @@ const cardsJson = JSON.stringify(cards);
       });
     }
 
-    // Event listeners
     cardEl?.addEventListener('click', flip);
     document.getElementById('btn-flip')?.addEventListener('click', flip);
     document.getElementById('btn-next')?.addEventListener('click', next);
@@ -281,7 +293,6 @@ const cardsJson = JSON.stringify(cards);
       });
     });
 
-    // Init
     updateCard();
   </script>
 </BaseLayout>

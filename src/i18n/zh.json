@@ -35,7 +35,11 @@
   "languages": {
     "spanish": "西班牙语",
     "english": "英语",
-    "chinese": "中文"
+    "chinese": "中文",
+    "grammarSuffix": "语法",
+    "grammarTopics": "语法主题",
+    "topicDesc": "每个主题展示{language}如何处理该概念，并附例句和常见陷阱。",
+    "heroDesc": "探索 {count} 个{language}语法主题。每个概念都用真实例句解释——没有对比，只有真正重要的规则。"
   },
   "topics": {
     "title": "语法概念",
@@ -45,7 +49,45 @@
     "filterAll": "全部",
     "filterBeginner": "初级",
     "filterIntermediate": "中级",
-    "filterAdvanced": "高级"
+    "filterAdvanced": "高级",
+    "count": "{count} 个主题",
+    "noResults": "没有主题匹配你的搜索。",
+    "heroDesc": "{count} 个语法概念，涵盖西班牙语、英语和中文。"
+  },
+  "guides": {
+    "heroDesc": "面向学习者和教师的指南。"
+  },
+  "cheatsheets": {
+    "heroDesc": "常见语法模式的速查表。"
+  },
+  "legal": {
+    "label": "法律",
+    "cookiesDesc": "本页面将包含 Grammar Atlas 的 Cookie 政策。",
+    "privacyDesc": "本页面将包含 Grammar Atlas 的隐私政策。",
+    "termsDesc": "本页面将包含 Grammar Atlas 的服务条款。"
+  },
+  "learningPaths": {
+    "pathSuffix": "学习路径",
+    "heroDesc": "从基础概念到高级用法的结构化学习之旅。按顺序跟随阶段，或跳到你需要的主题。",
+    "stageBeginnerLabel": "基础",
+    "stageBeginnerDesc": "从这里开始。这些概念构成语言的基础。",
+    "stageIntermediateLabel": "构建",
+    "stageIntermediateDesc": "扩展你的范围。连接想法并表达更多细微差别。",
+    "stageAdvancedLabel": "精通",
+    "stageAdvancedDesc": "精炼你的掌握。处理细微差别和复杂结构。",
+    "topicsCount": "{count} 个主题",
+    "learn": "学习"
+  },
+  "pagefind": {
+    "placeholder": "搜索语法主题、对比、指南…",
+    "clear_search": "清除",
+    "load_more": "加载更多结果",
+    "search_label": "搜索",
+    "filters_label": "筛选",
+    "zero_results": "未找到 [SEARCH_TERM] 的结果",
+    "many_results": "[COUNT] 个 [SEARCH_TERM] 的结果",
+    "one_result": "[SEARCH_TERM] 的 1 个结果",
+    "alt_search": "未找到 [SEARCH_TERM] 的结果。改为显示 [DIFFERENT_TERM] 的结果。"
   },
   "comparisons": {
     "title": "并列对比",
@@ -112,6 +154,7 @@
     "draft": "草稿"
   },
   "landing": {
+    "methodLabel": "方法",
     "grammarTitle": "语法",
     "grammarSubtitle": "Grammar Atlas 的核心",
     "grammarDesc": "跨语言解释每个语法概念。与其分别学习三种语法，不如学习一个概念，比较三种解决方案。",
@@ -172,6 +215,53 @@
     "howFlashcards3Body": "按自己的节奏浏览卡组。卡片会洗牌以保持大脑活跃。",
     "howFlashcards4Title": "掌握并重复",
     "howFlashcards4Body": "定期复习卡组。间隔重复有助于将知识存入长期记忆。"
+  },
+  "flashcards": {
+    "tryIt": "试一试",
+    "flipACard": "翻转卡片",
+    "demoInstruction": "点击卡片查看答案。Grammar Atlas 的每张闪卡都是这样工作的。",
+    "clickToReveal": "点击揭示答案",
+    "decks": "卡组",
+    "chooseADeck": "选择卡组",
+    "startDeck": "开始卡组",
+    "all": "全部",
+    "cardCounter": "第 {current} 张，共 {total} 张",
+    "concept": "概念",
+    "answer": "答案",
+    "word": "单词",
+    "translation": "翻译",
+    "phrase": "短语",
+    "flip": "翻转",
+    "clickToFlip": "点击或按空格翻转",
+    "clickToFlipBack": "点击或按空格返回",
+    "previousCard": "上一张",
+    "nextCard": "下一张",
+    "keyboardHint": "← → 方向键导航 · 空格翻转",
+    "noCardsMatch": "没有卡片匹配此筛选条件。",
+    "tryDifferentLanguage": "尝试其他语言。",
+    "zeroCards": "0 张卡片",
+    "commonMistake": "常见错误",
+    "correction": "纠正",
+    "loading": "加载中...",
+    "demoQuestion": "如何在不改变语序的情况下用中文提问？",
+    "demoAnswer": "在陈述句末尾加上 吗 (ma)。",
+    "demoExample": "你去 = You go. 你去吗？ = Do you go?",
+    "grammarDesc": "测试你对三种语言语法规则的掌握。从冠词到零系词。",
+    "vocabularyDesc": "用间隔重复记忆单词。单词、翻译和例句。",
+    "phrasesDesc": "练习常用短语和表达。逐句建立流利度。",
+    "grammarTitle": "语法闪卡",
+    "vocabularyTitle": "词汇闪卡",
+    "phrasesTitle": "短语闪卡",
+    "grammarMetaDesc": "用 {count} 张互动闪卡学习语法概念。",
+    "vocabularyMetaDesc": "用 {count} 张互动闪卡学习词汇。",
+    "phrasesMetaDesc": "用 {count} 张互动闪卡学习短语。"
+  },
+  "vocabulary": {
+    "word": "单词",
+    "phrase": "短语",
+    "definition": "释义",
+    "previous": "上一页",
+    "next": "下一页"
   },
   "placeholders": {
     "comingSoon": "即将推出",

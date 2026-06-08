@@ -35,7 +35,11 @@
   "languages": {
     "spanish": "Spanish",
     "english": "English",
-    "chinese": "Chinese"
+    "chinese": "Chinese",
+    "grammarSuffix": "Grammar",
+    "grammarTopics": "Grammar Topics",
+    "topicDesc": "Each topic shows how {language} handles the concept, with examples and common pitfalls.",
+    "heroDesc": "Explore {count} grammar topics for {language}. Each concept explained with real examples — no comparisons, just the rules that matter."
   },
   "topics": {
     "title": "Grammar concepts",
@@ -45,7 +49,45 @@
     "filterAll": "All",
     "filterBeginner": "Beginner",
     "filterIntermediate": "Intermediate",
-    "filterAdvanced": "Advanced"
+    "filterAdvanced": "Advanced",
+    "count": "{count} topics",
+    "noResults": "No topics match your search.",
+    "heroDesc": "{count} grammar concepts documented across Spanish, English, and Chinese."
+  },
+  "guides": {
+    "heroDesc": "Audience-oriented guides for learners and teachers."
+  },
+  "cheatsheets": {
+    "heroDesc": "Quick-reference tables for common grammar patterns."
+  },
+  "legal": {
+    "label": "Legal",
+    "cookiesDesc": "This page will contain the Cookie Policy for Grammar Atlas.",
+    "privacyDesc": "This page will contain the Privacy Policy for Grammar Atlas.",
+    "termsDesc": "This page will contain the Terms of Service for Grammar Atlas."
+  },
+  "learningPaths": {
+    "pathSuffix": "Learning Path",
+    "heroDesc": "A structured journey from first concepts to advanced usage. Follow the stages in order, or jump to the topic you need.",
+    "stageBeginnerLabel": "Foundations",
+    "stageBeginnerDesc": "Start here. These concepts form the bedrock of the language.",
+    "stageIntermediateLabel": "Building Blocks",
+    "stageIntermediateDesc": "Expand your range. Connect ideas and express more nuance.",
+    "stageAdvancedLabel": "Mastery",
+    "stageAdvancedDesc": "Refine your command. Handle subtle distinctions and complex structures.",
+    "topicsCount": "{count} topics",
+    "learn": "Learn"
+  },
+  "pagefind": {
+    "placeholder": "Search grammar topics, comparisons, guides…",
+    "clear_search": "Clear",
+    "load_more": "Load more results",
+    "search_label": "Search",
+    "filters_label": "Filters",
+    "zero_results": "No results for [SEARCH_TERM]",
+    "many_results": "[COUNT] results for [SEARCH_TERM]",
+    "one_result": "1 result for [SEARCH_TERM]",
+    "alt_search": "No results for [SEARCH_TERM]. Showing results for [DIFFERENT_TERM] instead."
   },
   "comparisons": {
     "title": "Side-by-side comparison",
@@ -112,6 +154,7 @@
     "draft": "Draft"
   },
   "landing": {
+    "methodLabel": "Method",
     "grammarTitle": "Grammar",
     "grammarSubtitle": "The core of Grammar Atlas",
     "grammarDesc": "Every grammar concept explained across languages. Instead of learning three separate grammars, learn one concept and compare three solutions.",
@@ -172,6 +215,53 @@
     "howFlashcards3Body": "Go through the deck at your own pace. Cards shuffle to keep your brain engaged.",
     "howFlashcards4Title": "Master and repeat",
     "howFlashcards4Body": "Review decks regularly. Spaced repetition helps move knowledge into long-term memory."
+  },
+  "flashcards": {
+    "tryIt": "Try it",
+    "flipACard": "Flip a card",
+    "demoInstruction": "Click the card below to see the answer. This is how every flashcard in Grammar Atlas works.",
+    "clickToReveal": "Click to reveal answer",
+    "decks": "Decks",
+    "chooseADeck": "Choose a deck",
+    "startDeck": "Start deck",
+    "all": "All",
+    "cardCounter": "Card {current} of {total}",
+    "concept": "Concept",
+    "answer": "Answer",
+    "word": "Word",
+    "translation": "Translation",
+    "phrase": "Phrase",
+    "flip": "Flip",
+    "clickToFlip": "Click or press Space to flip",
+    "clickToFlipBack": "Click or press Space to flip back",
+    "previousCard": "Previous card",
+    "nextCard": "Next card",
+    "keyboardHint": "← → arrows to navigate · Space to flip",
+    "noCardsMatch": "No cards match this filter.",
+    "tryDifferentLanguage": "Try a different language.",
+    "zeroCards": "0 cards",
+    "commonMistake": "Common Mistake",
+    "correction": "Correction",
+    "loading": "Loading...",
+    "demoQuestion": "How do you form questions in Chinese without changing word order?",
+    "demoAnswer": "Add 吗 (ma) at the end of the statement.",
+    "demoExample": "你去 = You go. 你去吗？ = Do you go?",
+    "grammarDesc": "Test your knowledge of grammar rules across all three languages. From articles to zero copulas.",
+    "vocabularyDesc": "Memorize words with spaced repetition. Words, translations, and example sentences.",
+    "phrasesDesc": "Practice common phrases and expressions. Build fluency one phrase at a time.",
+    "grammarTitle": "Grammar Flashcards",
+    "vocabularyTitle": "Vocabulary Flashcards",
+    "phrasesTitle": "Phrases Flashcards",
+    "grammarMetaDesc": "Study grammar concepts with {count} interactive flashcards.",
+    "vocabularyMetaDesc": "Study vocabulary with {count} interactive flashcards.",
+    "phrasesMetaDesc": "Study phrases with {count} interactive flashcards."
+  },
+  "vocabulary": {
+    "word": "Word",
+    "phrase": "Phrase",
+    "definition": "Definition",
+    "previous": "Previous",
+    "next": "Next"
   },
   "placeholders": {
     "comingSoon": "Coming soon",

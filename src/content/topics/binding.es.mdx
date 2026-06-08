@@ -1,0 +1,248 @@
+---
+title: "Ligadura y Reflexividad"
+description: "Cómo el español, el inglés y el chino restringen la relación entre pronombres y sus antecedentes."
+locale: "es"
+topic: "binding"
+difficulty: "advanced"
+overview: "La teoría de la ligadura gobierna la relación entre anáforos (reflexivos), pronombres y sintagmas nominales completos con respecto a sus antecedentes. El inglés y el español requieren antecedentes locales para reflexivos. El chino permite reflexivos de larga distancia."
+comparisonTable:
+  - concept: "Juan se vio (ligadura local)"
+    values:
+      spanish: "Juan se vio a sí mismo (se = Juan, local)"
+      english: "John saw himself (himself = John, local)"
+      chinese: "<ruby>约<rt>Yuē</rt></ruby><ruby>翰<rt>hàn</rt></ruby><ruby>看<rt>kàn</rt></ruby><ruby>见<rt>jiàn</rt></ruby><ruby>他<rt>tā</rt></ruby><ruby>自<rt>zì</rt></ruby><ruby>己<rt>jǐ</rt></ruby> (<ruby>他<rt>tā</rt></ruby><ruby>自<rt>zì</rt></ruby><ruby>己<rt>jǐ</rt></ruby> = John, local)"
+  - concept: "Juan dijo que Pedro se vio (debe ser Pedro)"
+    values:
+      spanish: "Juan dijo que Pedro se vio a sí mismo (sí mismo = Pedro, NOT Juan)"
+      english: "John said that Peter saw himself (himself = Peter, NOT John)"
+      chinese: "<ruby>约<rt>Yuē</rt></ruby><ruby>翰<rt>hàn</rt></ruby><ruby>说<rt>shuō</rt></ruby><ruby>彼<rt>bǐ</rt></ruby><ruby>得<rt>dé</rt></ruby><ruby>看<rt>kàn</rt></ruby><ruby>见<rt>jiàn</rt></ruby><ruby>他<rt>tā</rt></ruby><ruby>自<rt>zì</rt></ruby><ruby>己<rt>jǐ</rt></ruby> (<ruby>他<rt>tā</rt></ruby><ruby>自<rt>zì</rt></ruby><ruby>己<rt>jǐ</rt></ruby> = Peter, pero puede = John en algunos dialectos)"
+  - concept: "Juan lo vio (lo ≠ Juan)"
+    values:
+      spanish: "Juan lo vio (lo = alguien más, NOT Juan)"
+      english: "John saw him (him ≠ John)"
+      chinese: "<ruby>约<rt>Yuē</rt></ruby><ruby>翰<rt>hàn</rt></ruby><ruby>看<rt>kàn</rt></ruby><ruby>见<rt>jiàn</rt></ruby><ruby>他<rt>tā</rt></ruby> (<ruby>他<rt>tā</rt></ruby> = alguien más, ambiguo en contexto)"
+  - concept: "La madre de Juan lo quiere (lo = Juan, no local)"
+    values:
+      spanish: "La madre de Juan lo quiere (lo = Juan)"
+      english: "John's mother loves him (him = John)"
+      chinese: "<ruby>约<rt>Yuē</rt></ruby><ruby>翰<rt>hàn</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>妈<rt>mā</rt></ruby><ruby>妈<rt>ma</rt></ruby><ruby>爱<rt>ài</rt></ruby><ruby>他<rt>tā</rt></ruby> (<ruby>他<rt>tā</rt></ruby> = John)"
+  - concept: "Cada uno al otro (recíproco)"
+    values:
+      spanish: "Juan y María se ven (se = mutuamente)"
+      english: "John and Mary see each other"
+      chinese: "<ruby>约<rt>Yuē</rt></ruby><ruby>翰<rt>hàn</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>玛<rt>Mǎ</rt></ruby><ruby>丽<rt>lì</rt></ruby><ruby>互<rt>hù</rt></ruby><ruby>相<rt>xiāng</rt></ruby><ruby>看<rt>kàn</rt></ruby> (<ruby>互<rt>hù</rt></ruby><ruby>相<rt>xiāng</rt></ruby> = mutuamente)"
+  - concept: "Juan se lavó (intransitivo / medio)"
+    values:
+      spanish: "Juan se lavó (se = reflexivo/anticuasativo)"
+      english: "John washed (ambiguo: transitivo con objeto omitido, o medio)"
+      chinese: "<ruby>约<rt>Yuē</rt></ruby><ruby>翰<rt>hàn</rt></ruby><ruby>洗<rt>xǐ</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>澡<rt>zǎo</rt></ruby> (<ruby>洗<rt>xǐ</rt></ruby><ruby>澡<rt>zǎo</rt></ruby> = lavar-baño = bañarse, no se necesita reflexivo)"
+  - concept: "Juan se cree inteligente"
+    values:
+      spanish: "Juan se cree inteligente (se = Juan, dominio de ligadura excepcional)"
+      english: "John believes himself to be smart (himself = John, caso excepcional)"
+      chinese: "<ruby>约<rt>Yuē</rt></ruby><ruby>翰<rt>hàn</rt></ruby><ruby>相<rt>xiāng</rt></ruby><ruby>信<rt>xìn</rt></ruby><ruby>他<rt>tā</rt></ruby><ruby>自<rt>zì</rt></ruby><ruby>己<rt>jǐ</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>聪<rt>cōng</rt></ruby><ruby>明<rt>míng</rt></ruby> (<ruby>他<rt>tā</rt></ruby><ruby>自<rt>zì</rt></ruby><ruby>己<rt>jǐ</rt></ruby> = John)"
+  - concept: "Solo Juan votó por él (él = Juan, ligadura por foco)"
+    values:
+      spanish: "Solo Juan votó por él (él = Juan, ligado por solo)"
+      english: "Only John voted for him (him = John, ligado por only)"
+      chinese: "<ruby>只<rt>zhǐ</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>约<rt>Yuē</rt></ruby><ruby>翰<rt>hàn</rt></ruby><ruby>投<rt>tóu</rt></ruby><ruby>票<rt>piào</rt></ruby><ruby>给<rt>gěi</rt></ruby><ruby>他<rt>tā</rt></ruby><ruby>自<rt>zì</rt></ruby><ruby>己<rt>jǐ</rt></ruby> (<ruby>他<rt>tā</rt></ruby><ruby>自<rt>zì</rt></ruby><ruby>己<rt>jǐ</rt></ruby> = John, explícito)"
+commonMistakes:
+  - mistake: "Usar pronombre no reflexivo para objeto de mismo sujeto en inglés"
+    correction: "John saw himself (NOT John saw him cuando es la misma persona)"
+    note: "El inglés requiere pronombres reflexivos cuando están co-indexados con el sujeto local."
+  - mistake: "Asumir que los reflexivos chinos tienen el mismo dominio de ligadura que en inglés"
+    correction: "Chinese <ruby>自<rt>zì</rt></ruby><ruby>己<rt>jǐ</rt></ruby> puede tener antecedentes de larga distancia en algunos contextos"
+    note: "Chinese <ruby>自<rt>zì</rt></ruby><ruby>己<rt>jǐ</rt></ruby> permite ligadura de larga distancia de una manera que el inglés himself no."
+  - mistake: "Usar reflexivo donde se requiere no reflexivo en inglés"
+    correction: "John believes he is smart (NOT John believes himself is smart — ungramatical)"
+    note: "El inglés himself no puede ser sujeto de una cláusula finita."
+  - mistake: "Confundir se reflexivo con se pasivo en español"
+    correction: "Juan se vio (reflexivo: Juan se vio a sí mismo); Se venden casas (pasivo: se venden casas)"
+    note: "El español se tiene múltiples funciones; el contexto y la semántica del verbo desambiguación."
+relatedTopics:
+  - "anaphora"
+  - "reflexives"
+  - "reciprocal"
+  - "pronouns"
+prerequisites:
+  - "pronouns"
+  - "anaphora"
+keyTakeaways:
+  - "Español: Ligadura local para reflexivos (se, sí mismo). Los pronombres (lo, le) deben ser libres en el dominio local. Se es multifuncional (reflexivo, recíproco, pasivo, impersonal)."
+  - "Inglés: Ligadura local estricta para reflexivos (himself). Los reflexivos de larga distancia son agramaticales. El marcado de caso excepcional extiende el dominio de ligadura para algunos verbos."
+  - "Chino: 自己zìjǐ permite ligadura de larga distancia en algunos contextos. La ligadura local es preferida pero no estrictamente requerida. 互相hùxiāng es estrictamente recíproco."
+  - "Conceptos clave comparados: Juan se vio (ligadura local), Juan dijo que Pedro se vio (debe ser Pedro), Juan lo vio (lo ≠ Juan)."
+lastUpdated: 2026-06-04
+draft: false
+---
+
+## Visión general
+
+La teoría de la ligadura explica cómo los pronombres y los reflexivos se relacionan con sus antecedentes.
+
+- **Principio A**: Los anáforos (reflexivos) deben estar ligados en su dominio local.
+- **Principio B**: Los pronombres deben ser libres (no ligados) en su dominio local.
+- **Principio C**: Los sintagmas nominales completos deben ser libres en todas partes.
+
+- **Español**: Ligadura local para reflexivos (*se, sí mismo*). Los pronombres (*lo, le*) deben ser libres en el dominio local. *Se* es multifuncional (reflexivo, recíproco, pasivo, impersonal).
+- **Inglés**: Ligadura local estricta para reflexivos (*himself*). Los reflexivos de larga distancia son agramaticales. El marcado de caso excepcional extiende el dominio de ligadura para algunos verbos.
+- **Chino**: *<ruby>自<rt>zì</rt></ruby><ruby>己<rt>jǐ</rt></ruby>* permite ligadura de larga distancia en algunos contextos. La ligadura local es preferida pero no estrictamente requerida. *<ruby>互<rt>hù</rt></ruby><ruby>相<rt>xiāng</rt></ruby>* es estrictamente recíproco.
+
+---
+
+<div class="spanish-section">
+
+## Español
+
+### Ligadura reflexiva (local)
+
+- *Juan **se** vio.* (Juan se vio a sí mismo. — se ligado por Juan)
+- *María **se** lavó.* (María se lavó a sí misma.)
+
+**Enfático**:
+- *Juan lo hizo **sí mismo**.* (Juan lo hizo él mismo.)
+- *Ella **misma** lo dijo.* (Ella misma lo dijo.)
+
+### Larga distancia prohibida
+
+- *Juan dijo que Pedro **se** vio.* (Pedro se vio a sí mismo. — se = Pedro, NOT Juan)
+- *Juan dijo que Pedro vio a **él**.* (Pedro lo vio a él. — él = alguien más, NOT Juan)
+
+### Pronombre debe ser libre localmente
+
+- *Juan lo vio.* (Juan lo vio. — lo ≠ Juan)
+- *Juan dijo que Pedro lo vio.* (Pedro lo vio. — lo = alguien más)
+
+**Nota**: Para referirse a Juan, usa un sintagma nominal completo: *Juan dijo que Pedro vio a Juan.*
+
+### Funciones de se
+
+| Función | Ejemplo |
+|---|---|
+| Reflexivo | Juan **se** vio. |
+| Recíproco | Juan y María **se** ven. |
+| Pasivo | **Se** venden casas. |
+| Impersonal | **Se** dice que... |
+| Incoativo | La puerta **se** abrió. |
+
+</div>
+
+<div class="english-section">
+
+## Inglés
+
+### Ligadura reflexiva (estrictamente local)
+
+- *John saw **himself**.* (himself = John)
+- *Mary bought **herself** a gift.*
+
+### Larga distancia prohibida
+
+- *John said that Peter saw **himself**.* (himself = Peter, NOT John)
+- *John said that Peter saw **him**.* (him = alguien más, NOT John or Peter)
+
+### Marcado de caso excepcional
+
+Algunos verbos permiten un dominio de ligadura extendido:
+- *John believes **himself** to be smart.* (himself = John, cruza el límite de la cláusula)
+- *John wants **himself** to win.* (himself = John)
+
+### Pronombre debe ser libre localmente
+
+- *John loves **him**.* (him ≠ John)
+- *John's mother loves **him**.* (him = John — no local está bien)
+
+### Reflexivo vs no reflexivo
+
+| Contexto | Correcto | Incorrecto |
+|---|---|---|
+| Mismo sujeto-objeto | John saw **himself**. | ~~John saw him.~~ |
+| Referente diferente | John saw **him**. | — |
+| Sujeto de cláusula finita | John thinks **he** is smart. | ~~John thinks himself is smart.~~ |
+| Objeto de infinitivo | John wants **himself** to win. | — |
+
+### Reflexivos posesivos
+
+- *John loves **his own** car.* (enfático)
+- *John saw **his own** reflection.*
+
+</div>
+
+<div class="chinese-section">
+
+## Chino
+
+### Reflexivo (local y larga distancia)
+
+**Local**:
+- <ruby>他<rt>tā</rt></ruby><ruby>看<rt>kàn</rt></ruby><ruby>见<rt>jiàn</rt></ruby><ruby>他<rt>tā</rt></ruby><ruby>自<rt>zì</rt></ruby><ruby>己<rt>jǐ</rt></ruby>。(Él se vio a sí mismo.)
+
+**Larga distancia (posible en algunos contextos)**:
+- <ruby>约<rt>Yuē</rt></ruby><ruby>翰<rt>hàn</rt></ruby><ruby>说<rt>shuō</rt></ruby><ruby>彼<rt>bǐ</rt></ruby><ruby>得<rt>dé</rt></ruby><ruby>知<rt>zhī</rt></ruby><ruby>道<rt>dào</rt></ruby><ruby>他<rt>tā</rt></ruby><ruby>自<rt>zì</rt></ruby><ruby>己<rt>jǐ</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>聪<rt>cōng</rt></ruby><ruby>明<rt>míng</rt></ruby>。(John dijo que Peter sabe que él mismo es inteligente. — <ruby>他<rt>tā</rt></ruby><ruby>自<rt>zì</rt></ruby><ruby>己<rt>jǐ</rt></ruby> puede referirse a John en algunos dialectos/contextos)
+
+**Nota**: Chinese <ruby>自<rt>zì</rt></ruby><ruby>己<rt>jǐ</rt></ruby> permite ligadura de larga distancia más libremente que el inglés himself.
+
+### Ligadura del pronombre
+
+- <ruby>约<rt>Yuē</rt></ruby><ruby>翰<rt>hàn</rt></ruby><ruby>说<rt>shuō</rt></ruby><ruby>他<rt>tā</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>聪<rt>cōng</rt></ruby><ruby>明<rt>míng</rt></ruby>。(John dijo que él es inteligente. — <ruby>他<rt>tā</rt></ruby> = John o alguien más, ambiguo)
+
+### Recíproco
+
+- <ruby>他<rt>tā</rt></ruby><ruby>们<rt>men</rt></ruby><ruby>互<rt>hù</rt></ruby><ruby>相<rt>xiāng</rt></ruby><ruby>帮<rt>bāng</rt></ruby><ruby>助<rt>zhù</rt></ruby>。(Ellos se ayudan mutuamente.)
+
+### <ruby>自<rt>zì</rt></ruby><ruby>己<rt>jǐ</rt></ruby> como enfático
+
+- <ruby>我<rt>wǒ</rt></ruby><ruby>自<rt>zì</rt></ruby><ruby>己<rt>jǐ</rt></ruby><ruby>做<rt>zuò</rt></ruby><ruby>的<rt>de</rt></ruby>。(Yo mismo lo hice.)
+
+</div>
+
+## Comparación rápida
+
+| Característica | Español | Inglés | Chino |
+|---------|---------|---------|---------|
+| Reflexivo | se, sí mismo | myself/himself | <ruby>自<rt>zì</rt></ruby><ruby>己<rt>jǐ</rt></ruby> |
+| Ligadura local | Requerida | Requerida | Preferida |
+| Larga distancia | Prohibida | Prohibida | Permitida en algunos contextos |
+| Recíproco | se (igual que reflexivo) | each other / one another | <ruby>互<rt>hù</rt></ruby><ruby>相<rt>xiāng</rt></ruby> |
+| Pronombre localmente | Debe ser libre | Debe ser libre | Ambiguo |
+| Enfático | sí mismo, él mismo | himself, his own | <ruby>自<rt>zì</rt></ruby><ruby>己<rt>jǐ</rt></ruby> |
+
+---
+
+## Ejemplos en contexto
+
+### Juan se vio
+- **ES**: *Juan se vio.*
+- **EN**: *John saw himself.*
+- **ZH**: <ruby>约<rt>Yuē</rt></ruby><ruby>翰<rt>hàn</rt></ruby><ruby>看<rt>kàn</rt></ruby><ruby>见<rt>jiàn</rt></ruby><ruby>他<rt>tā</rt></ruby><ruby>自<rt>zì</rt></ruby><ruby>己<rt>jǐ</rt></ruby>。
+
+### Pedro se vio (no Juan)
+- **ES**: *Pedro se vio.* (se = Pedro)
+- **EN**: *Peter saw himself.* (himself = Peter)
+- **ZH**: <ruby>彼<rt>bǐ</rt></ruby><ruby>得<rt>dé</rt></ruby><ruby>看<rt>kàn</rt></ruby><ruby>见<rt>jiàn</rt></ruby><ruby>他<rt>tā</rt></ruby><ruby>自<rt>zì</rt></ruby><ruby>己<rt>jǐ</rt></ruby>。
+
+### La madre de Juan lo quiere
+- **ES**: *La madre de Juan lo quiere.* (lo = Juan)
+- **EN**: *John's mother loves him.* (him = John)
+- **ZH**: <ruby>约<rt>Yuē</rt></ruby><ruby>翰<rt>hàn</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>妈<rt>mā</rt></ruby><ruby>妈<rt>ma</rt></ruby><ruby>爱<rt>ài</rt></ruby><ruby>他<rt>tā</rt></ruby>。
+
+---
+
+## Errores comunes
+
+1. **Angloparlantes aprendiendo español**: *Juan lo vio* para reflexivo → *Juan **se** vio*
+
+2. **Hispanohablantes aprendiendo inglés**: *John saw him* (misma persona) → *John saw **himself***
+
+3. **Angloparlantes aprendiendo chino**: Asumir que <ruby>自<rt>zì</rt></ruby><ruby>己<rt>jǐ</rt></ruby> tiene ligadura local estricta como himself → <ruby>自<rt>zì</rt></ruby><ruby>己<rt>jǐ</rt></ruby> permite más flexibilidad
+
+4. **Hablantes de chino aprendiendo inglés**: *John believes himself is smart* → *John believes **he** is smart* (himself no puede ser sujeto de cláusula finita)
+
+---
+
+## Temas relacionados
+
+- **Anaphora**: Cómo funciona la referencia
+- **Reflexives**: Cómo funcionan las construcciones reflexivas
+- **Reciprocal**: Cómo funcionan las construcciones recíprocas
+- **Pronouns**: Cómo funcionan los sistemas pronominales

@@ -1,5 +1,6 @@
 import { sectionSlug, type LocaleCode, type SectionKey } from '../config/languages';
-import pinyin from 'pinyin';
+import pinyinModule from 'pinyin';
+const pinyin = (typeof pinyinModule === 'function' ? pinyinModule : (pinyinModule as any).default || pinyinModule) as any;
 
 const BASE = import.meta.env.BASE_URL;
 

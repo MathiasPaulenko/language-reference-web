@@ -83,7 +83,7 @@ export function getAnalyzedLanguage(code: string): AnalyzedLanguage | undefined 
 /* Sections — localized slugs per interface locale (§8, §15)          */
 /* ------------------------------------------------------------------ */
 
-export type SectionKey = 'languages' | 'topics' | 'comparisons' | 'guides' | 'cheatsheets' | 'vocabulary' | 'learningPaths' | 'flashcards';
+export type SectionKey = 'languages' | 'topics' | 'comparisons' | 'guides' | 'cheatsheets' | 'vocabulary' | 'learning-paths' | 'flashcards';
 
 /**
  * URL segment for each section. Kept in English for all locales
@@ -97,7 +97,7 @@ export const sectionSlugs: Record<SectionKey, Record<LocaleCode, string>> = {
   guides: { en: 'guides', es: 'guides', zh: 'guides' },
   cheatsheets: { en: 'cheatsheets', es: 'cheatsheets', zh: 'cheatsheets' },
   vocabulary: { en: 'vocabulary', es: 'vocabulary', zh: 'vocabulary' },
-  learningPaths: { en: 'learning-paths', es: 'learning-paths', zh: 'learning-paths' },
+  'learning-paths': { en: 'learning-paths', es: 'learning-paths', zh: 'learning-paths' },
   flashcards: { en: 'flashcards', es: 'flashcards', zh: 'flashcards' },
 };
 

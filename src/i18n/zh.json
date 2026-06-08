@@ -1,6 +1,6 @@
 {
   "site": {
-    "name": "Grammar Atlas",
+    "name": "Grammar Navigator",
     "tagline": "通过语言对比理解语法。"
   },
   "nav": {
@@ -62,9 +62,9 @@
   },
   "legal": {
     "label": "法律",
-    "cookiesDesc": "本页面将包含 Grammar Atlas 的 Cookie 政策。",
-    "privacyDesc": "本页面将包含 Grammar Atlas 的隐私政策。",
-    "termsDesc": "本页面将包含 Grammar Atlas 的服务条款。"
+    "cookiesDesc": "本页面将包含 Grammar Navigator 的 Cookie 政策。",
+    "privacyDesc": "本页面将包含 Grammar Navigator 的隐私政策。",
+    "termsDesc": "本页面将包含 Grammar Navigator 的服务条款。"
   },
   "learningPaths": {
     "pathSuffix": "学习路径",
@@ -92,7 +92,7 @@
   "comparisons": {
     "title": "并列对比",
     "subtitle": "快速了解同一概念在不同语言中的差异。",
-    "description": "这正是 Grammar Atlas 最擅长的地方。每个主题同时展示同一语法概念在三种语言中的实现方式——不是孤立的规则，而是一个谜题的三种解法。",
+    "description": "这正是 Grammar Navigator 最擅长的地方。每个主题同时展示同一语法概念在三种语言中的实现方式——不是孤立的规则，而是一个谜题的三种解法。",
     "exampleLabel": "示例：冠词",
     "seeAllComparisons": "查看全部对比",
     "whatToNotice": "观察要点",
@@ -118,8 +118,8 @@
     "conceptsCompared": "个概念已对比"
   },
   "howItWorks": {
-    "title": "Grammar Atlas 的工作原理",
-    "intro": "Grammar Atlas 基于一个简单理念：当你看到不同语言如何解决同一个问题时，语法更容易理解。与其分别学习三种语法，不如学一个概念，比较三种解决方案。",
+    "title": "Grammar Navigator 的工作原理",
+    "intro": "Grammar Navigator 基于一个简单理念：当你看到不同语言如何解决同一个问题时，语法更容易理解。与其分别学习三种语法，不如学一个概念，比较三种解决方案。",
     "step1Title": "选择一个概念",
     "step1Body": "从一个语法概念入手——冠词、代词、动词时态——而不是从一种语言开始。",
     "step2Title": "查看所有实现方式",
@@ -156,7 +156,7 @@
   "landing": {
     "methodLabel": "方法",
     "grammarTitle": "语法",
-    "grammarSubtitle": "Grammar Atlas 的核心",
+    "grammarSubtitle": "Grammar Navigator 的核心",
     "grammarDesc": "跨语言解释每个语法概念。与其分别学习三种语法，不如学习一个概念，比较三种解决方案。",
     "languagesTitle": "语言",
     "languagesSubtitle": "按语言划分的纯语法",
@@ -219,7 +219,7 @@
   "flashcards": {
     "tryIt": "试一试",
     "flipACard": "翻转卡片",
-    "demoInstruction": "点击卡片查看答案。Grammar Atlas 的每张闪卡都是这样工作的。",
+    "demoInstruction": "点击卡片查看答案。Grammar Navigator 的每张闪卡都是这样工作的。",
     "clickToReveal": "点击揭示答案",
     "decks": "卡组",
     "chooseADeck": "选择卡组",

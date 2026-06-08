@@ -1,6 +1,6 @@
 {
   "site": {
-    "name": "Grammar Atlas",
+    "name": "Grammar Navigator",
     "tagline": "Understand grammar through language comparison."
   },
   "nav": {
@@ -62,9 +62,9 @@
   },
   "legal": {
     "label": "Legal",
-    "cookiesDesc": "This page will contain the Cookie Policy for Grammar Atlas.",
-    "privacyDesc": "This page will contain the Privacy Policy for Grammar Atlas.",
-    "termsDesc": "This page will contain the Terms of Service for Grammar Atlas."
+    "cookiesDesc": "This page will contain the Cookie Policy for Grammar Navigator.",
+    "privacyDesc": "This page will contain the Privacy Policy for Grammar Navigator.",
+    "termsDesc": "This page will contain the Terms of Service for Grammar Navigator."
   },
   "learningPaths": {
     "pathSuffix": "Learning Path",
@@ -92,7 +92,7 @@
   "comparisons": {
     "title": "Side-by-side comparison",
     "subtitle": "A quick look at how one concept differs across languages.",
-    "description": "This is what Grammar Atlas does best. Every topic shows you the same grammar concept in all three languages at once — not as isolated rules, but as a single puzzle with three solutions.",
+    "description": "This is what Grammar Navigator does best. Every topic shows you the same grammar concept in all three languages at once — not as isolated rules, but as a single puzzle with three solutions.",
     "exampleLabel": "Example: Articles",
     "seeAllComparisons": "See all comparisons",
     "whatToNotice": "What to notice",
@@ -118,8 +118,8 @@
     "conceptsCompared": "concepts compared"
   },
   "howItWorks": {
-    "title": "How Grammar Atlas works",
-    "intro": "Grammar Atlas is built around a simple idea: grammar is easier to understand when you see how different languages solve the same problem. Instead of learning three separate grammars, you learn one concept and compare three solutions.",
+    "title": "How Grammar Navigator works",
+    "intro": "Grammar Navigator is built around a simple idea: grammar is easier to understand when you see how different languages solve the same problem. Instead of learning three separate grammars, you learn one concept and compare three solutions.",
     "step1Title": "Pick a concept",
     "step1Body": "Start with a grammar idea — articles, pronouns, verb tenses — not a language.",
     "step2Title": "See all implementations",
@@ -156,7 +156,7 @@
   "landing": {
     "methodLabel": "Method",
     "grammarTitle": "Grammar",
-    "grammarSubtitle": "The core of Grammar Atlas",
+    "grammarSubtitle": "The core of Grammar Navigator",
     "grammarDesc": "Every grammar concept explained across languages. Instead of learning three separate grammars, learn one concept and compare three solutions.",
     "languagesTitle": "Languages",
     "languagesSubtitle": "Pure grammar by language",
@@ -219,7 +219,7 @@
   "flashcards": {
     "tryIt": "Try it",
     "flipACard": "Flip a card",
-    "demoInstruction": "Click the card below to see the answer. This is how every flashcard in Grammar Atlas works.",
+    "demoInstruction": "Click the card below to see the answer. This is how every flashcard in Grammar Navigator works.",
     "clickToReveal": "Click to reveal answer",
     "decks": "Decks",
     "chooseADeck": "Choose a deck",

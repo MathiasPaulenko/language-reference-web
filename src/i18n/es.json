@@ -1,6 +1,6 @@
 {
   "site": {
-    "name": "Grammar Atlas",
+    "name": "Grammar Navigator",
     "tagline": "Entiende la gramática comparando idiomas."
   },
   "nav": {
@@ -62,9 +62,9 @@
   },
   "legal": {
     "label": "Legal",
-    "cookiesDesc": "Esta página contendrá la Política de Cookies de Grammar Atlas.",
-    "privacyDesc": "Esta página contendrá la Política de Privacidad de Grammar Atlas.",
-    "termsDesc": "Esta página contendrá los Términos de Servicio de Grammar Atlas."
+    "cookiesDesc": "Esta página contendrá la Política de Cookies de Grammar Navigator.",
+    "privacyDesc": "Esta página contendrá la Política de Privacidad de Grammar Navigator.",
+    "termsDesc": "Esta página contendrá los Términos de Servicio de Grammar Navigator."
   },
   "learningPaths": {
     "pathSuffix": "Ruta de Aprendizaje",
@@ -92,7 +92,7 @@
   "comparisons": {
     "title": "Comparación lado a lado",
     "subtitle": "Un vistazo rápido a cómo difiere un concepto entre idiomas.",
-    "description": "Esto es lo que Grammar Atlas hace mejor. Cada tema muestra el mismo concepto gramatical en los tres idiomas a la vez — no como reglas aisladas, sino como un único puzzle con tres soluciones.",
+    "description": "Esto es lo que Grammar Navigator hace mejor. Cada tema muestra el mismo concepto gramatical en los tres idiomas a la vez — no como reglas aisladas, sino como un único puzzle con tres soluciones.",
     "exampleLabel": "Ejemplo: Artículos",
     "seeAllComparisons": "Ver todas las comparaciones",
     "whatToNotice": "Qué observar",
@@ -118,8 +118,8 @@
     "conceptsCompared": "conceptos comparados"
   },
   "howItWorks": {
-    "title": "Cómo funciona Grammar Atlas",
-    "intro": "Grammar Atlas se basa en una idea sencilla: la gramática es más fácil de entender cuando ves cómo distintos idiomas resuelven el mismo problema. En lugar de aprender tres gramáticas por separado, aprendes un concepto y comparas tres soluciones.",
+    "title": "Cómo funciona Grammar Navigator",
+    "intro": "Grammar Navigator se basa en una idea sencilla: la gramática es más fácil de entender cuando ves cómo distintos idiomas resuelven el mismo problema. En lugar de aprender tres gramáticas por separado, aprendes un concepto y comparas tres soluciones.",
     "step1Title": "Elige un concepto",
     "step1Body": "Empieza con una idea gramatical — artículos, pronombres, tiempos verbales — no con un idioma.",
     "step2Title": "Ve todas las implementaciones",
@@ -156,7 +156,7 @@
   "landing": {
     "methodLabel": "Método",
     "grammarTitle": "Gramática",
-    "grammarSubtitle": "El núcleo de Grammar Atlas",
+    "grammarSubtitle": "El núcleo de Grammar Navigator",
     "grammarDesc": "Cada concepto gramatical explicado entre idiomas. En lugar de aprender tres gramáticas separadas, aprende un concepto y compara tres soluciones.",
     "languagesTitle": "Idiomas",
     "languagesSubtitle": "Gramática pura por idioma",
@@ -219,7 +219,7 @@
   "flashcards": {
     "tryIt": "Pruébalo",
     "flipACard": "Gira una tarjeta",
-    "demoInstruction": "Haz clic en la tarjeta para ver la respuesta. Así funciona cada flashcard en Grammar Atlas.",
+    "demoInstruction": "Haz clic en la tarjeta para ver la respuesta. Así funciona cada flashcard en Grammar Navigator.",
     "clickToReveal": "Haz clic para revelar la respuesta",
     "decks": "Mazos",
     "chooseADeck": "Elige un mazo",

@@ -1,5 +1,5 @@
 /**
- * Central language configuration for Grammar Atlas.
+ * Central language configuration for Grammar Navigator.
  *
  * Two independent concerns are modelled here (see vision §8, §15):
  *   1. `analyzedLanguages` — the languages whose grammar we document/compare.

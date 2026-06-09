@@ -333,6 +333,9 @@
     "clear": "Limpiar"
   },
   "about": {
+    "introP1": "Grammar Navigator es una plataforma de referencia y comparación gramatical multilingüe. Nuestra idea central es simple:",
+    "introStrong": "entiende la gramática comparando idiomas.",
+    "introP2": "En lugar de aprender tres gramáticas por separado, aprendes un concepto y comparas cómo lo implementan el español, el inglés y el chino — lado a lado, en una sola página.",
     "teamTitle": "Quiénes somos",
     "teamDesc": "Grammar Navigator está construido y mantenido por un pequeño equipo de entusiastas multilingües con formación en lingüística, traducción e ingeniería de software. No somos una escuela de idiomas: somos una biblioteca de referencia creada por personas a las que les encanta comparar cómo funcionan las lenguas.",
     "methodologyTitle": "Cómo se crea el contenido",

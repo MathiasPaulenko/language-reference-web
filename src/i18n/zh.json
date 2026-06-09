@@ -312,7 +312,7 @@
     "searchIndexMissing": "搜索索引在开发模式下不可用。运行 npm run build 生成索引。"
   },
   "search": {
-    "placeholder": "搜索语法主题、对比、指南…",
+    "placeholder": "搜索…",
     "loading": "正在加载搜索索引…",
     "noResults": "未找到 \"{query}\" 的结果。",
     "loadMore": "加载更多结果",

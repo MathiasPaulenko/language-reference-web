@@ -312,7 +312,7 @@
     "searchIndexMissing": "El índice de búsqueda no está disponible en desarrollo. Ejecuta npm run build para generarlo."
   },
   "search": {
-    "placeholder": "Buscar temas, comparaciones, guías…",
+    "placeholder": "Buscar…",
     "loading": "Cargando índice de búsqueda…",
     "noResults": "No hay resultados para \"{query}\".",
     "loadMore": "Cargar más resultados",

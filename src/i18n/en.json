@@ -312,7 +312,7 @@
     "searchIndexMissing": "Search index not available in development. Run npm run build to generate it."
   },
   "search": {
-    "placeholder": "Search grammar topics, comparisons, guides…",
+    "placeholder": "Search…",
     "loading": "Loading search index…",
     "noResults": "No results for \"{query}\".",
     "loadMore": "Load more results",

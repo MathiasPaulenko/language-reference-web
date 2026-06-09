@@ -140,7 +140,7 @@ const initialPageItems = getPageItems(0);
           <tbody>
             {vocabData.entries.map((item, idx) => (
               <tr class="vocab-row border-b border-line transition-colors hover:bg-paper-deep/50" data-page={Math.floor(idx / 20)}>
-                <td class="px-5 py-4 font-display text-base font-semibold text-ink">{item.word}</td>
+                <td class="px-5 py-4 font-display text-base font-semibold text-ink" set:html={withPinyin(item.translations[targetLang] || item.word)} />
                 {analyzedLanguages.map((l) => (
                   <td class="vocab-col px-5 py-4 text-ink-soft" data-lang={l.code} set:html={withPinyin(item.translations[l.code] || '—')} />
                 ))}

@@ -28,8 +28,21 @@ if (!language) {
 }
 
 const allTopics = await getCollection('topics');
-const topics = allTopics
-  .filter((t) => !t.data.draft && t.data.comparisonTable && t.data.comparisonTable.length > 0)
+// Group by topic field, prefer current locale with fallback to 'en'
+const topicsByTopic = new Map();
+for (const t of allTopics.filter((t) => !t.data.draft)) {
+  const topicKey = t.data.topic;
+  const existing = topicsByTopic.get(topicKey);
+  if (!existing) {
+    topicsByTopic.set(topicKey, t);
+  } else if (t.data.locale === lang) {
+    topicsByTopic.set(topicKey, t);
+  } else if (t.data.locale === 'en' && existing.data.locale !== lang) {
+    topicsByTopic.set(topicKey, t);
+  }
+}
+const topics = Array.from(topicsByTopic.values())
+  .filter((t) => t.data.comparisonTable && t.data.comparisonTable.length > 0)
   .sort((a, b) => a.data.title.localeCompare(b.data.title));
 
 const diffStyles: Record<string, { label: string; bg: string; text: string }> = {

@@ -1,0 +1,113 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { localeCodes, DEFAULT_LOCALE } from '../../config/languages';
+import { getUI } from '../../i18n';
+
+export function getStaticPaths() {
+  return localeCodes.map((lang) => ({ params: { lang } }));
+}
+
+const { lang = DEFAULT_LOCALE } = Astro.params;
+const ui = getUI(lang);
+const siteUpdated = new Date('2026-06-09').toLocaleDateString(lang, { year: 'numeric', month: 'long', day: 'numeric' });
+---
+
+<BaseLayout
+  title={`${ui.nav.about} | ${ui.site.name}`}
+  description={ui.site.tagline}
+  lang={lang}
+  jsonLd={[
+    {
+      '@type': 'AboutPage',
+      name: `${ui.nav.about} — ${ui.site.name}`,
+      description: ui.site.tagline,
+      url: Astro.site ? new URL(`/${lang}/about`, Astro.site).toString() : undefined,
+      inLanguage: lang,
+      mainEntity: {
+        '@type': 'Organization',
+        name: 'Grammar Navigator',
+        url: 'https://grammarnavigator.com',
+        logo: 'https://grammarnavigator.com/favicon.svg',
+        sameAs: [],
+        founder: {
+          '@type': 'Person',
+          name: 'Grammar Navigator Team',
+          description: 'Multilingual language enthusiasts with backgrounds in linguistics, translation, and software engineering.',
+        },
+      },
+    },
+  ]}
+>
+  <main class="mx-auto max-w-2xl px-5 py-20 sm:px-8">
+    <p class="font-mono text-xs font-bold uppercase tracking-[0.2em] text-accent">{ui.site.name}</p>
+    <h1 class="mt-3 font-display text-4xl font-semibold tracking-tight">{ui.nav.about}</h1>
+
+    <div class="mt-8 space-y-6 leading-relaxed text-ink-soft">
+      <p>
+        Grammar Navigator is a multilingual grammar reference and comparison platform. Our core idea is simple:
+        <strong class="text-ink">understand grammar through language comparison.</strong>
+      </p>
+      <p>
+        Instead of learning three separate grammars, you learn one concept and compare how Spanish, English, and Chinese
+        implement it — side by side, on a single page.
+      </p>
+    </div>
+
+    {/* Team / Author info */}
+    <section class="mt-12 rounded-2xl border border-line bg-paper-deep p-6 sm:p-8">
+      <h2 class="font-display text-2xl font-semibold tracking-tight text-ink">{ui.about.teamTitle}</h2>
+      <p class="mt-4 leading-relaxed">{ui.about.teamDesc}</p>
+    </section>
+
+    {/* Methodology */}
+    <section class="mt-10">
+      <h2 class="font-display text-2xl font-semibold tracking-tight text-ink">{ui.about.methodologyTitle}</h2>
+      <p class="mt-4 leading-relaxed text-ink-soft">{ui.about.methodologyDesc}</p>
+    </section>
+
+    {/* Sources */}
+    <section class="mt-10">
+      <h2 class="font-display text-2xl font-semibold tracking-tight text-ink">{ui.about.sourcesTitle}</h2>
+      <p class="mt-4 leading-relaxed text-ink-soft">{ui.about.sourcesDesc}</p>
+    </section>
+
+    {/* Transparency */}
+    <section class="mt-10 rounded-2xl border border-accent/20 bg-accent/5 p-6 sm:p-8">
+      <h2 class="font-display text-2xl font-semibold tracking-tight text-ink">{ui.about.transparencyTitle}</h2>
+      <p class="mt-4 leading-relaxed text-ink-soft">{ui.about.transparencyDesc}</p>
+    </section>
+
+    {/* What makes us different */}
+    <section class="mt-10">
+      <h2 class="font-display text-2xl font-semibold tracking-tight text-ink">{ui.about.differentTitle}</h2>
+      <ul class="mt-4 list-disc space-y-2 pl-5 text-ink-soft">
+        <li>{ui.about.different1}</li>
+        <li>{ui.about.different2}</li>
+        <li>{ui.about.different3}</li>
+        <li>{ui.about.different4}</li>
+      </ul>
+    </section>
+
+    {/* Open source spirit */}
+    <section class="mt-10">
+      <h2 class="font-display text-2xl font-semibold tracking-tight text-ink">{ui.about.openSourceTitle}</h2>
+      <p class="mt-4 leading-relaxed text-ink-soft">{ui.about.openSourceDesc}</p>
+    </section>
+
+    {/* Support us */}
+    <section class="mt-10 rounded-2xl border border-line bg-paper-deep p-6 sm:p-8 text-center">
+      <h2 class="font-display text-2xl font-semibold tracking-tight text-ink">{ui.about.supportUs}</h2>
+      <p class="mt-2 text-sm text-ink-soft">{ui.about.supportUsDesc}</p>
+      <div class="mt-4 inline-block">
+        <a href="https://ko-fi.com/C6E4212B3X" target="_blank" rel="noopener noreferrer" class="inline-block transition-transform duration-200 hover:scale-105">
+          <img src="https://storage.ko-fi.com/cdn/kofi3.png?v=6" alt="Buy Me a Coffee at ko-fi.com" class="h-11" />
+        </a>
+      </div>
+    </section>
+
+    {/* Site last updated */}
+    <p class="mt-12 border-t border-line pt-6 font-mono text-xs text-ink-faint">
+      {ui.about.siteLastUpdated}: {siteUpdated}
+    </p>
+  </main>
+</BaseLayout>

@@ -1,0 +1,42 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { localeCodes, DEFAULT_LOCALE } from '../../config/languages';
+import { getUI } from '../../i18n';
+
+export function getStaticPaths() {
+  return localeCodes.map((lang) => ({ params: { lang } }));
+}
+
+const { lang = DEFAULT_LOCALE } = Astro.params;
+const ui = getUI(lang);
+---
+
+<BaseLayout
+  title={`${ui.nav.disclaimer} | ${ui.site.name}`}
+  description={ui.legal.disclaimerDesc}
+  lang={lang}
+>
+  <main class="mx-auto max-w-2xl px-5 py-20 sm:px-8">
+    <p class="font-mono text-xs font-bold uppercase tracking-[0.2em] text-accent">{ui.legal.label}</p>
+    <h1 class="mt-3 font-display text-4xl font-semibold tracking-tight">{ui.nav.disclaimer}</h1>
+    <div class="mt-8 space-y-6 leading-relaxed text-ink-soft">
+      <p>{ui.legal.disclaimerDesc}</p>
+      <h2 class="mt-8 font-display text-2xl font-semibold tracking-tight text-ink">No professional advice</h2>
+      <p>
+        The information provided on this website does not constitute legal, academic, or professional advice.
+        Grammar rules evolve, and conventions differ between institutions, style guides, and regions.
+      </p>
+      <h2 class="mt-8 font-display text-2xl font-semibold tracking-tight text-ink">External links</h2>
+      <p>
+        We may link to third-party websites for further reading. We are not responsible for the content,
+        accuracy, or availability of external sites.
+      </p>
+      <h2 class="mt-8 font-display text-2xl font-semibold tracking-tight text-ink">Errors and omissions</h2>
+      <p>
+        Despite our best efforts, errors may exist. If you spot something incorrect, please
+        <a href={`/${lang}/contact`} class="text-accent transition-colors hover:underline">contact us</a>
+        so we can improve the resource for everyone.
+      </p>
+    </div>
+  </main>
+</BaseLayout>

@@ -18,7 +18,11 @@
     "phrases": "短语",
     "expressions": "表达",
     "frequencyLists": "频率表",
-    "search": "搜索"
+    "search": "搜索",
+    "about": "关于我们",
+    "contact": "联系我们",
+    "disclaimer": "免责声明",
+    "affiliate": "联盟营销声明"
   },
   "hero": {
     "eyebrow": "多语言语法参考指南",
@@ -62,9 +66,12 @@
   },
   "legal": {
     "label": "法律",
-    "cookiesDesc": "本页面将包含 Grammar Navigator 的 Cookie 政策。",
-    "privacyDesc": "本页面将包含 Grammar Navigator 的隐私政策。",
-    "termsDesc": "本页面将包含 Grammar Navigator 的服务条款。"
+    "cookiesDesc": "Grammar Navigator 使用 Cookie 来改善您的浏览体验、分析网站流量并提供个性化内容。继续使用本网站即表示您同意我们根据本政策使用 Cookie。",
+    "privacyDesc": "Grammar Navigator 尊重您的隐私。本政策说明我们收集哪些信息、如何使用以及您在使用我们的语法参考和对比工具时对个人数据享有的权利。",
+    "termsDesc": "使用 Grammar Navigator 即表示您同意这些服务条款。本网站按现状提供，仅供教育参考之用。我们不保证在所有用例中的准确性，也不对基于内容做出的决定承担责任。",
+    "disclaimerDesc": "Grammar Navigator 上的内容仅供教育和参考之用。虽然我们力求准确，但语法规则因方言、语域和语境而异。对于学术或专业决策，请务必查阅权威来源。",
+    "affiliateDesc": "Grammar Navigator 上的某些链接可能是联盟营销链接。如果您点击联盟链接并进行购买，我们可能会获得小额佣金，而您无需支付额外费用。这有助于保持网站免费。我们只推荐我们认为真正有用的资源。",
+    "contactDesc": "有问题、建议或发现错误？我们欢迎学习者和教师的反馈。请与我们联系，我们会尽快回复。"
   },
   "learningPaths": {
     "pathSuffix": "学习路径",
@@ -313,6 +320,35 @@
   },
   "redirect": {
     "redirectingTo": "正在重定向到"
+  },
+  "about": {
+    "teamTitle": "关于我们",
+    "teamDesc": "Grammar Navigator 由一个小型多语言爱好者团队构建和维护，团队成员拥有语言学、翻译和软件工程背景。我们不是语言学校——我们是由热爱比较语言运作方式的人创建的参考图书馆。",
+    "methodologyTitle": "内容创建方式",
+    "methodologyDesc": "每个主题都从权威描述性和教学性语法的研究开始。然后我们将规则综合为统一的对比，添加真实例句，并识别多语言学习者最常犯的错误。每个主题在发布前都经过准确性审查。",
+    "sourcesTitle": "来源与验证",
+    "sourcesDesc": "我们参考权威语法著作，如《剑桥英语语法》、《西班牙语新语法》（RAE）和《现代汉语语法》。当规则因方言或语域而异时，我们会明确标注这种差异。",
+    "transparencyTitle": "透明度",
+    "transparencyDesc": "我们不使用人工智能生成语法解释。所有内容都由人类进行研究、撰写和审校。如果您发现错误或对某个分析有不同看法，欢迎联系我们——语法是复杂的，规范也在不断演变。",
+    "siteLastUpdated": "网站最后更新",
+    "supportUs": "支持我们",
+    "supportUsDesc": "如果您觉得 Grammar Navigator 有用，请考虑请我们喝杯咖啡。",
+    "differentTitle": "我们的不同之处",
+    "different1": "三种语言并列对比",
+    "different2": "真实例句，而非抽象规则",
+    "different3": "多语言学习者的常见错误",
+    "different4": "无需注册，无需付费",
+    "openSourceTitle": "开源精神",
+    "openSourceDesc": "本网站采用静态资源构建，可随时间扩展至更多语言和主题。欢迎贡献、勘误和建议。"
+  },
+  "contact": {
+    "emailTitle": "电子邮件",
+    "responseTimeTitle": "回复时间",
+    "responseTimeDesc": "我们通常会在 2–3 个工作日内回复。",
+    "whatToIncludeTitle": "请包含以下信息",
+    "whatToInclude1": "您的问题或情况的清晰描述",
+    "whatToInclude2": "如果是报告错误，请提供页面网址",
+    "whatToInclude3": "您的浏览器和设备（如相关）"
   },
   "error": {
     "notFound": "页面未找到",

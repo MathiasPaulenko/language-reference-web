@@ -1,0 +1,41 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { localeCodes, DEFAULT_LOCALE } from '../../config/languages';
+import { getUI } from '../../i18n';
+
+export function getStaticPaths() {
+  return localeCodes.map((lang) => ({ params: { lang } }));
+}
+
+const { lang = DEFAULT_LOCALE } = Astro.params;
+const ui = getUI(lang);
+---
+
+<BaseLayout
+  title={`${ui.nav.affiliate} | ${ui.site.name}`}
+  description={ui.legal.affiliateDesc}
+  lang={lang}
+>
+  <main class="mx-auto max-w-2xl px-5 py-20 sm:px-8">
+    <p class="font-mono text-xs font-bold uppercase tracking-[0.2em] text-accent">{ui.legal.label}</p>
+    <h1 class="mt-3 font-display text-4xl font-semibold tracking-tight">{ui.nav.affiliate}</h1>
+    <div class="mt-8 space-y-6 leading-relaxed text-ink-soft">
+      <p>{ui.legal.affiliateDesc}</p>
+      <h2 class="mt-8 font-display text-2xl font-semibold tracking-tight text-ink">Transparency</h2>
+      <p>
+        We believe in being transparent with our readers. Any product, service, or resource we mention
+        because we genuinely believe it adds value to language learners.
+      </p>
+      <h2 class="mt-8 font-display text-2xl font-semibold tracking-tight text-ink">No extra cost to you</h2>
+      <p>
+        Clicking an affiliate link does not increase the price you pay. The commission comes from the
+        merchant's marketing budget, not your pocket.
+      </p>
+      <h2 class="mt-8 font-display text-2xl font-semibold tracking-tight text-ink">Independence</h2>
+      <p>
+        Affiliate relationships do not influence our editorial content. Comparisons, reviews, and recommendations
+        are based on merit and usefulness, not compensation.
+      </p>
+    </div>
+  </main>
+</BaseLayout>

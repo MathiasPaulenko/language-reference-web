@@ -36,3 +36,21 @@ ref/
 
 # local-use scripts (not needed in production)
 scripts/find-untranslated.cjs
+scripts/count-untranslated.cjs
+scripts/check-*.mjs
+scripts/check-*.cjs
+scripts/check-*.js
+scripts/batch*.mjs
+scripts/fix-*.mjs
+scripts/regen-*.mjs
+scripts/gen-*.mjs
+scripts/expr-*.mjs
+scripts/add-ruby.mjs
+scripts/verify-zh.mjs
+scripts/extract-search-script.cjs
+scripts/seo-audit.cjs
+scripts/fetch-definitions.mjs
+scripts/fetch-defs-datamuse.mjs
+
+# local caches and generated data
+scripts/*.json

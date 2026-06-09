@@ -18,7 +18,11 @@
     "phrases": "Frases",
     "expressions": "Expresiones",
     "frequencyLists": "Listas de frecuencia",
-    "search": "Buscar"
+    "search": "Buscar",
+    "about": "Sobre nosotros",
+    "contact": "Contacto",
+    "disclaimer": "Aviso legal",
+    "affiliate": "Divulgación de afiliados"
   },
   "hero": {
     "eyebrow": "Una guía de referencia para la gramática multilingüe",
@@ -62,9 +66,12 @@
   },
   "legal": {
     "label": "Legal",
-    "cookiesDesc": "Esta página contendrá la Política de Cookies de Grammar Navigator.",
-    "privacyDesc": "Esta página contendrá la Política de Privacidad de Grammar Navigator.",
-    "termsDesc": "Esta página contendrá los Términos de Servicio de Grammar Navigator."
+    "cookiesDesc": "Grammar Navigator utiliza cookies para mejorar tu experiencia de navegación, analizar el tráfico del sitio y ofrecer contenido personalizado. Al continuar usando este sitio, aceptas nuestro uso de cookies de acuerdo con esta política.",
+    "privacyDesc": "Grammar Navigator respeta tu privacidad. Esta política explica qué información recopilamos, cómo la usamos y cuáles son tus derechos sobre tus datos personales cuando utilizas nuestras herramientas de referencia y comparación gramatical.",
+    "termsDesc": "Al usar Grammar Navigator, aceptas estos Términos de Servicio. El sitio se proporciona tal cual con fines educativos y de referencia. No garantizamos exactitud para todos los casos de uso ni somos responsables de decisiones tomadas basadas en el contenido.",
+    "disclaimerDesc": "El contenido de Grammar Navigator tiene fines educativos y de referencia únicamente. Aunque nos esforzamos por la exactitud, las reglas gramaticales varían según dialecto, registro y contexto. Consulta siempre fuentes autorizadas para decisiones académicas o profesionales.",
+    "affiliateDesc": "Algunos enlaces en Grammar Navigator pueden ser enlaces de afiliados. Si haces clic en un enlace de afiliado y realizas una compra, podemos recibir una pequeña comisión sin costo adicional para ti. Esto ayuda a mantener el sitio gratuito. Solo recomendamos recursos que creemos genuinamente útiles.",
+    "contactDesc": "¿Tienes una pregunta, sugerencia o encontraste un error? Recibimos con agrado los comentarios de estudiantes y profesores. Escríbenos y te responderemos lo antes posible."
   },
   "learningPaths": {
     "pathSuffix": "Ruta de Aprendizaje",
@@ -311,8 +318,37 @@
     "loadMore": "Cargar más resultados",
     "clear": "Limpiar"
   },
+  "about": {
+    "teamTitle": "Quiénes somos",
+    "teamDesc": "Grammar Navigator está construido y mantenido por un pequeño equipo de entusiastas multilingües con formación en lingüística, traducción e ingeniería de software. No somos una escuela de idiomas: somos una biblioteca de referencia creada por personas a las que les encanta comparar cómo funcionan las lenguas.",
+    "methodologyTitle": "Cómo se crea el contenido",
+    "methodologyDesc": "Cada tema comienza con investigación en gramáticas descriptivas y pedagógicas autorizadas para cada idioma. Luego sintetizamos las reglas en una comparación unificada, añadimos ejemplos reales e identificamos los errores más comunes que cometen los estudiantes multilingües. Cada tema se revisa para garantizar su exactitud antes de publicarse.",
+    "sourcesTitle": "Fuentes y verificación",
+    "sourcesDesc": "Nos basamos en gramáticas de referencia consolidadas como la Cambridge Grammar of the English Language, la Nueva Gramática de la Lengua Española (RAE) y la Comprehensive Grammar of Modern Chinese. Cuando las reglas varían según dialecto o registro, señalamos explícitamente la variación.",
+    "transparencyTitle": "Transparencia",
+    "transparencyDesc": "No usamos IA para generar explicaciones gramaticales. Todo el contenido es investigado, redactado y revisado por humanos. Si detectas un error o no estás de acuerdo con un análisis, te animamos a contactarnos: la gramática es compleja y las convenciones evolucionan.",
+    "siteLastUpdated": "Sitio actualizado por última vez",
+    "supportUs": "Apóyanos",
+    "supportUsDesc": "Si te resulta útil Grammar Navigator, considera invitarnos a un café.",
+    "differentTitle": "Qué nos diferencia",
+    "different1": "Comparaciones lado a lado en tres idiomas",
+    "different2": "Ejemplos reales, no reglas abstractas",
+    "different3": "Errores comunes para estudiantes multilingües",
+    "different4": "Sin registro, sin muro de pago",
+    "openSourceTitle": "Espíritu de código abierto",
+    "openSourceDesc": "El sitio está construido como un recurso estático que escala a más idiomas y temas con el tiempo. Las contribuciones, correcciones y sugerencias siempre son bienvenidas."
+  },
   "redirect": {
     "redirectingTo": "Redirigiendo a"
+  },
+  "contact": {
+    "emailTitle": "Correo electrónico",
+    "responseTimeTitle": "Tiempo de respuesta",
+    "responseTimeDesc": "Solemos responder en un plazo de 2–3 días hábiles.",
+    "whatToIncludeTitle": "Qué incluir",
+    "whatToInclude1": "Una descripción clara de tu pregunta o problema",
+    "whatToInclude2": "La URL de la página si reportas un error",
+    "whatToInclude3": "Tu navegador y dispositivo (si es relevante)"
   },
   "error": {
     "notFound": "Página no encontrada",

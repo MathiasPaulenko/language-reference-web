@@ -1,0 +1,249 @@
+---
+title: "语义角色"
+description: "西班牙语、英语和汉语如何在句中编码谁对谁做了什么。"
+locale: "zh"
+topic: "semantic-roles"
+difficulty: "advanced"
+overview: "语义角色描述参与者的潜在意义：施事、受事、体验者、受益者、工具。各语言将这些角色映射到语法位置的方式不同。"
+comparisonTable:
+  - concept: "约翰打破了花瓶（施事 + 受事）"
+    values:
+      spanish: "Juan rompió el jarrón (agente = sujeto, paciente = objeto)"
+      english: "John broke the vase (agent = subject, patient = object)"
+      chinese: "<ruby>约<rt>Yuē</rt></ruby><ruby>翰<rt>hàn</rt></ruby><ruby>打<rt>dǎ</rt></ruby><ruby>破<rt>pò</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>花<rt>huā</rt></ruby><ruby>瓶<rt>píng</rt></ruby> (施事 = 主语, 受事 = 宾语)"
+  - concept: "花瓶破了（受事 = 主语）"
+    values:
+      spanish: "El jarrón se rompió (paciente = sujeto + se)"
+      english: "The vase broke (patient = subject)"
+      chinese: "<ruby>花<rt>huā</rt></ruby><ruby>瓶<rt>píng</rt></ruby><ruby>破<rt>pò</rt></ruby><ruby>了<rt>le</rt></ruby> (受事 = 主语)"
+  - concept: "约翰看见了玛丽（体验者 + 刺激物）"
+    values:
+      spanish: "Juan vio a María (experimentante = sujeto)"
+      english: "John saw Mary (experiencer = subject)"
+      chinese: "<ruby>约<rt>Yuē</rt></ruby><ruby>翰<rt>hàn</rt></ruby><ruby>看<rt>kàn</rt></ruby><ruby>见<rt>jiàn</rt></ruby><ruby>玛<rt>Mǎ</rt></ruby><ruby>丽<rt>lì</rt></ruby> (体验者 = 主语)"
+  - concept: "玛丽约翰看得见（刺激物突出）"
+    values:
+      spanish: "María es visible para Juan"
+      english: "Mary is visible to John"
+      chinese: "<ruby>玛<rt>Mǎ</rt></ruby><ruby>丽<rt>lì</rt></ruby><ruby>约<rt>Yuē</rt></ruby><ruby>翰<rt>hàn</rt></ruby><ruby>看<rt>kàn</rt></ruby><ruby>得<rt>de</rt></ruby><ruby>见<rt>jiàn</rt></ruby>"
+  - concept: "约翰收到了一本书（接受者）"
+    values:
+      spanish: "Juan recibió un libro"
+      english: "John received a book"
+      chinese: "<ruby>约<rt>Yuē</rt></ruby><ruby>翰<rt>hàn</rt></ruby><ruby>收<rt>shōu</rt></ruby><ruby>到<rt>dào</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>本<rt>běn</rt></ruby><ruby>书<rt>shū</rt></ruby>"
+  - concept: "钥匙开了门（工具）"
+    values:
+      spanish: "La llave abrió la puerta"
+      english: "The key opened the door"
+      chinese: "<ruby>钥<rt>yào</rt></ruby><ruby>匙<rt>shi</rt></ruby><ruby>开<rt>kāi</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>门<rt>mén</rt></ruby>"
+  - concept: "约翰用钥匙开了门（施事 + 工具）"
+    values:
+      spanish: "Juan abrió la puerta con la llave"
+      english: "John opened the door with a key"
+      chinese: "<ruby>约<rt>Yuē</rt></ruby><ruby>翰<rt>hàn</rt></ruby><ruby>用<rt>yòng</rt></ruby><ruby>钥<rt>yào</rt></ruby><ruby>匙<rt>shi</rt></ruby><ruby>开<rt>kāi</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>门<rt>mén</rt></ruby>"
+  - concept: "被动施事降级"
+    values:
+      spanish: "El jarrón fue roto (por Juan)"
+      english: "The vase was broken (by John)"
+      chinese: "<ruby>花<rt>huā</rt></ruby><ruby>瓶<rt>píng</rt></ruby><ruby>被<rt>bèi</rt></ruby><ruby>约<rt>Yuē</rt></ruby><ruby>翰<rt>hàn</rt></ruby><ruby>打<rt>dǎ</rt></ruby><ruby>破<rt>pò</rt></ruby><ruby>了<rt>le</rt></ruby>"
+commonMistakes:
+  - mistake: "西班牙语对非使役不及物动词用 se"
+    correction: "Se 仅用于去及物化：El jarrón se rompió（不说 El perro se murió）"
+    note: "西班牙语 se 仅适用于有及物对应的动词。"
+  - mistake: "西班牙语中需要 se 处使用英语不及物交替"
+    correction: "The vase broke = El jarrón se rompió（不说 El jarrón rompió）"
+    note: "英语 ambitransitive break 西班牙语不加 se 不共享。"
+  - mistake: "汉语中省略体验者作主语逻辑"
+    correction: "汉语体验动词与英语一样以体验者为主语：<ruby>我<rt>wǒ</rt></ruby><ruby>想<rt>xiǎng</rt></ruby>（I think）"
+    note: "汉语体验结构 closely parallels 英语。"
+  - mistake: "西班牙语中所有工具标记都用 por"
+    correction: "工具 = con（Juan abrió con la llave）；por = 被动中的施事"
+    note: "西班牙语 con 标记工具；por 标记被动施事。"
+relatedTopics:
+  - "passive"
+  - "transitivity"
+  - "causatives"
+  - "topic-vs-subject"
+prerequisites:
+  - "transitivity"
+  - "valency"
+keyTakeaways:
+  - "关键比较概念：约翰打破了花瓶（施事 + 受事），花瓶破了（受事 = 主语），约翰看见了玛丽（体验者 + 刺激物）。"
+  - "跨语言理解语义角色可预防常见迁移错误。"
+lastUpdated: 2026-06-04
+draft: false
+---
+
+## 概述
+
+语义角色描述事件中参与者的潜在意义，独立于语法位置。
+
+- **西班牙语**：用 *se* 去及物化（受事作主语）。体验动词以体验者为主语。*Con* 标记工具；*por* 标记被动施事。
+- **英语**：允许兼类动词（break = 及物及不及物）。体验动词以体验者为主语。*With* 标记工具；*by* 标记被动施事。
+- **汉语**：用 *被* 表被动。体验动词以体验者为主语。*用* 标记工具。
+
+---
+
+<div class="spanish-section">
+
+## 西班牙语
+
+### 施事与受事
+
+| 结构 | 例句 | 角色 |
+|---|---|---|
+| 及物 | Juan **rompió** el jarrón. | 施事 = 主语, 受事 = 宾语 |
+| Se 被动 | El jarrón **se rompió**. | 受事 = 主语 |
+| Se 无人称 | **Se** vende coches. | 施事省略 |
+
+### 体验者
+
+| 结构 | 例句 | 角色 |
+|---|---|---|
+| 体验者 = 主语 | Juan **vio** a María. | 体验者 = 主语 |
+| 刺激物 = 主语 | María **gusta** a Juan. | 刺激物 = 主语, 体验者 = 间接宾语（gustar） |
+
+**注**：*Gustar* 反转角色：刺激物是主语，体验者是间接宾语。
+
+### 工具
+
+| 标记 | 例句 | 含义 |
+|---|---|---|
+| con | Juan abrió la puerta **con** la llave. | con = 工具 |
+| por（被动） | El jarrón fue roto **por** Juan. | por = 施事 |
+
+### 使役
+
+| 结构 | 例句 | 含义 |
+|---|---|---|
+| hacer que + 虚拟式 | Juan **hizo que** María **comiera**. | 约翰让玛丽吃。 |
+| dejar + 不定式 | Juan **dejó** entrar a María. | 约翰让玛丽进来。 |
+
+</div>
+
+<div class="english-section">
+
+## 英语
+
+### 施事与受事
+
+| 结构 | 例句 | 角色 |
+|---|---|---|
+| 及物 | John **broke** the vase. | 施事 = 主语, 受事 = 宾语 |
+| 不及物（兼类） | The vase **broke**. | 受事 = 主语 |
+| 被动 | The vase was **broken** by John. | 受事 = 主语, 施事 = by |
+
+### 体验者
+
+| 结构 | 例句 | 角色 |
+|---|---|---|
+| 体验者 = 主语 | John **saw** Mary. | 体验者 = 主语 |
+| 刺激物 = 主语（罕见） | The sight **pleased** John. | 刺激物 = 主语 |
+
+### 工具
+
+| 标记 | 例句 | 含义 |
+|---|---|---|
+| with | John opened the door **with** a key. | with = 工具 |
+| by（被动） | The vase was broken **by** John. | by = 施事 |
+
+### 使役
+
+| 结构 | 例句 | 含义 |
+|---|---|---|
+| make + 动词原形 | John **made** Mary **eat**. | 约翰让玛丽吃。 |
+| let + 动词原形 | John **let** Mary enter. | 约翰让玛丽进来。 |
+| have + 动词原形 | John **had** Mary fix it. | 约翰让玛丽修。 |
+
+</div>
+
+<div class="chinese-section">
+
+## 汉语
+
+### 施事与受事
+
+| 结构 | 例句 | 角色 |
+|---|---|---|
+| 及物 | <ruby>约<rt>Yuē</rt></ruby><ruby>翰<rt>hàn</rt></ruby><ruby>打<rt>dǎ</rt></ruby><ruby>破<rt>pò</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>花<rt>huā</rt></ruby><ruby>瓶<rt>píng</rt></ruby>。 | 施事 = 主语, 受事 = 宾语 |
+| 被动（被 bèi） | <ruby>花<rt>huā</rt></ruby><ruby>瓶<rt>píng</rt></ruby><ruby>被<rt>bèi</rt></ruby><ruby>约<rt>Yuē</rt></ruby><ruby>翰<rt>hàn</rt></ruby><ruby>打<rt>dǎ</rt></ruby><ruby>破<rt>pò</rt></ruby><ruby>了<rt>le</rt></ruby>。 | 受事 = 主语 |
+| 无标记 | <ruby>花<rt>huā</rt></ruby><ruby>瓶<rt>píng</rt></ruby><ruby>破<rt>pò</rt></ruby><ruby>了<rt>le</rt></ruby>。 | 受事 = 主语 |
+
+### 体验者
+
+| 结构 | 例句 | 角色 |
+|---|---|---|
+| 体验者 = 主语 | <ruby>约<rt>Yuē</rt></ruby><ruby>翰<rt>hàn</rt></ruby><ruby>看<rt>kàn</rt></ruby><ruby>见<rt>jiàn</rt></ruby><ruby>玛<rt>Mǎ</rt></ruby><ruby>丽<rt>lì</rt></ruby>。 | 体验者 = 主语 |
+| 刺激物 = 主语 | <ruby>这<rt>zhè</rt></ruby><ruby>个<rt>gè</rt></ruby><ruby>消<rt>xiāo</rt></ruby><ruby>息<rt>xī</rt></ruby><ruby>让<rt>ràng</rt></ruby><ruby>他<rt>tā</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>高<rt>gāo</rt></ruby><ruby>兴<rt>xìng</rt></ruby>。 | 刺激物 = 主语 |
+
+### 工具
+
+| 标记 | 例句 | 含义 |
+|---|---|---|
+| 用 (yòng) | <ruby>约<rt>Yuē</rt></ruby><ruby>翰<rt>hàn</rt></ruby><ruby>用<rt>yòng</rt></ruby><ruby>钥<rt>yào</rt></ruby><ruby>匙<rt>shi</rt></ruby><ruby>开<rt>kāi</rt></ruby><ruby>门<rt>mén</rt></ruby>。 | 用 = 工具 |
+| 被 (bèi) 被动 | <ruby>花<rt>huā</rt></ruby><ruby>瓶<rt>píng</rt></ruby><ruby>被<rt>bèi</rt></ruby><ruby>约<rt>Yuē</rt></ruby><ruby>翰<rt>hàn</rt></ruby><ruby>打<rt>dǎ</rt></ruby><ruby>破<rt>pò</rt></ruby>。 | 被 = 被动 |
+
+### 使役
+
+| 结构 | 例句 | 含义 |
+|---|---|---|
+| 让 (ràng) | <ruby>约<rt>Yuē</rt></ruby><ruby>翰<rt>hàn</rt></ruby><ruby>让<rt>ràng</rt></ruby><ruby>玛<rt>Mǎ</rt></ruby><ruby>丽<rt>lì</rt></ruby><ruby>吃<rt>chī</rt></ruby>。 | 约翰让玛丽吃。 |
+| 使 (shǐ) | <ruby>这<rt>zhè</rt></ruby><ruby>个<rt>gè</rt></ruby><ruby>消<rt>xiāo</rt></ruby><ruby>息<rt>xī</rt></ruby><ruby>使<rt>shǐ</rt></ruby><ruby>他<rt>tā</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>高<rt>gāo</rt></ruby><ruby>兴<rt>xìng</rt></ruby>。 | 这个消息使他很高兴。 |
+
+</div>
+
+## 快速比较
+
+| 特征 | 西班牙语 | 英语 | 汉语 |
+|---|---|---|---|
+| 受事 = 主语 | se rompió | broke | 破了 |
+| 被动 | ser + 过去分词 | be + 过去分词 | 被 + 动词 |
+| 工具 | con | with | 用 |
+| 被动施事 | por | by | 被 |
+| 使役 | hacer que + 虚拟式 | make + 动词原形 | 让 / 使 |
+| 体验者 | 主语（ver） | 主语（see） | 主语（看见） |
+
+---
+
+## 语境中的例子
+
+### 施事 + 受事
+- **ES**: Juan **rompió** el jarrón.
+- **EN**: John **broke** the vase.
+- **ZH**: <ruby>约<rt>Yuē</rt></ruby><ruby>翰<rt>hàn</rt></ruby><ruby>打<rt>dǎ</rt></ruby><ruby>破<rt>pò</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>花<rt>huā</rt></ruby><ruby>瓶<rt>píng</rt></ruby>。
+
+### 受事 = 主语
+- **ES**: El jarrón **se rompió**.
+- **EN**: The vase **broke**.
+- **ZH**: <ruby>花<rt>huā</rt></ruby><ruby>瓶<rt>píng</rt></ruby><ruby>破<rt>pò</rt></ruby><ruby>了<rt>le</rt></ruby>。
+
+### 体验者
+- **ES**: Juan **vio** a María.
+- **EN**: John **saw** Mary.
+- **ZH**: <ruby>约<rt>Yuē</rt></ruby><ruby>翰<rt>hàn</rt></ruby><ruby>看<rt>kàn</rt></ruby><ruby>见<rt>jiàn</rt></ruby><ruby>玛<rt>Mǎ</rt></ruby><ruby>丽<rt>lì</rt></ruby>。
+
+### 工具
+- **ES**: Juan abrió la puerta **con** la llave.
+- **EN**: John opened the door **with** a key.
+- **ZH**: <ruby>约<rt>Yuē</rt></ruby><ruby>翰<rt>hàn</rt></ruby><ruby>用<rt>yòng</rt></ruby><ruby>钥<rt>yào</rt></ruby><ruby>匙<rt>shi</rt></ruby><ruby>开<rt>kāi</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>门<rt>mén</rt></ruby>。
+
+---
+
+## 常见错误
+
+1. **西班牙语母语者**：对非使役不及物动词用 se → El jarrón **se rompió**（可以）；El perro **murió**（不用 se）
+
+2. **英语母语者**：The vase broke = El jarrón **se rompió**（不说 El jarrón rompió）
+
+3. **英语母语者**：用 por 表工具 → con = 工具；por = 被动施事
+
+4. **汉语母语者**：体验动词以体验者为主语 → <ruby>我<rt>wǒ</rt></ruby><ruby>想<rt>xiǎng</rt></ruby> = I think
+
+---
+
+## 相关主题
+
+- **被动**：各语言的被动结构
+- **及物性**：及物与不及物
+- **使役**：如何表达"让"
+- **话题与主语**：语法话题与主语的区别

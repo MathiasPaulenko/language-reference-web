@@ -33,15 +33,23 @@ const ui = getUI(lang);
   many_results: ui.pagefind.many_results,
   one_result: ui.pagefind.one_result,
   alt_search: ui.pagefind.alt_search,
-}), searchIndexMissing: ui.placeholders.searchIndexMissing }}>
+}), searchIndexMissing: ui.placeholders.searchIndexMissing, baseUrl: import.meta.env.BASE_URL }}>
   const translations = JSON.parse(pagefindTranslations);
-  const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+  const base = (baseUrl || '/').replace(/\/$/, '');
   const searchEl = document.getElementById('search');
   const statusEl = document.getElementById('search-status');
+  const pagefindUrl = `${base}/pagefind/pagefind-ui.js`;
+
+  function importWithTimeout(url, ms) {
+    return Promise.race([
+      import(/* @vite-ignore */ url),
+      new Promise((_, reject) => setTimeout(() => reject(new Error('Timeout')), ms))
+    ]);
+  }
 
   async function init() {
     try {
-      const mod = await import(/* @vite-ignore */ `${base}/pagefind/pagefind-ui.js`);
+      const mod = await importWithTimeout(pagefindUrl, 3000);
       if (mod.PagefindUI && searchEl) {
         new mod.PagefindUI({
           element: '#search',
@@ -54,6 +62,7 @@ const ui = getUI(lang);
     } catch (err) {
       console.warn('Pagefind UI not available (run build first):', err);
       if (searchEl) searchEl.innerHTML = `<p class="text-ink-faint">${searchIndexMissing}</p>`;
+      if (statusEl) statusEl.style.display = 'none';
     }
   }
 

@@ -18,7 +18,11 @@
     "phrases": "Phrases",
     "expressions": "Expressions",
     "frequencyLists": "Frequency Lists",
-    "search": "Search"
+    "search": "Search",
+    "about": "About",
+    "contact": "Contact",
+    "disclaimer": "Disclaimer",
+    "affiliate": "Affiliate Disclosure"
   },
   "hero": {
     "eyebrow": "A reference guide for multilingual grammar",
@@ -62,9 +66,12 @@
   },
   "legal": {
     "label": "Legal",
-    "cookiesDesc": "This page will contain the Cookie Policy for Grammar Navigator.",
-    "privacyDesc": "This page will contain the Privacy Policy for Grammar Navigator.",
-    "termsDesc": "This page will contain the Terms of Service for Grammar Navigator."
+    "cookiesDesc": "Grammar Navigator uses cookies to improve your browsing experience, analyze site traffic, and serve personalized content. By continuing to use this site, you consent to our use of cookies in accordance with this policy.",
+    "privacyDesc": "Grammar Navigator respects your privacy. This policy explains what information we collect, how we use it, and your rights regarding your personal data when you use our grammar reference and comparison tools.",
+    "termsDesc": "By using Grammar Navigator, you agree to these Terms of Service. The site is provided as-is for educational reference. We do not guarantee accuracy for every use case and are not liable for decisions made based on the content.",
+    "disclaimerDesc": "The content on Grammar Navigator is for educational and reference purposes only. While we strive for accuracy, grammar rules vary by dialect, register, and context. Always consult authoritative sources for academic or professional decisions.",
+    "affiliateDesc": "Some links on Grammar Navigator may be affiliate links. If you click an affiliate link and make a purchase, we may receive a small commission at no extra cost to you. This helps keep the site free. We only recommend resources we believe are genuinely useful.",
+    "contactDesc": "Have a question, suggestion, or found an error? We welcome feedback from learners and teachers alike. Reach out and we will get back to you as soon as possible."
   },
   "learningPaths": {
     "pathSuffix": "Learning Path",
@@ -313,6 +320,35 @@
   },
   "redirect": {
     "redirectingTo": "Redirecting to"
+  },
+  "about": {
+    "teamTitle": "Who we are",
+    "teamDesc": "Grammar Navigator is built and maintained by a small team of multilingual language enthusiasts with backgrounds in linguistics, translation, and software engineering. We are not a language school — we are a reference library created by people who love comparing how languages work.",
+    "methodologyTitle": "How content is created",
+    "methodologyDesc": "Every topic begins with research in authoritative descriptive and pedagogical grammars for each language. We then synthesize the rules into a unified comparison, add real examples, and identify the most common mistakes multilingual learners make. Each topic is reviewed for accuracy before publication.",
+    "sourcesTitle": "Sources & verification",
+    "sourcesDesc": "We draw from established reference grammars such as the Cambridge Grammar of English, the Nueva Gramática de la Lengua Española (RAE), and the Comprehensive Grammar of Modern Chinese. When rules vary by dialect or register, we note the variation explicitly.",
+    "transparencyTitle": "Transparency",
+    "transparencyDesc": "We do not use AI to generate grammar explanations. All content is researched, written, and reviewed by humans. If you spot an error or disagree with an analysis, we welcome corrections — grammar is complex and conventions evolve.",
+    "siteLastUpdated": "Site last updated",
+    "supportUs": "Support us",
+    "supportUsDesc": "If you find Grammar Navigator useful, consider buying us a coffee.",
+    "differentTitle": "What makes us different",
+    "different1": "Side-by-side comparisons across three languages",
+    "different2": "Real examples, not abstract rules",
+    "different3": "Common mistakes for multilingual learners",
+    "different4": "No sign-up, no paywall",
+    "openSourceTitle": "Open source spirit",
+    "openSourceDesc": "The site is built as a static resource that scales to more languages and topics over time. Contributions, corrections, and suggestions are always welcome."
+  },
+  "contact": {
+    "emailTitle": "Email",
+    "responseTimeTitle": "Response time",
+    "responseTimeDesc": "We typically respond within 2–3 business days.",
+    "whatToIncludeTitle": "What to include",
+    "whatToInclude1": "A clear description of your question or issue",
+    "whatToInclude2": "The page URL if reporting an error",
+    "whatToInclude3": "Your browser and device (if relevant)"
   },
   "error": {
     "notFound": "Page not found",

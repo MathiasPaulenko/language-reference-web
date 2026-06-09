@@ -1,4 +1,5 @@
 ---
+import { getCollection } from 'astro:content';
 import { localePath, sectionPath } from '../../lib/utils';
 import { getUI, languageName } from '../../i18n';
 import { interfaceLocales, analyzedLanguages, DEFAULT_LOCALE, type LocaleCode } from '../../config/languages';
@@ -11,6 +12,26 @@ interface Props {
 const { lang = DEFAULT_LOCALE } = Astro.props;
 const ui = getUI(lang);
 
+/* Build search index for inline search */
+const allTopics = await getCollection('topics');
+const topicsByTopic = new Map();
+for (const t of allTopics.filter((t) => !t.data.draft)) {
+  const topicKey = t.data.topic;
+  const existing = topicsByTopic.get(topicKey);
+  if (!existing) {
+    topicsByTopic.set(topicKey, t);
+  } else if (t.data.locale === lang) {
+    topicsByTopic.set(topicKey, t);
+  } else if (t.data.locale === 'en' && existing.data.locale !== lang) {
+    topicsByTopic.set(topicKey, t);
+  }
+}
+const searchData = Array.from(topicsByTopic.values()).map((t) => ({
+  title: t.data.title,
+  description: t.data.description,
+  url: sectionPath(lang, 'topics', t.id),
+  difficulty: t.data.difficulty,
+}));
 ---
 
 <header
@@ -93,17 +114,31 @@ const ui = getUI(lang);
     </nav>
 
     <div class="flex items-center gap-3">
-      <a
-        href={localePath(lang, 'search')}
-        class="flex items-center gap-2 rounded-full border border-line px-3 py-1.5 text-sm text-ink-faint transition-colors hover:border-ink-faint hover:text-ink"
-        aria-label={ui.nav.search}
-      >
+      {/* Inline search (desktop) */}
+      <div class="relative hidden sm:block" id="search-bar">
+        <div class="relative">
+          <svg class="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-ink-faint" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/>
+          </svg>
+          <input
+            id="search-input"
+            type="text"
+            placeholder={ui.pagefind.placeholder}
+            class="w-40 rounded-full border border-line bg-paper-deep py-1.5 pl-9 pr-4 text-sm text-ink placeholder:text-ink-faint transition-all focus:w-56 focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent/30"
+            autocomplete="off"
+          />
+        </div>
+        <div id="search-dropdown" class="absolute right-0 top-full z-50 mt-2 hidden w-80 overflow-hidden rounded-xl border border-line bg-paper shadow-lg">
+          <ul id="search-results" class="max-h-80 overflow-y-auto py-2"></ul>
+        </div>
+      </div>
+      {/* Search link (mobile) */}
+      <a href={localePath(lang, 'search')} class="flex items-center gap-2 rounded-full border border-line px-3 py-1.5 text-sm text-ink-faint transition-colors hover:border-ink-faint hover:text-ink sm:hidden" aria-label={ui.nav.search}>
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-          <circle cx="11" cy="11" r="7"></circle>
-          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          <circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
         </svg>
-        <span class="hidden sm:inline">{ui.nav.search}</span>
       </a>
+      <script type="application/json" id="search-data" set:html={JSON.stringify(searchData)} />
 
       <div class="relative">
         <button
@@ -129,6 +164,7 @@ const ui = getUI(lang);
               <a
                 href={localePath(locale.code)}
                 hreflang={locale.htmlLang}
+                data-locale-switch={locale.code}
                 role="menuitem"
                 aria-current={locale.code === lang ? 'true' : undefined}
                 class="flex items-center gap-2.5 px-4 py-2.5 text-sm text-ink-soft transition-colors hover:bg-paper-deep hover:text-ink aria-[current]:font-semibold aria-[current]:text-ink"
@@ -161,6 +197,62 @@ const ui = getUI(lang);
             if (chevron) chevron.style.transform = '';
           });
         }
+
+        /* Inline search */
+        const searchInput = document.getElementById('search-input');
+        const searchDropdown = document.getElementById('search-dropdown');
+        const searchResults = document.getElementById('search-results');
+        const searchDataEl = document.getElementById('search-data');
+
+        if (searchInput && searchDropdown && searchResults && searchDataEl) {
+          const allItems = JSON.parse(searchDataEl.textContent || '[]');
+
+          function renderResults(query) {
+            const q = query.toLowerCase().trim();
+            if (q.length < 2) {
+              searchDropdown.classList.add('hidden');
+              return;
+            }
+            const filtered = allItems.filter((item) =>
+              item.title.toLowerCase().includes(q) ||
+              item.description.toLowerCase().includes(q)
+            ).slice(0, 8);
+
+            if (filtered.length === 0) {
+              searchResults.innerHTML = `<li class="px-4 py-3 text-center text-sm text-ink-faint">No results</li>`;
+            } else {
+              searchResults.innerHTML = filtered.map((item) => `
+                <li><a href="${item.url}" class="block px-4 py-2.5 transition-colors hover:bg-paper-deep">
+                  <p class="text-sm font-medium text-ink">${item.title}</p>
+                  <p class="truncate text-xs text-ink-faint">${item.description}</p>
+                </a></li>
+              `).join('');
+            }
+            searchDropdown.classList.remove('hidden');
+          }
+
+          searchInput.addEventListener('input', (e) => renderResults(e.target.value));
+          searchInput.addEventListener('focus', () => { if (searchInput.value.trim().length >= 2) renderResults(searchInput.value); });
+          searchInput.addEventListener('keydown', (e) => { if (e.key === 'Escape') searchDropdown.classList.add('hidden'); });
+          document.addEventListener('click', (e) => {
+            if (!document.getElementById('search-bar')?.contains(e.target)) {
+              searchDropdown.classList.add('hidden');
+            }
+          });
+        }
+
+        /* Language switcher: stay on current page, swap locale prefix */
+        document.querySelectorAll('[data-locale-switch]').forEach((link) => {
+          link.addEventListener('click', (e) => {
+            const newLocale = link.getAttribute('data-locale-switch');
+            const currentPath = window.location.pathname;
+            const newPath = currentPath.replace(/^\/[a-z]{2}\//, `/${newLocale}/`);
+            if (newPath !== currentPath) {
+              window.location.href = newPath;
+            }
+            e.preventDefault();
+          });
+        });
       </script>
     </div>
   </div>

@@ -13,27 +13,41 @@ const ui = getUI(lang);
 
 const columns = [
   {
-    title: ui.nav.topics,
+    title: ui.nav.grammar,
     links: [
       { label: ui.nav.topics, href: sectionPath(lang, 'topics') },
       { label: ui.nav.comparisons, href: sectionPath(lang, 'comparisons') },
       { label: ui.nav.guides, href: sectionPath(lang, 'guides') },
       { label: ui.nav.cheatsheets, href: sectionPath(lang, 'cheatsheets') },
+      { label: ui.nav.vocabulary, href: localePath(lang, 'vocabulary') },
     ],
   },
   {
     title: ui.nav.languages,
-    links: analyzedLanguages.map((l) => ({
-      label: languageName(ui, l.code),
-      href: sectionPath(lang, 'languages', l.code),
-    })),
+    links: [
+      ...analyzedLanguages.map((l) => ({
+        label: languageName(ui, l.code),
+        href: sectionPath(lang, 'languages', l.code),
+      })),
+      { label: ui.nav.learningPaths, href: localePath(lang, 'learning-paths') },
+      { label: ui.nav.flashcards, href: localePath(lang, 'flashcards') },
+    ],
   },
   {
-    title: ui.footer.cookies,
+    title: ui.nav.about,
     links: [
-      { label: ui.footer.privacy, href: `${localePath(lang)}/privacy` },
-      { label: ui.footer.terms, href: `${localePath(lang)}/terms` },
-      { label: ui.footer.cookies, href: `${localePath(lang)}/cookies` },
+      { label: ui.nav.about, href: localePath(lang, 'about') },
+      { label: ui.nav.contact, href: localePath(lang, 'contact') },
+    ],
+  },
+  {
+    title: ui.legal.label,
+    links: [
+      { label: ui.footer.privacy, href: localePath(lang, 'privacy') },
+      { label: ui.footer.terms, href: localePath(lang, 'terms') },
+      { label: ui.footer.cookies, href: localePath(lang, 'cookies') },
+      { label: ui.nav.disclaimer, href: localePath(lang, 'disclaimer') },
+      { label: ui.nav.affiliate, href: localePath(lang, 'affiliate') },
     ],
   },
 ];
@@ -43,7 +57,7 @@ const year = new Date().getFullYear();
 
 <footer data-pagefind-ignore class="border-t border-line bg-paper-darker">
   <div class="mx-auto max-w-6xl px-5 py-10 sm:px-8">
-    <div class="grid gap-8 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
+    <div class="grid gap-8 md:grid-cols-[1.2fr_1fr_1fr_0.9fr_0.9fr]">
       <div>
         <a href={localePath(lang)} class="font-display text-2xl font-semibold tracking-tight">
           Grammar<span class="text-ink-faint">Navigator</span>
@@ -59,6 +73,11 @@ const year = new Date().getFullYear();
               </span>
             ))
           }
+        </div>
+        <div class="mt-4">
+          <a href="https://ko-fi.com/C6E4212B3X" target="_blank" rel="noopener noreferrer" class="inline-block transition-transform duration-200 hover:scale-105">
+            <img src="https://storage.ko-fi.com/cdn/kofi3.png?v=6" alt="Buy Me a Coffee at ko-fi.com" class="h-11" />
+          </a>
         </div>
       </div>
 

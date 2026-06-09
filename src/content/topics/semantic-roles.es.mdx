@@ -1,0 +1,249 @@
+---
+title: "Papeles Semánticos"
+description: "Cómo el español, el inglés y el chino codifican quién hace qué a quién en una oración."
+locale: "es"
+topic: "semantic-roles"
+difficulty: "advanced"
+overview: "Los papeles semánticos describen el significado subyacente de los participantes: agente, paciente, experimentante, beneficiario, instrumento. Las lenguas mapean estos papeles a posiciones gramaticales de manera diferente."
+comparisonTable:
+  - concept: "Juan rompió el jarrón (agente + paciente)"
+    values:
+      spanish: "Juan rompió el jarrón (agente = sujeto, paciente = objeto)"
+      english: "John broke the vase (agent = subject, patient = object)"
+      chinese: "<ruby>约<rt>Yuē</rt></ruby><ruby>翰<rt>hàn</rt></ruby><ruby>打<rt>dǎ</rt></ruby><ruby>破<rt>pò</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>花<rt>huā</rt></ruby><ruby>瓶<rt>píng</rt></ruby> (agente = sujeto, paciente = objeto)"
+  - concept: "El jarrón se rompió (paciente = sujeto)"
+    values:
+      spanish: "El jarrón se rompió (paciente = sujeto + se)"
+      english: "The vase broke (paciente = sujeto)"
+      chinese: "<ruby>花<rt>huā</rt></ruby><ruby>瓶<rt>píng</rt></ruby><ruby>破<rt>pò</rt></ruby><ruby>了<rt>le</rt></ruby> (paciente = sujeto)"
+  - concept: "Juan vio a María (experimentante + estímulo)"
+    values:
+      spanish: "Juan vio a María (experimentante = sujeto)"
+      english: "John saw Mary (experimentante = subject)"
+      chinese: "<ruby>约<rt>Yuē</rt></ruby><ruby>翰<rt>hàn</rt></ruby><ruby>看<rt>kàn</rt></ruby><ruby>见<rt>jiàn</rt></ruby><ruby>玛<rt>Mǎ</rt></ruby><ruby>丽<rt>lì</rt></ruby> (experimentante = sujeto)"
+  - concept: "María es visible para Juan (estímulo prominente)"
+    values:
+      spanish: "María es visible para Juan"
+      english: "Mary is visible to John"
+      chinese: "<ruby>玛<rt>Mǎ</rt></ruby><ruby>丽<rt>lì</rt></ruby><ruby>约<rt>Yuē</rt></ruby><ruby>翰<rt>hàn</rt></ruby><ruby>看<rt>kàn</rt></ruby><ruby>得<rt>de</rt></ruby><ruby>见<rt>jiàn</rt></ruby>"
+  - concept: "Juan recibió un libro (recipiente)"
+    values:
+      spanish: "Juan recibió un libro"
+      english: "John received a book"
+      chinese: "<ruby>约<rt>Yuē</rt></ruby><ruby>翰<rt>hàn</rt></ruby><ruby>收<rt>shōu</rt></ruby><ruby>到<rt>dào</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>本<rt>běn</rt></ruby><ruby>书<rt>shū</rt></ruby>"
+  - concept: "La llave abrió la puerta (instrumento)"
+    values:
+      spanish: "La llave abrió la puerta"
+      english: "The key opened the door"
+      chinese: "<ruby>钥<rt>yào</rt></ruby><ruby>匙<rt>shi</rt></ruby><ruby>开<rt>kāi</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>门<rt>mén</rt></ruby>"
+  - concept: "Juan abrió la puerta con la llave (agente + instrumento)"
+    values:
+      spanish: "Juan abrió la puerta con la llave"
+      english: "John opened the door with a key"
+      chinese: "<ruby>约<rt>Yuē</rt></ruby><ruby>翰<rt>hàn</rt></ruby><ruby>用<rt>yòng</rt></ruby><ruby>钥<rt>yào</rt></ruby><ruby>匙<rt>shi</rt></ruby><ruby>开<rt>kāi</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>门<rt>mén</rt></ruby>"
+  - concept: "Reducción pasiva del agente"
+    values:
+      spanish: "El jarrón fue roto (por Juan)"
+      english: "The vase was broken (by John)"
+      chinese: "<ruby>花<rt>huā</rt></ruby><ruby>瓶<rt>píng</rt></ruby><ruby>被<rt>bèi</rt></ruby><ruby>约<rt>Yuē</rt></ruby><ruby>翰<rt>hàn</rt></ruby><ruby>打<rt>dǎ</rt></ruby><ruby>破<rt>pò</rt></ruby><ruby>了<rt>le</rt></ruby>"
+commonMistakes:
+  - mistake: "Usar se con intransitivos no causativos en español"
+    correction: "Se solo funciona para des-transitivización: El jarrón se rompió (NO El perro se murió)"
+    note: "El se español solo funciona con verbos que tienen contrapartes transitivas."
+  - mistake: "Usar alternancias intransitivas del inglés donde el español requiere se"
+    correction: "The vase broke = El jarrón se rompió (NO El jarrón rompió)"
+    note: "El break ambitransitivo del inglés no se comparte por el español sin se."
+  - mistake: "Omitir la lógica experimentante-como-sujeto en chino"
+    correction: "Los verbos experimentantes chinos toman al experimentante como sujeto como en inglés: <ruby>我<rt>wǒ</rt></ruby><ruby>想<rt>xiǎng</rt></ruby> (Yo pienso)"
+    note: "Las construcciones experimentantes chinas paralelan al inglés de cerca."
+  - mistake: "Usar por para todo marcado de instrumento en español"
+    correction: "Instrumento = con (Juan abrió con la llave); por = agente en pasiva"
+    note: "El español con marca instrumento; por marca agente en pasiva."
+relatedTopics:
+  - "passive"
+  - "transitivity"
+  - "causatives"
+  - "topic-vs-subject"
+prerequisites:
+  - "transitivity"
+  - "valency"
+keyTakeaways:
+  - "Conceptos clave comparados: Juan rompió el jarrón (agente + paciente), El jarrón se rompió (paciente = sujeto), Juan vio a María (experimentante + estímulo)."
+  - "Comprender los papeles semánticos a través de las lenguas previene errores comunes de transferencia."
+lastUpdated: 2026-06-04
+draft: false
+---
+
+## Resumen
+
+Los papeles semánticos describen el significado subyacente de los participantes en un evento, independientemente de la posición gramatical.
+
+- **Español**: Usa *se* para des-transitivización (paciente como sujeto). Los verbos experimentantes toman al experimentante como sujeto. *Con* marca instrumento; *por* marca agente en pasiva.
+- **Inglés**: Permite ambitransitividad (break = transitive e intransitivo). Los verbos experimentantes toman al experimentante como sujeto. *With* marca instrumento; *by* marca agente en pasiva.
+- **Chino**: Usa *<ruby>被<rt>bèi</rt></ruby>* para pasiva. Los verbos experimentantes toman al experimentante como sujeto. *<ruby>用<rt>yòng</rt></ruby>* marca instrumento.
+
+---
+
+<div class="spanish-section">
+
+## Español
+
+### Agente y paciente
+
+| Estructura | Ejemplo | Papeles |
+|---|---|---|
+| Transitivo | Juan **rompió** el jarrón. | Agente = sujeto, Paciente = objeto |
+| Se pasivo | El jarrón **se rompió**. | Paciente = sujeto |
+| Se impersonal | **Se** vende coches. | Agente omitido |
+
+### Experimentante
+
+| Estructura | Ejemplo | Papel |
+|---|---|---|
+| Experimentante = sujeto | Juan **vio** a María. | Experimentante = sujeto |
+| Estímulo = objeto | María **gusta** a Juan. | Estímulo = sujeto, Experimentante = objeto (gustar) |
+
+**Nota**: *Gustar* invierte los papeles: el estímulo es sujeto y el experimentante es objeto indirecto.
+
+### Instrumento
+
+| Marcador | Ejemplo | Significado |
+|---|---|---|
+| con | Juan abrió la puerta **con** la llave. | con = instrumento |
+| por (pasiva) | El jarrón fue roto **por** Juan. | por = agente |
+
+### Causativo
+
+| Estructura | Ejemplo | Significado |
+|---|---|---|
+| hacer + que + subjuntivo | Juan **hizo que** María **comiera**. | Juan hizo que María comiera. |
+| dejar + infinitivo | Juan **dejó** entrar a María. | Juan dejó entrar a María. |
+
+</div>
+
+<div class="english-section">
+
+## Inglés
+
+### Agente y paciente
+
+| Estructura | Ejemplo | Papeles |
+|---|---|---|
+| Transitivo | John **broke** the vase. | Agente = sujeto, Paciente = objeto |
+| Intransitivo (ambitransitivo) | The vase **broke**. | Paciente = sujeto |
+| Pasiva | The vase was **broken** by John. | Paciente = sujeto, Agente = por |
+
+### Experimentante
+
+| Estructura | Ejemplo | Papel |
+|---|---|---|
+| Experimentante = sujeto | John **saw** Mary. | Experimentante = sujeto |
+| Estímulo = sujeto (raro) | The sight **pleased** John. | Estímulo = sujeto |
+
+### Instrumento
+
+| Marcador | Ejemplo | Significado |
+|---|---|---|
+| with | John opened the door **with** a key. | with = instrumento |
+| by (pasiva) | The vase was broken **by** John. | by = agente |
+
+### Causativo
+
+| Estructura | Ejemplo | Significado |
+|---|---|---|
+| make + base form | John **made** Mary **eat**. | John hizo que Mary comiera. |
+| let + base form | John **let** Mary enter. | John dejó que Mary entrara. |
+| have + base form | John **had** Mary fix it. | John hizo que Mary lo arreglara. |
+
+</div>
+
+<div class="chinese-section">
+
+## Chino
+
+### Agente y paciente
+
+| Estructura | Ejemplo | Papeles |
+|---|---|---|
+| Transitivo | <ruby>约<rt>Yuē</rt></ruby><ruby>翰<rt>hàn</rt></ruby><ruby>打<rt>dǎ</rt></ruby><ruby>破<rt>pò</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>花<rt>huā</rt></ruby><ruby>瓶<rt>píng</rt></ruby>。 | Agente = sujeto, Paciente = objeto |
+| Pasivo (被 bèi) | <ruby>花<rt>huā</rt></ruby><ruby>瓶<rt>píng</rt></ruby><ruby>被<rt>bèi</rt></ruby><ruby>约<rt>Yuē</rt></ruby><ruby>翰<rt>hàn</rt></ruby><ruby>打<rt>dǎ</rt></ruby><ruby>破<rt>pò</rt></ruby><ruby>了<rt>le</rt></ruby>。 | Paciente = sujeto |
+| Sin marcador | <ruby>花<rt>huā</rt></ruby><ruby>瓶<rt>píng</rt></ruby><ruby>破<rt>pò</rt></ruby><ruby>了<rt>le</rt></ruby>。 | Paciente = sujeto |
+
+### Experimentante
+
+| Estructura | Ejemplo | Papel |
+|---|---|---|
+| Experimentante = sujeto | <ruby>约<rt>Yuē</rt></ruby><ruby>翰<rt>hàn</rt></ruby><ruby>看<rt>kàn</rt></ruby><ruby>见<rt>jiàn</rt></ruby><ruby>玛<rt>Mǎ</rt></ruby><ruby>丽<rt>lì</rt></ruby>。 | Experimentante = sujeto |
+| Estímulo = sujeto | <ruby>这<rt>zhè</rt></ruby><ruby>个<rt>gè</rt></ruby><ruby>消<rt>xiāo</rt></ruby><ruby>息<rt>xī</rt></ruby><ruby>让<rt>ràng</rt></ruby><ruby>他<rt>tā</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>高<rt>gāo</rt></ruby><ruby>兴<rt>xìng</rt></ruby>。 | Estímulo = sujeto |
+
+### Instrumento
+
+| Marcador | Ejemplo | Significado |
+|---|---|---|
+| 用 (yòng) | <ruby>约<rt>Yuē</rt></ruby><ruby>翰<rt>hàn</rt></ruby><ruby>用<rt>yòng</rt></ruby><ruby>钥<rt>yào</rt></ruby><ruby>匙<rt>shi</rt></ruby><ruby>开<rt>kāi</rt></ruby><ruby>门<rt>mén</rt></ruby>。 | 用 = instrumento |
+| 被 (bèi) pasivo | <ruby>花<rt>huā</rt></ruby><ruby>瓶<rt>píng</rt></ruby><ruby>被<rt>bèi</rt></ruby><ruby>约<rt>Yuē</rt></ruby><ruby>翰<rt>hàn</rt></ruby><ruby>打<rt>dǎ</rt></ruby><ruby>破<rt>pò</rt></ruby>。 | 被 = pasivo |
+
+### Causativo
+
+| Estructura | Ejemplo | Significado |
+|---|---|---|
+| 让 (ràng) | <ruby>约<rt>Yuē</rt></ruby><ruby>翰<rt>hàn</rt></ruby><ruby>让<rt>ràng</rt></ruby><ruby>玛<rt>Mǎ</rt></ruby><ruby>丽<rt>lì</rt></ruby><ruby>吃<rt>chī</rt></ruby>。 | John hizo que Mary comiera. |
+| 使 (shǐ) | <ruby>这<rt>zhè</rt></ruby><ruby>个<rt>gè</rt></ruby><ruby>消<rt>xiāo</rt></ruby><ruby>息<rt>xī</rt></ruby><ruby>使<rt>shǐ</rt></ruby><ruby>他<rt>tā</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>高<rt>gāo</rt></ruby><ruby>兴<rt>xìng</rt></ruby>。 | Esta noticia lo hizo feliz. |
+
+</div>
+
+## Comparación rápida
+
+| Característica | Español | Inglés | Chino |
+|---|---|---|---|
+| Paciente = sujeto | se rompió | broke | 破了 |
+| Pasiva | ser + participio | be + participio | 被 + verbo |
+| Instrumento | con | with | 用 |
+| Agente pasivo | por | by | 被 |
+| Causativo | hacer que + subjuntivo | make + base | 让 / 使 |
+| Experimentante | Sujeto (ver) | Sujeto (see) | Sujeto (看见) |
+
+---
+
+## Ejemplos en contexto
+
+### Agente + paciente
+- **ES**: Juan **rompió** el jarrón.
+- **EN**: John **broke** the vase.
+- **ZH**: <ruby>约<rt>Yuē</rt></ruby><ruby>翰<rt>hàn</rt></ruby><ruby>打<rt>dǎ</rt></ruby><ruby>破<rt>pò</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>花<rt>huā</rt></ruby><ruby>瓶<rt>píng</rt></ruby>。
+
+### Paciente = sujeto
+- **ES**: El jarrón **se rompió**.
+- **EN**: The vase **broke**.
+- **ZH**: <ruby>花<rt>huā</rt></ruby><ruby>瓶<rt>píng</rt></ruby><ruby>破<rt>pò</rt></ruby><ruby>了<rt>le</rt></ruby>。
+
+### Experimentante
+- **ES**: Juan **vio** a María.
+- **EN**: John **saw** Mary.
+- **ZH**: <ruby>约<rt>Yuē</rt></ruby><ruby>翰<rt>hàn</rt></ruby><ruby>看<rt>kàn</rt></ruby><ruby>见<rt>jiàn</rt></ruby><ruby>玛<rt>Mǎ</rt></ruby><ruby>丽<rt>lì</rt></ruby>。
+
+### Instrumento
+- **ES**: Juan abrió la puerta **con** la llave.
+- **EN**: John opened the door **with** a key.
+- **ZH**: <ruby>约<rt>Yuē</rt></ruby><ruby>翰<rt>hàn</rt></ruby><ruby>用<rt>yòng</rt></ruby><ruby>钥<rt>yào</rt></ruby><ruby>匙<rt>shi</rt></ruby><ruby>开<rt>kāi</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>门<rt>mén</rt></ruby>。
+
+---
+
+## Errores comunes
+
+1. **Hispanohablantes**: Usar se con intransitivos no causativos → El jarrón **se rompió** (sí); El perro **murió** (no se)
+
+2. **Angloparlantes**: The vase broke = El jarrón **se rompió** (NO El jarrón rompió)
+
+3. **Angloparlantes**: Usar por para instrumento → con = instrumento; por = agente pasivo
+
+4. **Chinos**: Los verbos experimentantes toman al experimentante como sujeto → <ruby>我<rt>wǒ</rt></ruby><ruby>想<rt>xiǎng</rt></ruby> = I think
+
+---
+
+## Temas relacionados
+
+- **Pasiva**: Construcciones pasivas en cada lengua
+- **Transitividad**: Transitivo vs intransitivo
+- **Causativos**: Cómo expresar "hacer que"
+- **Tema vs sujeto**: Diferencias entre tema gramatical y sujeto

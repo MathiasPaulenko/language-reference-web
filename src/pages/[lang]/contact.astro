@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { localeCodes, DEFAULT_LOCALE } from '../../config/languages';
+import { getUI } from '../../i18n';
+
+export function getStaticPaths() {
+  return localeCodes.map((lang) => ({ params: { lang } }));
+}
+
+const { lang = DEFAULT_LOCALE } = Astro.params;
+const ui = getUI(lang);
+---
+
+<BaseLayout
+  title={`${ui.nav.contact} | ${ui.site.name}`}
+  description={ui.site.tagline}
+  lang={lang}
+>
+  <main class="mx-auto max-w-2xl px-5 py-20 sm:px-8">
+    <p class="font-mono text-xs font-bold uppercase tracking-[0.2em] text-accent">{ui.site.name}</p>
+    <h1 class="mt-3 font-display text-4xl font-semibold tracking-tight">{ui.nav.contact}</h1>
+    <div class="mt-8 space-y-6 leading-relaxed text-ink-soft">
+      <p>{ui.legal.contactDesc}</p>
+      <div class="mt-8 rounded-2xl border border-line bg-paper-deep p-6">
+        <h2 class="font-display text-lg font-semibold tracking-tight text-ink">{ui.contact.emailTitle}</h2>
+        <p class="mt-2">
+          <a href="mailto:mathias.paulenko@outlook.com" class="text-accent transition-colors hover:underline">
+            mathias.paulenko@outlook.com
+          </a>
+        </p>
+      </div>
+      <div class="rounded-2xl border border-line bg-paper-deep p-6">
+        <h2 class="font-display text-lg font-semibold tracking-tight text-ink">{ui.contact.responseTimeTitle}</h2>
+        <p class="mt-2">{ui.contact.responseTimeDesc}</p>
+      </div>
+      <div class="rounded-2xl border border-line bg-paper-deep p-6">
+        <h2 class="font-display text-lg font-semibold tracking-tight text-ink">{ui.contact.whatToIncludeTitle}</h2>
+        <ul class="mt-2 list-disc space-y-1 pl-5">
+          <li>{ui.contact.whatToInclude1}</li>
+          <li>{ui.contact.whatToInclude2}</li>
+          <li>{ui.contact.whatToInclude3}</li>
+        </ul>
+      </div>
+    </div>
+  </main>
+</BaseLayout>

@@ -24,7 +24,20 @@ if (!language) {
 }
 
 const allTopics = await getCollection('topics');
-const published = allTopics.filter((t) => !t.data.draft);
+// Group by topic field, prefer current locale with fallback to 'en'
+const topicsByTopic = new Map();
+for (const t of allTopics.filter((t) => !t.data.draft)) {
+  const topicKey = t.data.topic;
+  const existing = topicsByTopic.get(topicKey);
+  if (!existing) {
+    topicsByTopic.set(topicKey, t);
+  } else if (t.data.locale === lang) {
+    topicsByTopic.set(topicKey, t);
+  } else if (t.data.locale === 'en' && existing.data.locale !== lang) {
+    topicsByTopic.set(topicKey, t);
+  }
+}
+const published = Array.from(topicsByTopic.values());
 
 const byDifficulty = {
   beginner: published.filter((t) => t.data.difficulty === 'beginner'),

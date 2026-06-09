@@ -1,7 +1,7 @@
 ---
 import type { GetStaticPaths } from 'astro';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
-import { localePath } from '../../../lib/utils';
+import { localePath, pageAlternates } from '../../../lib/utils';
 import { getUI } from '../../../i18n';
 import { interfaceLocales, type LocaleCode } from '../../../config/languages';
 
@@ -12,6 +12,7 @@ export const getStaticPaths = (() =>
 
 const lang = Astro.params.lang as LocaleCode;
 const ui = getUI(lang);
+const alternates = pageAlternates('flashcards');
 
 const flashcards = [
   { key: 'grammar', title: ui.nav.grammar, desc: ui.flashcards.grammarDesc, icon: 'layers' },
@@ -20,9 +21,19 @@ const flashcards = [
 ];
 ---
 
-<BaseLayout title={`${ui.landing.flashcardsTitle} — ${ui.site.name}`} description={ui.landing.flashcardsDesc} lang={lang}>
-    {/* Hero */}
-    <section class="border-b border-line bg-[#2a2520]">
+<BaseLayout
+  title={`${ui.landing.flashcardsTitle} | ${ui.site.name}`}
+  description={ui.landing.flashcardsDesc}
+  lang={lang}
+  alternates={alternates}
+  jsonLd={{
+    '@type': 'WebPage',
+    name: ui.landing.flashcardsTitle,
+    description: ui.landing.flashcardsDesc,
+    inLanguage: lang,
+  }}
+>
+  <section class="border-b border-line bg-[#2a2520]">
       <div class="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24">
         <p class="font-mono text-xs uppercase tracking-[0.2em] text-accent">{ui.landing.flashcardsTitle}</p>
         <h1 class="mt-4 max-w-2xl font-display text-4xl font-semibold tracking-tight text-paper sm:text-5xl">{ui.landing.flashcardsSubtitle}</h1>
@@ -30,8 +41,7 @@ const flashcards = [
       </div>
     </section>
 
-    {/* How Flashcards Work */}
-    <section class="border-y border-line bg-paper-deep">
+  <section class="border-y border-line bg-paper-deep">
       <div class="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24">
         <p class="font-mono text-xs font-bold uppercase tracking-[0.2em] text-accent">{ui.landing.methodLabel}</p>
         <h2 class="mt-3 font-display text-3xl font-semibold tracking-tight sm:text-4xl">{ui.landing.howFlashcardsTitle}</h2>

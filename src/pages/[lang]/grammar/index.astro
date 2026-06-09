@@ -2,7 +2,7 @@
 import type { GetStaticPaths } from 'astro';
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
-import { sectionPath, withPinyin } from '../../../lib/utils';
+import { sectionPath, withPinyin, pageAlternates } from '../../../lib/utils';
 import { getUI, languageName } from '../../../i18n';
 import { interfaceLocales, analyzedLanguages, type LocaleCode } from '../../../config/languages';
 import FlagIcon from '../../../components/astro/FlagIcon.astro';
@@ -14,6 +14,7 @@ export const getStaticPaths = (() =>
 
 const lang = Astro.params.lang as LocaleCode;
 const ui = getUI(lang);
+const alternates = pageAlternates('grammar');
 
 const allTopics = await getCollection('topics');
 // Group by topic field, prefer current locale with fallback to 'en'
@@ -33,8 +34,18 @@ const topics = Array.from(topicsByTopic.values())
   .sort((a, b) => a.data.title.localeCompare(b.data.title));
 ---
 
-<BaseLayout title={`${ui.landing.grammarTitle} — ${ui.site.name}`} description={ui.landing.grammarDesc} lang={lang}>
-  {/* Hero */}
+<BaseLayout
+  title={`${ui.landing.grammarTitle} | ${ui.site.name}`}
+  description={ui.landing.grammarDesc}
+  lang={lang}
+  alternates={alternates}
+  jsonLd={{
+    '@type': 'CollectionPage',
+    name: ui.landing.grammarTitle,
+    description: ui.landing.grammarDesc,
+    inLanguage: lang,
+  }}
+>
   <section class="border-b border-line bg-[#2a2520]">
     <div class="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24">
       <p class="font-mono text-xs uppercase tracking-[0.2em] text-accent">{ui.landing.grammarTitle}</p>
@@ -43,7 +54,6 @@ const topics = Array.from(topicsByTopic.values())
     </div>
   </section>
 
-  {/* How Grammar Works */}
   <section class="border-y border-line bg-paper-deep">
     <div class="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24">
       <p class="font-mono text-xs font-bold uppercase tracking-[0.2em] text-accent">{ui.landing.methodLabel}</p>

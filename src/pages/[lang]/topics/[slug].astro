@@ -4,6 +4,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import ContentArticle from '../../../components/astro/ContentArticle.astro';
 import { getUI } from '../../../i18n';
 import { interfaceLocales, type LocaleCode } from '../../../config/languages';
+import { contentAlternates } from '../../../lib/utils';
 
 export async function getStaticPaths() {
   const entries = await getCollection('topics');
@@ -22,16 +23,18 @@ export async function getStaticPaths() {
       if (!entry) continue;
       paths.push({
         params: { lang: locale.code, slug: topicId },
-        props: { entry, lang: locale.code },
+        props: { entry, lang: locale.code, topicId, availableLocales: Array.from(localeMap.keys()) },
       });
     }
   }
   return paths;
 }
 
-const { entry, lang } = Astro.props;
+const { entry, lang, topicId } = Astro.props;
+const availableLocales = Astro.props.availableLocales as string[];
 const ui = getUI(lang as LocaleCode);
 const topicUrl = Astro.site ? new URL(Astro.url.pathname, Astro.site).toString() : Astro.url.pathname;
+const alternates = contentAlternates(topicId, 'topics', new Map(availableLocales.map((l) => [l, true])));
 
 // Keep titles under 60 chars: drop site name if the full title would be too long
 const fullTitle = `${entry.data.title} | ${ui.site.name}`;
@@ -43,6 +46,7 @@ const topicsIndexUrl = Astro.site ? new URL(Astro.url.pathname.replace(/[^/]+\/$
   title={pageTitle}
   description={entry.data.description}
   lang={lang}
+  alternates={alternates}
   jsonLd={[
     {
       '@type': 'LearningResource',

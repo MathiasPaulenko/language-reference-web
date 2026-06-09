@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { localeCodes, DEFAULT_LOCALE } from '../../config/languages';
 import { getUI } from '../../i18n';
+import { pageAlternates } from '../../lib/utils';
 
 export function getStaticPaths() {
   return localeCodes.map((lang) => ({ params: { lang } }));
@@ -9,12 +10,14 @@ export function getStaticPaths() {
 
 const { lang = DEFAULT_LOCALE } = Astro.params;
 const ui = getUI(lang);
+const alternates = pageAlternates('privacy');
 ---
 
 <BaseLayout
   title={`${ui.footer.privacy} | ${ui.site.name}`}
   description={ui.legal.privacyDesc}
   lang={lang}
+  alternates={alternates}
 >
   <main class="mx-auto max-w-2xl px-5 py-20 sm:px-8">
     <p class="font-mono text-xs font-bold uppercase tracking-[0.2em] text-accent">{ui.legal.label}</p>

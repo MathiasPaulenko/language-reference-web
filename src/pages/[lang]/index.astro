@@ -2,7 +2,7 @@
 import type { GetStaticPaths } from 'astro';
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { localePath, sectionPath, withPinyin } from '../../lib/utils';
+import { localePath, sectionPath, withPinyin, pageAlternates } from '../../lib/utils';
 import { getUI, languageName } from '../../i18n';
 import {
   interfaceLocales,
@@ -18,6 +18,7 @@ export const getStaticPaths = (() =>
 
 const lang = Astro.params.lang as LocaleCode;
 const ui = getUI(lang);
+const alternates = pageAlternates('');
 
 const allTopics = await getCollection('topics');
 // Group by topic field, prefer current locale with fallback to 'en'
@@ -62,6 +63,7 @@ const steps = [
   title={ui.site.name}
   description={ui.hero.body}
   lang={lang}
+  alternates={alternates}
   jsonLd={[
     {
       '@type': 'WebSite',

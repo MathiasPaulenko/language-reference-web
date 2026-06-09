@@ -1,7 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
-import { sectionPath, withPinyin } from '../../../lib/utils';
+import { sectionPath, withPinyin, indexAlternates } from '../../../lib/utils';
 import { getUI, languageName } from '../../../i18n';
 import { interfaceLocales, analyzedLanguages, getAnalyzedLanguage, type LocaleCode, type AnalyzedLanguageCode } from '../../../config/languages';
 import FlagIcon from '../../../components/astro/FlagIcon.astro';
@@ -21,6 +21,10 @@ export async function getStaticPaths() {
 const { slug } = Astro.params;
 const lang = Astro.params.lang as LocaleCode;
 const ui = getUI(lang);
+const alternates = indexAlternates('languages').map((alt) => ({
+  ...alt,
+  href: `${alt.href}${slug}/`,
+}));
 
 const language = getAnalyzedLanguage(slug);
 if (!language) {
@@ -53,11 +57,27 @@ const diffStyles: Record<string, { label: string; bg: string; text: string }> = 
 ---
 
 <BaseLayout
-  title={`${languageName(ui, slug as AnalyzedLanguageCode)} ${ui.languages.grammarSuffix} — ${ui.site.name}`}
+  title={`${languageName(ui, slug as AnalyzedLanguageCode)} ${ui.languages.grammarSuffix} | ${ui.site.name}`}
   description={ui.languages.heroDesc.replace('{count}', String(topics.length)).replace('{language}', languageName(ui, slug as AnalyzedLanguageCode))}
   lang={lang}
+  alternates={alternates}
+  jsonLd={[
+    {
+      '@type': 'WebPage',
+      name: `${languageName(ui, slug as AnalyzedLanguageCode)} ${ui.languages.grammarSuffix}`,
+      description: ui.languages.heroDesc.replace('{count}', String(topics.length)).replace('{language}', languageName(ui, slug as AnalyzedLanguageCode)),
+      inLanguage: lang,
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: ui.nav.home, item: Astro.site ? new URL(`/${lang}/`, Astro.site).toString() : `/${lang}/` },
+        { '@type': 'ListItem', position: 2, name: ui.nav.languages, item: Astro.site ? new URL(Astro.url.pathname.replace(/[^/]+\/$/, ''), Astro.site).toString() : Astro.url.pathname.replace(/[^/]+\/$/, '') },
+        { '@type': 'ListItem', position: 3, name: languageName(ui, slug as AnalyzedLanguageCode), item: Astro.site ? new URL(Astro.url.pathname, Astro.site).toString() : Astro.url.pathname },
+      ],
+    },
+  ]}
 >
-  {/* Hero */}
   <section class="border-b border-line" style={`background-color: ${language.color}30`}>
     <div class="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24">
       <div class="flex items-center gap-3">
@@ -75,7 +95,6 @@ const diffStyles: Record<string, { label: string; bg: string; text: string }> = 
     </div>
   </section>
 
-  {/* Topics Grid */}
   <section class="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24" id="topics-list">
     <div class="flex items-end justify-between gap-6">
       <div>

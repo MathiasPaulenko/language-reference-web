@@ -1,4 +1,4 @@
-import { sectionSlug, type LocaleCode, type SectionKey } from '../config/languages';
+import { sectionSlug, interfaceLocales, type LocaleCode, type SectionKey } from '../config/languages';
 import pinyinModule from 'pinyin';
 const pinyin = (typeof pinyinModule === 'function' ? pinyinModule : (pinyinModule as any).default || pinyinModule) as any;
 
@@ -33,6 +33,36 @@ export function sectionPath(locale: LocaleCode, section: SectionKey, slug = ''):
 }
 
 const CHINESE_RE = /[\u4e00-\u9fff]+/;
+
+/** Build hreflang alternates for a content page with translations. */
+export function contentAlternates(
+  slug: string,
+  section: SectionKey,
+  localeMap: Map<string, unknown>,
+): { locale: LocaleCode; href: string }[] {
+  return interfaceLocales
+    .filter((loc) => localeMap.has(loc.code))
+    .map((loc) => ({
+      locale: loc.code,
+      href: sectionPath(loc.code, section, slug),
+    }));
+}
+
+/** Build hreflang alternates for an index/listing page. */
+export function indexAlternates(section: SectionKey): { locale: LocaleCode; href: string }[] {
+  return interfaceLocales.map((loc) => ({
+    locale: loc.code,
+    href: sectionPath(loc.code, section),
+  }));
+}
+
+/** Build hreflang alternates for a static page (e.g. about, contact). */
+export function pageAlternates(path: string): { locale: LocaleCode; href: string }[] {
+  return interfaceLocales.map((loc) => ({
+    locale: loc.code,
+    href: localePath(loc.code, path),
+  }));
+}
 
 /**
  * Convert Chinese characters in a string to <ruby> tags with pinyin.

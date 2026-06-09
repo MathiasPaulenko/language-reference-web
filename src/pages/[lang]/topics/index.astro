@@ -2,7 +2,7 @@
 import type { GetStaticPaths } from 'astro';
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
-import { sectionPath, withPinyin } from '../../../lib/utils';
+import { sectionPath, withPinyin, indexAlternates } from '../../../lib/utils';
 import { getUI } from '../../../i18n';
 import { interfaceLocales, type LocaleCode } from '../../../config/languages';
 
@@ -13,6 +13,7 @@ export const getStaticPaths = (() =>
 
 const lang = Astro.params.lang as LocaleCode;
 const ui = getUI(lang);
+const alternates = indexAlternates('topics');
 
 const allTopics = await getCollection('topics');
 // Group by topic field, prefer current locale with fallback to 'en'
@@ -38,7 +39,24 @@ const diffStyles: Record<string, { bg: string; text: string; label: string }> = 
 };
 ---
 
-<BaseLayout title={`${ui.nav.topics} — ${ui.site.name}`} description={ui.topics.subtitle} lang={lang}>
+<BaseLayout
+  title={`${ui.nav.topics} | ${ui.site.name}`}
+  description={ui.topics.subtitle}
+  lang={lang}
+  alternates={alternates}
+  jsonLd={{
+    '@type': 'CollectionPage',
+    name: ui.nav.topics,
+    description: ui.topics.subtitle,
+    inLanguage: lang,
+    hasPart: published.map((t) => ({
+      '@type': 'LearningResource',
+      name: t.data.title,
+      description: t.data.description,
+      url: Astro.site ? new URL(sectionPath(lang, 'topics', t.data.topic), Astro.site).toString() : sectionPath(lang, 'topics', t.data.topic),
+    })),
+  }}
+>
   <section class="border-b border-line bg-[#2a2520]">
     <div class="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24">
       <p class="font-mono text-xs uppercase tracking-[0.2em] text-accent">{ui.nav.topics}</p>

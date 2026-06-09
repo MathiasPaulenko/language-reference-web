@@ -1,7 +1,7 @@
 ---
 import type { GetStaticPaths } from 'astro';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
-import { localePath } from '../../../lib/utils';
+import { localePath, indexAlternates } from '../../../lib/utils';
 import { getUI, languageName } from '../../../i18n';
 import { interfaceLocales, analyzedLanguages, type LocaleCode } from '../../../config/languages';
 import FlagIcon from '../../../components/astro/FlagIcon.astro';
@@ -13,6 +13,7 @@ export const getStaticPaths = (() =>
 
 const lang = Astro.params.lang as LocaleCode;
 const ui = getUI(lang);
+const alternates = indexAlternates('learning-paths');
 
 const pathSteps = [
   { label: 'Foundations', desc: 'Articles, pronouns, basic word order' },
@@ -23,9 +24,19 @@ const pathSteps = [
 ];
 ---
 
-<BaseLayout title={`${ui.landing.learningPathsTitle} — ${ui.site.name}`} description={ui.landing.learningPathsDesc} lang={lang}>
-    {/* Hero */}
-    <section class="border-b border-line bg-[#2a2520]">
+<BaseLayout
+  title={`${ui.landing.learningPathsTitle} | ${ui.site.name}`}
+  description={ui.landing.learningPathsDesc}
+  lang={lang}
+  alternates={alternates}
+  jsonLd={{
+    '@type': 'WebPage',
+    name: ui.landing.learningPathsTitle,
+    description: ui.landing.learningPathsDesc,
+    inLanguage: lang,
+  }}
+>
+  <section class="border-b border-line bg-[#2a2520]">
       <div class="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24">
         <p class="font-mono text-xs uppercase tracking-[0.2em] text-accent">{ui.landing.learningPathsTitle}</p>
         <h1 class="mt-4 max-w-2xl font-display text-4xl font-semibold tracking-tight text-paper sm:text-5xl">{ui.landing.learningPathsSubtitle}</h1>
@@ -33,8 +44,7 @@ const pathSteps = [
       </div>
     </section>
 
-    {/* How Learning Paths Work */}
-    <section class="border-y border-line bg-paper-deep">
+  <section class="border-y border-line bg-paper-deep">
       <div class="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24">
         <p class="font-mono text-xs font-bold uppercase tracking-[0.2em] text-accent">{ui.landing.methodLabel}</p>
         <h2 class="mt-3 font-display text-3xl font-semibold tracking-tight sm:text-4xl">{ui.landing.howLearningPathsTitle}</h2>

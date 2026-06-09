@@ -2,7 +2,7 @@
 import type { GetStaticPaths } from 'astro';
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
-import { sectionPath } from '../../../lib/utils';
+import { sectionPath, indexAlternates } from '../../../lib/utils';
 import { getUI, languageName } from '../../../i18n';
 import {
   interfaceLocales,
@@ -17,6 +17,7 @@ export const getStaticPaths = (() =>
 
 const lang = Astro.params.lang as LocaleCode;
 const ui = getUI(lang);
+const alternates = indexAlternates('comparisons');
 
 const allTopics = await getCollection('topics');
 // Group by topic field, prefer current locale with fallback to 'en'
@@ -63,9 +64,16 @@ const langs = analyzedLanguages.map((l) => ({
 ---
 
 <BaseLayout
-  title={`${ui.comparisons.toolTitle} — ${ui.site.name}`}
+  title={`${ui.comparisons.toolTitle} | ${ui.site.name}`}
   description={ui.comparisons.toolSubtitle}
   lang={lang}
+  alternates={alternates}
+  jsonLd={{
+    '@type': 'WebPage',
+    name: ui.comparisons.toolTitle,
+    description: ui.comparisons.toolSubtitle,
+    inLanguage: lang,
+  }}
 >
   <!-- Hero -->
   <section class="border-b border-line bg-[#2a2520]">

@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { localeCodes, DEFAULT_LOCALE } from '../../config/languages';
 import { getUI } from '../../i18n';
+import { pageAlternates } from '../../lib/utils';
 
 export function getStaticPaths() {
   return localeCodes.map((lang) => ({ params: { lang } }));
@@ -9,6 +10,7 @@ export function getStaticPaths() {
 
 const { lang = DEFAULT_LOCALE } = Astro.params;
 const ui = getUI(lang);
+const alternates = pageAlternates('about');
 const siteUpdated = new Date('2026-06-09').toLocaleDateString(lang, { year: 'numeric', month: 'long', day: 'numeric' });
 ---
 
@@ -16,6 +18,7 @@ const siteUpdated = new Date('2026-06-09').toLocaleDateString(lang, { year: 'num
   title={`${ui.nav.about} | ${ui.site.name}`}
   description={ui.site.tagline}
   lang={lang}
+  alternates={alternates}
   jsonLd={[
     {
       '@type': 'AboutPage',

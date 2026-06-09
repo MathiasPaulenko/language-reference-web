@@ -1,7 +1,7 @@
 ---
 import type { GetStaticPaths } from 'astro';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
-import { localePath, sectionPath } from '../../../lib/utils';
+import { localePath, sectionPath, indexAlternates } from '../../../lib/utils';
 import { getUI, languageName } from '../../../i18n';
 import { interfaceLocales, analyzedLanguages, type LocaleCode } from '../../../config/languages';
 import FlagIcon from '../../../components/astro/FlagIcon.astro';
@@ -13,6 +13,7 @@ export const getStaticPaths = (() =>
 
 const lang = Astro.params.lang as LocaleCode;
 const ui = getUI(lang);
+const alternates = indexAlternates('languages');
 
 const languageFacts = {
   spanish: {
@@ -42,8 +43,18 @@ const languageFacts = {
 };
 ---
 
-<BaseLayout title={`${ui.landing.languagesTitle} — ${ui.site.name}`} description={ui.landing.languagesDesc} lang={lang}>
-  {/* Hero */}
+<BaseLayout
+  title={`${ui.landing.languagesTitle} | ${ui.site.name}`}
+  description={ui.landing.languagesDesc}
+  lang={lang}
+  alternates={alternates}
+  jsonLd={{
+    '@type': 'WebPage',
+    name: ui.landing.languagesTitle,
+    description: ui.landing.languagesDesc,
+    inLanguage: lang,
+  }}
+>
   <section class="border-b border-line bg-[#2a2520]">
     <div class="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24">
       <p class="font-mono text-xs uppercase tracking-[0.2em] text-accent">{ui.landing.languagesTitle}</p>
@@ -52,7 +63,6 @@ const languageFacts = {
     </div>
   </section>
 
-  {/* How Languages Works */}
   <section class="border-y border-line bg-paper-deep">
     <div class="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24">
       <p class="font-mono text-xs font-bold uppercase tracking-[0.2em] text-accent">{ui.landing.methodLabel}</p>
@@ -84,7 +94,6 @@ const languageFacts = {
     </div>
   </section>
 
-  {/* Language Cards */}
   <section class="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24">
     <p class="font-mono text-xs font-bold uppercase tracking-[0.2em] text-accent">{ui.landing.chooseLanguage}</p>
     <h2 class="mt-3 font-display text-3xl font-semibold tracking-tight sm:text-4xl">{ui.landing.grammarByLanguage}</h2>

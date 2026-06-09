@@ -2,7 +2,7 @@
 import type { GetStaticPaths } from 'astro';
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
-import { localePath, sectionPath } from '../../../lib/utils';
+import { localePath, sectionPath, pageAlternates } from '../../../lib/utils';
 import { getUI, languageName } from '../../../i18n';
 import { interfaceLocales, analyzedLanguages, type LocaleCode, type AnalyzedLanguageCode } from '../../../config/languages';
 import FlagIcon from '../../../components/astro/FlagIcon.astro';
@@ -17,6 +17,7 @@ export const getStaticPaths = (() =>
 const lang = Astro.params.lang as LocaleCode;
 const ui = getUI(lang);
 const languageCode = Astro.params.languageCode as AnalyzedLanguageCode;
+const alternates = pageAlternates(`learning-paths/${languageCode}`);
 
 const language = analyzedLanguages.find((l) => l.code === languageCode);
 if (!language) {
@@ -81,9 +82,16 @@ function getLevelLabel(difficulty: string, langCode: string): string {
 ---
 
 <BaseLayout
-  title={`${languageName(ui, languageCode)} ${ui.learningPaths.pathSuffix} — ${ui.site.name}`}
+  title={`${languageName(ui, languageCode)} ${ui.learningPaths.pathSuffix} | ${ui.site.name}`}
   description={ui.learningPaths.heroDesc}
   lang={lang}
+  alternates={alternates}
+  jsonLd={{
+    '@type': 'WebPage',
+    name: `${languageName(ui, languageCode)} ${ui.learningPaths.pathSuffix}`,
+    description: ui.learningPaths.heroDesc,
+    inLanguage: lang,
+  }}
 >
   {/* Hero */}
   <section class="border-b border-line bg-[#2a2520]">

@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { localeCodes, DEFAULT_LOCALE } from '../../config/languages';
 import { getUI } from '../../i18n';
+import { pageAlternates } from '../../lib/utils';
 
 export function getStaticPaths() {
   return localeCodes.map((lang) => ({ params: { lang } }));
@@ -9,12 +10,20 @@ export function getStaticPaths() {
 
 const { lang = DEFAULT_LOCALE } = Astro.params;
 const ui = getUI(lang);
+const alternates = pageAlternates('contact');
 ---
 
 <BaseLayout
   title={`${ui.nav.contact} | ${ui.site.name}`}
   description={ui.site.tagline}
   lang={lang}
+  alternates={alternates}
+  jsonLd={{
+    '@type': 'ContactPage',
+    name: ui.nav.contact,
+    description: ui.site.tagline,
+    inLanguage: lang,
+  }}
 >
   <main class="mx-auto max-w-2xl px-5 py-20 sm:px-8">
     <p class="font-mono text-xs font-bold uppercase tracking-[0.2em] text-accent">{ui.site.name}</p>

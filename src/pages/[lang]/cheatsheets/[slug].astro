@@ -4,36 +4,59 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import ContentArticle from '../../../components/astro/ContentArticle.astro';
 import { getUI } from '../../../i18n';
 import { interfaceLocales, type LocaleCode } from '../../../config/languages';
+import { contentAlternates } from '../../../lib/utils';
 
 export async function getStaticPaths() {
   const entries = await getCollection('cheatsheets');
-  const paths = [];
+  const bySlug = new Map();
   for (const entry of entries.filter((e) => !e.data.draft)) {
+    const canonical = entry.id.replace(/\.[a-z]{2}$/, '');
+    if (!bySlug.has(canonical)) bySlug.set(canonical, new Map());
+    bySlug.get(canonical).set(entry.data.locale, entry);
+  }
+  const paths = [];
+  for (const [canonicalSlug, localeMap] of bySlug) {
     for (const locale of interfaceLocales) {
+      const entry = localeMap.get(locale.code) || localeMap.get('en');
+      if (!entry) continue;
       paths.push({
-        params: { lang: locale.code, slug: entry.id },
-        props: { entry, lang: locale.code },
+        params: { lang: locale.code, slug: canonicalSlug },
+        props: { entry, lang: locale.code, canonicalSlug, availableLocales: Array.from(localeMap.keys()) },
       });
     }
   }
   return paths;
 }
 
-const { entry, lang } = Astro.props;
+const { entry, lang, canonicalSlug } = Astro.props;
+const availableLocales = Astro.props.availableLocales as string[];
 const ui = getUI(lang as LocaleCode);
+const alternates = contentAlternates(canonicalSlug, 'cheatsheets', new Map(availableLocales.map((l) => [l, true])));
+const cheatsheetsIndexUrl = Astro.site ? new URL(Astro.url.pathname.replace(/[^/]+\/$/, ''), Astro.site).toString() : Astro.url.pathname.replace(/[^/]+\/$/, '');
 ---
 
 <BaseLayout
-  title={`${entry.data.title} — ${ui.site.name}`}
+  title={`${entry.data.title} | ${ui.site.name}`}
   description={entry.data.description}
   lang={lang}
-  jsonLd={{
-    '@type': 'LearningResource',
-    name: entry.data.title,
-    description: entry.data.description,
-    inLanguage: lang,
-    dateModified: entry.data.lastUpdated?.toISOString(),
-  }}
+  alternates={alternates}
+  jsonLd={[
+    {
+      '@type': 'LearningResource',
+      name: entry.data.title,
+      description: entry.data.description,
+      inLanguage: lang,
+      dateModified: entry.data.lastUpdated?.toISOString(),
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: ui.nav.home, item: Astro.site ? new URL(`/${lang}/`, Astro.site).toString() : `/${lang}/` },
+        { '@type': 'ListItem', position: 2, name: ui.nav.cheatsheets, item: cheatsheetsIndexUrl },
+        { '@type': 'ListItem', position: 3, name: entry.data.title, item: Astro.site ? new URL(Astro.url.pathname, Astro.site).toString() : Astro.url.pathname },
+      ],
+    },
+  ]}
 >
   <ContentArticle entry={entry} lang={lang} />
 </BaseLayout>

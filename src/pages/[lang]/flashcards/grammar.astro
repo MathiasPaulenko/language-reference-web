@@ -2,7 +2,7 @@
 import type { GetStaticPaths } from 'astro';
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
-import { localePath } from '../../../lib/utils';
+import { localePath, pageAlternates } from '../../../lib/utils';
 import { getUI, languageName } from '../../../i18n';
 import { interfaceLocales, analyzedLanguages, type LocaleCode } from '../../../config/languages';
 import FlagIcon from '../../../components/astro/FlagIcon.astro';
@@ -14,6 +14,7 @@ export const getStaticPaths = (() =>
 
 const lang = Astro.params.lang as LocaleCode;
 const ui = getUI(lang);
+const alternates = pageAlternates('flashcards/grammar');
 
 const allTopics = await getCollection('topics');
 // Group by topic field, prefer current locale with fallback to 'en'
@@ -95,9 +96,16 @@ const cardsJson = JSON.stringify(cards);
 ---
 
 <BaseLayout
-  title={`${ui.flashcards.grammarTitle} — ${ui.site.name}`}
+  title={`${ui.flashcards.grammarTitle} | ${ui.site.name}`}
   description={ui.flashcards.grammarMetaDesc.replace('{count}', String(cards.length))}
   lang={lang}
+  alternates={alternates}
+  jsonLd={{
+    '@type': 'LearningResource',
+    name: ui.flashcards.grammarTitle,
+    description: ui.flashcards.grammarMetaDesc.replace('{count}', String(cards.length)),
+    inLanguage: lang,
+  }}
 >
   {/* Hero */}
   <section class="border-b border-line bg-[#2a2520]">

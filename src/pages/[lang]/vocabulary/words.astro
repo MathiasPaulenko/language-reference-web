@@ -4,7 +4,7 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import { localePath, withPinyin } from '../../../lib/utils';
 import { getUI, languageName } from '../../../i18n';
-import { interfaceLocales, analyzedLanguages, type LocaleCode, type AnalyzedLanguageCode } from '../../../config/languages';
+import { interfaceLocales, analyzedLanguages, localeToAnalyzedLanguage, type LocaleCode, type AnalyzedLanguageCode } from '../../../config/languages';
 import FlagIcon from '../../../components/astro/FlagIcon.astro';
 
 export const getStaticPaths = (() =>
@@ -14,6 +14,7 @@ export const getStaticPaths = (() =>
 
 const lang = Astro.params.lang as LocaleCode;
 const ui = getUI(lang);
+const targetLang = localeToAnalyzedLanguage(lang);
 
 const allEntries = await getCollection('vocabulary');
 const entry = allEntries.find((e) => e.data.title === 'Essential Words');
@@ -131,11 +132,11 @@ const initialPageItems = getPageItems(0);
           <tbody>
             {vocabData.entries.map((item, idx) => (
               <tr class="vocab-row border-b border-line transition-colors hover:bg-paper-deep/50" data-page={Math.floor(idx / 20)}>
-                <td class="px-5 py-4 font-display text-base font-semibold text-ink">{item.word}</td>
+                <td class="px-5 py-4 font-display text-base font-semibold text-ink" set:html={withPinyin(item.translations[targetLang] || item.word)} />
                 {analyzedLanguages.map((l) => (
                   <td class="vocab-col px-5 py-4 text-ink-soft" data-lang={l.code} set:html={withPinyin(item.translations[l.code] || '—')} />
                 ))}
-                <td class="px-5 py-4 text-ink-faint">{item.definition}</td>
+                <td class="px-5 py-4 text-ink-faint">{item.definitions?.[targetLang] || item.definition || '—'}</td>
               </tr>
             ))}
           </tbody>

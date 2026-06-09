@@ -79,6 +79,16 @@ export function getAnalyzedLanguage(code: string): AnalyzedLanguage | undefined 
   return analyzedLanguages.find((l) => l.code === code);
 }
 
+/** Map interface locale code to the corresponding analyzed language code. */
+export function localeToAnalyzedLanguage(locale: LocaleCode): AnalyzedLanguageCode {
+  const map: Record<LocaleCode, AnalyzedLanguageCode> = {
+    en: 'english',
+    es: 'spanish',
+    zh: 'chinese',
+  };
+  return map[locale];
+}
+
 /* ------------------------------------------------------------------ */
 /* Sections — localized slugs per interface locale (§8, §15)          */
 /* ------------------------------------------------------------------ */

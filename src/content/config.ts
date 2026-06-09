@@ -112,6 +112,7 @@ const vocabEntry = z.object({
   word: z.string(),
   translations: z.record(analyzedLanguage, z.string()),
   definition: z.string().optional(),
+  definitions: z.record(analyzedLanguage, z.string()).optional(),
   tags: z.array(z.string()).optional(),
 });
 

@@ -2,7 +2,7 @@
 import { render } from 'astro:content';
 import { localePath, sectionPath, withPinyin } from '../../lib/utils';
 import { getUI, languageName } from '../../i18n';
-import { analyzedLanguages, getAnalyzedLanguage, type LocaleCode, type AnalyzedLanguageCode } from '../../config/languages';
+import { analyzedLanguages, type LocaleCode } from '../../config/languages';
 import FlagIcon from './FlagIcon.astro';
 import type { CollectionEntry } from 'astro:content';
 
@@ -23,7 +23,7 @@ const diffStyles: Record<string, { label: string; bg: string; text: string }> = 
 ---
 
 <article class="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24" id="topic-article">
-  {/* ===== Section 1: Header + Language Selector + Overview ===== */}
+
   <header>
     <div class="reveal flex items-center justify-between gap-4" style="animation-delay:0ms">
       <p class="font-mono text-xs font-bold uppercase tracking-[0.2em] text-accent">{ui.nav.topics}</p>
@@ -44,7 +44,6 @@ const diffStyles: Record<string, { label: string; bg: string; text: string }> = 
     )}
   </header>
 
-  {/* Breadcrumb */}
   <nav aria-label="Breadcrumb" class="reveal mt-6 flex items-center gap-2 text-xs text-ink-faint" style="animation-delay:200ms">
     <a href={localePath(lang)} class="transition-colors hover:text-accent">{ui.nav.home}</a>
     <span>/</span>
@@ -53,7 +52,6 @@ const diffStyles: Record<string, { label: string; bg: string; text: string }> = 
     <span class="text-ink-soft">{entry.data.title}</span>
   </nav>
 
-  {/* Language Selector */}
   {entry.data.comparisonTable && entry.data.comparisonTable.length > 0 && (
     <div class="reveal mt-8 rounded-2xl border border-line bg-paper-deep p-5 shadow-sm" style="animation-delay:240ms">
       <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
@@ -85,7 +83,6 @@ const diffStyles: Record<string, { label: string; bg: string; text: string }> = 
     </div>
   )}
 
-  {/* Table of Contents */}
   {entry.data.comparisonTable && entry.data.comparisonTable.length > 0 && (
     <nav class="mt-6 rounded-xl border border-line bg-paper-deep/40 p-4 sm:p-5">
       <p class="flex items-center gap-2 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-ink-faint">
@@ -131,7 +128,6 @@ const diffStyles: Record<string, { label: string; bg: string; text: string }> = 
     </nav>
   )}
 
-  {/* Overview */}
   <section class="mt-10" id="section-overview">
     {entry.data.overview && (
       <p class="text-lg leading-relaxed text-ink-soft" set:html={lang === 'zh' ? entry.data.overview : withPinyin(entry.data.overview)} />
@@ -144,7 +140,6 @@ const diffStyles: Record<string, { label: string; bg: string; text: string }> = 
     <Content />
   </div>
 
-  {/* ===== Section 2: Per-language narrative + examples + flashcards + mistakes ===== */}
   {entry.data.comparisonTable && entry.data.comparisonTable.length > 0 && (
     <div class="mt-16 space-y-12">
       {analyzedLanguages.map((l) => {
@@ -197,7 +192,6 @@ const diffStyles: Record<string, { label: string; bg: string; text: string }> = 
     </div>
   )}
 
-  {/* Section break */}
   <div class="my-12 flex items-center justify-center gap-4 sm:my-16">
     <span class="h-px flex-1 max-w-[120px] bg-line" />
     <span class="flex h-8 w-8 items-center justify-center rounded-full border border-line bg-paper">
@@ -206,7 +200,6 @@ const diffStyles: Record<string, { label: string; bg: string; text: string }> = 
     <span class="h-px flex-1 max-w-[120px] bg-line" />
   </div>
 
-  {/* ===== Section 3: Comparison + Examples in Context ===== */}
   {(entry.data.summaryTable || entry.data.comparisonTable) && (
     <section class="mt-16" id="section-comparison">
       {(entry.data.summaryTable ?? entry.data.comparisonTable) && (
@@ -332,7 +325,6 @@ const diffStyles: Record<string, { label: string; bg: string; text: string }> = 
     </section>
   )}
 
-  {/* Section break */}
   <div class="my-12 flex items-center justify-center gap-4 sm:my-16">
     <span class="h-px flex-1 max-w-[120px] bg-line" />
     <span class="flex h-8 w-8 items-center justify-center rounded-full border border-line bg-paper">
@@ -341,7 +333,6 @@ const diffStyles: Record<string, { label: string; bg: string; text: string }> = 
     <span class="h-px flex-1 max-w-[120px] bg-line" />
   </div>
 
-  {/* ===== Section 4: Key Takeaways ===== */}
   {entry.data.keyTakeaways && entry.data.keyTakeaways.length > 0 && (
     <section class="mt-16" id="section-takeaways">
       <div class="flex items-center gap-3">
@@ -359,7 +350,6 @@ const diffStyles: Record<string, { label: string; bg: string; text: string }> = 
     </section>
   )}
 
-  {/* ===== Section 5: Related Topics + Prerequisites + Last Updated ===== */}
   <section class="mt-16" id="section-meta">
     {(entry.data.relatedTopics?.length || entry.data.prerequisites?.length) && (
       <div class="grid grid-cols-1 gap-6 sm:grid-cols-2" id="meta-grid">

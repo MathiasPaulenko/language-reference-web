@@ -51,7 +51,7 @@ const searchData = Array.from(topicsByTopic.values()).map((t) => ({
     </a>
 
     <nav class="hidden h-16 items-center gap-0 md:flex" aria-label="Primary">
-      {/* Grammar */}
+
       <div class="group relative flex h-16 items-center">
         <a href={localePath(lang, 'grammar')} class="flex items-center gap-1 px-3 text-sm font-medium text-ink-soft transition-colors hover:text-ink">
           {ui.nav.grammar}
@@ -67,12 +67,10 @@ const searchData = Array.from(topicsByTopic.values()).map((t) => ({
         </div>
       </div>
 
-      {/* Languages */}
       <a href={localePath(lang, 'languages')} class="flex h-16 items-center px-3 text-sm font-medium text-ink-soft transition-colors hover:text-ink">
         {ui.nav.languages}
       </a>
 
-      {/* Vocabulary */}
       <div class="group relative flex h-16 items-center">
         <a href={localePath(lang, 'vocabulary')} class="flex items-center gap-1 px-3 text-sm font-medium text-ink-soft transition-colors hover:text-ink">
           {ui.nav.vocabulary}
@@ -90,12 +88,10 @@ const searchData = Array.from(topicsByTopic.values()).map((t) => ({
         </div>
       </div>
 
-      {/* Learning Paths */}
       <a href={localePath(lang, 'learning-paths')} class="flex h-16 items-center px-3 text-sm font-medium text-ink-soft transition-colors hover:text-ink">
         {ui.nav.learningPaths}
       </a>
 
-      {/* Flashcards */}
       <div class="group relative flex h-16 items-center">
         <a href={localePath(lang, 'flashcards')} class="flex items-center gap-1 px-3 text-sm font-medium text-ink-soft transition-colors hover:text-ink">
           {ui.nav.flashcards}

@@ -37,13 +37,6 @@ const vocabCards = [
     icon: 'zap',
     count: '100',
   },
-  {
-    key: 'frequency-lists',
-    title: ui.nav.frequencyLists,
-    desc: ui.landing.vocabFreqDesc,
-    icon: 'bar-chart',
-    count: '100',
-  },
 ];
 
 ---
@@ -113,9 +106,6 @@ const vocabCards = [
                 )}
                 {card.icon === 'zap' && (
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-                )}
-                {card.icon === 'bar-chart' && (
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg>
                 )}
               </div>
               <span class="rounded-full bg-paper-deep px-3 py-1 font-mono text-xs font-semibold text-ink-faint">{card.count}</span>

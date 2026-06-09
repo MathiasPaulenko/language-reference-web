@@ -4,7 +4,7 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import { localePath, withPinyin, pageAlternates } from '../../../lib/utils';
 import { getUI, languageName } from '../../../i18n';
-import { interfaceLocales, analyzedLanguages, type LocaleCode } from '../../../config/languages';
+import { interfaceLocales, analyzedLanguages, localeToAnalyzedLanguage, type LocaleCode } from '../../../config/languages';
 import FlagIcon from '../../../components/astro/FlagIcon.astro';
 
 export const getStaticPaths = (() =>
@@ -14,6 +14,7 @@ export const getStaticPaths = (() =>
 
 const lang = Astro.params.lang as LocaleCode;
 const ui = getUI(lang);
+const targetLang = localeToAnalyzedLanguage(lang);
 const alternates = pageAlternates('vocabulary/frequency-lists');
 
 const allEntries = await getCollection('vocabulary');
@@ -143,7 +144,7 @@ const initialPageItems = getPageItems(0);
                 {analyzedLanguages.map((l) => (
                   <td class="vocab-col px-5 py-4 text-ink-soft" data-lang={l.code} set:html={withPinyin(item.translations[l.code] || '—')} />
                 ))}
-                <td class="px-5 py-4 text-ink-faint">{item.definition}</td>
+                <td class="px-5 py-4 text-ink-faint">{item.definitions?.[targetLang] || item.definition || '—'}</td>
               </tr>
             ))}
           </tbody>

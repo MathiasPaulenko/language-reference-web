@@ -113,6 +113,22 @@ const searchData = Array.from(topicsByTopic.values()).map((t) => ({
       </div>
     </nav>
 
+    {/* Mobile menu toggle */}
+    <button
+      id="mobile-menu-toggle"
+      class="flex items-center justify-center rounded-lg p-2 text-ink-soft transition-colors hover:bg-paper-deep hover:text-ink md:hidden"
+      aria-label={ui.nav.menu}
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+    >
+      <svg id="menu-icon-open" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+        <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+      <svg id="menu-icon-close" class="hidden" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+        <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
+
     <div class="flex items-center gap-3">
       {/* Inline search (desktop) */}
       <div class="relative hidden sm:block" id="search-bar">
@@ -241,6 +257,32 @@ const searchData = Array.from(topicsByTopic.values()).map((t) => ({
           });
         }
 
+        /* Mobile menu toggle */
+        const mobileToggle = document.getElementById('mobile-menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIconOpen = document.getElementById('menu-icon-open');
+        const menuIconClose = document.getElementById('menu-icon-close');
+
+        if (mobileToggle && mobileMenu) {
+          mobileToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const isOpen = !mobileMenu.classList.contains('hidden');
+            mobileMenu.classList.toggle('hidden', isOpen);
+            mobileToggle.setAttribute('aria-expanded', String(!isOpen));
+            if (menuIconOpen) menuIconOpen.classList.toggle('hidden', !isOpen);
+            if (menuIconClose) menuIconClose.classList.toggle('hidden', isOpen);
+          });
+
+          document.addEventListener('click', (e) => {
+            if (!mobileMenu.contains(e.target) && !mobileToggle.contains(e.target)) {
+              mobileMenu.classList.add('hidden');
+              mobileToggle.setAttribute('aria-expanded', 'false');
+              if (menuIconOpen) menuIconOpen.classList.remove('hidden');
+              if (menuIconClose) menuIconClose.classList.add('hidden');
+            }
+          });
+        }
+
         /* Language switcher: stay on current page, swap locale prefix */
         document.querySelectorAll('[data-locale-switch]').forEach((link) => {
           link.addEventListener('click', (e) => {
@@ -254,6 +296,36 @@ const searchData = Array.from(topicsByTopic.values()).map((t) => ({
           });
         });
       </script>
+    </div>
+  </div>
+
+  {/* Mobile menu drawer */}
+  <div
+    id="mobile-menu"
+    class="hidden absolute left-0 right-0 top-full z-40 border-b border-line bg-paper shadow-lg md:hidden"
+    aria-label="Mobile navigation"
+  >
+    <div class="mx-auto max-w-6xl px-5 py-4 sm:px-8">
+      <div class="flex flex-col gap-1">
+        <a href={sectionPath(lang, 'topics')} class="rounded-lg px-3 py-2.5 text-sm font-medium text-ink-soft transition-colors hover:bg-paper-deep hover:text-ink">
+          {ui.nav.topics}
+        </a>
+        <a href={sectionPath(lang, 'comparisons')} class="rounded-lg px-3 py-2.5 text-sm font-medium text-ink-soft transition-colors hover:bg-paper-deep hover:text-ink">
+          {ui.nav.comparisons}
+        </a>
+        <a href={localePath(lang, 'languages')} class="rounded-lg px-3 py-2.5 text-sm font-medium text-ink-soft transition-colors hover:bg-paper-deep hover:text-ink">
+          {ui.nav.languages}
+        </a>
+        <a href={localePath(lang, 'vocabulary')} class="rounded-lg px-3 py-2.5 text-sm font-medium text-ink-soft transition-colors hover:bg-paper-deep hover:text-ink">
+          {ui.nav.vocabulary}
+        </a>
+        <a href={localePath(lang, 'learning-paths')} class="rounded-lg px-3 py-2.5 text-sm font-medium text-ink-soft transition-colors hover:bg-paper-deep hover:text-ink">
+          {ui.nav.learningPaths}
+        </a>
+        <a href={localePath(lang, 'flashcards')} class="rounded-lg px-3 py-2.5 text-sm font-medium text-ink-soft transition-colors hover:bg-paper-deep hover:text-ink">
+          {ui.nav.flashcards}
+        </a>
+      </div>
     </div>
   </div>
 </header>

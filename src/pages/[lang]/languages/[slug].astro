@@ -125,7 +125,7 @@ const diffStyles: Record<string, { label: string; bg: string; text: string }> = 
       {topics.map((topic, idx) => {
         const diff = topic.data.difficulty || 'beginner';
         const style = diffStyles[diff] || diffStyles.beginner;
-        const topicUrl = sectionPath(lang, 'topics', topic.id) + `?lang=${slug}`;
+        const topicUrl = sectionPath(lang, 'topics', topic.data.topic) + `?lang=${slug}`;
 
         // Extract this language's column from comparison table
         const previewRows = topic.data.comparisonTable?.slice(0, 3) || [];

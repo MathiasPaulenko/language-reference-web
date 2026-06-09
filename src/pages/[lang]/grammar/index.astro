@@ -89,7 +89,7 @@ const topics = Array.from(topicsByTopic.values())
       {
         topics.slice(0, 8).map((topic, i) => (
           <a
-            href={sectionPath(lang, 'topics', topic.id)}
+            href={sectionPath(lang, 'topics', topic.data.topic)}
             class="group flex flex-col bg-paper p-7 transition-colors hover:bg-paper-deep"
           >
             <span class="font-mono text-xs text-ink-faint">{String(i + 1).padStart(2, '0')}</span>

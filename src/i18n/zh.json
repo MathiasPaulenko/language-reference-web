@@ -304,7 +304,15 @@
     "phrase": "短语",
     "definition": "释义",
     "previous": "上一页",
-    "next": "下一页"
+    "next": "下一页",
+    "essentialWordsTitle": "常用词汇",
+    "essentialWordsDesc": "英语中最常用的1000个单词，包含西班牙语和中文翻译。",
+    "essentialPhrasesTitle": "常用短语",
+    "essentialPhrasesDesc": "英语中最常用的500个日常短语，包含西班牙语和中文翻译。",
+    "essentialExpressionsTitle": "常用表达",
+    "essentialExpressionsDesc": "英语中常见的习惯用语，包含西班牙语和中文翻译。",
+    "frequencyListsTitle": "频率列表",
+    "frequencyListsDesc": "英语中最常用的100个单词，包含西班牙语和中文翻译。"
   },
   "placeholders": {
     "comingSoon": "即将推出",

@@ -304,7 +304,15 @@
     "phrase": "Phrase",
     "definition": "Definition",
     "previous": "Previous",
-    "next": "Next"
+    "next": "Next",
+    "essentialWordsTitle": "Essential Words",
+    "essentialWordsDesc": "The 1000 most frequently used words in English, with Spanish and Chinese translations.",
+    "essentialPhrasesTitle": "Essential Phrases",
+    "essentialPhrasesDesc": "The 500 most frequently used everyday phrases in English, with Spanish and Chinese translations.",
+    "essentialExpressionsTitle": "Essential Expressions",
+    "essentialExpressionsDesc": "Common English idiomatic expressions with Spanish and Chinese translations.",
+    "frequencyListsTitle": "Frequency Lists",
+    "frequencyListsDesc": "The 100 most frequently used words in English, with Spanish and Chinese translations."
   },
   "placeholders": {
     "comingSoon": "Coming soon",

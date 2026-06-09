@@ -304,7 +304,15 @@
     "phrase": "Frase",
     "definition": "Definición",
     "previous": "Anterior",
-    "next": "Siguiente"
+    "next": "Siguiente",
+    "essentialWordsTitle": "Palabras Esenciales",
+    "essentialWordsDesc": "Las 1000 palabras más frecuentemente usadas en inglés, con traducciones al español y al chino.",
+    "essentialPhrasesTitle": "Frases Esenciales",
+    "essentialPhrasesDesc": "Las 500 frases cotidianas más frecuentemente usadas en inglés, con traducciones al español y al chino.",
+    "essentialExpressionsTitle": "Expresiones Esenciales",
+    "essentialExpressionsDesc": "Expresiones idiomáticas comunes en inglés, con traducciones al español y al chino.",
+    "frequencyListsTitle": "Listas de Frecuencia",
+    "frequencyListsDesc": "Las 100 palabras más frecuentemente usadas en inglés, con traducciones al español y al chino."
   },
   "placeholders": {
     "comingSoon": "Próximamente",

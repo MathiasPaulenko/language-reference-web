@@ -18,7 +18,6 @@
     "words": "Palabras",
     "phrases": "Frases",
     "expressions": "Expresiones",
-    "frequencyLists": "Listas de frecuencia",
     "search": "Buscar",
     "about": "Sobre nosotros",
     "contact": "Contacto",
@@ -182,7 +181,6 @@
     "vocabWordsDesc": "Listas de palabras curadas organizadas por utilidad. Aprende las palabras más comunes primero.",
     "vocabPhrasesDesc": "Frases y expresiones cotidianas para conversaciones reales.",
     "vocabExpressionsDesc": "Expresiones idiomáticas y coloquialismos entre idiomas.",
-    "vocabFreqDesc": "Listas basadas en frecuencia ordenadas por uso real.",
     "explore": "Explorar",
     "flashcardsGrammarDesc": "Refuerza conceptos gramaticales con tarjetas interactivas.",
     "flashcardsVocabDesc": "Construye tu vocabulario tarjeta a tarjeta.",
@@ -233,7 +231,7 @@
     "howLanguages4Body": "Profundiza en un idioma manteniendo los otros al alcance.",
     "howVocabularyTitle": "Cómo funciona Vocabulario",
     "howVocabulary1Title": "Elige una categoría",
-    "howVocabulary1Body": "Selecciona Palabras, Frases, Expresiones o Listas de frecuencia según lo que necesites.",
+    "howVocabulary1Body": "Selecciona Palabras, Frases o Expresiones según lo que necesites.",
     "howVocabulary2Title": "Navega listas curadas",
     "howVocabulary2Body": "Cada lista está organizada por utilidad. Aprende las palabras y frases más comunes primero.",
     "howVocabulary3Title": "Compara entre idiomas",
@@ -310,9 +308,7 @@
     "essentialPhrasesTitle": "Frases Esenciales",
     "essentialPhrasesDesc": "Las 500 frases cotidianas más frecuentemente usadas en inglés, con traducciones al español y al chino.",
     "essentialExpressionsTitle": "Expresiones Esenciales",
-    "essentialExpressionsDesc": "Expresiones idiomáticas comunes en inglés, con traducciones al español y al chino.",
-    "frequencyListsTitle": "Listas de Frecuencia",
-    "frequencyListsDesc": "Las 100 palabras más frecuentemente usadas en inglés, con traducciones al español y al chino."
+    "essentialExpressionsDesc": "Expresiones idiomáticas comunes en inglés, con traducciones al español y al chino."
   },
   "placeholders": {
     "comingSoon": "Próximamente",

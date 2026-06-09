@@ -18,7 +18,6 @@
     "words": "单词",
     "phrases": "短语",
     "expressions": "表达",
-    "frequencyLists": "频率表",
     "search": "搜索",
     "about": "关于我们",
     "contact": "联系我们",
@@ -182,7 +181,6 @@
     "vocabWordsDesc": "按实用性组织的精选词汇表。优先学习最常用的单词。",
     "vocabPhrasesDesc": "日常对话所需的短语和表达。",
     "vocabExpressionsDesc": "跨语言的习惯用语和俗语。",
-    "vocabFreqDesc": "按真实使用频率排序的词汇表。",
     "explore": "探索",
     "flashcardsGrammarDesc": "通过互动翻页卡片巩固语法概念。",
     "flashcardsVocabDesc": "逐张卡片构建你的词汇量。",
@@ -233,7 +231,7 @@
     "howLanguages4Body": "深入理解一种语言，同时让其他语言触手可及。",
     "howVocabularyTitle": "词汇如何运作",
     "howVocabulary1Title": "选择一个类别",
-    "howVocabulary1Body": "根据需要选择单词、短语、表达或频率列表。",
+    "howVocabulary1Body": "根据需要选择单词、短语或表达。",
     "howVocabulary2Title": "浏览精选列表",
     "howVocabulary2Body": "每个列表按实用性组织。先学习最常用的单词和短语。",
     "howVocabulary3Title": "跨语言比较",
@@ -310,9 +308,7 @@
     "essentialPhrasesTitle": "常用短语",
     "essentialPhrasesDesc": "英语中最常用的500个日常短语，包含西班牙语和中文翻译。",
     "essentialExpressionsTitle": "常用表达",
-    "essentialExpressionsDesc": "英语中常见的习惯用语，包含西班牙语和中文翻译。",
-    "frequencyListsTitle": "频率列表",
-    "frequencyListsDesc": "英语中最常用的100个单词，包含西班牙语和中文翻译。"
+    "essentialExpressionsDesc": "英语中常见的习惯用语，包含西班牙语和中文翻译。"
   },
   "placeholders": {
     "comingSoon": "即将推出",

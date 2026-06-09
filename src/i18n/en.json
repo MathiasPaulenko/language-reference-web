@@ -18,7 +18,6 @@
     "words": "Words",
     "phrases": "Phrases",
     "expressions": "Expressions",
-    "frequencyLists": "Frequency Lists",
     "search": "Search",
     "about": "About",
     "contact": "Contact",
@@ -182,7 +181,6 @@
     "vocabWordsDesc": "Curated word lists organized by usefulness. Learn the most common words first.",
     "vocabPhrasesDesc": "Everyday phrases and expressions for real conversations.",
     "vocabExpressionsDesc": "Idiomatic expressions and colloquialisms across languages.",
-    "vocabFreqDesc": "Frequency-based lists ranked by real-world usage.",
     "explore": "Explore",
     "flashcardsGrammarDesc": "Reinforce grammar concepts with interactive flip cards.",
     "flashcardsVocabDesc": "Build your vocabulary one card at a time.",
@@ -233,7 +231,7 @@
     "howLanguages4Body": "Deepen your understanding of one language while keeping the others within reach.",
     "howVocabularyTitle": "How Vocabulary Works",
     "howVocabulary1Title": "Choose a category",
-    "howVocabulary1Body": "Pick from Words, Phrases, Expressions, or Frequency Lists depending on what you need.",
+    "howVocabulary1Body": "Pick from Words, Phrases, or Expressions depending on what you need.",
     "howVocabulary2Title": "Browse curated lists",
     "howVocabulary2Body": "Each list is organized by usefulness. Learn the most common words and phrases first.",
     "howVocabulary3Title": "Compare across languages",
@@ -310,9 +308,7 @@
     "essentialPhrasesTitle": "Essential Phrases",
     "essentialPhrasesDesc": "The 500 most frequently used everyday phrases in English, with Spanish and Chinese translations.",
     "essentialExpressionsTitle": "Essential Expressions",
-    "essentialExpressionsDesc": "Common English idiomatic expressions with Spanish and Chinese translations.",
-    "frequencyListsTitle": "Frequency Lists",
-    "frequencyListsDesc": "The 100 most frequently used words in English, with Spanish and Chinese translations."
+    "essentialExpressionsDesc": "Common English idiomatic expressions with Spanish and Chinese translations."
   },
   "placeholders": {
     "comingSoon": "Coming soon",

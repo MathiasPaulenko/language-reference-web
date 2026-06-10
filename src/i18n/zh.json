@@ -10,8 +10,6 @@
     "languages": "语言",
     "topics": "主题",
     "comparisons": "对比",
-    "guides": "指南",
-    "cheatsheets": "速查表",
     "vocabulary": "词汇",
     "learningPaths": "学习路径",
     "flashcards": "闪卡",
@@ -56,13 +54,10 @@
     "filterAdvanced": "高级",
     "count": "{count} 个主题",
     "noResults": "没有主题匹配你的搜索。",
-    "heroDesc": "{count} 个语法概念，涵盖西班牙语、英语和中文。"
-  },
-  "guides": {
-    "heroDesc": "面向学习者和教师的指南。"
-  },
-  "cheatsheets": {
-    "heroDesc": "常见语法模式的速查表。"
+    "heroDesc": "{count} 个语法概念，涵盖西班牙语、英语和中文。",
+    "spanishGrammar": "西班牙语语法",
+    "englishGrammar": "英语语法",
+    "chineseGrammar": "中文语法"
   },
   "legal": {
     "label": "法律",
@@ -128,7 +123,7 @@
     "learn": "学习"
   },
   "pagefind": {
-    "placeholder": "搜索语法主题、对比、指南…",
+    "placeholder": "搜索语法主题、语言、词汇…",
     "clear_search": "清除",
     "load_more": "加载更多结果",
     "search_label": "搜索",
@@ -139,24 +134,7 @@
     "alt_search": "未找到 [SEARCH_TERM] 的结果。改为显示 [DIFFERENT_TERM] 的结果。"
   },
   "comparisons": {
-    "title": "并列对比",
-    "subtitle": "快速了解同一概念在不同语言中的差异。",
-    "description": "这正是 Grammar Navigator 最擅长的地方。每个主题同时展示同一语法概念在三种语言中的实现方式——不是孤立的规则，而是一个谜题的三种解法。",
-    "exampleLabel": "示例：冠词",
-    "seeAllComparisons": "查看全部对比",
-    "whatToNotice": "观察要点",
-    "whyCompareTitle": "为什么要对比？",
-    "whyCompare1Title": "统一视角",
-    "whyCompare1Body": "在一个页面上同时查看同一概念在三种语言中的表现。无需在语法书或网站之间来回切换。",
-    "whyCompare2Title": "真实例句",
-    "whyCompare2Body": "每个解释都有西班牙语、英语和中文的真实例句作为支撑。学习实用的表达，而非死记硬背规则。",
-    "whyCompare3Title": "常见错误",
-    "whyCompare3Body": "了解多语言学习者容易掉入的陷阱——以及为什么切换语言时会出现这些错误。",
-    "toolTitle": "对比语法概念",
-    "toolSubtitle": "选择一个语法主题，并选择要对比的语言。",
-    "selectTopic": "选择主题",
     "compareLanguages": "对比语言",
-    "readFullArticle": "阅读完整解释",
     "comparisonAtAGlance": "快速对比",
     "sideBySide": "并列对比",
     "selectLanguageToView": "请至少选择一种语言以查看对比内容",
@@ -164,7 +142,6 @@
     "deselectAll": "取消全选",
     "copyLink": "复制链接",
     "copied": "已复制！",
-    "conceptsCompared": "个概念已对比",
     "language": "语言",
     "languages": "语言"
   },
@@ -401,6 +378,8 @@
     "transparencyTitle": "透明度",
     "transparencyDesc": "我们不使用人工智能生成语法解释。所有内容都由人类进行研究、撰写和审校。如果您发现错误或对某个分析有不同看法，欢迎联系我们——语法是复杂的，规范也在不断演变。",
     "siteLastUpdated": "网站最后更新",
+    "founderName": "Grammar Navigator 团队",
+    "founderDesc": "多语言爱好者，拥有语言学、翻译和软件工程背景。",
     "supportUs": "支持我们",
     "supportUsDesc": "如果您觉得 Grammar Navigator 有用，请考虑请我们喝杯咖啡。",
     "differentTitle": "我们的不同之处",

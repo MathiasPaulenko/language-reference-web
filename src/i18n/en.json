@@ -10,8 +10,6 @@
     "languages": "Languages",
     "topics": "Topics",
     "comparisons": "Comparisons",
-    "guides": "Guides",
-    "cheatsheets": "Cheatsheets",
     "vocabulary": "Vocabulary",
     "learningPaths": "Learning Paths",
     "flashcards": "Flashcards",
@@ -56,13 +54,10 @@
     "filterAdvanced": "Advanced",
     "count": "{count} topics",
     "noResults": "No topics match your search.",
-    "heroDesc": "{count} grammar concepts documented across Spanish, English, and Chinese."
-  },
-  "guides": {
-    "heroDesc": "Audience-oriented guides for learners and teachers."
-  },
-  "cheatsheets": {
-    "heroDesc": "Quick-reference tables for common grammar patterns."
+    "heroDesc": "{count} grammar concepts documented across Spanish, English, and Chinese.",
+    "spanishGrammar": "Spanish grammar",
+    "englishGrammar": "English grammar",
+    "chineseGrammar": "Chinese grammar"
   },
   "legal": {
     "label": "Legal",
@@ -128,7 +123,7 @@
     "learn": "Learn"
   },
   "pagefind": {
-    "placeholder": "Search grammar topics, comparisons, guides…",
+    "placeholder": "Search grammar topics, languages, vocabulary…",
     "clear_search": "Clear",
     "load_more": "Load more results",
     "search_label": "Search",
@@ -139,24 +134,7 @@
     "alt_search": "No results for [SEARCH_TERM]. Showing results for [DIFFERENT_TERM] instead."
   },
   "comparisons": {
-    "title": "Side-by-side comparison",
-    "subtitle": "A quick look at how one concept differs across languages.",
-    "description": "This is what Grammar Navigator does best. Every topic shows you the same grammar concept in all three languages at once — not as isolated rules, but as a single puzzle with three solutions.",
-    "exampleLabel": "Example: Articles",
-    "seeAllComparisons": "See all comparisons",
-    "whatToNotice": "What to notice",
-    "whyCompareTitle": "Why compare?",
-    "whyCompare1Title": "Unified view",
-    "whyCompare1Body": "See the same concept across all three languages on a single page. No need to switch between grammar books or websites.",
-    "whyCompare2Title": "Real examples",
-    "whyCompare2Body": "Every explanation is backed by real phrases in Spanish, English and Chinese. Learn what works, not just rules.",
-    "whyCompare3Title": "Common mistakes",
-    "whyCompare3Body": "Understand the traps that multilingual learners fall into — and why they happen when switching between languages.",
-    "toolTitle": "Compare Grammar Concepts",
-    "toolSubtitle": "Pick a grammar topic and choose which languages to compare.",
-    "selectTopic": "Select a topic",
     "compareLanguages": "Compare languages",
-    "readFullArticle": "Read full explanation",
     "comparisonAtAGlance": "Comparison at a glance",
     "sideBySide": "Side-by-side comparison",
     "selectLanguageToView": "Select at least one language to view comparisons",
@@ -164,7 +142,6 @@
     "deselectAll": "Deselect all",
     "copyLink": "Copy link",
     "copied": "Copied!",
-    "conceptsCompared": "concepts compared",
     "language": "language",
     "languages": "languages"
   },
@@ -401,6 +378,8 @@
     "transparencyTitle": "Transparency",
     "transparencyDesc": "We do not use AI to generate grammar explanations. All content is researched, written, and reviewed by humans. If you spot an error or disagree with an analysis, we welcome corrections — grammar is complex and conventions evolve.",
     "siteLastUpdated": "Site last updated",
+    "founderName": "Grammar Navigator Team",
+    "founderDesc": "Multilingual language enthusiasts with backgrounds in linguistics, translation, and software engineering.",
     "supportUs": "Support us",
     "supportUsDesc": "If you find Grammar Navigator useful, consider buying us a coffee.",
     "differentTitle": "What makes us different",

@@ -56,10 +56,10 @@ const topicsIndexUrl = Astro.site ? new URL(Astro.url.pathname.replace(/[^/]+\/$
       dateModified: entry.data.lastUpdated?.toISOString(),
       author: {
         '@type': 'Organization',
-        name: 'Grammar Navigator',
+        name: ui.site.name,
         url: 'https://grammarnavigator.com',
       },
-      about: ['Spanish grammar', 'English grammar', 'Chinese grammar'],
+      about: [ui.topics.spanishGrammar, ui.topics.englishGrammar, ui.topics.chineseGrammar],
       educationalLevel: entry.data.difficulty,
     },
     {

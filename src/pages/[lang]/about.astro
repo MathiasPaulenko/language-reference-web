@@ -11,7 +11,7 @@ export function getStaticPaths() {
 const { lang = DEFAULT_LOCALE } = Astro.params;
 const ui = getUI(lang);
 const alternates = pageAlternates('about');
-const siteUpdated = new Date('2026-06-09').toLocaleDateString(lang, { year: 'numeric', month: 'long', day: 'numeric' });
+const siteUpdated = new Date().toLocaleDateString(lang, { year: 'numeric', month: 'long', day: 'numeric' });
 ---
 
 <BaseLayout
@@ -28,14 +28,14 @@ const siteUpdated = new Date('2026-06-09').toLocaleDateString(lang, { year: 'num
       inLanguage: lang,
       mainEntity: {
         '@type': 'Organization',
-        name: 'Grammar Navigator',
+        name: ui.site.name,
         url: 'https://grammarnavigator.com',
         logo: 'https://grammarnavigator.com/favicon.svg',
         sameAs: [],
         founder: {
           '@type': 'Person',
-          name: 'Grammar Navigator Team',
-          description: 'Multilingual language enthusiasts with backgrounds in linguistics, translation, and software engineering.',
+          name: ui.about.founderName,
+          description: ui.about.founderDesc,
         },
       },
     },

@@ -189,30 +189,12 @@ const diffStyles: Record<string, { label: string; bg: string; text: string }> = 
             )}
 
             <span class="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-ink-faint transition-colors group-hover:text-accent">
-              {ui.comparisons.readFullArticle}
+              {ui.article.explanation}
               <span class="transition-transform group-hover:translate-x-1">→</span>
             </span>
           </a>
         );
       })}
-    </div>
-  </section>
-
-  {/* CTA to comparison tool */}
-  <section class="border-t border-line bg-paper-deep">
-    <div class="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24">
-      <div class="flex flex-col items-center text-center">
-        <p class="font-mono text-xs font-bold uppercase tracking-[0.2em] text-accent">Compare</p>
-        <h2 class="mt-3 font-display text-3xl font-semibold tracking-tight sm:text-4xl">Want to see how {languageName(ui, slug as AnalyzedLanguageCode)} compares?</h2>
-        <p class="mt-4 max-w-2xl text-lg text-ink-soft">Switch to the comparison tool to see the same concepts side-by-side with Spanish, English and Chinese.</p>
-        <a
-          href={sectionPath(lang, 'comparisons')}
-          class="mt-8 inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3 text-sm font-semibold text-paper transition-transform hover:-translate-y-0.5"
-        >
-          {ui.comparisons.toolTitle}
-          <span>→</span>
-        </a>
-      </div>
     </div>
   </section>
 

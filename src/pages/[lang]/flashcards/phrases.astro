@@ -4,7 +4,7 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import { localePath, pageAlternates } from '../../../lib/utils';
 import { getUI, languageName } from '../../../i18n';
-import { interfaceLocales, analyzedLanguages, type LocaleCode } from '../../../config/languages';
+import { interfaceLocales, analyzedLanguages, localeToAnalyzedLanguage, type LocaleCode, type AnalyzedLanguageCode } from '../../../config/languages';
 import FlagIcon from '../../../components/astro/FlagIcon.astro';
 
 export const getStaticPaths = (() =>
@@ -15,6 +15,7 @@ export const getStaticPaths = (() =>
 const lang = Astro.params.lang as LocaleCode;
 const ui = getUI(lang);
 const alternates = pageAlternates('flashcards/phrases');
+const targetLang = localeToAnalyzedLanguage(lang);
 
 const allVocab = await getCollection('vocabulary');
 const entry = allVocab.find((e) => e.data.title === 'Essential Phrases' && !e.data.draft);
@@ -32,12 +33,13 @@ const cards: Flashcard[] = [];
 
 entries.forEach((item) => {
   analyzedLanguages.forEach((l) => {
-    const translation = item.translations[l.code];
-    if (translation) {
+    const backTranslation = item.translations[l.code];
+    const frontTranslation = item.translations[targetLang as AnalyzedLanguageCode];
+    if (backTranslation && frontTranslation) {
       cards.push({
         id: idCounter++,
-        front: item.word + (item.definition ? '\n' + item.definition : ''),
-        back: translation,
+        front: frontTranslation + (item.definitions?.[targetLang as AnalyzedLanguageCode] || item.definition ? '\n' + (item.definitions?.[targetLang as AnalyzedLanguageCode] || item.definition) : ''),
+        back: backTranslation,
         language: l.code,
       });
     }
@@ -88,9 +90,8 @@ const cardsJson = JSON.stringify(cards);
   <section class="mx-auto mt-8 max-w-4xl px-5 sm:px-8">
     <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
       <div class="flex flex-wrap gap-2" id="lang-filters">
-        <button data-lang="all" class="filter-btn rounded-full border border-accent bg-accent px-4 py-1.5 text-xs font-medium text-paper transition-all">{ui.flashcards.all}</button>
         {analyzedLanguages.map((l) => (
-          <button data-lang={l.code} class="filter-btn rounded-full border border-line bg-paper px-4 py-1.5 text-xs font-medium text-ink-soft transition-all hover:border-accent hover:text-accent">
+          <button data-lang={l.code} class="filter-btn rounded-full border border-line bg-paper px-4 py-1.5 text-xs font-medium text-ink-soft transition-all hover:bg-paper-deep">
             <span class="flex items-center gap-1.5">
               <FlagIcon code={l.code} size={12} />
               {languageName(ui, l.code)}
@@ -146,7 +147,7 @@ const cardsJson = JSON.stringify(cards);
     const uiStr = JSON.parse(uiJson);
     const allCards = JSON.parse(cardsJson);
     let currentIdx = 0;
-    let filteredCards = [...allCards];
+    let filteredCards = allCards.filter((c) => c.language === 'spanish');
     let isFlipped = false;
 
     const cardEl = document.getElementById('flashcard');
@@ -197,11 +198,7 @@ const cardsJson = JSON.stringify(cards);
     }
 
     function setFilter(langCode) {
-      if (langCode === 'all') {
-        filteredCards = [...allCards];
-      } else {
-        filteredCards = allCards.filter((c) => c.language === langCode);
-      }
+      filteredCards = allCards.filter((c) => c.language === langCode);
       currentIdx = 0;
       updateCard();
       filterBtns.forEach((btn) => {
@@ -209,9 +206,11 @@ const cardsJson = JSON.stringify(cards);
         btn.classList.toggle('border-accent', isActive);
         btn.classList.toggle('bg-accent', isActive);
         btn.classList.toggle('text-paper', isActive);
+        btn.classList.toggle('hover:bg-accent/90', isActive);
         btn.classList.toggle('border-line', !isActive);
         btn.classList.toggle('bg-paper', !isActive);
         btn.classList.toggle('text-ink-soft', !isActive);
+        btn.classList.toggle('hover:bg-paper-deep', !isActive);
       });
     }
 
@@ -230,6 +229,6 @@ const cardsJson = JSON.stringify(cards);
       btn.addEventListener('click', () => { setFilter(btn.getAttribute('data-lang')); });
     });
 
-    updateCard();
+    setFilter('spanish');
   </script>
 </BaseLayout>

@@ -93,7 +93,7 @@ export function localeToAnalyzedLanguage(locale: LocaleCode): AnalyzedLanguageCo
 /* Sections — localized slugs per interface locale (§8, §15)          */
 /* ------------------------------------------------------------------ */
 
-export type SectionKey = 'languages' | 'topics' | 'comparisons' | 'guides' | 'cheatsheets' | 'vocabulary' | 'learning-paths' | 'flashcards';
+export type SectionKey = 'languages' | 'topics' | 'vocabulary' | 'comparisons' | 'learning-paths' | 'flashcards';
 
 /**
  * URL segment for each section. Kept in English for all locales
@@ -103,10 +103,8 @@ export type SectionKey = 'languages' | 'topics' | 'comparisons' | 'guides' | 'ch
 export const sectionSlugs: Record<SectionKey, Record<LocaleCode, string>> = {
   languages: { en: 'languages', es: 'languages', zh: 'languages' },
   topics: { en: 'topics', es: 'topics', zh: 'topics' },
-  comparisons: { en: 'comparisons', es: 'comparisons', zh: 'comparisons' },
-  guides: { en: 'guides', es: 'guides', zh: 'guides' },
-  cheatsheets: { en: 'cheatsheets', es: 'cheatsheets', zh: 'cheatsheets' },
   vocabulary: { en: 'vocabulary', es: 'vocabulary', zh: 'vocabulary' },
+  comparisons: { en: 'comparisons', es: 'comparisons', zh: 'comparisons' },
   'learning-paths': { en: 'learning-paths', es: 'learning-paths', zh: 'learning-paths' },
   flashcards: { en: 'flashcards', es: 'flashcards', zh: 'flashcards' },
 };

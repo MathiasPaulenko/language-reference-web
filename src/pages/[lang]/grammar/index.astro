@@ -131,10 +131,9 @@ const topics = Array.from(topicsByTopic.values())
   {/* Side-by-side comparison */}
   <section class="border-y border-line bg-paper-deep">
     <div class="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-28">
-      <p class="font-mono text-xs font-bold uppercase tracking-[0.2em] text-accent">{ui.nav.comparisons}</p>
-      <h2 class="mt-3 font-display text-3xl font-semibold tracking-tight sm:text-4xl">{ui.comparisons.title}</h2>
-      <p class="mt-3 max-w-xl text-ink-soft">{ui.comparisons.subtitle}</p>
-      <p class="mt-2 max-w-3xl text-base leading-relaxed text-ink">{ui.comparisons.description}</p>
+      <p class="font-mono text-xs font-bold uppercase tracking-[0.2em] text-accent">{ui.landing.howGrammar3Title}</p>
+      <h2 class="mt-3 font-display text-3xl font-semibold tracking-tight sm:text-4xl">{ui.landing.howGrammar3Title}</h2>
+      <p class="mt-3 max-w-xl text-ink-soft">{ui.landing.howGrammar3Body}</p>
 
       <div class="mt-6 grid gap-4 sm:grid-cols-3">
         {
@@ -153,37 +152,6 @@ const topics = Array.from(topicsByTopic.values())
             </div>
           ))
         }
-      </div>
-
-      <div class="mt-10">
-        <p class="font-mono text-xs font-bold uppercase tracking-[0.2em] text-accent">{ui.comparisons.whyCompareTitle}</p>
-        <div class="mt-4 grid gap-4 sm:grid-cols-3">
-          <div class="rounded-2xl border border-line bg-paper p-5 transition-all duration-300 hover:-translate-y-1 hover:border-accent/30 hover:shadow-lg hover:shadow-accent/5">
-            <span class="font-display text-2xl font-bold text-accent">01</span>
-            <h3 class="mt-2 font-display text-sm font-semibold uppercase tracking-wider text-ink">{ui.comparisons.whyCompare1Title}</h3>
-            <p class="mt-2 text-sm leading-relaxed text-ink-soft">{ui.comparisons.whyCompare1Body}</p>
-          </div>
-          <div class="rounded-2xl border border-line bg-paper p-5 transition-all duration-300 hover:-translate-y-1 hover:border-accent/30 hover:shadow-lg hover:shadow-accent/5">
-            <span class="font-display text-2xl font-bold text-accent">02</span>
-            <h3 class="mt-2 font-display text-sm font-semibold uppercase tracking-wider text-ink">{ui.comparisons.whyCompare2Title}</h3>
-            <p class="mt-2 text-sm leading-relaxed text-ink-soft">{ui.comparisons.whyCompare2Body}</p>
-          </div>
-          <div class="rounded-2xl border border-line bg-paper p-5 transition-all duration-300 hover:-translate-y-1 hover:border-accent/30 hover:shadow-lg hover:shadow-accent/5">
-            <span class="font-display text-2xl font-bold text-accent">03</span>
-            <h3 class="mt-2 font-display text-sm font-semibold uppercase tracking-wider text-ink">{ui.comparisons.whyCompare3Title}</h3>
-            <p class="mt-2 text-sm leading-relaxed text-ink-soft">{ui.comparisons.whyCompare3Body}</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="mt-8 flex items-center justify-center">
-        <a
-          href={sectionPath(lang, 'comparisons')}
-          class="group inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3 text-sm font-semibold text-paper transition-transform hover:-translate-y-0.5"
-        >
-          {ui.comparisons.seeAllComparisons}
-          <span class="transition-transform group-hover:translate-x-1">→</span>
-        </a>
       </div>
     </div>
   </section>

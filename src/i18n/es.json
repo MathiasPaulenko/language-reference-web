@@ -10,8 +10,6 @@
     "languages": "Idiomas",
     "topics": "Temas",
     "comparisons": "Comparaciones",
-    "guides": "Guías",
-    "cheatsheets": "Chuletas",
     "vocabulary": "Vocabulario",
     "learningPaths": "Rutas",
     "flashcards": "Tarjetas",
@@ -56,13 +54,10 @@
     "filterAdvanced": "Avanzado",
     "count": "{count} temas",
     "noResults": "Ningún tema coincide con tu búsqueda.",
-    "heroDesc": "{count} conceptos gramaticales documentados en español, inglés y chino."
-  },
-  "guides": {
-    "heroDesc": "Guías orientadas a estudiantes y profesores."
-  },
-  "cheatsheets": {
-    "heroDesc": "Tablas de referencia rápida para patrones gramaticales comunes."
+    "heroDesc": "{count} conceptos gramaticales documentados en español, inglés y chino.",
+    "spanishGrammar": "Gramática española",
+    "englishGrammar": "Gramática inglesa",
+    "chineseGrammar": "Gramática china"
   },
   "legal": {
     "label": "Legal",
@@ -128,7 +123,7 @@
     "learn": "Aprender"
   },
   "pagefind": {
-    "placeholder": "Buscar temas, comparaciones, guías…",
+    "placeholder": "Buscar temas gramaticales, idiomas, vocabulario…",
     "clear_search": "Limpiar",
     "load_more": "Cargar más resultados",
     "search_label": "Buscar",
@@ -139,24 +134,7 @@
     "alt_search": "No hay resultados para [SEARCH_TERM]. Mostrando resultados para [DIFFERENT_TERM] en su lugar."
   },
   "comparisons": {
-    "title": "Comparación lado a lado",
-    "subtitle": "Un vistazo rápido a cómo difiere un concepto entre idiomas.",
-    "description": "Esto es lo que Grammar Navigator hace mejor. Cada tema muestra el mismo concepto gramatical en los tres idiomas a la vez — no como reglas aisladas, sino como un único puzzle con tres soluciones.",
-    "exampleLabel": "Ejemplo: Artículos",
-    "seeAllComparisons": "Ver todas las comparaciones",
-    "whatToNotice": "Qué observar",
-    "whyCompareTitle": "¿Por qué comparar?",
-    "whyCompare1Title": "Visión unificada",
-    "whyCompare1Body": "Ve el mismo concepto en los tres idiomas en una sola página. No necesitas saltar entre libros de gramática o sitios web.",
-    "whyCompare2Title": "Ejemplos reales",
-    "whyCompare2Body": "Cada explicación se apoya en frases reales en español, inglés y chino. Aprende lo que funciona, no solo reglas.",
-    "whyCompare3Title": "Errores comunes",
-    "whyCompare3Body": "Entiende las trampas en las que caen los hablantes multilingües — y por qué ocurren al cambiar de idioma.",
-    "toolTitle": "Comparar Conceptos Gramaticales",
-    "toolSubtitle": "Elige un tema de gramática y selecciona qué idiomas comparar.",
-    "selectTopic": "Selecciona un tema",
     "compareLanguages": "Comparar idiomas",
-    "readFullArticle": "Leer explicación completa",
     "comparisonAtAGlance": "Comparación rápida",
     "sideBySide": "Comparación lado a lado",
     "selectLanguageToView": "Selecciona al menos un idioma para ver las comparaciones",
@@ -164,7 +142,6 @@
     "deselectAll": "Deseleccionar todo",
     "copyLink": "Copiar enlace",
     "copied": "¡Copiado!",
-    "conceptsCompared": "conceptos comparados",
     "language": "idioma",
     "languages": "idiomas"
   },
@@ -398,6 +375,8 @@
     "transparencyTitle": "Transparencia",
     "transparencyDesc": "No usamos IA para generar explicaciones gramaticales. Todo el contenido es investigado, redactado y revisado por humanos. Si detectas un error o no estás de acuerdo con un análisis, te animamos a contactarnos: la gramática es compleja y las convenciones evolucionan.",
     "siteLastUpdated": "Sitio actualizado por última vez",
+    "founderName": "Equipo de Grammar Navigator",
+    "founderDesc": "Entusiastas multilingües con formación en lingüística, traducción e ingeniería de software.",
     "supportUs": "Apóyanos",
     "supportUsDesc": "Si te resulta útil Grammar Navigator, considera invitarnos a un café.",
     "differentTitle": "Qué nos diferencia",

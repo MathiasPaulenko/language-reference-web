@@ -79,34 +79,6 @@ const topics = defineCollection({
   }),
 });
 
-/** The core comparative content (vision §9 "Comparisons"). */
-const comparisons = defineCollection({
-  loader: loader('comparisons'),
-  schema: z.object({
-    ...baseFields,
-    grammarConcept: z.string(),
-    languagesCompared: z.array(analyzedLanguage).min(2),
-  }),
-});
-
-/** Audience-oriented guides (vision §9 "Guides"). */
-const guides = defineCollection({
-  loader: loader('guides'),
-  schema: z.object({
-    ...baseFields,
-    targetAudience: z.string(),
-  }),
-});
-
-/** Quick-reference cheatsheets (vision §9 "Cheatsheets"). */
-const cheatsheets = defineCollection({
-  loader: loader('cheatsheets'),
-  schema: z.object({
-    ...baseFields,
-    topics: z.array(z.string()),
-  }),
-});
-
 /** Vocabulary entries: words, phrases, expressions. */
 const vocabEntry = z.object({
   word: z.string(),
@@ -128,4 +100,4 @@ const vocabulary = defineCollection({
   }),
 });
 
-export const collections = { languages, topics, comparisons, guides, cheatsheets, vocabulary };
+export const collections = { languages, topics, vocabulary };

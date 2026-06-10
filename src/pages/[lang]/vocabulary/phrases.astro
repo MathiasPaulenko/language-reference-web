@@ -18,7 +18,8 @@ const targetLang = localeToAnalyzedLanguage(lang);
 const alternates = pageAlternates('vocabulary/phrases');
 
 const allEntries = await getCollection('vocabulary');
-const entry = allEntries.find((e) => e.data.title === 'Essential Phrases');
+const entry = allEntries.find((e) => e.data.title === 'Essential Phrases' && e.data.locale === lang)
+  || allEntries.find((e) => e.data.title === 'Essential Phrases');
 
 if (!entry) {
   throw new Error('Essential Phrases vocabulary entry not found');

@@ -376,6 +376,32 @@ const diffStyles: Record<string, { label: string; bg: string; text: string }> = 
     <Faq items={entry.data.faq} title={ui.article.faq} />
   )}
 
+  {entry.data.references && entry.data.references.length > 0 && (
+    <section class="mt-16" id="section-references">
+      <div class="flex items-center gap-3">
+        <span class="h-6 w-1 flex-shrink-0 rounded-full bg-accent" />
+        <h2 class="font-display text-2xl font-semibold tracking-tight text-ink">{ui.article.references}</h2>
+      </div>
+      <ul class="mt-6 space-y-3">
+        {entry.data.references.map((ref) => (
+          <li class="flex items-start gap-3 text-sm">
+            <span class="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-accent" />
+            <span class="leading-relaxed text-ink-soft">
+              {ref.url ? (
+                <a href={ref.url} target="_blank" rel="noopener noreferrer" class="font-medium text-ink underline decoration-accent/30 underline-offset-4 transition-colors hover:text-accent">{ref.title}</a>
+              ) : (
+                <span class="font-medium text-ink">{ref.title}</span>
+              )}
+              {ref.source && (
+                <span class="ml-1 text-ink-faint">— {ref.source}</span>
+              )}
+            </span>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
+
   <section class="mt-16" id="section-meta">
     {(entry.data.relatedTopics?.length || entry.data.prerequisites?.length) && (
       <div class="grid grid-cols-1 gap-6 sm:grid-cols-2" id="meta-grid">

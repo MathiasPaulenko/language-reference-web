@@ -59,12 +59,22 @@ const initialPageItems = getPageItems(0);
   description={ui.vocabulary.essentialExpressionsDesc}
   lang={lang}
   alternates={alternates}
-  jsonLd={{
-    '@type': 'LearningResource',
-    name: ui.vocabulary.essentialExpressionsTitle,
-    description: ui.vocabulary.essentialExpressionsDesc,
-    inLanguage: lang,
-  }}
+  jsonLd={[
+    {
+      '@type': 'LearningResource',
+      name: ui.vocabulary.essentialExpressionsTitle,
+      description: ui.vocabulary.essentialExpressionsDesc,
+      inLanguage: lang,
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: ui.nav.home, item: Astro.site ? new URL(Astro.url.pathname.replace(/[^/]+\/[^/]+\/$/, ''), Astro.site).toString() : Astro.url.pathname.replace(/[^/]+\/[^/]+\/$/, '') },
+        { '@type': 'ListItem', position: 2, name: ui.nav.vocabulary, item: Astro.site ? new URL(Astro.url.pathname.replace(/[^/]+\/$/, ''), Astro.site).toString() : Astro.url.pathname.replace(/[^/]+\/$/, '') },
+        { '@type': 'ListItem', position: 3, name: ui.vocabulary.essentialExpressionsTitle, item: Astro.site ? new URL(Astro.url.pathname, Astro.site).toString() : Astro.url.pathname },
+      ],
+    },
+  ]}
 >
   {/* Hero */}
   <section class="border-b border-line bg-[#2a2520]">

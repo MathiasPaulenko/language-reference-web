@@ -61,12 +61,22 @@ const cardsJson = JSON.stringify(cards);
   description={ui.flashcards.vocabularyMetaDesc.replace('{count}', String(cards.length))}
   lang={lang}
   alternates={alternates}
-  jsonLd={{
-    '@type': 'LearningResource',
-    name: ui.flashcards.vocabularyTitle,
-    description: ui.flashcards.vocabularyMetaDesc.replace('{count}', String(cards.length)),
-    inLanguage: lang,
-  }}
+  jsonLd={[
+    {
+      '@type': 'LearningResource',
+      name: ui.flashcards.vocabularyTitle,
+      description: ui.flashcards.vocabularyMetaDesc.replace('{count}', String(cards.length)),
+      inLanguage: lang,
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: ui.nav.home, item: Astro.site ? new URL(Astro.url.pathname.replace(/[^/]+\/[^/]+\/$/, ''), Astro.site).toString() : Astro.url.pathname.replace(/[^/]+\/[^/]+\/$/, '') },
+        { '@type': 'ListItem', position: 2, name: ui.nav.flashcards, item: Astro.site ? new URL(Astro.url.pathname.replace(/[^/]+\/$/, ''), Astro.site).toString() : Astro.url.pathname.replace(/[^/]+\/$/, '') },
+        { '@type': 'ListItem', position: 3, name: ui.flashcards.vocabularyTitle, item: Astro.site ? new URL(Astro.url.pathname, Astro.site).toString() : Astro.url.pathname },
+      ],
+    },
+  ]}
 >
   {/* Hero */}
   <section class="border-b border-line bg-[#2a2520]">

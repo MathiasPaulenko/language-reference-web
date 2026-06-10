@@ -5,6 +5,7 @@ import { getUI, languageName } from '../../i18n';
 import { analyzedLanguages, type LocaleCode } from '../../config/languages';
 import FlagIcon from './FlagIcon.astro';
 import Faq from './Faq.astro';
+import TableOfContents from './TableOfContents.astro';
 import type { CollectionEntry } from 'astro:content';
 
 interface Props {
@@ -23,7 +24,27 @@ const diffStyles: Record<string, { label: string; bg: string; text: string }> = 
 };
 ---
 
-<article class="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24" id="topic-article">
+<div class="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24">
+  {/* Mobile TOC */}
+  <div class="lg:hidden reveal mb-8" style="animation-delay:200ms">
+    <details class="rounded-2xl border border-line bg-paper">
+      <summary class="flex cursor-pointer list-none items-center justify-between gap-4 p-4">
+        <span class="flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-[0.2em] text-accent">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+          {ui.article.tableOfContents}
+        </span>
+        <span class="flex h-5 w-5 items-center justify-center rounded-full border border-line text-ink-faint transition-all group-open:rotate-180">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+        </span>
+      </summary>
+      <div class="border-t border-line px-4 pb-4 pt-2">
+        <TableOfContents selector="#topic-article" title={ui.article.tableOfContents} />
+      </div>
+    </details>
+  </div>
+
+  <div class="lg:grid lg:grid-cols-[1fr_240px] lg:gap-14">
+    <article id="topic-article">
 
   <header>
     <div class="reveal flex items-center justify-between gap-4" style="animation-delay:0ms">
@@ -442,7 +463,16 @@ const diffStyles: Record<string, { label: string; bg: string; text: string }> = 
       </div>
     </div>
   )}
-</article>
+    </article>
+
+    {/* Desktop TOC sidebar */}
+    <aside class="hidden lg:block" data-pagefind-ignore>
+      <div class="sticky top-28">
+        <TableOfContents selector="#topic-article" title={ui.article.tableOfContents} />
+      </div>
+    </aside>
+  </div>
+</div>
 
 <script is:inline>
   (function() {

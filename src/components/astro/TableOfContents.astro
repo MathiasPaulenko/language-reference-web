@@ -1,0 +1,104 @@
+---
+interface Props {
+  selector?: string;
+  title?: string;
+}
+
+const { selector = '#topic-article', title = 'Contents' } = Astro.props;
+---
+
+<div class="toc-wrapper" data-toc-selector={selector}>
+  <div class="mb-3 flex items-center gap-2">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-accent">
+      <line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/>
+    </svg>
+    <p class="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-accent">{title}</p>
+  </div>
+  <nav aria-label="Table of contents">
+    <ul class="toc-list space-y-1.5 border-l border-line"></ul>
+  </nav>
+</div>
+
+<script is:inline>
+  (function() {
+    var wrappers = document.querySelectorAll('[data-toc-selector]');
+    wrappers.forEach(function(wrapper) {
+      var selector = wrapper.getAttribute('data-toc-selector');
+      if (!selector) return;
+      var container = document.querySelector(selector);
+      if (!container) return;
+
+      var headings = container.querySelectorAll('h2[id], section[id] > h2, section[id] > header h2');
+      var list = wrapper.querySelector('.toc-list');
+      if (!list || headings.length === 0) {
+        wrapper.style.display = 'none';
+        return;
+      }
+
+      var items = [];
+      headings.forEach(function(heading) {
+        var section = heading.closest('section[id]');
+        var id = section ? section.id : heading.id;
+        if (!id) return;
+        var text = heading.textContent?.trim() || '';
+        if (!text) return;
+        items.push({ id: id, text: text });
+      });
+
+      if (items.length === 0) {
+        wrapper.style.display = 'none';
+        return;
+      }
+
+      list.innerHTML = items.map(function(item, index) {
+        return '<li>' +
+          '<a href="#' + item.id + '" class="toc-link block border-l-2 border-transparent pl-3 py-0.5 text-[13px] text-ink-soft transition-all hover:border-accent hover:text-accent hover:pl-4" data-toc-link>' +
+          item.text +
+          '</a>' +
+        '</li>';
+      }).join('');
+
+      // Scroll spy
+      var links = wrapper.querySelectorAll('[data-toc-link]');
+      var observer = new IntersectionObserver(function(entries) {
+        var activeId = null;
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            activeId = entry.target.id;
+          }
+        });
+        if (!activeId) return;
+        links.forEach(function(link) {
+          var href = link.getAttribute('href');
+          if (href === '#' + activeId) {
+            link.classList.add('border-accent', 'text-accent', 'pl-4');
+            link.classList.remove('border-transparent', 'text-ink-soft', 'pl-3');
+          } else {
+            link.classList.remove('border-accent', 'text-accent', 'pl-4');
+            link.classList.add('border-transparent', 'text-ink-soft', 'pl-3');
+          }
+        });
+      }, { rootMargin: '-80px 0px -60% 0px', threshold: 0 });
+
+      items.forEach(function(item) {
+        var el = document.getElementById(item.id);
+        if (el) observer.observe(el);
+      });
+
+      // Smooth scroll on click
+      links.forEach(function(link) {
+        link.addEventListener('click', function(e) {
+          var href = link.getAttribute('href');
+          if (!href || !href.startsWith('#')) return;
+          var target = document.getElementById(href.slice(1));
+          if (target) {
+            e.preventDefault();
+            var y = target.getBoundingClientRect().top + window.scrollY - 100;
+            window.scrollTo({ top: y, behavior: 'smooth' });
+            history.pushState(null, '', href);
+          }
+        });
+      });
+    });
+  })();
+</script>

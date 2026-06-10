@@ -38,6 +38,7 @@ export default defineConfig({
   integrations: [
     sitemap({
       filter: (page) => !page.includes('/redirect/'),
+      lastmod: new Date(),
       i18n: {
         defaultLocale: DEFAULT_LOCALE,
         locales: Object.fromEntries(localeCodes.map((code) => [code, code])),

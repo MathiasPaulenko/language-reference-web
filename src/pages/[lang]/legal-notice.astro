@@ -1,0 +1,43 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { localeCodes, DEFAULT_LOCALE } from '../../config/languages';
+import { getUI } from '../../i18n';
+import { pageAlternates } from '../../lib/utils';
+
+export function getStaticPaths() {
+  return localeCodes.map((lang) => ({ params: { lang } }));
+}
+
+const { lang = DEFAULT_LOCALE } = Astro.params;
+const ui = getUI(lang);
+const alternates = pageAlternates('legal-notice');
+---
+
+<BaseLayout
+  title={`${ui.nav.legalNotice} | ${ui.site.name}`}
+  description={ui.legal.legalNoticeDesc}
+  lang={lang}
+  alternates={alternates}
+>
+  <main class="mx-auto max-w-2xl px-5 py-20 sm:px-8">
+    <p class="font-mono text-xs font-bold uppercase tracking-[0.2em] text-accent">{ui.legal.label}</p>
+    <h1 class="mt-3 font-display text-4xl font-semibold tracking-tight">{ui.nav.legalNotice}</h1>
+    <div class="mt-8 space-y-6 leading-relaxed text-ink-soft">
+      <p>{ui.legal.legalNoticeDesc}</p>
+      <h2 class="mt-8 font-display text-2xl font-semibold tracking-tight text-ink">{ui.legal.legalOwnerTitle}</h2>
+      <p>{ui.legal.legalOwnerDesc}</p>
+      <h2 class="mt-8 font-display text-2xl font-semibold tracking-tight text-ink">{ui.legal.legalLiabilityTitle}</h2>
+      <p>{ui.legal.legalLiabilityDesc}</p>
+      <h2 class="mt-8 font-display text-2xl font-semibold tracking-tight text-ink">{ui.legal.legalLinksTitle}</h2>
+      <p>{ui.legal.legalLinksDesc}</p>
+      <h2 class="mt-8 font-display text-2xl font-semibold tracking-tight text-ink">{ui.legal.legalIpTitle}</h2>
+      <p>{ui.legal.legalIpDesc}</p>
+      <h2 class="mt-8 font-display text-2xl font-semibold tracking-tight text-ink">{ui.legal.legalDmcaTitle}</h2>
+      <p>{ui.legal.legalDmcaDesc}</p>
+      <h2 class="mt-8 font-display text-2xl font-semibold tracking-tight text-ink">{ui.legal.legalAccuracyTitle}</h2>
+      <p>{ui.legal.legalAccuracyDesc}</p>
+      <h2 class="mt-8 font-display text-2xl font-semibold tracking-tight text-ink">{ui.legal.legalLawTitle}</h2>
+      <p>{ui.legal.legalLawDesc}</p>
+    </div>
+  </main>
+</BaseLayout>

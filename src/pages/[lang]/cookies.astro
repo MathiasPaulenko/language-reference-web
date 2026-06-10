@@ -32,8 +32,40 @@ const alternates = pageAlternates('cookies');
         <li>{ui.legal.cookiesTypesAd}</li>
         <li>{ui.legal.cookiesTypesFunc}</li>
       </ul>
+      <div class="mt-8 overflow-x-auto">
+        <table class="w-full text-left text-sm">
+          <thead>
+            <tr class="border-b border-line">
+              <th class="pb-2 pr-4 font-semibold text-ink">{ui.legal.cookiesTableCategory}</th>
+              <th class="pb-2 pr-4 font-semibold text-ink">{ui.legal.cookiesTablePurpose}</th>
+              <th class="pb-2 font-semibold text-ink">{ui.legal.cookiesTableDuration}</th>
+            </tr>
+          </thead>
+          <tbody class="text-ink-soft">
+            <tr class="border-b border-line/60">
+              <td class="py-3 pr-4">{ui.legal.cookiesTableEssential}</td>
+              <td class="py-3 pr-4">{ui.legal.cookiesTableEssentialDesc}</td>
+              <td class="py-3">{ui.legal.cookiesTableEssentialDuration}</td>
+            </tr>
+            <tr class="border-b border-line/60">
+              <td class="py-3 pr-4">{ui.legal.cookiesTableAnalytics}</td>
+              <td class="py-3 pr-4">{ui.legal.cookiesTableAnalyticsDesc}</td>
+              <td class="py-3">{ui.legal.cookiesTableAnalyticsDuration}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
       <h2 class="mt-8 font-display text-2xl font-semibold tracking-tight text-ink">{ui.legal.cookiesManageTitle}</h2>
       <p>{ui.legal.cookiesManageDesc}</p>
+      <ul class="mt-4 list-disc space-y-2 pl-5 text-ink-soft">
+        <li><a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener noreferrer" class="text-accent underline">{ui.legal.cookiesManageChrome}</a></li>
+        <li><a href="https://support.mozilla.org/kb/enable-and-disable-cookies-website-preferences" target="_blank" rel="noopener noreferrer" class="text-accent underline">{ui.legal.cookiesManageFirefox}</a></li>
+        <li><a href="https://support.apple.com/guide/safari/manage-cookies-sfri11471/mac" target="_blank" rel="noopener noreferrer" class="text-accent underline">{ui.legal.cookiesManageSafari}</a></li>
+        <li><a href="https://support.microsoft.com/help/4027947/microsoft-edge-delete-cookies" target="_blank" rel="noopener noreferrer" class="text-accent underline">{ui.legal.cookiesManageEdge}</a></li>
+      </ul>
+      <p class="mt-4">{ui.legal.cookiesManageOptOut}</p>
+      <h2 class="mt-8 font-display text-2xl font-semibold tracking-tight text-ink">{ui.legal.cookiesImpactTitle}</h2>
+      <p>{ui.legal.cookiesImpactDesc}</p>
       <h2 class="mt-8 font-display text-2xl font-semibold tracking-tight text-ink">{ui.legal.cookiesThirdTitle}</h2>
       <p>{ui.legal.cookiesThirdDesc}</p>
     </div>

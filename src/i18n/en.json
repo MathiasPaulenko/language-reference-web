@@ -165,7 +165,8 @@
     "cookies": "Cookies",
     "cookieBanner": "We use cookies to improve your experience and understand how the site is used.",
     "cookieAccept": "Accept",
-    "cookieDecline": "Decline"
+    "cookieDecline": "Decline",
+    "cookieManage": "Manage cookies"
   },
   "article": {
     "overview": "Overview",

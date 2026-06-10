@@ -165,7 +165,8 @@
     "cookies": "Cookie",
     "cookieBanner": "我们使用 Cookie 来改善您的体验并了解网站的使用情况。",
     "cookieAccept": "接受",
-    "cookieDecline": "拒绝"
+    "cookieDecline": "拒绝",
+    "cookieManage": "管理 Cookie"
   },
   "article": {
     "overview": "概述",

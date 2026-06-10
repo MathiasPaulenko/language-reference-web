@@ -104,6 +104,14 @@ const { lang, banner, accept, decline, privacyHref, privacyLabel } = Astro.props
   if (storedConsent === 'granted') {
     loadAdSense();
   }
+
+  // Global hook for external triggers (e.g. footer link)
+  (window as any).reopenCookieBanner = () => {
+    if (banner) {
+      banner.classList.remove('hidden');
+      banner.classList.add('animate-slide-up');
+    }
+  };
 </script>
 
 <style>

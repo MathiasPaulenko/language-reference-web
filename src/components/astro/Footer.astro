@@ -46,6 +46,7 @@ const columns = [
       { label: ui.footer.cookies, href: localePath(lang, 'cookies') },
       { label: ui.nav.disclaimer, href: localePath(lang, 'disclaimer') },
       { label: ui.nav.affiliate, href: localePath(lang, 'affiliate') },
+      { label: ui.footer.cookieManage, href: '#', class: 'js-reopen-cookies' },
     ],
   },
 ];
@@ -88,7 +89,7 @@ const year = new Date().getFullYear();
             <ul class="mt-4 space-y-2.5">
               {col.links.map((link) => (
                 <li>
-                  <a href={link.href} class="text-sm text-ink-soft transition-colors hover:text-accent">
+                  <a href={link.href} class={`text-sm text-ink-soft transition-colors hover:text-accent ${link.class ?? ''}`}>
                     {link.label}
                   </a>
                 </li>
@@ -104,3 +105,14 @@ const year = new Date().getFullYear();
     </div>
   </div>
 </footer>
+
+<script>
+  document.querySelectorAll('.js-reopen-cookies').forEach((el) => {
+    el.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (typeof (window as any).reopenCookieBanner === 'function') {
+        (window as any).reopenCookieBanner();
+      }
+    });
+  });
+</script>

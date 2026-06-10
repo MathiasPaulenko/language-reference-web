@@ -365,7 +365,15 @@
     "whatToIncludeTitle": "What to include",
     "whatToInclude1": "A clear description of your question or issue",
     "whatToInclude2": "The page URL if reporting an error",
-    "whatToInclude3": "Your browser and device (if relevant)"
+    "whatToInclude3": "Your browser and device (if relevant)",
+    "yourName": "Your name",
+    "yourEmail": "Your email",
+    "message": "Message",
+    "send": "Send",
+    "sending": "Sending…",
+    "sent": "Message sent! We will get back to you soon.",
+    "formError": "Something went wrong. Please try again.",
+    "required": "Required"
   },
   "error": {
     "notFound": "Page not found",

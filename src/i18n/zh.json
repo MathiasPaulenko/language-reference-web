@@ -365,7 +365,15 @@
     "whatToIncludeTitle": "请包含以下信息",
     "whatToInclude1": "您的问题或情况的清晰描述",
     "whatToInclude2": "如果是报告错误，请提供页面网址",
-    "whatToInclude3": "您的浏览器和设备（如相关）"
+    "whatToInclude3": "您的浏览器和设备（如相关）",
+    "yourName": "您的姓名",
+    "yourEmail": "您的邮箱",
+    "message": "留言",
+    "send": "发送",
+    "sending": "发送中…",
+    "sent": "消息已发送！我们会尽快回复。",
+    "formError": "出错了，请重试。",
+    "required": "必填"
   },
   "error": {
     "notFound": "页面未找到",

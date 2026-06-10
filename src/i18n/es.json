@@ -365,7 +365,15 @@
     "whatToIncludeTitle": "Qué incluir",
     "whatToInclude1": "Una descripción clara de tu pregunta o problema",
     "whatToInclude2": "La URL de la página si reportas un error",
-    "whatToInclude3": "Tu navegador y dispositivo (si es relevante)"
+    "whatToInclude3": "Tu navegador y dispositivo (si es relevante)",
+    "yourName": "Tu nombre",
+    "yourEmail": "Tu correo electrónico",
+    "message": "Mensaje",
+    "send": "Enviar",
+    "sending": "Enviando…",
+    "sent": "¡Mensaje enviado! Te responderemos pronto.",
+    "formError": "Algo salió mal. Por favor inténtalo de nuevo.",
+    "required": "Obligatorio"
   },
   "error": {
     "notFound": "Página no encontrada",

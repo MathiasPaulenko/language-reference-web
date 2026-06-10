@@ -32,6 +32,15 @@
     "ctaPrimary": "Explorar temas",
     "ctaSecondary": "Cómo funciona"
   },
+  "stats": {
+    "label": "De un vistazo",
+    "grammarTopics": "Temas Gramaticales",
+    "words": "Palabras",
+    "phrases": "Frases",
+    "expressions": "Expresiones",
+    "languagesAnalyzed": "Idiomas Analizados",
+    "interfaceLanguages": "Idiomas de Interfaz"
+  },
   "legend": {
     "title": "Cómo leer el mapa"
   },

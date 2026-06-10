@@ -32,6 +32,15 @@
     "ctaPrimary": "Browse grammar topics",
     "ctaSecondary": "How it works"
   },
+  "stats": {
+    "label": "At a glance",
+    "grammarTopics": "Grammar Topics",
+    "words": "Words",
+    "phrases": "Phrases",
+    "expressions": "Expressions",
+    "languagesAnalyzed": "Languages Analyzed",
+    "interfaceLanguages": "Interface Languages"
+  },
   "legend": {
     "title": "Reading the map"
   },

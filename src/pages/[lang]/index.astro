@@ -37,6 +37,19 @@ for (const t of allTopics.filter((t) => !t.data.draft)) {
 const topics = Array.from(topicsByTopic.values())
   .sort((a, b) => a.data.title.localeCompare(b.data.title));
 
+const allVocab = await getCollection('vocabulary');
+const vocabStats = allVocab.reduce(
+  (acc, v) => {
+    const slug = v.id.replace(/\\.mdx$/, '').replace(/\\.\\w+$/, '');
+    const count = v.data.entries?.length ?? 0;
+    if (slug === 'words') acc.words = count;
+    else if (slug === 'phrases') acc.phrases = count;
+    else if (slug === 'expressions') acc.expressions = count;
+    return acc;
+  },
+  { words: 0, phrases: 0, expressions: 0 }
+);
+
 const legend = analyzedLanguages.map((l) => ({
   code: l.code,
   name: languageName(ui, l.code),
@@ -180,6 +193,39 @@ const steps = [
             </span>
           ))
         }
+      </div>
+    </div>
+  </section>
+
+  {/* Stats bar */}
+  <section class="border-b border-line bg-paper-deep">
+    <div class="mx-auto max-w-6xl px-5 py-10 sm:px-8 sm:py-14">
+      <p class="font-mono text-xs font-bold uppercase tracking-[0.2em] text-accent">{ui.stats.label}</p>
+      <div class="mt-8 grid grid-cols-2 gap-8 sm:grid-cols-3 lg:grid-cols-6">
+        <div class="text-center">
+          <span class="font-display text-4xl font-semibold tracking-tight text-ink">{topics.length}</span>
+          <p class="mt-1 font-mono text-xs uppercase tracking-wider text-ink-faint">{ui.stats.grammarTopics}</p>
+        </div>
+        <div class="text-center">
+          <span class="font-display text-4xl font-semibold tracking-tight text-ink">{vocabStats.words}</span>
+          <p class="mt-1 font-mono text-xs uppercase tracking-wider text-ink-faint">{ui.stats.words}</p>
+        </div>
+        <div class="text-center">
+          <span class="font-display text-4xl font-semibold tracking-tight text-ink">{vocabStats.phrases}</span>
+          <p class="mt-1 font-mono text-xs uppercase tracking-wider text-ink-faint">{ui.stats.phrases}</p>
+        </div>
+        <div class="text-center">
+          <span class="font-display text-4xl font-semibold tracking-tight text-ink">{vocabStats.expressions}</span>
+          <p class="mt-1 font-mono text-xs uppercase tracking-wider text-ink-faint">{ui.stats.expressions}</p>
+        </div>
+        <div class="text-center">
+          <span class="font-display text-4xl font-semibold tracking-tight text-ink">{analyzedLanguages.length}</span>
+          <p class="mt-1 font-mono text-xs uppercase tracking-wider text-ink-faint">{ui.stats.languagesAnalyzed}</p>
+        </div>
+        <div class="text-center">
+          <span class="font-display text-4xl font-semibold tracking-tight text-ink">{interfaceLocales.length}</span>
+          <p class="mt-1 font-mono text-xs uppercase tracking-wider text-ink-faint">{ui.stats.interfaceLanguages}</p>
+        </div>
       </div>
     </div>
   </section>

@@ -4,6 +4,7 @@ import { localePath, sectionPath, withPinyin } from '../../lib/utils';
 import { getUI, languageName } from '../../i18n';
 import { analyzedLanguages, type LocaleCode } from '../../config/languages';
 import FlagIcon from './FlagIcon.astro';
+import Faq from './Faq.astro';
 import type { CollectionEntry } from 'astro:content';
 
 interface Props {
@@ -348,6 +349,10 @@ const diffStyles: Record<string, { label: string; bg: string; text: string }> = 
         ))}
       </div>
     </section>
+  )}
+
+  {entry.data.faq && entry.data.faq.length > 0 && (
+    <Faq items={entry.data.faq} title={ui.article.faq} />
   )}
 
   <section class="mt-16" id="section-meta">

@@ -48,6 +48,7 @@ const baseFields = {
   relatedTopics: z.array(z.string()).optional(),
   prerequisites: z.array(z.string()).optional(),
   keyTakeaways: z.array(z.string()).optional(),
+  faq: z.array(z.object({ question: z.string(), answer: z.string() })).optional(),
   lastUpdated: z.coerce.date().optional(),
   draft: z.boolean().default(false),
 };

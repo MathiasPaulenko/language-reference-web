@@ -164,7 +164,9 @@
     "deselectAll": "Deseleccionar todo",
     "copyLink": "Copiar enlace",
     "copied": "¡Copiado!",
-    "conceptsCompared": "conceptos comparados"
+    "conceptsCompared": "conceptos comparados",
+    "language": "idioma",
+    "languages": "idiomas"
   },
   "howItWorks": {
     "title": "Cómo funciona Grammar Navigator",
@@ -248,6 +250,15 @@
     "beginnerLabel": "Principiante",
     "intermediateLabel": "Intermedio",
     "advancedMasteryLabel": "Dominio avanzado",
+    "grammarExampleSpanishHtml": "el libro <span class=\"text-ink-faint\">/ un libro</span>",
+    "grammarExampleEnglishHtml": "the book <span class=\"text-ink-faint\">/ a book</span>",
+    "grammarExampleChineseHtml": "<ruby>这<rt>zhè</rt></ruby><ruby>本<rt>běn</rt></ruby><ruby>书<rt>shū</rt></ruby> <span class=\"text-ink-faint\">/ <ruby>一<rt>yì</rt></ruby><ruby>本<rt>běn</rt></ruby><ruby>书<rt>shū</rt></ruby></span>",
+    "grammarExampleSpanishDesc": "Artículos para todas las referencias",
+    "grammarExampleEnglishDesc": "Artículos solo para lo específico",
+    "grammarExampleChineseDesc": "Demostrativos + clasificadores",
+    "spanishDesc": "Una lengua romance con rica conjugación verbal, género gramatical y un sistema ortográfico transparente.",
+    "englishDesc": "Una lengua germánica con flexión mínima, estructura analítica y el vocabulario más amplio de cualquier idioma.",
+    "chineseDesc": "Una lengua sino-tibetana con tonos, caracteres, clasificadores y sin género gramatical ni conjugación verbal.",
     "pathFoundations": "Fundamentos",
     "pathBuildingBlocks": "Bloques de construcción",
     "pathConnecting": "Conexión",

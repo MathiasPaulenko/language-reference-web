@@ -164,7 +164,9 @@
     "deselectAll": "Deselect all",
     "copyLink": "Copy link",
     "copied": "Copied!",
-    "conceptsCompared": "concepts compared"
+    "conceptsCompared": "concepts compared",
+    "language": "language",
+    "languages": "languages"
   },
   "howItWorks": {
     "title": "How Grammar Navigator works",
@@ -248,6 +250,15 @@
     "beginnerLabel": "Beginner",
     "intermediateLabel": "Intermediate",
     "advancedMasteryLabel": "Advanced mastery",
+    "grammarExampleSpanishHtml": "el libro <span class=\"text-ink-faint\">/ un libro</span>",
+    "grammarExampleEnglishHtml": "the book <span class=\"text-ink-faint\">/ a book</span>",
+    "grammarExampleChineseHtml": "<ruby>这<rt>zhè</rt></ruby><ruby>本<rt>běn</rt></ruby><ruby>书<rt>shū</rt></ruby> <span class=\"text-ink-faint\">/ <ruby>一<rt>yì</rt></ruby><ruby>本<rt>běn</rt></ruby><ruby>书<rt>shū</rt></ruby></span>",
+    "grammarExampleSpanishDesc": "Articles for all references",
+    "grammarExampleEnglishDesc": "Articles only for specifics",
+    "grammarExampleChineseDesc": "Demonstratives + measure words",
+    "spanishDesc": "A Romance language with rich verb conjugation, grammatical gender, and a transparent spelling system.",
+    "englishDesc": "A Germanic language with minimal inflection, analytical structure, and the largest vocabulary of any language.",
+    "chineseDesc": "A Sino-Tibetan language with tones, characters, measure words, and no grammatical gender or verb conjugation.",
     "pathFoundations": "Foundations",
     "pathBuildingBlocks": "Building blocks",
     "pathConnecting": "Connecting",

@@ -164,7 +164,9 @@
     "deselectAll": "取消全选",
     "copyLink": "复制链接",
     "copied": "已复制！",
-    "conceptsCompared": "个概念已对比"
+    "conceptsCompared": "个概念已对比",
+    "language": "语言",
+    "languages": "语言"
   },
   "howItWorks": {
     "title": "Grammar Navigator 的工作原理",
@@ -248,6 +250,15 @@
     "beginnerLabel": "初级",
     "intermediateLabel": "中级",
     "advancedMasteryLabel": "高级精通",
+    "grammarExampleSpanishHtml": "el libro <span class=\"text-ink-faint\">/ un libro</span>",
+    "grammarExampleEnglishHtml": "the book <span class=\"text-ink-faint\">/ a book</span>",
+    "grammarExampleChineseHtml": "<ruby>这<rt>zhè</rt></ruby><ruby>本<rt>běn</rt></ruby><ruby>书<rt>shū</rt></ruby> <span class=\"text-ink-faint\">/ <ruby>一<rt>yì</rt></ruby><ruby>本<rt>běn</rt></ruby><ruby>书<rt>shū</rt></ruby></span>",
+    "grammarExampleSpanishDesc": "所有引用都用冠词",
+    "grammarExampleEnglishDesc": "仅特定引用用冠词",
+    "grammarExampleChineseDesc": "指示词 + 量词",
+    "spanishDesc": "一种罗曼语族语言，具有丰富的动词变位、语法性别和透明的拼写系统。",
+    "englishDesc": "一种日耳曼语族语言，屈折变化极少，结构分析性强，拥有任何语言中最大的词汇量。",
+    "chineseDesc": "一种汉藏语系语言，有声调、汉字、量词，没有语法性别或动词变位。",
     "pathFoundations": "基础",
     "pathBuildingBlocks": "构建模块",
     "pathConnecting": "连接",

@@ -121,7 +121,7 @@ const langs = analyzedLanguages.map((l) => ({
               <span class="inline-block h-2.5 w-2.5 rounded-full ring-2 ring-paper-deep" style={`background-color:${l.color}`} data-dot={l.code} />
             ))}
           </span>
-          <span id="lang-count">{langs.length} languages</span>
+          <span id="lang-count">{langs.length} {ui.comparisons.languages}</span>
           <svg class="ml-1 h-4 w-4 text-ink-faint transition-transform" id="lang-chevron" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>
         </button>
 
@@ -243,6 +243,8 @@ const langs = analyzedLanguages.map((l) => ({
     conceptsCompared: ui.comparisons.conceptsCompared,
     copyLink: ui.comparisons.copyLink,
     copied: ui.comparisons.copied,
+    language: ui.comparisons.language,
+    languages: ui.comparisons.languages,
   })} />
 
   <script>
@@ -290,7 +292,7 @@ const langs = analyzedLanguages.map((l) => ({
         const count = active.length;
         const total = langs.length;
 
-        if (langCount) langCount.textContent = count + (count === 1 ? ' language' : ' languages');
+        if (langCount) langCount.textContent = count + ' ' + (count === 1 ? uiData.language : uiData.languages);
 
         langs.forEach((l) => {
           const dot = document.querySelector<HTMLElement>(`#lang-dots [data-dot="${l.code}"]`);

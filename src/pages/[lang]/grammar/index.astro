@@ -145,10 +145,10 @@ const topics = Array.from(topicsByTopic.values())
               </div>
               <span class="mt-3 font-display text-sm font-semibold uppercase tracking-wider text-ink-faint">{languageName(ui, l.code)}</span>
               <div class="mt-4 rounded-xl bg-paper-deep px-4 py-3">
-                <p class="font-display text-base font-semibold text-ink" set:html={l.code === 'spanish' ? 'el libro <span class="text-ink-faint">/ un libro</span>' : l.code === 'english' ? 'the book <span class="text-ink-faint">/ a book</span>' : '<ruby>这<rt>zhè</rt></ruby><ruby>本<rt>běn</rt></ruby><ruby>书<rt>shū</rt></ruby> <span class="text-ink-faint">/ <ruby>一<rt>yì</rt></ruby><ruby>本<rt>běn</rt></ruby><ruby>书<rt>shū</rt></ruby></span>'} />
+                <p class="font-display text-base font-semibold text-ink" set:html={l.code === 'spanish' ? ui.landing.grammarExampleSpanishHtml : l.code === 'english' ? ui.landing.grammarExampleEnglishHtml : ui.landing.grammarExampleChineseHtml} />
               </div>
               <p class="mt-3 text-xs leading-relaxed text-ink-faint">
-                {l.code === 'spanish' ? 'Articles for all references' : l.code === 'english' ? 'Articles only for specifics' : 'Demonstratives + measure words'}
+                {l.code === 'spanish' ? ui.landing.grammarExampleSpanishDesc : l.code === 'english' ? ui.landing.grammarExampleEnglishDesc : ui.landing.grammarExampleChineseDesc}
               </p>
             </div>
           ))

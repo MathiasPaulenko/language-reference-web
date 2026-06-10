@@ -115,7 +115,7 @@ const languageFacts = {
                   <p class="font-mono text-xs uppercase tracking-wider text-ink-faint">{l.code}</p>
                 </div>
               </div>
-              <p class="mt-4 flex-1 text-sm leading-relaxed text-ink-soft">{facts.desc}</p>
+              <p class="mt-4 flex-1 text-sm leading-relaxed text-ink-soft">{l.code === 'spanish' ? ui.landing.spanishDesc : l.code === 'english' ? ui.landing.englishDesc : ui.landing.chineseDesc}</p>
 
               {/* Fact grid - revealed on hover */}
               <div class="mt-5 grid grid-cols-2 gap-3 rounded-xl bg-paper-deep p-4 opacity-60 transition-opacity group-hover:opacity-100">

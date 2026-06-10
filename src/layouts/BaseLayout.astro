@@ -102,9 +102,6 @@ const altUrl = (href: string) => new URL(href, Astro.site).toString();
       }
     </script>
 
-    <!-- Google AdSense -->
-    <script is:inline async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9762280383707953" crossorigin="anonymous"></script>
-
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -126,6 +123,7 @@ const altUrl = (href: string) => new URL(href, Astro.site).toString();
       accept={ui.footer.cookieAccept}
       decline={ui.footer.cookieDecline}
       privacyHref={localePath(lang, 'privacy')}
+      privacyLabel={ui.footer.privacy}
     />
   </body>
 </html>

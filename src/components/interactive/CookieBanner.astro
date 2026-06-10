@@ -7,9 +7,10 @@ interface Props {
   accept: string;
   decline: string;
   privacyHref: string;
+  privacyLabel: string;
 }
 
-const { lang, banner, accept, decline, privacyHref } = Astro.props;
+const { lang, banner, accept, decline, privacyHref, privacyLabel } = Astro.props;
 ---
 
 <div
@@ -24,7 +25,7 @@ const { lang, banner, accept, decline, privacyHref } = Astro.props;
   <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
     <p class="text-sm leading-relaxed text-ink-soft">
       {banner}
-      <a href={privacyHref} class="ml-1 font-semibold text-accent hover:underline">Privacy</a>
+      <a href={privacyHref} class="ml-1 font-semibold text-accent hover:underline">{privacyLabel}</a>
     </p>
     <div class="flex shrink-0 gap-2">
       <button
@@ -49,6 +50,15 @@ const { lang, banner, accept, decline, privacyHref } = Astro.props;
   const acceptBtn = document.getElementById('cookie-accept');
   const declineBtn = document.getElementById('cookie-decline');
 
+  const loadAdSense = () => {
+    if (document.querySelector('script[src*="pagead2.googlesyndication.com"]')) return;
+    const s = document.createElement('script');
+    s.async = true;
+    s.crossOrigin = 'anonymous';
+    s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9762280383707953';
+    document.head.appendChild(s);
+  };
+
   if (banner && acceptBtn && declineBtn) {
     const stored = localStorage.getItem(STORAGE_KEY);
 
@@ -64,10 +74,14 @@ const { lang, banner, accept, decline, privacyHref } = Astro.props;
       if (typeof window.gtag === 'function') {
         window.gtag('consent', 'update', {
           analytics_storage: granted ? 'granted' : 'denied',
-          ad_storage: 'denied',
-          ad_user_data: 'denied',
-          ad_personalization: 'denied',
+          ad_storage: granted ? 'granted' : 'denied',
+          ad_user_data: granted ? 'granted' : 'denied',
+          ad_personalization: granted ? 'granted' : 'denied',
         });
+      }
+
+      if (granted) {
+        loadAdSense();
       }
     };
 
@@ -83,6 +97,12 @@ const { lang, banner, accept, decline, privacyHref } = Astro.props;
       ad_user_data: 'denied',
       ad_personalization: 'denied',
     });
+  }
+
+  // Restore AdSense if consent was previously granted
+  const storedConsent = localStorage.getItem(STORAGE_KEY);
+  if (storedConsent === 'granted') {
+    loadAdSense();
   }
 </script>
 

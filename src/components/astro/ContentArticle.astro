@@ -159,7 +159,7 @@ const diffStyles: Record<string, { label: string; bg: string; text: string }> = 
                 {ui.article.examples}
               </h3>
               <div class="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-3">
-                {entry.data.comparisonTable.map((row) => (
+                {entry.data.comparisonTable?.map((row) => (
                   <div class="group/card flex flex-col rounded-xl border border-line bg-paper-deep/40 p-4 transition-all duration-200 hover:border-accent/30 hover:bg-paper-deep hover:shadow-sm">
                     <div class="flex items-center gap-2">
                       <span class="h-1.5 w-1.5 flex-shrink-0 rounded-full" style={`background-color: ${l.color}`} />

@@ -60,20 +60,26 @@ const altUrl = (href: string) => new URL(href, Astro.site).toString();
     }
     <link rel="alternate" hreflang="x-default" href={altUrl(localePath(DEFAULT_LOCALE))} />
 
+    {
+      localeCodes.map((code) => (
+        <link rel="alternate" type="application/rss+xml" title={`${ui.site.name} (${code})`} href={altUrl(`${localePath(code)}rss.xml`)} />
+      ))
+    }
+
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Grammar Navigator" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:locale" content={locale.htmlLang} />
-    <meta property="og:image" content="/og-image.svg" />
+    <meta property="og:image" content={altUrl('/og-image.svg')} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="Grammar Navigator — Understand grammar through language comparison" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content="/og-image.svg" />
+    <meta name="twitter:image" content={altUrl('/og-image.svg')} />
     <meta name="twitter:image:alt" content="Grammar Navigator — Understand grammar through language comparison" />
 
     {jsonLd && <JsonLd data={jsonLd} />}

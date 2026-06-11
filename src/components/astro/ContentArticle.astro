@@ -5,7 +5,6 @@ import { getUI, languageName } from '../../i18n';
 import { analyzedLanguages, type LocaleCode } from '../../config/languages';
 import FlagIcon from './FlagIcon.astro';
 import Faq from './Faq.astro';
-import TableOfContents from './TableOfContents.astro';
 import type { CollectionEntry } from 'astro:content';
 
 interface Props {
@@ -27,26 +26,7 @@ const diffStyles: Record<string, { label: string; bg: string; text: string }> = 
 ---
 
 <div class="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24">
-  {/* Mobile TOC */}
-  <div class="xl:hidden reveal mb-8" style="animation-delay:200ms">
-    <details class="rounded-2xl border border-line bg-paper">
-      <summary class="flex cursor-pointer list-none items-center justify-between gap-4 p-4">
-        <span class="flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-[0.2em] text-accent">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
-          {ui.article.tableOfContents}
-        </span>
-        <span class="flex h-5 w-5 items-center justify-center rounded-full border border-line text-ink-faint transition-all group-open:rotate-180">
-          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
-        </span>
-      </summary>
-      <div class="border-t border-line px-4 pb-4 pt-2">
-        <TableOfContents selector="#topic-article" title={ui.article.tableOfContents} />
-      </div>
-    </details>
-  </div>
-
-  <div class="xl:grid xl:grid-cols-[1fr_200px] xl:gap-10">
-    <article id="topic-article" class="min-w-0">
+  <article id="topic-article" class="min-w-0">
 
   <header>
     <div class="reveal flex items-center justify-between gap-4" style="animation-delay:0ms">
@@ -107,50 +87,50 @@ const diffStyles: Record<string, { label: string; bg: string; text: string }> = 
     </div>
   )}
 
-  {entry.data.comparisonTable && entry.data.comparisonTable.length > 0 && (
-    <nav class="mt-6 rounded-xl border border-line bg-paper-deep/40 p-4 sm:p-5">
-      <p class="flex items-center gap-2 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-ink-faint">
-        <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h7"/></svg>
-        {ui.article.tableOfContents}
-      </p>
-      <ul class="mt-3 flex flex-wrap gap-2">
-        <li>
-          <a href="#section-overview" class="inline-flex items-center gap-1.5 rounded-full border border-line bg-paper px-3 py-1 text-xs font-medium text-ink-soft transition-all hover:border-accent hover:text-accent">
-            <span class="h-1.5 w-1.5 rounded-full bg-accent" />
-            {ui.nav.topics}
+  <nav class="mt-6 rounded-xl border border-line bg-paper-deep/40 p-4 sm:p-5">
+    <p class="flex items-center gap-2 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-ink-faint">
+      <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h7"/></svg>
+      {ui.article.tableOfContents}
+    </p>
+    <ul class="mt-3 flex flex-wrap gap-2">
+      <li>
+        <a href="#section-overview" class="inline-flex items-center gap-1.5 rounded-full border border-line bg-paper px-3 py-1 text-xs font-medium text-ink-soft transition-all hover:border-accent hover:text-accent">
+          <span class="h-1.5 w-1.5 rounded-full bg-accent" />
+          {ui.nav.topics}
+        </a>
+      </li>
+      {entry.data.comparisonTable && entry.data.comparisonTable.length > 0 && analyzedLanguages.map((l) => (
+        <li data-lang-toc={l.code}>
+          <a href={`#section-${l.code}`} class="inline-flex items-center gap-1.5 rounded-full border border-line bg-paper px-3 py-1 text-xs font-medium text-ink-soft transition-all hover:border-accent hover:text-accent">
+            <span class="h-1.5 w-1.5 rounded-full" style={`background-color: ${l.color}`} />
+            {languageName(ui, l.code)}
           </a>
         </li>
-        {analyzedLanguages.map((l) => (
-          <li data-lang-toc={l.code}>
-            <a href={`#section-${l.code}`} class="inline-flex items-center gap-1.5 rounded-full border border-line bg-paper px-3 py-1 text-xs font-medium text-ink-soft transition-all hover:border-accent hover:text-accent">
-              <span class="h-1.5 w-1.5 rounded-full" style={`background-color: ${l.color}`} />
-              {languageName(ui, l.code)}
-            </a>
-          </li>
-        ))}
+      ))}
+      {entry.data.comparisonTable && entry.data.comparisonTable.length > 0 && (
         <li>
           <a href="#section-comparison" class="inline-flex items-center gap-1.5 rounded-full border border-line bg-paper px-3 py-1 text-xs font-medium text-ink-soft transition-all hover:border-accent hover:text-accent">
             <span class="h-1.5 w-1.5 rounded-full bg-accent" />
             {ui.comparisons.comparisonAtAGlance}
           </a>
         </li>
-        {entry.data.keyTakeaways && entry.data.keyTakeaways.length > 0 && (
-          <li>
-            <a href="#section-takeaways" class="inline-flex items-center gap-1.5 rounded-full border border-line bg-paper px-3 py-1 text-xs font-medium text-ink-soft transition-all hover:border-accent hover:text-accent">
-              <span class="h-1.5 w-1.5 rounded-full bg-accent" />
-              {ui.article.keyTakeaways}
-            </a>
-          </li>
-        )}
+      )}
+      {entry.data.keyTakeaways && entry.data.keyTakeaways.length > 0 && (
         <li>
-          <a href="#section-meta" class="inline-flex items-center gap-1.5 rounded-full border border-line bg-paper px-3 py-1 text-xs font-medium text-ink-soft transition-all hover:border-accent hover:text-accent">
+          <a href="#section-takeaways" class="inline-flex items-center gap-1.5 rounded-full border border-line bg-paper px-3 py-1 text-xs font-medium text-ink-soft transition-all hover:border-accent hover:text-accent">
             <span class="h-1.5 w-1.5 rounded-full bg-accent" />
-            {ui.article.relatedTopics}
+            {ui.article.keyTakeaways}
           </a>
         </li>
-      </ul>
-    </nav>
-  )}
+      )}
+      <li>
+        <a href="#section-meta" class="inline-flex items-center gap-1.5 rounded-full border border-line bg-paper px-3 py-1 text-xs font-medium text-ink-soft transition-all hover:border-accent hover:text-accent">
+          <span class="h-1.5 w-1.5 rounded-full bg-accent" />
+          {ui.article.relatedTopics}
+        </a>
+      </li>
+    </ul>
+  </nav>
 
   <section class="mt-10" id="section-overview">
     {entry.data.overview && (
@@ -491,15 +471,7 @@ const diffStyles: Record<string, { label: string; bg: string; text: string }> = 
       </div>
     </div>
   )}
-    </article>
-
-    {/* Desktop TOC sidebar */}
-    <aside class="hidden xl:block" data-pagefind-ignore>
-      <div class="sticky top-28">
-        <TableOfContents selector="#topic-article" title={ui.article.tableOfContents} />
-      </div>
-    </aside>
-  </div>
+  </article>
 </div>
 
 <script is:inline>

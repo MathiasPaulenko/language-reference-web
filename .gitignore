@@ -38,5 +38,12 @@ ref/
 .agents/
 
 
-# local-use scripts (not needed in production or deployment)
-scripts/
+# scripts: keep only the topic generation toolkit
+scripts/*
+!scripts/templates/
+!scripts/templates/*.cjs
+!scripts/batch-topics.cjs
+!scripts/topic-from-ai.cjs
+!scripts/quick-topic.cjs
+!scripts/batch-spec.json
+!scripts/audit-quality-v5.cjs

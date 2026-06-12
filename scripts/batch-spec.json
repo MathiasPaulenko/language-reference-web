@@ -1,114 +1,523 @@
 [
   {
+    "topic": "ser-vs-estar",
     "template": "verbal",
-    "topic": "gerunds",
-    "titles": { "en": "Gerunds", "es": "Gerundios", "zh": "动名词" },
-    "description": {
-      "en": "Verb forms acting as nouns in sentences across Spanish, English, and Chinese.",
-      "es": "Formas verbales que funcionan como sustantivos en oraciones en español, inglés y chino.",
-      "zh": "在西班牙语、英语和汉语中充当名词的动词形式。"
+    "titles": {
+      "en": "Ser vs Estar",
+      "es": "Ser y Estar",
+      "zh": "Ser与Estar的区别"
     },
-    "difficulty": "intermediate",
+    "description": {
+      "en": "The fundamental distinction between Spanish copulative verbs and how English and Chinese handle equivalent meanings.",
+      "es": "La distinción fundamental entre los verbos copulativos del español y cómo el inglés y el chino manejan significados equivalentes.",
+      "zh": "西班牙语系动词之间的根本区别，以及英语和汉语如何处理同等意义。"
+    },
+    "difficulty": "beginner",
     "overview": {
-      "en": "A gerund is a verb form that functions as a noun within a sentence. While English uses the -ing form, Spanish uses the infinitive in many noun positions, and Chinese relies on context or nominalization markers rather than a dedicated verbal noun form.",
-      "es": "Un gerundio es una forma verbal que funciona como sustantivo dentro de una oración. Mientras que el inglés usa la forma -ing, el español usa el infinitivo en muchas posiciones nominales, y el chino depende del contexto o marcadores de nominalización en lugar de una forma verbal de sustantivo dedicada.",
-      "zh": "动名词是在句子中充当名词的动词形式。英语使用-ing形式，西班牙语在许多名词位置使用不定式，而汉语则依赖语境或名词化标记，而不是专门的动词名词形式。"
+      "en": "The distinction between ser and estar is one of the most fundamental and challenging aspects of Spanish grammar for learners from English and Chinese backgrounds. While English uses a single verb 'to be' for all copulative functions, Spanish divides these meanings between two verbs: ser for permanent, essential, or defining characteristics, and estar for temporary states, locations, and conditions. Chinese takes yet another approach, using entirely different grammatical strategies including the verb 是 for identity, 在 for location, and often no copula at all for descriptive states. Understanding when to use each verb is critical for achieving fluency in Spanish and avoiding common translation errors.",
+      "es": "La distinción entre ser y estar constituye uno de los aspectos fundamentales y más desafiantes de la gramática española para hablantes de inglés y chino. Mientras que el inglés emplea un único verbo 'to be' para todas las funciones copulativas, el español distribuye estos significados entre dos verbos: ser para características permanentes, esenciales o definitorias, y estar para estados temporales, ubicaciones y condiciones. El chino utiliza estrategias gramaticales completamente diferentes, empleando el verbo 是 para la identidad, 在 para la ubicación, y frecuentemente omitiendo el verbo copulativo para estados descriptivos.",
+      "zh": "ser和estar的区别是西班牙语语法中最基本且最具挑战性的方面之一，对于英语和汉语背景的学习者尤其如此。英语使用单一的动词'to be'来承担所有系动词功能，而西班牙语则将这类意义分配给两个不同的动词：ser用于永久性、本质性或定义性特征，而estar用于临时状态、位置和条件。汉语则采用完全不同的语法策略，使用'是'表示身份，'在'表示位置，而描述状态时常常完全不需要系动词。"
     },
     "overviewExtra": {
-      "en": "Understanding how each language handles verbal nouns is essential for multilingual learners, since direct translation often leads to ungrammatical constructions. English learners of Spanish frequently overuse the English gerund pattern, while Chinese speakers must adjust to languages with explicit verbal noun morphology.",
-      "es": "Comprender cómo cada idioma maneja los sustantivos verbales es esencial para aprendices multilingües, ya que la traducción directa a menudo conduce a construcciones agramaticales. Los angloparlantes que aprenden español suelen sobreutilizar el patrón del gerundio inglés, mientras que los hablantes de chino deben adaptarse a idiomas con morfología explícita de sustantivos verbales.",
-      "zh": "了解每种语言如何处理动词名词对多语言学习者至关重要，因为直接翻译往往会导致不合语法的结构。学英语的西班牙语母语者常常过度使用英语动名词模式，而汉语使用者必须适应具有明确动词名词形态的语言。"
+      "en": "This distinction carries significant communicative weight in Spanish. Using ser when estar is expected can imply a permanent trait where only a temporary condition was intended, potentially causing offense or confusion. Conversely, using estar with an adjective like 'guapo' suggests an unusual or unexpected state rather than an inherent quality. For multilingual learners, mastering ser and estar represents a crucial milestone in developing native-like grammatical intuition.",
+      "es": "Esta distinción posee un peso comunicativo significativo en español. Usar ser cuando se espera estar puede implicar un rasgo permanente donde solo se pretendía una condición temporal, causando potencialmente ofensa o confusión. A la inversa, usar estar con un adjetivo como 'guapo' sugiere un estado inusual o inesperado en lugar de una cualidad inherente.",
+      "zh": "这种区别在西班牙语中具有重要的交际分量。在应该用estar的地方使用ser，可能会暗示一种永久特征，而说话者原本只想表达临时状态，这可能会引起冒犯或困惑。相反，将estar与像'帅'这样的形容词连用，则暗示一种不寻常或意外的状态，而非固有品质。"
     },
     "explanation": {
-      "spanish": "En español, el infinitivo cumple la función que en inglés realiza el gerundio. Se usa después de preposiciones, como sujeto de oración y después de ciertos verbos de gusto y necesidad.\n\n- **Después de preposiciones:** *Estoy interesado en aprender chino.*\n- **Como sujeto:** *Nadar es saludable.*\n- **Después de verbos:** *Me gusta leer.*\n\nEl gerundio propiamente dicho (-ando, -iendo) se usa solo para acciones en progreso con estar.",
-      "english": "In English, the gerund is the -ing form of a verb used as a noun. It can appear as subject, object, or after prepositions.\n\n- **As subject:** *Swimming is fun.*\n- **As object:** *I enjoy reading.*\n- **After prepositions:** *She is good at cooking.*\n\nEnglish also uses the present participle (-ing) for progressive tenses, creating ambiguity that does not exist in Spanish or Chinese.",
-      "chinese": "汉语没有专门的动名词形式。动词可以直接充当名词性成分，或者借助语境、结构助词和特定句法位置来实现名词化。\n\n- **动词直接作主语：** 游泳有益健康。\n- **借助的：** 他的到来让人惊喜。\n- **介词后使用动词原形：** 我对学中文感兴趣。\n\n汉语的名词化是一种零形态操作，不需要像英语那样改变动词形态。"
+      "spanish": "En español, el verbo **ser** expresa identidad, esencia, naturaleza o cualidades inherentes que definen al sujeto. Se utiliza para: (1) identidad y profesión — *Soy médico*; (2) origen y nacionalidad — *Es de España*; (3) materia y composición — *La mesa es de madera*; (4) posesión y pertenencia — *Este libro es mío*; (5) hora y fecha — *Son las tres*; (6) características permanentes — *Es alto*; (7) lugar de eventos — *La fiesta es en mi casa*. Por el contrario, **estar** indica estados transitorios, posición geográfica o resultados de procesos: (1) ubicación física — *Estoy en Madrid*; (2) estados emocionales — *Está feliz*; (3) condiciones temporales — *Está enfermo*; (4) acciones en progreso — *Estoy comiendo*; (5) resultados de acciones — *La puerta está abierta*. La diferencia se resume en el acrónimo DOCTOR para ser y PLACE para estar.",
+      "english": "English employs the single verb **'to be'** as a universal copula without any inherent grammatical distinction between permanent and temporary states. English speakers must rely entirely on context, adverbs, and lexical choice to convey nuances that Spanish encodes grammatically through ser and estar. When translating from English to Spanish, learners must consciously analyze whether the attribute being described is inherent (ser) or contingent (estar). Chinese adds further complexity by frequently omitting the copula entirely for descriptive adjectives, creating additional cognitive load for Chinese speakers learning Spanish.",
+      "chinese": "汉语没有与西班牙语ser和estar直接对应的语法范畴。相反，汉语根据语义功能采用完全不同的句法手段：（1）身份和职业使用'是'——我是医生；（2）位置使用'在'——我在马德里；（3）描述状态和性质时，形容词直接充当谓语，无需系动词——他很高、他累了；（4）进行中的动作使用'在'加动词——我在吃饭；（5）时间用'是'或'了'——现在是三点。这种差异意味着汉语母语者学习西班牙语时，必须建立全新的语法范畴意识：何时描述本质属性，何时描述临时状态。"
     },
     "examples": [
-      { "spanish": "Nadar es saludable.", "english": "Swimming is healthy.", "chinese": "游泳有益健康。" },
-      { "spanish": "Me gusta leer novelas.", "english": "I like reading novels.", "chinese": "我喜欢读小说。" },
-      { "spanish": "Estoy cansado de estudiar.", "english": "I am tired of studying.", "chinese": "我厌倦了学习。" },
-      { "spanish": "Aprender idiomas abre puertas.", "english": "Learning languages opens doors.", "chinese": "学习语言打开大门。" },
-      { "spanish": "Vimos a los niños jugando.", "english": "We saw the children playing.", "chinese": "我们看见孩子们在玩。" },
-      { "spanish": "Prefiero caminar a conducir.", "english": "I prefer walking to driving.", "chinese": "比起开车，我更喜欢走路。" },
-      { "spanish": "El fumar está prohibido.", "english": "Smoking is prohibited.", "chinese": "吸烟被禁止。" },
-      { "spanish": "Odio levantarme temprano.", "english": "I hate getting up early.", "chinese": "我讨厌早起。" },
-      { "spanish": "Empieza a llover.", "english": "It starts raining.", "chinese": "开始下雨了。" },
-      { "spanish": "Terminó de comer.", "english": "He finished eating.", "chinese": "他吃完了饭。" },
-      { "spanish": "Ella evita hablar en público.", "english": "She avoids speaking in public.", "chinese": "她避免在公共场合说话。" }
+      {
+        "spanish": "Soy profesor de español.",
+        "english": "I am a Spanish teacher.",
+        "chinese": "我是西班牙语老师。"
+      },
+      {
+        "spanish": "Estoy en la biblioteca.",
+        "english": "I am in the library.",
+        "chinese": "我在图书馆。"
+      },
+      {
+        "spanish": "Es muy inteligente.",
+        "english": "He is very intelligent.",
+        "chinese": "他很聪明。"
+      },
+      {
+        "spanish": "Está cansado después del trabajo.",
+        "english": "He is tired after work.",
+        "chinese": "他下班后累了。"
+      },
+      {
+        "spanish": "La sopa está caliente.",
+        "english": "The soup is hot.",
+        "chinese": "汤很热。"
+      },
+      {
+        "spanish": "Son las diez de la mañana.",
+        "english": "It is ten in the morning.",
+        "chinese": "现在是上午十点。"
+      },
+      {
+        "spanish": "Estamos estudiando para el examen.",
+        "english": "We are studying for the exam.",
+        "chinese": "我们在准备考试。"
+      }
     ],
     "comparisonTable": [
       {
-        "concept": { "en": "Form/Structure", "es": "Forma/Estructura", "zh": "形式/结构" },
+        "concept": {
+          "en": "Permanent identity",
+          "es": "Identidad permanente",
+          "zh": "永久身份"
+        },
         "values": {
-          "spanish": "Infinitive (-ar, -er, -ir) as verbal noun; true gerund (-ando, -iendo) only for progressive aspect",
-          "english": "Gerund (-ing) identical to present participle; used as noun and in progressive tenses",
-          "chinese": "No dedicated form; verb stem used directly or with 的 for nominalization"
+          "spanish": "ser",
+          "english": "to be",
+          "chinese": "是"
         }
       },
       {
-        "concept": { "en": "Usage contexts", "es": "Contextos de uso", "zh": "使用语境" },
+        "concept": {
+          "en": "Physical location",
+          "es": "Ubicación física",
+          "zh": "物理位置"
+        },
         "values": {
-          "spanish": "Infinitive after prepositions and as subject; gerund only with estar for ongoing actions",
-          "english": "Gerund as subject, object, after prepositions; participle for progressive and adjectival uses",
-          "chinese": "Verb directly in subject/object position; context and particles disambiguate function"
+          "spanish": "estar",
+          "english": "to be",
+          "chinese": "在"
         }
       },
       {
-        "concept": { "en": "Key markers/particles", "es": "Marcadores/partículas clave", "zh": "关键标记/助词" },
+        "concept": {
+          "en": "Temporary condition",
+          "es": "Condición temporal",
+          "zh": "临时状态"
+        },
         "values": {
-          "spanish": "Infinitive article (el) for nominalization: el fumar; estar + gerund for progressive",
-          "english": "-ing suffix universally marks both gerund and participle; auxiliary be for progressive",
-          "chinese": "的 for explicit nominalization; 在 for progressive aspect; zero marking for most cases"
+          "spanish": "estar",
+          "english": "to be",
+          "chinese": "形容词直接谓语"
         }
       },
       {
-        "concept": { "en": "Learner difficulty", "es": "Dificultad para aprendices", "zh": "学习者难度" },
+        "concept": {
+          "en": "Time / hour",
+          "es": "Hora",
+          "zh": "时间"
+        },
         "values": {
-          "spanish": "English speakers overuse -ing where Spanish needs infinitive; confusing gerund vs infinitive after verbs",
-          "english": "Spanish speakers may omit gerund after prepositions; confusing gerund vs infinitive verb complements",
-          "chinese": "Learners must acquire explicit verbal noun morphology absent in L1; -ing vs infinitive distinction is new"
+          "spanish": "ser",
+          "english": "to be",
+          "chinese": "是 / 了"
+        }
+      },
+      {
+        "concept": {
+          "en": "Material composition",
+          "es": "Material",
+          "zh": "材质"
+        },
+        "values": {
+          "spanish": "ser",
+          "english": "to be",
+          "chinese": "是...做的"
+        }
+      },
+      {
+        "concept": {
+          "en": "Ongoing action",
+          "es": "Acción en progreso",
+          "zh": "进行中的动作"
+        },
+        "values": {
+          "spanish": "estar + gerundio",
+          "english": "to be + -ing",
+          "chinese": "在 + 动词"
         }
       }
     ],
     "commonMistakes": [
       {
-        "mistake": { "en": "Using English gerund form in Spanish sentences", "es": "Usar la forma del gerundio inglés en oraciones españolas", "zh": "在西班牙语句子中使用英语动名词形式" },
-        "correction": { "en": "Use the Spanish infinitive where English would use a gerund: Me gusta bailar.", "es": "Usa el infinitivo español donde el inglés usaría gerundio: Me gusta bailar.", "zh": "在英语使用动名词的地方使用西班牙语不定式：Me gusta bailar。" },
-        "note": { "en": "After prepositions and as subjects, Spanish consistently prefers the infinitive.", "es": "Después de preposiciones y como sujeto, el español prefiere consistentemente el infinitivo.", "zh": "在介词后和作主语时，西班牙语始终偏好不定式。" }
+        "mistake": {
+          "en": "Using 'estar' for profession",
+          "es": "Usar 'estar' para profesión",
+          "zh": "用estar表示职业"
+        },
+        "correction": {
+          "en": "Use 'ser' for inherent identity",
+          "es": "Usar 'ser' para identidad inherente",
+          "zh": "用ser表示固有身份"
+        },
+        "note": {
+          "en": "Professions define who someone is, not their temporary state.",
+          "es": "Las profesiones definen la identidad, no un estado temporal.",
+          "zh": "职业定义的是人的身份，不是临时状态。"
+        }
       },
       {
-        "mistake": { "en": "Confusing Spanish gerund with English gerund", "es": "Confundir el gerundio español con el gerundio inglés", "zh": "混淆西班牙语副动词与英语动名词" },
-        "correction": { "en": "Spanish -ando/-iendo is a progressive participle, not a noun. Use infinitive for noun functions.", "es": "El español -ando/-iendo es un participio progresivo, no un sustantivo. Usa el infinitivo para funciones nominales.", "zh": "西班牙语-ando/-iendo是进行体副动词，不是名词。名词功能使用不定式。" },
-        "note": { "en": "Estoy leyendo = I am reading (progressive); Leer es divertido = Reading is fun (infinitive as noun).", "es": "Estoy leyendo = Estoy leyendo (progresivo); Leer es divertido = Leer es divertido (infinitivo como sustantivo).", "zh": "Estoy leyendo = 我正在读书（进行体）；Leer es divertido = 阅读很有趣（不定式作名词）。" }
+        "mistake": {
+          "en": "Using 'ser' for current location of people",
+          "es": "Usar 'ser' para ubicación actual",
+          "zh": "用ser表示人的当前位置"
+        },
+        "correction": {
+          "en": "Use 'estar' for physical presence",
+          "es": "Usar 'estar' para presencia física",
+          "zh": "用estar表示物理存在"
+        },
+        "note": {
+          "en": "People use 'estar' even for long-term residence; 'ser' is only for event locations.",
+          "es": "Las personas usan 'estar' incluso para residencia prolongada; 'ser' solo para eventos.",
+          "zh": "即使是长期居住，人也用estar；ser只用于活动发生的地点。"
+        }
       },
       {
-        "mistake": { "en": "Omitting gerund after English prepositions", "es": "Omitir el gerundio después de preposiciones en inglés", "zh": "在英语介词后省略动名词" },
-        "correction": { "en": "Always use gerund (-ing) after prepositions in English: interested in learning.", "es": "Siempre usa el gerundio (-ing) después de preposiciones en inglés: interested in learning.", "zh": "在英语介词后始终使用动名词（-ing）：interested in learning。" },
-        "note": { "en": "English requires -ing after prepositions; Spanish uses infinitive; Chinese uses verb directly.", "es": "El inglés requiere -ing después de preposiciones; el español usa infinitivo; el chino usa el verbo directamente.", "zh": "英语介词后需要-ing；西班牙语用不定式；汉语直接用动词。" }
+        "mistake": {
+          "en": "Translating English 'to be' directly without analyzing permanence",
+          "es": "Traducir 'to be' directamente sin analizar permanencia",
+          "zh": "直接翻译英语的to be而不分析永久性"
+        },
+        "correction": {
+          "en": "Ask: Is this inherent or temporary?",
+          "es": "Preguntar: ¿Es inherente o temporal?",
+          "zh": "问自己：这是固有的还是临时的？"
+        },
+        "note": {
+          "en": "This mental check prevents most ser/estar errors.",
+          "es": "Esta verificación mental evita la mayoría de errores.",
+          "zh": "这种思维检查可以避免大多数ser/estar错误。"
+        }
       }
     ],
     "keyTakeaways": [
-      { "en": "Spanish uses the infinitive where English uses the gerund", "es": "El español usa el infinitivo donde el inglés usa el gerundio", "zh": "西班牙语使用不定式的地方英语使用动名词" },
-      { "en": "Chinese verbs can function as nouns without morphological change", "es": "Los verbos chinos pueden funcionar como sustantivos sin cambio morfológico", "zh": "汉语动词可以在没有形态变化的情况下充当名词" },
-      { "en": "English -ing is ambiguous between gerund and present participle", "es": "El inglés -ing es ambiguo entre gerundio y participio presente", "zh": "英语-ing在动名词和现在分词之间存在歧义" }
-    ],
-    "relatedTopics": ["infinitives", "participles", "verb-tenses"],
-    "prerequisites": ["verb-forms"],
-    "faq": [
       {
-        "question": { "en": "Can Spanish use the gerund as a subject like English?", "es": "¿Puede el español usar el gerundio como sujeto como el inglés?", "zh": "西班牙语可以像英语那样用副动词作主语吗？" },
-        "answer": { "en": "No. Spanish uses the infinitive as subject: Bailar es divertido (not Bailando es divertido).", "es": "No. El español usa el infinitivo como sujeto: Bailar es divertido (no Bailando es divertido).", "zh": "不可以。西班牙语用不定式作主语：Bailar es divertido（不是Bailando es divertido）。" }
+        "en": "Ser describes inherent, defining attributes; estar describes temporary states and locations.",
+        "es": "Ser describe atributos inherentes; estar describe estados temporales y ubicaciones.",
+        "zh": "ser描述固有定义性特征；estar描述临时状态和位置。"
       },
       {
-        "question": { "en": "How does Chinese express 'I like swimming'?", "es": "¿Cómo expresa el chino 'Me gusta nadar'?", "zh": "汉语如何表达'我喜欢游泳'？" },
-        "answer": { "en": "Chinese uses the verb directly: 我喜欢游泳 (wǒ xǐhuan yóuyǒng), with no special nominal form needed.", "es": "El chino usa el verbo directamente: 我喜欢游泳 (wǒ xǐhuan yóuyǒng), sin necesidad de una forma nominal especial.", "zh": "汉语直接使用动词：我喜欢游泳，不需要特殊的名词形式。" }
+        "en": "English 'to be' covers both, requiring context analysis when translating to Spanish.",
+        "es": "El inglés 'to be' cubre ambos, requiriendo análisis contextual al traducir al español.",
+        "zh": "英语的to be涵盖两者，翻译成西班牙语时需要语境分析。"
+      },
+      {
+        "en": "Chinese frequently omits the copula entirely, making the ser/estar distinction especially challenging.",
+        "es": "El chino frecuentemente omite el verbo copulativo, dificultando la distinción ser/estar.",
+        "zh": "汉语经常完全省略系动词，这使得ser/estar的区别特别具有挑战性。"
+      }
+    ],
+    "relatedTopics": [
+      "copula",
+      "verb-tenses",
+      "mood",
+      "pronouns"
+    ],
+    "prerequisites": [],
+    "faq": [
+      {
+        "question": {
+          "en": "Can 'estar' ever be used with adjectives normally used with 'ser'?",
+          "es": "¿Se puede usar 'estar' con adjetivos de 'ser'?",
+          "zh": "estar可以和通常与ser搭配的形容词一起使用吗？"
+        },
+        "answer": {
+          "en": "Yes, to emphasize a temporary deviation: 'Está guapo hoy' (He looks handsome today — unusually so).",
+          "es": "Sí, para enfatizar una desviación temporal: 'Está guapo hoy'.",
+          "zh": "可以，用来强调暂时的偏离：'他今天看起来很帅（不同寻常地）'。"
+        }
+      },
+      {
+        "question": {
+          "en": "Why does Spanish have two verbs when other languages manage with one?",
+          "es": "¿Por qué español tiene dos verbos cuando otros idiomas usan uno?",
+          "zh": "为什么西班牙语有两个动词，而其他语言用一个就够了？"
+        },
+        "answer": {
+          "en": "Spanish inherited this distinction from Latin (esse vs stare). It provides grammatical precision that context-based languages convey through other means.",
+          "es": "El español heredó esta distinción del latín (esse vs stare). Proporciona precisión gramatical que otros idiomas transmiten por contexto.",
+          "zh": "西班牙语从拉丁语继承了这一区别（esse vs stare）。它提供了基于语境的语言通过其他方式传达的语法精确性。"
+        }
       }
     ],
     "references": [
-      { "title": "Real Academia Española - DLE", "url": "https://dle.rae.es", "description": "Spanish grammar authority" },
-      { "title": "Grammar Atlas Reference", "url": "https://grammarnavigator.com", "description": "Multilingual grammar reference" },
-      { "title": "Cambridge Grammar of English", "url": "https://cambridge.org/grammar", "description": "Comprehensive English grammar guide" }
+      {
+        "title": "Real Academia Española - Diccionario Panhispánico de Dudas",
+        "url": "https://www.rae.es/dpd/ser",
+        "description": "Official RAE guidance on ser and estar usage"
+      },
+      {
+        "title": "SpanishDict - Ser vs Estar",
+        "url": "https://www.spanishdict.com/guide/ser-vs-estar",
+        "description": "Comprehensive learner guide with quizzes"
+      },
+      {
+        "title": "Grammar Atlas Comparative Reference",
+        "url": "https://grammarnavigator.com",
+        "description": "Cross-linguistic analysis of copular verbs"
+      }
+    ]
+  },
+  {
+    "topic": "por-vs-para",
+    "template": "syntactic",
+    "titles": {
+      "en": "Por vs Para",
+      "es": "Por y Para",
+      "zh": "Por与Para的区别"
+    },
+    "description": {
+      "en": "The distinction between Spanish prepositions por and para and how English and Chinese express equivalent semantic relationships.",
+      "es": "La distinción entre las preposiciones por y para y cómo el inglés y el chino expresan relaciones semánticas equivalentes.",
+      "zh": "西班牙语介词por和para的区别，以及英语和汉语如何表达同等语义关系。"
+    },
+    "difficulty": "intermediate",
+    "overview": {
+      "en": "The prepositions **por** and **para** are among the most frequently used and most commonly confused words in Spanish. Both frequently translate to 'for' in English, yet they encode fundamentally different semantic relationships: por conveys cause, motive, medium, substitution, duration, and route, while para expresses purpose, destination, recipient, intended use, and deadlines. English lacks this grammatical distinction, relying on context and various prepositions to convey these nuances. Chinese employs an even more analytic approach, using specific verbs and postpositions such as 为了 for purpose, 通过 for medium, 给 for recipient, and 代替 for substitution.",
+      "es": "Las preposiciones **por** y **para** figuran entre las palabras más frecuentes y más confusas del español. Ambas suelen traducirse como 'for' en inglés, pero codifican relaciones semánticas fundamentalmente distintas: por expresa causa, motivo, medio, sustitución, duración y ruta, mientras que para indica propósito, destinatario, destino, uso previsto y plazos temporales. El inglés carece de esta distinción gramatical, confiando en el contexto y diversas preposiciones para transmitir estos matices. El chino utiliza un enfoque aún más analítico, empleando verbos específicos y postposiciones.",
+      "zh": "介词por和para是西班牙语中使用频率最高且最容易混淆的词汇之一。两者在英语中经常都被翻译为'for'，但它们编码了根本不同的语义关系：por表示原因、动机、媒介、替代、持续时间和路线，而para表示目的、目的地、接收者、预期用途和期限。英语缺乏这种语法区别，依赖语境和各种介词来传达这些细微差别。汉语采用更加分析性的方法，使用特定动词和后置词，如'为了'表示目的、'通过'表示媒介、'给'表示接收者、'代替'表示替代。"
+    },
+    "overviewExtra": {
+      "en": "Mastering por and para requires more than memorizing rules; it demands developing an intuitive sense of temporal and causal orientation. Spanish encodes a conceptual distinction that English leaves to pragmatics and Chinese distributes across the verbal system. For search-driven traffic, this topic represents high-intent queries from learners actively struggling with a concrete grammatical obstacle. Providing clear, contrastive examples across all three languages transforms a confusing abstraction into a navigable decision tree.",
+      "es": "Dominar por y para requiere más que memorizar reglas; exige desarrollar una intuición sobre orientación temporal y causal. El español codifica una distinción conceptual que el inglés deja a la pragmática y el chino distribuye en el sistema verbal. Para tráfico de búsqueda, este tema representa consultas de alta intención de aprendices que luchan activamente con un obstáculo gramatical concreto.",
+      "zh": "掌握por和para不仅仅是记忆规则；它需要培养对时间和因果方向的直觉。西班牙语编码了一种概念区别，而英语将其留给语用学，汉语则将其分布在动词系统中。对于搜索流量来说，这个话题代表了学习者积极 struggling with a concrete grammatical obstacle 的高意图查询。"
+    },
+    "explanation": {
+      "spanish": "En español, **por** funciona como preposición de causa, medio y circunstancia: (1) causa y motivo — *Lo hice por ti*; (2) medio y agente — *Viajamos por tren*; *Fue escrito por Cervantes*; (3) duración de tiempo — *Estudié por tres horas*; (4) precio y cantidad — *Lo compré por diez euros*; (5) lugar a través del cual se pasa — *Pasamos por el parque*; (6) sustitución de alguien — *Trabajo por mi hermana*. En contraste, **para** indica propósito, dirección y finalidad: (1) propósito e intención — *Estudio para ser médico*; (2) destinatario — *Este regalo es para ti*; (3) dirección y destino — *Salgo para Madrid*; (4) uso previsto — *Es una silla para niños*; (5) plazo límite — *Necesito el informe para mañana*; (6) opinión subjetiva — *Para mí, es difícil*. La regla mnemotécnica clásica resume: por = mirando hacia atrás (causa, origen), para = mirando hacia adelante (propósito, meta).",
+      "english": "English speakers struggle with por and para because both frequently map to the single preposition **'for.'** However, English does possess nuanced equivalents: 'by' for agent (*por Cervantes*), 'through' for route (*por el parque*), 'in exchange for' for substitution (*por diez euros*), 'in order to' for purpose (*para ser médico*), and 'to' for destination (*para Madrid*). The critical distinction lies in temporal orientation: por looks backward to causes, origins, and means, while para looks forward to purposes, goals, and intended outcomes. Chinese speakers face additional complexity because Chinese typically places purpose and recipient information in the verb phrase itself rather than in prepositions.",
+      "chinese": "汉语学习者在掌握por和para时面临特殊挑战，因为汉语不使用前置词系统来表达这些关系，而是将相同的功能融入动词和后置结构中。（1）原因和动机用'因为'、'由于'或'为了'——我因为你而做（por ti）；（2）媒介和工具用'通过'、'用'——我们乘火车旅行（por tren）；（3）持续时间直接放在动词后——我学习了三个小时；（4）替代用'替'、'代替'——我替我妹妹工作；（5）目的用'为了'——我学习为了当医生；（6）接收者用'给'——这个礼物是给你的；（7）目的地用'去'或'到'——我去马德里。por和para的区别可以用时间方向来理解：por向后看（原因、来源），para向前看（目的、目标）。"
+    },
+    "examples": [
+      {
+        "spanish": "Lo hice por ti.",
+        "english": "I did it for you (because of you).",
+        "chinese": "我因为你而做的。"
+      },
+      {
+        "spanish": "Este libro es para ti.",
+        "english": "This book is for you (intended recipient).",
+        "chinese": "这本书是给你的。"
+      },
+      {
+        "spanish": "Viajamos por tren.",
+        "english": "We travel by train.",
+        "chinese": "我们乘火车旅行。"
+      },
+      {
+        "spanish": "Estudio para ser médico.",
+        "english": "I study to become a doctor.",
+        "chinese": "我学习为了当医生。"
+      },
+      {
+        "spanish": "Lo compré por diez euros.",
+        "english": "I bought it for ten euros.",
+        "chinese": "我十欧元买的。"
+      },
+      {
+        "spanish": "Salgo para Madrid mañana.",
+        "english": "I leave for Madrid tomorrow.",
+        "chinese": "我明天去马德里。"
+      },
+      {
+        "spanish": "Para mí, es demasiado difícil.",
+        "english": "For me, it's too difficult.",
+        "chinese": "对我来说，这太难了。"
+      }
+    ],
+    "comparisonTable": [
+      {
+        "concept": {
+          "en": "Cause / reason",
+          "es": "Causa / motivo",
+          "zh": "原因 / 动机"
+        },
+        "values": {
+          "spanish": "por",
+          "english": "because of, for",
+          "chinese": "因为、由于"
+        }
+      },
+      {
+        "concept": {
+          "en": "Recipient / beneficiary",
+          "es": "Destinatario",
+          "zh": "接收者 / 受益者"
+        },
+        "values": {
+          "spanish": "para",
+          "english": "for",
+          "chinese": "给、为"
+        }
+      },
+      {
+        "concept": {
+          "en": "Medium / transport",
+          "es": "Medio / transporte",
+          "zh": "媒介 / 交通工具"
+        },
+        "values": {
+          "spanish": "por",
+          "english": "by, through",
+          "chinese": "通过、乘、用"
+        }
+      },
+      {
+        "concept": {
+          "en": "Purpose / goal",
+          "es": "Propósito / meta",
+          "zh": "目的 / 目标"
+        },
+        "values": {
+          "spanish": "para",
+          "english": "in order to, to",
+          "chinese": "为了、要"
+        }
+      },
+      {
+        "concept": {
+          "en": "Duration",
+          "es": "Duración",
+          "zh": "持续时间"
+        },
+        "values": {
+          "spanish": "por",
+          "english": "for (time period)",
+          "chinese": "（时间段直接说）"
+        }
+      },
+      {
+        "concept": {
+          "en": "Deadline",
+          "es": "Plazo",
+          "zh": "截止日期"
+        },
+        "values": {
+          "spanish": "para",
+          "english": "by",
+          "chinese": "在...之前"
+        }
+      }
+    ],
+    "commonMistakes": [
+      {
+        "mistake": {
+          "en": "Using 'para' for cause/reason",
+          "es": "Usar 'para' para causa",
+          "zh": "用para表示原因"
+        },
+        "correction": {
+          "en": "Use 'por' for motives and causes",
+          "es": "Usar 'por' para motivos y causas",
+          "zh": "用por表示动机和原因"
+        },
+        "note": {
+          "en": "'Para ti' means intended for you; 'por ti' means because of you.",
+          "es": "'Para ti' = destinado a ti; 'por ti' = a causa de ti.",
+          "zh": "para ti 表示给你的；por ti 表示因为你的。"
+        }
+      },
+      {
+        "mistake": {
+          "en": "Using 'por' for purpose/goal",
+          "es": "Usar 'por' para propósito",
+          "zh": "用por表示目的"
+        },
+        "correction": {
+          "en": "Use 'para' + infinitive for purpose",
+          "es": "Usar 'para' + infinitivo para propósito",
+          "zh": "用para加动词原形表示目的"
+        },
+        "note": {
+          "en": "'Estudio por ser médico' is incorrect; the goal requires 'para'.",
+          "es": "'Estudio por ser médico' es incorrecto; la meta requiere 'para'.",
+          "zh": "Estudio por ser médico是错误的；目标需要用para。"
+        }
+      },
+      {
+        "mistake": {
+          "en": "Translating English 'for' directly without analyzing the relationship",
+          "es": "Traducir 'for' directamente sin analizar la relación",
+          "zh": "直接翻译英语的for而不分析关系"
+        },
+        "correction": {
+          "en": "Ask: Is this cause/medium (por) or purpose/recipient (para)?",
+          "es": "Preguntar: ¿Es causa/medio (por) o propósito/destinatario (para)?",
+          "zh": "问自己：这是原因/媒介（por）还是目的/接收者（para）？"
+        },
+        "note": {
+          "en": "The temporal orientation test (backward vs forward) resolves most cases.",
+          "es": "La prueba de orientación temporal resuelve la mayoría de casos.",
+          "zh": "时间方向测试（向后vs向前）可以解决大多数情况。"
+        }
+      }
+    ],
+    "keyTakeaways": [
+      {
+        "en": "Por = backward-looking (cause, origin, means); para = forward-looking (purpose, destination).",
+        "es": "Por = mirando hacia atrás; para = mirando hacia adelante.",
+        "zh": "por = 向后看（原因、来源、手段）；para = 向前看（目的、目的地）。"
+      },
+      {
+        "en": "Both often translate to English 'for', making the distinction especially challenging for English speakers.",
+        "es": "Ambas suelen traducirse como 'for', dificultando la distinción para angloparlantes.",
+        "zh": "两者在英语中经常都翻译为for，这使得英语母语者很难区分。"
+      },
+      {
+        "en": "Chinese restructures these concepts into verbs and postpositions, requiring conceptual realignment.",
+        "es": "El chino reestructura estos conceptos en verbos y postposiciones.",
+        "zh": "汉语将这些概念重构为动词和后置词，需要概念上的重新调整。"
+      }
+    ],
+    "relatedTopics": [
+      "prepositions",
+      "directional-verbs",
+      "verb-complementation"
+    ],
+    "prerequisites": [],
+    "faq": [
+      {
+        "question": {
+          "en": "Can 'por' and 'para' ever be interchangeable?",
+          "es": "¿Por y para son intercambiables alguna vez?",
+          "zh": "por和para有时可以互换吗？"
+        },
+        "answer": {
+          "en": "Rarely. Some fixed expressions allow both with different meanings: 'por la mañana' (in the morning) vs 'para la mañana' (by morning).",
+          "es": "Raramente. Algunas expresiones fijas permiten ambas con significados distintos.",
+          "zh": "很少。一些固定搭配允许两者使用但意义不同：por la mañana（在早上）vs para la mañana（在早上之前）。"
+        }
+      },
+      {
+        "question": {
+          "en": "How can I remember the difference quickly?",
+          "es": "¿Cómo recordar la diferencia rápidamente?",
+          "zh": "如何快速记住两者的区别？"
+        },
+        "answer": {
+          "en": "Use the destination test: if you can substitute 'in order to' or 'destination,' use para. If you can substitute 'because of' or 'through,' use por.",
+          "es": "Use la prueba de destino: si puede sustituir por 'a fin de' o 'destino', use para. Si puede sustituir por 'a causa de' o 'a través de', use por.",
+          "zh": "使用目的地测试：如果能替换为'in order to'或'目的地'，用para；如果能替换为'because of'或'through'，用por。"
+        }
+      }
+    ],
+    "references": [
+      {
+        "title": "Real Academia Española - Por",
+        "url": "https://www.rae.es/dpd/por",
+        "description": "Official RAE definition and usage of por"
+      },
+      {
+        "title": "StudySpanish.com - Por vs Para",
+        "url": "https://studyspanish.com/grammar/lessons/porpara",
+        "description": "Detailed lesson with practice exercises"
+      },
+      {
+        "title": "Grammar Atlas Comparative Reference",
+        "url": "https://grammarnavigator.com",
+        "description": "Cross-linguistic preposition analysis"
+      }
     ]
   }
 ]

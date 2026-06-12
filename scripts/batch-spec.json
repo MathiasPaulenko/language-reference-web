@@ -1,0 +1,114 @@
+[
+  {
+    "template": "verbal",
+    "topic": "gerunds",
+    "titles": { "en": "Gerunds", "es": "Gerundios", "zh": "动名词" },
+    "description": {
+      "en": "Verb forms acting as nouns in sentences across Spanish, English, and Chinese.",
+      "es": "Formas verbales que funcionan como sustantivos en oraciones en español, inglés y chino.",
+      "zh": "在西班牙语、英语和汉语中充当名词的动词形式。"
+    },
+    "difficulty": "intermediate",
+    "overview": {
+      "en": "A gerund is a verb form that functions as a noun within a sentence. While English uses the -ing form, Spanish uses the infinitive in many noun positions, and Chinese relies on context or nominalization markers rather than a dedicated verbal noun form.",
+      "es": "Un gerundio es una forma verbal que funciona como sustantivo dentro de una oración. Mientras que el inglés usa la forma -ing, el español usa el infinitivo en muchas posiciones nominales, y el chino depende del contexto o marcadores de nominalización en lugar de una forma verbal de sustantivo dedicada.",
+      "zh": "动名词是在句子中充当名词的动词形式。英语使用-ing形式，西班牙语在许多名词位置使用不定式，而汉语则依赖语境或名词化标记，而不是专门的动词名词形式。"
+    },
+    "overviewExtra": {
+      "en": "Understanding how each language handles verbal nouns is essential for multilingual learners, since direct translation often leads to ungrammatical constructions. English learners of Spanish frequently overuse the English gerund pattern, while Chinese speakers must adjust to languages with explicit verbal noun morphology.",
+      "es": "Comprender cómo cada idioma maneja los sustantivos verbales es esencial para aprendices multilingües, ya que la traducción directa a menudo conduce a construcciones agramaticales. Los angloparlantes que aprenden español suelen sobreutilizar el patrón del gerundio inglés, mientras que los hablantes de chino deben adaptarse a idiomas con morfología explícita de sustantivos verbales.",
+      "zh": "了解每种语言如何处理动词名词对多语言学习者至关重要，因为直接翻译往往会导致不合语法的结构。学英语的西班牙语母语者常常过度使用英语动名词模式，而汉语使用者必须适应具有明确动词名词形态的语言。"
+    },
+    "explanation": {
+      "spanish": "En español, el infinitivo cumple la función que en inglés realiza el gerundio. Se usa después de preposiciones, como sujeto de oración y después de ciertos verbos de gusto y necesidad.\n\n- **Después de preposiciones:** *Estoy interesado en aprender chino.*\n- **Como sujeto:** *Nadar es saludable.*\n- **Después de verbos:** *Me gusta leer.*\n\nEl gerundio propiamente dicho (-ando, -iendo) se usa solo para acciones en progreso con estar.",
+      "english": "In English, the gerund is the -ing form of a verb used as a noun. It can appear as subject, object, or after prepositions.\n\n- **As subject:** *Swimming is fun.*\n- **As object:** *I enjoy reading.*\n- **After prepositions:** *She is good at cooking.*\n\nEnglish also uses the present participle (-ing) for progressive tenses, creating ambiguity that does not exist in Spanish or Chinese.",
+      "chinese": "汉语没有专门的动名词形式。动词可以直接充当名词性成分，或者借助语境、结构助词和特定句法位置来实现名词化。\n\n- **动词直接作主语：** 游泳有益健康。\n- **借助的：** 他的到来让人惊喜。\n- **介词后使用动词原形：** 我对学中文感兴趣。\n\n汉语的名词化是一种零形态操作，不需要像英语那样改变动词形态。"
+    },
+    "examples": [
+      { "spanish": "Nadar es saludable.", "english": "Swimming is healthy.", "chinese": "游泳有益健康。" },
+      { "spanish": "Me gusta leer novelas.", "english": "I like reading novels.", "chinese": "我喜欢读小说。" },
+      { "spanish": "Estoy cansado de estudiar.", "english": "I am tired of studying.", "chinese": "我厌倦了学习。" },
+      { "spanish": "Aprender idiomas abre puertas.", "english": "Learning languages opens doors.", "chinese": "学习语言打开大门。" },
+      { "spanish": "Vimos a los niños jugando.", "english": "We saw the children playing.", "chinese": "我们看见孩子们在玩。" },
+      { "spanish": "Prefiero caminar a conducir.", "english": "I prefer walking to driving.", "chinese": "比起开车，我更喜欢走路。" },
+      { "spanish": "El fumar está prohibido.", "english": "Smoking is prohibited.", "chinese": "吸烟被禁止。" },
+      { "spanish": "Odio levantarme temprano.", "english": "I hate getting up early.", "chinese": "我讨厌早起。" },
+      { "spanish": "Empieza a llover.", "english": "It starts raining.", "chinese": "开始下雨了。" },
+      { "spanish": "Terminó de comer.", "english": "He finished eating.", "chinese": "他吃完了饭。" },
+      { "spanish": "Ella evita hablar en público.", "english": "She avoids speaking in public.", "chinese": "她避免在公共场合说话。" }
+    ],
+    "comparisonTable": [
+      {
+        "concept": { "en": "Form/Structure", "es": "Forma/Estructura", "zh": "形式/结构" },
+        "values": {
+          "spanish": "Infinitive (-ar, -er, -ir) as verbal noun; true gerund (-ando, -iendo) only for progressive aspect",
+          "english": "Gerund (-ing) identical to present participle; used as noun and in progressive tenses",
+          "chinese": "No dedicated form; verb stem used directly or with 的 for nominalization"
+        }
+      },
+      {
+        "concept": { "en": "Usage contexts", "es": "Contextos de uso", "zh": "使用语境" },
+        "values": {
+          "spanish": "Infinitive after prepositions and as subject; gerund only with estar for ongoing actions",
+          "english": "Gerund as subject, object, after prepositions; participle for progressive and adjectival uses",
+          "chinese": "Verb directly in subject/object position; context and particles disambiguate function"
+        }
+      },
+      {
+        "concept": { "en": "Key markers/particles", "es": "Marcadores/partículas clave", "zh": "关键标记/助词" },
+        "values": {
+          "spanish": "Infinitive article (el) for nominalization: el fumar; estar + gerund for progressive",
+          "english": "-ing suffix universally marks both gerund and participle; auxiliary be for progressive",
+          "chinese": "的 for explicit nominalization; 在 for progressive aspect; zero marking for most cases"
+        }
+      },
+      {
+        "concept": { "en": "Learner difficulty", "es": "Dificultad para aprendices", "zh": "学习者难度" },
+        "values": {
+          "spanish": "English speakers overuse -ing where Spanish needs infinitive; confusing gerund vs infinitive after verbs",
+          "english": "Spanish speakers may omit gerund after prepositions; confusing gerund vs infinitive verb complements",
+          "chinese": "Learners must acquire explicit verbal noun morphology absent in L1; -ing vs infinitive distinction is new"
+        }
+      }
+    ],
+    "commonMistakes": [
+      {
+        "mistake": { "en": "Using English gerund form in Spanish sentences", "es": "Usar la forma del gerundio inglés en oraciones españolas", "zh": "在西班牙语句子中使用英语动名词形式" },
+        "correction": { "en": "Use the Spanish infinitive where English would use a gerund: Me gusta bailar.", "es": "Usa el infinitivo español donde el inglés usaría gerundio: Me gusta bailar.", "zh": "在英语使用动名词的地方使用西班牙语不定式：Me gusta bailar。" },
+        "note": { "en": "After prepositions and as subjects, Spanish consistently prefers the infinitive.", "es": "Después de preposiciones y como sujeto, el español prefiere consistentemente el infinitivo.", "zh": "在介词后和作主语时，西班牙语始终偏好不定式。" }
+      },
+      {
+        "mistake": { "en": "Confusing Spanish gerund with English gerund", "es": "Confundir el gerundio español con el gerundio inglés", "zh": "混淆西班牙语副动词与英语动名词" },
+        "correction": { "en": "Spanish -ando/-iendo is a progressive participle, not a noun. Use infinitive for noun functions.", "es": "El español -ando/-iendo es un participio progresivo, no un sustantivo. Usa el infinitivo para funciones nominales.", "zh": "西班牙语-ando/-iendo是进行体副动词，不是名词。名词功能使用不定式。" },
+        "note": { "en": "Estoy leyendo = I am reading (progressive); Leer es divertido = Reading is fun (infinitive as noun).", "es": "Estoy leyendo = Estoy leyendo (progresivo); Leer es divertido = Leer es divertido (infinitivo como sustantivo).", "zh": "Estoy leyendo = 我正在读书（进行体）；Leer es divertido = 阅读很有趣（不定式作名词）。" }
+      },
+      {
+        "mistake": { "en": "Omitting gerund after English prepositions", "es": "Omitir el gerundio después de preposiciones en inglés", "zh": "在英语介词后省略动名词" },
+        "correction": { "en": "Always use gerund (-ing) after prepositions in English: interested in learning.", "es": "Siempre usa el gerundio (-ing) después de preposiciones en inglés: interested in learning.", "zh": "在英语介词后始终使用动名词（-ing）：interested in learning。" },
+        "note": { "en": "English requires -ing after prepositions; Spanish uses infinitive; Chinese uses verb directly.", "es": "El inglés requiere -ing después de preposiciones; el español usa infinitivo; el chino usa el verbo directamente.", "zh": "英语介词后需要-ing；西班牙语用不定式；汉语直接用动词。" }
+      }
+    ],
+    "keyTakeaways": [
+      { "en": "Spanish uses the infinitive where English uses the gerund", "es": "El español usa el infinitivo donde el inglés usa el gerundio", "zh": "西班牙语使用不定式的地方英语使用动名词" },
+      { "en": "Chinese verbs can function as nouns without morphological change", "es": "Los verbos chinos pueden funcionar como sustantivos sin cambio morfológico", "zh": "汉语动词可以在没有形态变化的情况下充当名词" },
+      { "en": "English -ing is ambiguous between gerund and present participle", "es": "El inglés -ing es ambiguo entre gerundio y participio presente", "zh": "英语-ing在动名词和现在分词之间存在歧义" }
+    ],
+    "relatedTopics": ["infinitives", "participles", "verb-tenses"],
+    "prerequisites": ["verb-forms"],
+    "faq": [
+      {
+        "question": { "en": "Can Spanish use the gerund as a subject like English?", "es": "¿Puede el español usar el gerundio como sujeto como el inglés?", "zh": "西班牙语可以像英语那样用副动词作主语吗？" },
+        "answer": { "en": "No. Spanish uses the infinitive as subject: Bailar es divertido (not Bailando es divertido).", "es": "No. El español usa el infinitivo como sujeto: Bailar es divertido (no Bailando es divertido).", "zh": "不可以。西班牙语用不定式作主语：Bailar es divertido（不是Bailando es divertido）。" }
+      },
+      {
+        "question": { "en": "How does Chinese express 'I like swimming'?", "es": "¿Cómo expresa el chino 'Me gusta nadar'?", "zh": "汉语如何表达'我喜欢游泳'？" },
+        "answer": { "en": "Chinese uses the verb directly: 我喜欢游泳 (wǒ xǐhuan yóuyǒng), with no special nominal form needed.", "es": "El chino usa el verbo directamente: 我喜欢游泳 (wǒ xǐhuan yóuyǒng), sin necesidad de una forma nominal especial.", "zh": "汉语直接使用动词：我喜欢游泳，不需要特殊的名词形式。" }
+      }
+    ],
+    "references": [
+      { "title": "Real Academia Española - DLE", "url": "https://dle.rae.es", "description": "Spanish grammar authority" },
+      { "title": "Grammar Atlas Reference", "url": "https://grammarnavigator.com", "description": "Multilingual grammar reference" },
+      { "title": "Cambridge Grammar of English", "url": "https://cambridge.org/grammar", "description": "Comprehensive English grammar guide" }
+    ]
+  }
+]

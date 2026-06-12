@@ -34,5 +34,9 @@ public/pagefind/
 # reference files
 ref/
 
+# IA
+.agents/
+
+
 # local-use scripts (not needed in production or deployment)
 scripts/

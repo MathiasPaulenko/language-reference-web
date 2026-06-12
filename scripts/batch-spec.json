@@ -210,9 +210,33 @@
       }
     ],
     "relatedTopics": [
-      "verb-tenses",
-      "aspect",
-      "mood"
+      {
+        "slug": "verb-tenses",
+        "title": "Verb Tenses",
+        "description": {
+          "en": "How the broader tense system interacts with aspectual distinctions in Spanish",
+          "es": "Cómo el sistema general de tiempos verbales interactúa con las distinciones aspectuales del español",
+          "zh": "更广泛的时态系统如何与西班牙语的体貌区别相互作用"
+        }
+      },
+      {
+        "slug": "aspect",
+        "title": "Aspect",
+        "description": {
+          "en": "How grammatical aspect encodes completed versus ongoing actions across languages",
+          "es": "Cómo el aspecto gramatical codifica acciones completadas versus en desarrollo entre idiomas",
+          "zh": "语法体貌如何在不同语言中编码已完成与进行中的动作"
+        }
+      },
+      {
+        "slug": "mood",
+        "title": "Mood",
+        "description": {
+          "en": "How verbal mood interacts with temporal and aspectual meaning",
+          "es": "Cómo el modo verbal interactúa con el significado temporal y aspectual",
+          "zh": "动词式如何与时间和体貌意义相互作用"
+        }
+      }
     ],
     "prerequisites": [],
     "faq": [
@@ -470,9 +494,33 @@
       }
     ],
     "relatedTopics": [
-      "pronouns",
-      "prepositions",
-      "verb-complementation"
+      {
+        "slug": "pronouns",
+        "title": "Pronouns",
+        "description": {
+          "en": "How pronouns replace or refer back to objects within and across sentences",
+          "es": "Cómo los pronombres reemplazan o remiten a objetos dentro y entre oraciones",
+          "zh": "代词如何在句内和句间替换或回指宾语"
+        }
+      },
+      {
+        "slug": "prepositions",
+        "title": "Prepositions",
+        "description": {
+          "en": "How prepositions mark case and introduce objects in different languages",
+          "es": "Cómo las preposiciones marcan caso e introducen objetos en diferentes idiomas",
+          "zh": "介词如何在不同语言中标格并引入宾语"
+        }
+      },
+      {
+        "slug": "verb-complementation",
+        "title": "Verb Complementation",
+        "description": {
+          "en": "How verbs select and combine with objects and other complements",
+          "es": "Cómo los verbos seleccionan y combinan con objetos y otros complementos",
+          "zh": "动词如何选择并与宾语和其他补语组合"
+        }
+      }
     ],
     "prerequisites": [],
     "faq": [

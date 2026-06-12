@@ -21,9 +21,95 @@ module.exports = function buildPragmaticSpec(data) {
       zh: `{{OVERVIEW_EXTRA_ZH: 讨论不同语用规范导致的跨文化误解。}}`
     },
     explanation: data.explanation || {
-      spanish: `{{SPANISH_EXPL: Describe Spanish ${titles.en} conventions. Include tú/usted, register shifts, and cultural norms. Use bullet lists.}}`,
-      english: `{{ENGLISH_EXPL: Describe English ${titles.en} conventions. Note relatively flat hierarchy and indirectness strategies. Use bullet lists.}}`,
-      chinese: `{{CHINESE_EXPL: Describe Chinese ${titles.en} conventions. Include 您, particles, face-saving strategies, and hierarchical language. Use bullet lists.}}`
+      spanish: `### Social hierarchy marking
+
+{{SPANISH_HIERARCHY: Describe how Spanish marks social hierarchy through this pragmatic phenomenon. Include tú/usted, register, and formality.}}
+
+- {{HIER_RULE1_ES}}
+- {{HIER_RULE2_ES}}
+
+| Context | Form | Example |
+|---|---|---|
+| {{HIER_CTX1_ES}} | {{HIER_FORM1_ES}} | *{{HIER_EX1_ES}}* |
+| {{HIER_CTX2_ES}} | {{HIER_FORM2_ES}} | *{{HIER_EX2_ES}}* |
+
+### Directness vs indirectness
+
+{{SPANISH_DIRECT: Describe Spanish conventions for direct and indirect expression in this domain.}}
+
+- {{DIR_RULE1_ES}}
+- {{DIR_RULE2_ES}}
+
+### Contextual cues
+
+{{SPANISH_CUES: Describe the contextual, paralinguistic, or situational cues that trigger this pragmatic choice in Spanish.}}
+
+- {{CUE_RULE1_ES}}
+- {{CUE_RULE2_ES}}
+
+### Learner pitfalls
+
+{{SPANISH_PITFALLS: Note common cross-cultural misunderstandings involving this phenomenon.}}`,
+
+      english: `### Social hierarchy marking
+
+{{ENGLISH_HIERARCHY: Describe how English marks (or does not mark) social hierarchy through this pragmatic phenomenon. Note the relatively flat register system.}}
+
+- {{HIER_RULE1_EN}}
+- {{HIER_RULE2_EN}}
+
+| Context | Form | Example |
+|---|---|---|
+| {{HIER_CTX1_EN}} | {{HIER_FORM1_EN}} | *{{HIER_EX1_EN}}* |
+| {{HIER_CTX2_EN}} | {{HIER_FORM2_EN}} | *{{HIER_EX2_EN}}* |
+
+### Directness vs indirectness
+
+{{ENGLISH_DIRECT: Describe English conventions for direct and indirect expression in this domain.}}
+
+- {{DIR_RULE1_EN}}
+- {{DIR_RULE2_EN}}
+
+### Contextual cues
+
+{{ENGLISH_CUES: Describe the contextual, paralinguistic, or situational cues that trigger this pragmatic choice in English.}}
+
+- {{CUE_RULE1_EN}}
+- {{CUE_RULE2_EN}}
+
+### Learner pitfalls
+
+{{ENGLISH_PITFALLS: Note common cross-cultural misunderstandings involving this phenomenon.}}`,
+
+      chinese: `### Social hierarchy marking
+
+{{CHINESE_HIERARCHY: Describe how Chinese marks social hierarchy through this pragmatic phenomenon. Include 您, particles, and honorific language.}}
+
+- {{HIER_RULE1_ZH}}
+- {{HIER_RULE2_ZH}}
+
+| Context | Form | Example |
+|---|---|---|
+| {{HIER_CTX1_ZH}} | {{HIER_FORM1_ZH}} | {{HIER_EX1_ZH}} |
+| {{HIER_CTX2_ZH}} | {{HIER_FORM2_ZH}} | {{HIER_EX2_ZH}} |
+
+### Directness vs indirectness
+
+{{CHINESE_DIRECT: Describe Chinese conventions for direct and indirect expression in this domain. Include face-saving and mitigated speech.}}
+
+- {{DIR_RULE1_ZH}}
+- {{DIR_RULE2_ZH}}
+
+### Contextual cues
+
+{{CHINESE_CUES: Describe the contextual, paralinguistic, or situational cues that trigger this pragmatic choice in Chinese.}}
+
+- {{CUE_RULE1_ZH}}
+- {{CUE_RULE2_ZH}}
+
+### Learner pitfalls
+
+{{CHINESE_PITFALLS: Note common cross-cultural misunderstandings involving this phenomenon.}}`
     },
     examples: data.examples || [
       { spanish: `{{EX1_ES}}`, english: `{{EX1_EN}}`, chinese: `{{EX1_ZH}}` },
@@ -90,7 +176,26 @@ module.exports = function buildPragmaticSpec(data) {
       { en: '{{KT2_EN}}', es: '{{KT2_ES}}', zh: '{{KT2_ZH}}' },
       { en: '{{KT3_EN}}', es: '{{KT3_ES}}', zh: '{{KT3_ZH}}' }
     ],
-    relatedTopics: data.relatedTopics || ['honorifics', 'register'],
+    relatedTopics: data.relatedTopics || [
+      {
+        slug: 'honorifics',
+        title: 'Honorifics',
+        description: {
+          en: 'How honorific and polite forms extend this pragmatic phenomenon',
+          es: 'Cómo las formas honoríficas y de cortesía extienden este fenómeno pragmático',
+          zh: '敬语和礼貌形式如何扩展此语用现象'
+        }
+      },
+      {
+        slug: 'register',
+        title: 'Register',
+        description: {
+          en: 'How register shifts and stylistic variation relate to this pragmatic choice',
+          es: 'Cómo los cambios de registro y la variación estilística se relacionan con esta elección pragmática',
+          zh: '语域转换和文体变化如何与此语用选择相关'
+        }
+      }
+    ],
     prerequisites: data.prerequisites || [],
     faq: data.faq || [
       {

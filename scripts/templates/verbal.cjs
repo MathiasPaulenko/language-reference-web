@@ -45,9 +45,86 @@ module.exports = function buildVerbalSpec(data) {
       zh: `{{OVERVIEW_EXTRA_ZH: 添加第二段，扩展多语言学习者的重要性。}}`
     },
     explanation: data.explanation || {
-      spanish: `{{SPANISH_EXPL: Describe how Spanish handles ${titles.en}. Include verb conjugations, forms, and syntactic patterns. Use markdown bullet lists.}}`,
-      english: `{{ENGLISH_EXPL: Describe how English handles ${titles.en}. Include forms, usage rules, and syntactic patterns. Use markdown bullet lists.}}`,
-      chinese: `{{CHINESE_EXPL: Describe how Chinese handles ${titles.en}. Note the absence of inflection and use of particles, word order, or aspect markers. Use markdown bullet lists.}}`
+      spanish: `### Formation and conjugation
+
+{{SPANISH_FORMATION: Describe how Spanish forms this verbal category. Include conjugation patterns, regular and irregular forms.}}
+
+- *{{EX_RULE1_ES}}* → {{EX_MEANING1_EN}}
+- *{{EX_RULE2_ES}}* → {{EX_MEANING2_EN}}
+
+### Key distinctions
+
+{{SPANISH_DISTINCTIONS: Explain the critical distinctions Spanish learners must master: aspect, tense, mood, or person/number agreement.}}
+
+| Context | Form | Example |
+|---|---|---|
+| {{DIST_CTX1_ES}} | {{DIST_FORM1_ES}} | *{{DIST_EX1_ES}}* |
+| {{DIST_CTX2_ES}} | {{DIST_FORM2_ES}} | *{{DIST_EX2_ES}}* |
+
+### Position in the sentence
+
+{{SPANISH_POSITION: Describe where the verb or verbal construction appears in the Spanish sentence.}}
+
+- {{POS_RULE1_ES}}
+- {{POS_RULE2_ES}}
+
+### Special cases and exceptions
+
+{{SPANISH_SPECIAL: Note exceptions, irregular verbs, or contexts where the standard rules do not apply.}}`,
+
+      english: `### Formation and structure
+
+{{ENGLISH_FORMATION: Describe how English forms this verbal category. Include auxiliary verbs, periphrastic constructions, or morphological changes.}}
+
+- {{ENG_RULE1}}
+- {{ENG_RULE2}}
+
+### Key distinctions
+
+{{ENGLISH_DISTINCTIONS: Explain the critical distinctions English makes (or does not make) compared to Spanish and Chinese.}}
+
+| Context | Form | Example |
+|---|---|---|
+| {{DIST_CTX1_EN}} | {{DIST_FORM1_EN}} | *{{DIST_EX1_EN}}* |
+| {{DIST_CTX2_EN}} | {{DIST_FORM2_EN}} | *{{DIST_EX2_EN}}* |
+
+### Position in the sentence
+
+{{ENGLISH_POSITION: Describe where the verb or verbal construction appears in the English sentence.}}
+
+- {{POS_RULE1_EN}}
+- {{POS_RULE2_EN}}
+
+### Special cases and exceptions
+
+{{ENGLISH_SPECIAL: Note exceptions, defective paradigms, or contexts where standard rules do not apply.}}`,
+
+      chinese: `### Formation and expression
+
+{{CHINESE_FORMATION: Describe how Chinese expresses this verbal category without inflection. Include particles, word order, or aspect markers.}}
+
+- {{ZH_RULE1}}
+- {{ZH_RULE2}}
+
+### Key distinctions
+
+{{CHINESE_DISTINCTIONS: Explain how Chinese encodes (or omits) the distinctions that Spanish and English mark grammatically.}}
+
+| Context | Strategy | Example |
+|---|---|---|
+| {{DIST_CTX1_ZH}} | {{DIST_STRAT1_ZH}} | {{DIST_EX1_ZH}} |
+| {{DIST_CTX2_ZH}} | {{DIST_STRAT2_ZH}} | {{DIST_EX2_ZH}} |
+
+### Position in the sentence
+
+{{CHINESE_POSITION: Describe where Chinese places aspect particles, adverbs, or complement phrases relative to the verb.}}
+
+- {{POS_RULE1_ZH}}
+- {{POS_RULE2_ZH}}
+
+### Special cases and exceptions
+
+{{CHINESE_SPECIAL: Note contexts where Chinese uses a different strategy than the default pattern.}}`
     },
     examples,
     comparisonTable: data.comparisonTable || [
@@ -106,7 +183,26 @@ module.exports = function buildVerbalSpec(data) {
       { en: '{{KT2_EN}}', es: '{{KT2_ES}}', zh: '{{KT2_ZH}}' },
       { en: '{{KT3_EN}}', es: '{{KT3_ES}}', zh: '{{KT3_ZH}}' }
     ],
-    relatedTopics: data.relatedTopics || ['verb-tenses', 'syntax-constituents'],
+    relatedTopics: data.relatedTopics || [
+      {
+        slug: 'verb-tenses',
+        title: 'Verb Tenses',
+        description: {
+          en: 'How tense and aspect systems interact with this verbal phenomenon',
+          es: 'Cómo los sistemas de tiempo y aspecto interactúan con este fenómeno verbal',
+          zh: '时态和体系统如何与此动词现象相互作用'
+        }
+      },
+      {
+        slug: 'syntax-constituents',
+        title: 'Syntax & Constituents',
+        description: {
+          en: 'How this verbal element fits into larger syntactic structures',
+          es: 'Cómo este elemento verbal encaja en estructuras sintácticas mayores',
+          zh: '此动词元素如何融入更大的句法结构'
+        }
+      }
+    ],
     prerequisites: data.prerequisites || [],
     faq: data.faq || [
       {

@@ -18,10 +18,16 @@ function addRubyTags(text) {
 
   function insideRubyTag(t, idx) {
     const before = t.slice(0, idx);
-    const lastOpen = before.lastIndexOf('<ruby>');
-    if (lastOpen === -1) return false;
-    const lastClose = before.lastIndexOf('</ruby>');
-    return lastOpen > lastClose;
+    const opens = (before.match(/<ruby>/g) || []).length;
+    const closes = (before.match(/<\/ruby>/g) || []).length;
+    return opens > closes;
+  }
+
+  function insideRtTag(t, idx) {
+    const before = t.slice(0, idx);
+    const opens = (before.match(/<rt>/g) || []).length;
+    const closes = (before.match(/<\/rt>/g) || []).length;
+    return opens > closes;
   }
 
   function insideCodeBlock(t, idx) {
@@ -43,7 +49,7 @@ function addRubyTags(text) {
   while ((match = cjkRegex.exec(text)) !== null) {
     const idx = match.index;
     const char = match[0];
-    if (insideRubyTag(text, idx) || insideCodeBlock(text, idx) || insideInlineCode(text, idx)) {
+    if (insideRubyTag(text, idx) || insideRtTag(text, idx) || insideCodeBlock(text, idx) || insideInlineCode(text, idx)) {
       continue;
     }
     const py = pinyin(char, { style: pinyin.STYLE_TONE, heteronym: false })[0][0];
@@ -163,30 +169,57 @@ function buildFrontmatter(data, locale) {
 
 function buildBody(data, locale) {
   const isZh = locale === 'zh';
-  const overviewHeader = isZh ? '## 概述' : (locale === 'es' ? '## Visión general' : '## Overview');
-  const explHeader = isZh ? '## 解释' : (locale === 'es' ? '## Explicación' : '## Explanation');
-  const examplesHeader = isZh ? '## 语境中的例子' : (locale === 'es' ? '## Ejemplos' : '## Examples');
+  const isEs = locale === 'es';
 
-  // Overview (reuse the frontmatter overview text + one extra paragraph if available)
+  // Section headers
+  const overviewHeader = isZh ? '## 概述' : (isEs ? '## Visión general' : '## Overview');
+  const explHeader     = isZh ? '## 解释' : (isEs ? '## Explicación' : '## Explanation');
+  const compHeader     = isZh ? '## 对比总结' : (isEs ? '## Comparación' : '## Comparison at a glance');
+  const examplesHeader = isZh ? '## 语境中的例子' : (isEs ? '## Ejemplos' : '## Examples');
+  const mistakesHeader = isZh ? '## 常见错误' : (isEs ? '## Errores comunes' : '## Common mistakes');
+  const relatedHeader  = isZh ? '## 相关话题' : (isEs ? '## Temas relacionados' : '## Related topics');
+  const faqHeader      = isZh ? '## 常见问题' : (isEs ? '## Preguntas frecuentes' : '## FAQ');
+  const refsHeader     = isZh ? '## 参考文献' : (isEs ? '## Referencias' : '## References');
+  const prereqHeader   = isZh ? '## 先决条件' : (isEs ? '## Requisitos previos' : '## Prerequisites');
+
+  const spLabel = isZh ? '西班牙语' : (isEs ? 'Español' : 'Spanish');
+  const enLabel = isZh ? '英语' : (isEs ? 'Inglés' : 'English');
+  const zhLabel = isZh ? '汉语' : (isEs ? 'Chino' : 'Chinese');
+
+  // ── Overview ──
   let body = `${overviewHeader}\n\n${data.overview[locale]}\n`;
   if (data.overviewExtra && data.overviewExtra[locale]) {
     body += `\n${data.overviewExtra[locale]}\n`;
   }
 
-  // Explanation with sub-sections
+  // Add bullet summary from keyTakeaways for richness
+  if (data.keyTakeaways && data.keyTakeaways.length > 0) {
+    body += `\n`;
+    for (const kt of data.keyTakeaways) {
+      const text = typeof kt === 'string' ? kt : (kt[locale] || kt.en || '');
+      if (text) body += `- ${text}\n`;
+    }
+  }
+
+  // ── Explanation with <div class="*-section"> wrappers ──
   body += `\n${explHeader}\n`;
+
   const langSections = ['spanish', 'english', 'chinese'];
+  const sectionClasses = {
+    spanish: 'spanish-section',
+    english: 'english-section',
+    chinese: 'chinese-section'
+  };
   const langHeaders = {
-    spanish: isZh ? '### 西班牙语' : (locale === 'es' ? '### Español' : '### Spanish'),
-    english: isZh ? '### 英语' : (locale === 'es' ? '### Inglés' : '### English'),
-    chinese: isZh ? '### 中文' : (locale === 'es' ? '### Chino' : '### Chinese')
+    spanish: isZh ? '## 西班牙语' : (isEs ? '## Español' : '## Spanish'),
+    english: isZh ? '## 英语' : (isEs ? '## Inglés' : '## English'),
+    chinese: isZh ? '## 中文' : (isEs ? '## Chino' : '## Chinese')
   };
 
   for (const lang of langSections) {
     const expl = data.explanation[lang];
     if (!expl) continue;
-    // If locale is the same as the explanation language, use it directly
-    // Otherwise, use the locale-specific explanation if available, or fall back
+
     let text = '';
     if (typeof expl === 'string') {
       text = expl;
@@ -197,23 +230,111 @@ function buildBody(data, locale) {
     } else {
       text = String(expl);
     }
-    body += `\n${langHeaders[lang]}\n\n${text}\n`;
+
+    const sectionClass = sectionClasses[lang];
+    const header       = langHeaders[lang];
+
+    body += `\n<div class="${sectionClass}">\n\n${header}\n\n${text}\n\n</div>\n`;
   }
 
-  // Comparative summary for zh to ensure body length
-  if (isZh) {
-    body += `\n${generateComparativeSummary(data.topic, locale)}\n`;
+  // ── Comparison at a glance ──
+  if (data.comparisonTable && data.comparisonTable.length > 0) {
+    body += `\n---\n\n${compHeader}\n\n`;
+    body += `| ${isZh ? '特征' : (isEs ? 'Característica' : 'Feature')} | ${spLabel} | ${enLabel} | ${zhLabel} |\n`;
+    body += `|---------|---------|---------|---------|\n`;
+    for (const row of data.comparisonTable) {
+      const concept = typeof row.concept === 'string' ? row.concept
+        : (row.concept[locale] || row.concept.en || '');
+      body += `| ${concept} | ${row.values.spanish} | ${row.values.english} | ${row.values.chinese} |\n`;
+    }
   }
 
-  // Examples table
-  body += `\n${examplesHeader}\n\n`;
-  body += `| ${isZh ? '西班牙语' : (locale === 'es' ? 'Español' : 'Spanish')} | ${isZh ? '英语' : (locale === 'es' ? 'Inglés' : 'English')} | ${isZh ? '汉语' : (locale === 'es' ? 'Chino' : 'Chinese')} |\n`;
+  // ── Examples ──
+  body += `\n---\n\n${examplesHeader}\n\n`;
+  body += `| ${spLabel} | ${enLabel} | ${zhLabel} |\n`;
   body += `|---------|---------|---------|\n`;
   for (const ex of data.examples) {
     const esCell = ex.spanish || ex.es || '';
     const enCell = ex.english || ex.en || '';
     const zhCell = ex.chinese || ex.zh || '';
     body += `| ${esCell} | ${enCell} | ${zhCell} |\n`;
+  }
+
+  // ── Common mistakes (body section) ──
+  if (data.commonMistakes && data.commonMistakes.length > 0) {
+    body += `\n---\n\n${mistakesHeader}\n\n`;
+    for (let i = 0; i < data.commonMistakes.length; i++) {
+      const m = data.commonMistakes[i];
+      const mistake    = typeof m.mistake === 'string' ? m.mistake : (m.mistake[locale] || m.mistake.en || '');
+      const correction = typeof m.correction === 'string' ? m.correction : (m.correction[locale] || m.correction.en || '');
+      const note       = typeof m.note === 'string' ? m.note : (m.note[locale] || m.note.en || '');
+
+      body += `${i + 1}. **${mistake}**\n\n   → ${correction}\n\n   ${note}\n\n`;
+    }
+  }
+
+  // ── FAQ ──
+  if (data.faq && data.faq.length > 0) {
+    body += `\n---\n\n${faqHeader}\n\n`;
+    for (const item of data.faq) {
+      const question = typeof item.question === 'string' ? item.question
+        : (item.question[locale] || item.question.en || '');
+      const answer = typeof item.answer === 'string' ? item.answer
+        : (item.answer[locale] || item.answer.en || '');
+      if (question) {
+        body += `**${question}**\n\n`;
+        if (answer) body += `${answer}\n\n`;
+      }
+    }
+  }
+
+  // ── Prerequisites ──
+  if (data.prerequisites && data.prerequisites.length > 0) {
+    body += `\n---\n\n${prereqHeader}\n\n`;
+    for (const prereq of data.prerequisites) {
+      const text = typeof prereq === 'string' ? prereq
+        : (prereq[locale] || prereq.en || String(prereq));
+      if (text) body += `- ${text}\n`;
+    }
+  }
+
+  // ── Related topics ──
+  if (data.relatedTopics && data.relatedTopics.length > 0) {
+    body += `\n---\n\n${relatedHeader}\n\n`;
+    for (const topic of data.relatedTopics) {
+      if (typeof topic === 'string') {
+        const title = topic.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+        body += `- **${title}**: Related concept connecting to ${topic.replace(/-/g, ' ')}\n`;
+      } else if (topic && typeof topic === 'object') {
+        const slug = topic.slug || topic.topic || '';
+        const title = topic.title || slug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+        const desc = typeof topic.description === 'string' ? topic.description
+          : (topic.description?.[locale] || topic.description?.en || `Related concept connecting to ${slug.replace(/-/g, ' ')}`);
+        if (slug) {
+          body += `- **${title}**: ${desc}\n`;
+        }
+      }
+    }
+  }
+
+  // ── References ──
+  if (data.references && data.references.length > 0) {
+    body += `\n---\n\n${refsHeader}\n\n`;
+    for (const ref of data.references) {
+      const title = typeof ref.title === 'string' ? ref.title
+        : (ref.title?.[locale] || ref.title?.en || '');
+      const url = ref.url || ref.source || '';
+      const desc = ref.description || '';
+      if (title) {
+        if (url) {
+          body += `- **${title}** — [${url}](${url})`;
+        } else {
+          body += `- **${title}**`;
+        }
+        if (desc) body += ` — ${desc}`;
+        body += `\n`;
+      }
+    }
   }
 
   return body;

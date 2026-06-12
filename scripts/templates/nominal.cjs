@@ -21,9 +21,92 @@ module.exports = function buildNominalSpec(data) {
       zh: `{{OVERVIEW_EXTRA_ZH: 扩展三种语言中名词短语结构的差异。}}`
     },
     explanation: data.explanation || {
-      spanish: `{{SPANISH_EXPL: Describe Spanish ${titles.en} rules. Include gender, number agreement, articles, and determiners. Use bullet lists.}}`,
-      english: `{{ENGLISH_EXPL: Describe English ${titles.en} rules. Note simplifications (e.g., no gender, limited case marking). Use bullet lists.}}`,
-      chinese: `{{CHINESE_EXPL: Describe Chinese ${titles.en} system. Note absence of articles/gender/number inflection. Use measure words, 的, context. Use bullet lists.}}`
+      spanish: `### Gender and number marking
+
+{{SPANISH_GENDER: Describe Spanish gender and number rules for this nominal category.}}
+
+- {{GENDER_RULE1_ES}}
+- {{GENDER_RULE2_ES}}
+
+| Category | Masculine | Feminine |
+|---|---|---|
+| {{GEND_CAT1_ES}} | {{GEND_M1_ES}} | {{GEND_F1_ES}} |
+| {{GEND_CAT2_ES}} | {{GEND_M2_ES}} | {{GEND_F2_ES}} |
+
+### Articles and determiners
+
+{{SPANISH_ARTICLES: Describe articles, determiners, or other nominal modifiers in Spanish.}}
+
+- {{ART_RULE1_ES}}
+- {{ART_RULE2_ES}}
+
+### Position in the noun phrase
+
+{{SPANISH_POSITION: Describe where this element appears within the Spanish noun phrase.}}
+
+- {{POS_RULE1_ES}}
+- {{POS_RULE2_ES}}
+
+### Agreement rules
+
+{{SPANISH_AGREEMENT: Describe concordance rules between this element and other noun phrase elements.}}`,
+
+      english: `### Number and countability
+
+{{ENGLISH_NUMBER: Describe English number rules for this nominal category. Note lack of gender and limited case.}}
+
+- {{NUM_RULE1_EN}}
+- {{NUM_RULE2_EN}}
+
+### Articles and determiners
+
+{{ENGLISH_ARTICLES: Describe articles, determiners, or other nominal modifiers in English.}}
+
+| Type | Use | Example |
+|---|---|---|
+| {{ART_TYPE1_EN}} | {{ART_USE1_EN}} | *{{ART_EX1_EN}}* |
+| {{ART_TYPE2_EN}} | {{ART_USE2_EN}} | *{{ART_EX2_EN}}* |
+
+### Position in the noun phrase
+
+{{ENGLISH_POSITION: Describe where this element appears within the English noun phrase.}}
+
+- {{POS_RULE1_EN}}
+- {{POS_RULE2_EN}}
+
+### Special cases
+
+{{ENGLISH_SPECIAL: Note exceptions, irregular plurals, or uncountable nouns.}}`,
+
+      chinese: `### Classifiers and measure words
+
+{{CHINESE_MEASURE: Describe Chinese measure words or classifiers relevant to this nominal category.}}
+
+- {{MEAS_RULE1_ZH}}
+- {{MEAS_RULE2_ZH}}
+
+| Noun type | Measure word | Example |
+|---|---|---|
+| {{MEAS_TYPE1_ZH}} | {{MEAS_WORD1_ZH}} | {{MEAS_EX1_ZH}} |
+| {{MEAS_TYPE2_ZH}} | {{MEAS_WORD2_ZH}} | {{MEAS_EX2_ZH}} |
+
+### 的 constructions
+
+{{CHINESE_DE: Describe how 的 links modifiers to nouns in this context.}}
+
+- {{DE_RULE1_ZH}}
+- {{DE_RULE2_ZH}}
+
+### Position in the noun phrase
+
+{{CHINESE_POSITION: Describe where this element appears within the Chinese noun phrase.}}
+
+- {{POS_RULE1_ZH}}
+- {{POS_RULE2_ZH}}
+
+### Special cases
+
+{{CHINESE_SPECIAL: Note contexts where Chinese uses a different strategy than the default pattern.}}`
     },
     examples: data.examples || [
       { spanish: `{{EX1_ES}}`, english: `{{EX1_EN}}`, chinese: `{{EX1_ZH}}` },
@@ -90,7 +173,26 @@ module.exports = function buildNominalSpec(data) {
       { en: '{{KT2_EN}}', es: '{{KT2_ES}}', zh: '{{KT2_ZH}}' },
       { en: '{{KT3_EN}}', es: '{{KT3_ES}}', zh: '{{KT3_ZH}}' }
     ],
-    relatedTopics: data.relatedTopics || ['articles', 'pronouns'],
+    relatedTopics: data.relatedTopics || [
+      {
+        slug: 'articles',
+        title: 'Articles',
+        description: {
+          en: 'How articles and determiners interact with this nominal category',
+          es: 'Cómo los artículos y determinantes interactúan con esta categoría nominal',
+          zh: '冠词和限定词如何与此名词类别相互作用'
+        }
+      },
+      {
+        slug: 'pronouns',
+        title: 'Pronouns',
+        description: {
+          en: 'How pronouns replace or refer back to this nominal element',
+          es: 'Cómo los pronombres reemplazan o remiten a este elemento nominal',
+          zh: '代词如何替换或回指此名词元素'
+        }
+      }
+    ],
     prerequisites: data.prerequisites || [],
     faq: data.faq || [
       {

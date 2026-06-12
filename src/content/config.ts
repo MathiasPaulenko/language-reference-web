@@ -26,9 +26,21 @@ const commonMistake = z.object({
   mistake: z.string(),
   correction: z.string(),
   note: z.string().optional(),
+  /** Which learner group typically makes this mistake. */
+  who: z.string().optional(),
   /** Which analyzed language this mistake targets (for per-language filtering). */
   language: analyzedLanguage.optional(),
 });
+
+/** Related topic reference — either a plain slug string or a rich object with description. */
+const relatedTopic = z.union([
+  z.string(),
+  z.object({
+    slug: z.string(),
+    title: z.string(),
+    description: z.union([z.string(), z.record(z.string())]).optional(),
+  }),
+]);
 
 /**
  * Fields shared by every content entry to enforce the canonical page
@@ -45,7 +57,7 @@ const baseFields = {
   comparisonTable: z.array(comparisonRow).optional(),
   summaryTable: z.array(comparisonRow).optional(),
   commonMistakes: z.array(commonMistake).optional(),
-  relatedTopics: z.array(z.string()).optional(),
+  relatedTopics: z.array(relatedTopic).optional(),
   prerequisites: z.array(z.string()).optional(),
   keyTakeaways: z.array(z.string()).optional(),
   faq: z.array(z.object({ question: z.string(), answer: z.string() })).optional(),

@@ -1,367 +1,108 @@
 ---
-title: "Objetos Directos e Indirectos"
-description: "Cómo se expresan y reemplazan por pronombres los objetos directos e indirectos en español, inglés y chino."
-locale: "es"
-topic: "direct-indirect-objects"
-difficulty: "intermediate"
-overview: "El inglés usa el orden de palabras (SVO) para distinguir los objetos. El español marca los objetos con 'a' y usa un complejo sistema de pronombres donde los indirectos y directos pueden combinarse. El chino usa el orden de palabras y opcionalmente <ruby><ruby>给<rt>gěi</rt></ruby><rt>gěi</rt></ruby> para el recipiente."
+title: Objetos Directos e Indirectos
+description: La distinción entre objetos directos e indirectos en español, sus pronombres, y cómo el inglés y el chino expresan relaciones equivalentes.
+locale: es
+topic: direct-indirect-objects
+difficulty: beginner
+overview: La distinción entre OD y OI es fundamental en español y particularmente desafiante para aprendices de inglés y chino. El español la codifica mediante preposiciones de caso (a) y pronombres átonos (lo/la vs le/les). El inglés depende del orden de palabras. El chino maneja estas relaciones mediante el orden y la preposición 给, sin pronombres átonos.
 comparisonTable:
-  - concept: "Lo veo (directo)"
+  - concept: Marcado del OD
     values:
-      spanish: "Lo veo"
-      english: "I see him"
-      chinese: "<ruby><ruby>我<rt>wǒ</rt></ruby><rt>wǒ</rt></ruby><ruby><ruby>看<rt>kàn</rt></ruby><rt>kàn</rt></ruby><ruby><ruby>见<rt>jiàn</rt></ruby><rt>jiàn</rt></ruby><ruby><ruby>他<rt>tā</rt></ruby><rt>tā</rt></ruby>"
-  - concept: "Le doy un libro (indirecto)"
+      spanish: "lo/la/los/las (person: a + pronoun)"
+      english: word order / it/him/her
+      chinese: word order / 把
+  - concept: Marcado del OI
     values:
-      spanish: "Le doy un libro"
-      english: "I give him a book"
-      chinese: "<ruby><ruby>我<rt>wǒ</rt></ruby><rt>wǒ</rt></ruby><ruby><ruby>给<rt>gěi</rt></ruby><rt>gěi</rt></ruby><ruby><ruby>他<rt>tā</rt></ruby><rt>tā</rt></ruby><ruby><ruby>一<rt>yī</rt></ruby><rt>yì</rt></ruby><ruby><ruby>本<rt>běn</rt></ruby><rt>běn</rt></ruby><ruby><ruby>书<rt>shū</rt></ruby><rt>shū</rt></ruby>"
-  - concept: "Pronombre de objeto directo (lo)"
+      spanish: le/les (always with a)
+      english: to + noun/pronoun
+      chinese: 给 + recipient
+  - concept: Pronombres dobles
     values:
-      spanish: "lo (masc) / la (fem) / los / las"
-      english: "it / them"
-      chinese: "<ruby><ruby>它<rt>tā</rt></ruby><rt>tā</rt></ruby> / <ruby><ruby>他<rt>tā</rt></ruby><rt>tā</rt></ruby><ruby><ruby>们<rt>mén</rt></ruby><rt>mén</rt></ruby> (solo escrito)"
-  - concept: "Pronombre de objeto indirecto (a él)"
+      spanish: se lo / se la / se los / se las
+      english: to him/her + it/them
+      chinese: 给 + 他/她 + 它
+  - concept: Clítico redundante
     values:
-      spanish: "le (a él/ella/usted) / les"
-      english: "to him / to her (preposicional)"
-      chinese: "<ruby><ruby>给<rt>gěi</rt></ruby><rt>gěi</rt></ruby> + persona (preposicional)"
-  - concept: "Doble objeto (se lo doy)"
+      spanish: Le doy el libro a María
+      english: I give María the book
+      chinese: 我给玛丽亚书
+  - concept: OD humano
     values:
-      spanish: "Se lo doy (sustitución se + lo/la)"
-      english: "I give it to him / I give him it"
-      chinese: "<ruby><ruby>我<rt>wǒ</rt></ruby><rt>wǒ</rt></ruby><ruby><ruby>给<rt>gěi</rt></ruby><rt>gěi</rt></ruby><ruby><ruby>他<rt>tā</rt></ruby><rt>tā</rt></ruby>"
-  - concept: "Posición del objeto"
+      spanish: a + noun (personal a)
+      english: no special marking
+      chinese: no special marking
+  - concept: Estrategia ditransitiva
     values:
-      spanish: "Antes del verbo conjugado; adjunto al infinitivo/gerundio"
-      english: "Después del verbo (SVO)"
-      chinese: "Después del verbo (SVO)"
-  - concept: "Marcador preposicional de objeto"
-    values:
-      spanish: "a (a personal ante objetos directos animados)"
-      english: "to (indirecto)"
-      chinese: "<ruby><ruby>给<rt>gěi</rt></ruby><rt>gěi</rt></ruby> (dar a) / <ruby><ruby>对<rt>duì</rt></ruby><rt>duì</rt></ruby> (decir a)"
+      spanish: Verb + IO clitic + DO clitic
+      english: Verb + IO + DO / Verb + DO + to + IO
+      chinese: 给 + recipient + object
 commonMistakes:
-  - mistake: "Usar 'le' como pronombre indirecto universal en español"
-    correction: "le = a él/ella/usted; les = a ellos/ustedes"
-    note: "El leísmo (usar le por lo) existe regionalmente pero no es estándar."
-  - mistake: "Olvidar la 'a personal' en español"
-    correction: "Usa 'a' ante objetos directos animados: Veo a Juan (no Veo Juan)"
-    note: "Los angloparlantes omiten la a porque el inglés no tiene equivalente."
-  - mistake: "Traducir 'give it to him' palabra por palabra al chino"
-    correction: "Chino: <ruby><ruby>我<rt>wǒ</rt></ruby><rt>wǒ</rt></ruby><ruby><ruby>给<rt>gěi</rt></ruby><rt>gěi</rt></ruby><ruby><ruby>他<rt>tā</rt></ruby><rt>tā</rt></ruby> (Yo a-él dar) o <ruby><ruby>我<rt>wǒ</rt></ruby><rt>wǒ</rt></ruby><ruby><ruby>给<rt>gěi</rt></ruby><rt>gěi</rt></ruby><ruby><ruby>他<rt>tā</rt></ruby><rt>tā</rt></ruby><ruby><ruby>了<rt>le</rt></ruby><rt>le</rt></ruby> (Yo a-él lo-dí)"
-    note: "El chino maneja los dobles objetos de manera diferente; a menudo omite 'lo' cuando está claro."
-  - mistake: "Confundir objetos directos e indirectos en ditranstivos del inglés"
-    correction: "I gave him the book = I gave the book to him (alternancia dativa)"
-    note: "El inglés permite ambos órdenes pero el español y el chino tienen patrones más estrictos."
+  - mistake: Usar 'le' en lugar de 'lo' para OD masculino
+    correction: Usar 'lo' para OD masculino; 'le' solo para OI
+    note: "'Le vi' es incorrecto salvo que 'le' sea OI; 'Lo vi' = Lo vi."
+  - mistake: Omitir el clítico redundante
+    correction: Incluir el pronombre átono aun con SN presente
+    note: El español requiere duplicación de clíticos con OI humanos.
+  - mistake: Decir 'le lo' en lugar de 'se lo'
+    correction: Cambiar 'le' a 'se' al combinar con lo/la/los/las
+    note: Cambio fonético obligatorio; 'le lo' es agramatical.
 relatedTopics:
-  - "pronouns"
-  - "word-order"
-  - "prepositions"
-  - "questions"
-prerequisites:
-  - "transitivity"
-  - "verb-tenses"
+  - pronouns
+  - prepositions
+  - verb-complementation
+prerequisites: []
 keyTakeaways:
-  - "Español: Usa pronombres de objeto (lo, la, le, les) que a menudo preceden al verbo. La 'a personal' marca objetos directos animados. Los pronombres de doble objeto disparan la sustitución de se (se lo doy). Los pronombres clíticos pueden adjuntarse a infinitivos y gerundios."
-  - "Inglés: Dependen del orden de palabras (SVO). Los verbos ditranstivos permiten ambos órdenes: I gave him the book o I gave the book to him. Los pronombres de objeto siguen al verbo."
-  - "Chino: Usa el orden de palabras y la preposición <ruby>给<rt>gěi</rt></ruby>gěi (dar a) para recipientes. No hay sistema de pronombres de objeto comparable al español. Los objetos a menudo se omiten cuando el contexto es claro."
-  - "Conceptos clave comparados: Lo veo (directo), Le doy un libro (indirecto), Pronombre de objeto directo (lo)."
-faq:
-  - question: "¿Qué es objetos directos e indirectos y por qué importa?"
-    answer: "El inglés usa el orden de palabras (SVO) para distinguir los objetos. El español marca los objetos con 'a' y usa un complejo sistema de pronombres donde los indirectos y directos pueden combinarse. El..."
-  - question: "¿Cómo manejan el español, el inglés y el chino objetos directos e indirectos de forma diferente?"
-    answer: "El español usa \"Lo veo\", el inglés \"I see him\" y el chino \"<ruby><ruby>我<rt>wǒ</rt></ruby><rt>wǒ</rt></ruby><ruby><ruby>看<rt>kàn</rt></ruby><rt>kàn</rt></ruby><ruby><ruby>见<rt>jiàn</rt></ruby><rt>jiàn</rt></ruby><ruby><ruby>他<rt>tā</rt></ruby><rt>tā</rt></ruby>\". Cada idioma codifica el concepto con su propia maquinaria gramatical."
-  - question: "¿Cuál es el error más común que cometen los estudiantes con objetos directos e indirectos?"
-    answer: "Los estudiantes suelen usar 'le' como pronombre indirecto universal en español. La corrección: le = a él/ella/usted; les = a ellos/ustedes."
-lastUpdated: 2026-06-04
-draft: false
+  - OD = sobre qué/quién actúa el verbo; OI = beneficiario/destinatario.
+  - El español usa pronombres átonos; el inglés depende del orden.
+  - "'Se lo' es obligatorio cuando OI le/les se combina con OD lo/la/los/las."
 references:
-  - title: "Nueva gramática de la lengua española"
-    source: "Real Academia Española / Asociación de Academias de la Lengua Española, 2010"
-  - title: "The Cambridge Grammar of the English Language"
-    source: "Huddleston & Pullum, Cambridge University Press, 2002"
-  - title: "A Comprehensive Grammar of the Modern Chinese Language"
-    source: "Li & Thompson, 1981"
+  - title: SpanishDict - Direct Object Pronouns
+    url: https://www.spanishdict.com/guide/direct-object-pronouns
+    description: Comprehensive guide with conjugation charts
+  - title: StudySpanish.com - Indirect Object Pronouns
+    url: https://studyspanish.com/grammar/lessons/iopro1
+    description: Lesson with practice exercises
+  - title: Grammar Atlas Comparative Reference
+    url: https://grammarnavigator.com
+    description: Cross-linguistic analysis of object systems
+lastUpdated: "2026-06-12"
+draft: false
+faq:
+  - question: ¿Cuándo es obligatoria la 'a personal'?
+    answer: "Cuando el OD es un ser animado específico: 'Veo a María' pero 'Veo la casa.'"
+  - question: ¿Puedo omitir el clítico con el sustantivo completo?
+    answer: No — el español requiere duplicación de clíticos con OI humanos. Omitir 'le' suena antinatural.
 ---
 
 ## Visión general
 
-Los objetos directos reciben la acción directamente. Los objetos indirectos son los recipientes o beneficiarios.
+La distinción entre OD y OI es fundamental en español y particularmente desafiante para aprendices de inglés y chino. El español la codifica mediante preposiciones de caso (a) y pronombres átonos (lo/la vs le/les). El inglés depende del orden de palabras. El chino maneja estas relaciones mediante el orden y la preposición 给, sin pronombres átonos.
 
-- **Español**: Usa pronombres de objeto (*lo, la, le, les*) que a menudo preceden al verbo. La "*a* personal" marca objetos directos animados. Los pronombres de doble objeto disparan la sustitución de *se* (*se lo doy*). Los pronombres clíticos pueden adjuntarse a infinitivos y gerundios.
-- **Inglés**: Dependen del orden de palabras (SVO). Los verbos ditranstivos permiten ambos órdenes: *I gave him the book* o *I gave the book to him*. Los pronombres de objeto siguen al verbo.
-- **Chino**: Usa el orden de palabras y la preposición *<ruby>给<rt>gěi</rt></ruby>* (dar a) para recipientes. No hay sistema de pronombres de objeto comparable al español. Los objetos a menudo se omiten cuando el contexto es claro.
+El volumen de búsqueda para 'pronombres de objeto indirecto' y 'se lo vs le lo' es consistentemente alto. Los angloparlantes luchan con la redundancia de clíticos; los hablantes de chino deben adquirir el concepto de pronombres átonos.
 
----
+## Explicación
 
-<div class="spanish-section">
+### Español
 
-## Español
+El **objeto directo** (OD) responde a '¿qué?' o '¿a quién?': *Leo **el libro***; *Veo **a María*** (requiere 'a' por ser persona). Pronombres: me, te, lo/la, nos, os, los/las. El **objeto indirecto** (OI) responde a '¿a quién?' o '¿para quién?': *Doy el libro **a María***; *Le escribo **a mi madre***. Pronombres: me, te, le, nos, os, les. Cuando ambos aparecen juntos, el OI precede al OD: *Se lo doy* (le + lo → se lo). La preposición 'a' marca el OD humano (*Veo a Juan*) y siempre marca el OI (*Doy el libro a Juan*).
 
-### Objetos directos
+### Inglés
 
-El objeto directo recibe la acción directamente:
+English distinguishes direct and indirect objects through **word order**. In ditransitive constructions, the indirect object precedes the direct: 'She gave **him** the book.' English also allows: 'She gave the book **to him**.' When both are pronouns: 'She gave **it to him**' — no case distinction. This contrasts with Spanish clitics encoding person and case: *Se lo dio*. Chinese uses 给 (gěi) as coverb: '我给了他一本书' (wǒ gěi le tā yì běn shū), where 给 encodes transfer and 他 marks the recipient.
 
-- *Veo **la película**.* (Veo la película.)
-- *Compro **un libro**.* (Compro un libro.)
-- *Conozco **a María**.* (Conozco a María. — a personal)
+### Chino
 
-### A personal
-
-El español coloca *a* ante **objetos directos animados**:
-
-- *Veo **a** Juan.* (Veo a Juan.)
-- *Busco **a** mi hermano.* (Busco a mi hermano.)
-- *Quiero **a** mi madre.* (Quiero a mi madre.)
-
-**Sin a** para objetos inanimados:
-
-- *Veo **la** película.* (Veo la película.)
-- *Busco **un** libro.* (Busco un libro.)
-
-### Pronombres de objeto directo
-
-| Persona | Singular | Plural |
-|---|---|---|
-| 1ª | me | nos |
-| 2ª | te | os |
-| 3ª masc | lo | los |
-| 3ª fem | la | las |
-
-**Posición**: Antes de verbos conjugados:
-
-- *La veo.* (La veo.)
-- *Los compro.* (Los compro.)
-- *Me conoce.* (Me conoce.)
-
-Con infinitivos y gerundios, los pronombres pueden adjuntarse:
-
-- *Voy a **verlo**.* (Voy a verlo.)
-- *Estoy **comprándolo**.* (Estoy comprándolo.)
-
-### Objetos indirectos
-
-El objeto indirecto es el recipiente o beneficiario:
-
-- *Doy un libro **a Juan**.* (Doy un libro a Juan.)
-- *Escribo una carta **a mi madre**.* (Escribo una carta a mi madre.)
-
-### Pronombres de objeto indirecto
-
-| Persona | Singular | Plural |
-|---|---|---|
-| 1ª | me | nos |
-| 2ª | te | os |
-| 3ª | le | les |
-
-**Nota**: *Le/les* es ambiguo — puede significar a él, a ella, a usted o a ellos.
-
-- *Le doy un libro.* (Le doy un libro.)
-- *Les escribo.* (Les escribo.)
-
-### Pronombres de doble objeto
-
-Cuando aparecen juntos pronombres directos e indirectos:
-
-| | lo | la | los | las |
-|---|---|---|---|---|
-| **le** | se lo | se la | se los | se las |
-| **les** | se lo | se la | se los | se las |
-
-**Regla**: *Le/les* cambia a *se* antes de *lo/la/los/las*.
-
-- *Se lo doy.* (Se lo doy.)
-- *Se la mostré.* (Se la mostré.)
-- *Me lo dio.* (Me lo dio.)
-
-### Orden de los pronombres
-
-Indirecto + Directo + Verbo:
-
-- *Me lo dio.* (Me lo dio.)
-- *Se la envié.* (Se la envié.)
-
-### Reflexivos + pronombres de objeto
-
-- *Me lo lavo.* (Me lo lavo.)
-- *Se lo pongo.* (Se lo pongo.)
-
-</div>
-
-<div class="english-section">
-
-## Inglés
-
-### Objetos directos
-
-El objeto directo sigue al verbo:
-
-- *I see **him**.* (Lo veo.)
-- *She bought **the book**.* (Ella compró el libro.)
-- *They ate **dinner**.* (Ellos cenaron.)
-
-### Objetos indirectos
-
-El inglés tiene dos formas de expresar objetos indirectos:
-
-**Patrón A**: Verbo + Indirecto + Directo
-
-- *I gave **him** the book.* (Le di el libro.)
-- *She told **me** a story.* (Ella me contó una historia.)
-- *They sent **us** a letter.* (Ellos nos enviaron una carta.)
-
-**Patrón B**: Verbo + Directo + to/for + Indirecto
-
-- *I gave the book **to him**.* (Di el libro a él.)
-- *She told a story **to me**.* (Contó una historia a mí.)
-- *They sent a letter **to us**.* (Enviaron una carta a nosotros.)
-
-**Alternancia dativa**: La mayoría de los verbos ditranstivos permiten ambos patrones:
-
-| Verbo | Patrón A | Patrón B |
-|---|---|---|
-| give | give him the book | give the book to him |
-| send | send her a letter | send a letter to her |
-| show | show me the photo | show the photo to me |
-| tell | tell us the news | tell the news to us |
-| offer | offer them a deal | offer a deal to them |
-
-**Sin alternación**: Algunos verbos requieren *to*:
-
-- *I explained **the problem to him**.* (NO *I explained him the problem.*)
-- *I described **the scene to her**.*
-
-### Pronombres de objeto
-
-| Sujeto | Objeto | Posesivo |
-|---|---|---|
-| I | me | my |
-| you | you | your |
-| he | him | his |
-| she | her | her |
-| it | it | its |
-| we | us | our |
-| they | them | their |
-
-**Posición**: Siempre después del verbo (SVO):
-
-- *She sees **me**.* (Ella me ve.)
-- *I called **him**.* (Lo llamé.)
-
-### Objetos preposicionales
-
-Cuando el objeto sigue a una preposición, usa la forma de objeto:
-
-- *Give it **to me**.* (Dámelo.)
-- *Talk **to him**.* (Habla con él.)
-- *Wait **for us**.* (Espéranos.)
-
-### It y them
-
-El inglés usa *it* para singular inanimado y *them* para plural:
-
-- *I see **it**.* (el libro)
-- *I see **them**.* (los libros)
-- *I gave **it** to him.* (el libro)
-- *I gave **them** to him.* (los libros)
-
-</div>
-
-<div class="chinese-section">
-
-## Chino
-
-### Objetos directos
-
-Los objetos directos chinos siguen al verbo (SVO):
-
-- <ruby>我<rt>wǒ</rt></ruby><ruby>看<rt>kàn</rt></ruby><ruby>书<rt>shū</rt></ruby>。(Leo libros.)
-- <ruby>他<rt>tā</rt></ruby><ruby>吃<rt>chī</rt></ruby><ruby>饭<rt>fàn</rt></ruby>。(Él come arroz/comida.)
-- <ruby>我<rt>wǒ</rt></ruby><ruby>买<rt>mǎi</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>本<rt>běn</rt></ruby><ruby>书<rt>shū</rt></ruby>。(Compré un libro.)
-
-### Objetos indirectos con <ruby>给<rt>gěi</rt></ruby>
-
-<ruby>给<rt>gěi</rt></ruby> (dar) marca el recipiente:
-
-- <ruby>我<rt>wǒ</rt></ruby><ruby>给<rt>gěi</rt></ruby><ruby>他<rt>tā</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>本<rt>běn</rt></ruby><ruby>书<rt>shū</rt></ruby>。(Le doy un libro.)
-- <ruby>我<rt>wǒ</rt></ruby><ruby>给<rt>gěi</rt></ruby><ruby>他<rt>tā</rt></ruby><ruby>写<rt>xiě</rt></ruby><ruby>信<rt>xìn</rt></ruby>。(Le escribo una carta.)
-
-**Patrón**: Sujeto + <ruby>给<rt>gěi</rt></ruby> + recipiente + verbo + objeto
-
-O: Sujeto + verbo + objeto + <ruby>给<rt>gěi</rt></ruby> + recipiente
-
-- <ruby>我<rt>wǒ</rt></ruby><ruby>买<rt>mǎi</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>个<rt>ge</rt></ruby><ruby>礼<rt>lǐ</rt></ruby><ruby>物<rt>wù</rt></ruby><ruby>给<rt>gěi</rt></ruby><ruby>他<rt>tā</rt></ruby>。(Le compré un regalo.)
-
-### Sin clíticos de objeto pronombre
-
-El chino no tiene pronombres clíticos como el español *lo/le*:
-
-- <ruby>我<rt>wǒ</rt></ruby><ruby>看<rt>kàn</rt></ruby><ruby>见<rt>jiàn</rt></ruby><ruby>了<rt>le</rt></ruby>。(Vi [eso/a él]. — objeto inferido del contexto)
-- <ruby>我<rt>wǒ</rt></ruby><ruby>给<rt>gěi</rt></ruby><ruby>他<rt>tā</rt></ruby><ruby>了<rt>le</rt></ruby>。(Le di [eso]. — objeto inferido)
-
-### Omisión de objetos
-
-El chino omite libremente los objetos cuando el contexto es claro:
-
-- A: <ruby>你<rt>nǐ</rt></ruby><ruby>买<rt>mǎi</rt></ruby><ruby>书<rt>shū</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>吗<rt>ma</rt></ruby>？(¿Compraste el libro?)
-- B: <ruby>买<rt>mǎi</rt></ruby><ruby>了<rt>le</rt></ruby>。(Compré [eso]. — objeto omitido)
-
-### <ruby>对<rt>duì</rt></ruby> para verbos de habla
-
-<ruby>对<rt>duì</rt></ruby> marca el objeto indirecto con verbos de habla:
-
-- <ruby>我<rt>wǒ</rt></ruby><ruby>对<rt>duì</rt></ruby><ruby>他<rt>tā</rt></ruby><ruby>说<rt>shuō</rt></ruby>。(Le dije.)
-- <ruby>我<rt>wǒ</rt></ruby><ruby>跟<rt>gēn</rt></ruby><ruby>他<rt>tā</rt></ruby><ruby>说<rt>shuō</rt></ruby>。(Se lo dije.)
-
-### <ruby>把<rt>bǎ</rt></ruby> para anteponer el objeto
-
-<ruby>把<rt>bǎ</rt></ruby> eleva el objeto a posición preverbal:
-
-- <ruby>我<rt>wǒ</rt></ruby><ruby>把<rt>bǎ</rt></ruby><ruby>书<rt>shū</rt></ruby><ruby>给<rt>gěi</rt></ruby><ruby>他<rt>tā</rt></ruby><ruby>了<rt>le</rt></ruby>。(Le di el libro. — literalmente "Yo tomé el libro le di")
-
-</div>
-
-## Comparación rápida
-
-| Característica | Español | Inglés | Chino |
-|---------|---------|---------|---------|
-| Marcador de objeto directo | a (animado) | orden de palabras | orden de palabras |
-| Marcador de objeto indirecto | a (a) | to / for | <ruby>给<rt>gěi</rt></ruby> / <ruby>对<rt>duì</rt></ruby> |
-| Posición del pronombre de objeto | Antes del verbo | Después del verbo | Después del verbo / omitido |
-| Dobles objetos | se lo / me lo | him it / to him | <ruby>给<rt>gěi</rt></ruby><ruby>他<rt>tā</rt></ruby> / <ruby>把<rt>bǎ</rt></ruby>...<ruby>给<rt>gěi</rt></ruby><ruby>他<rt>tā</rt></ruby> |
-| Marcador de objeto animado | a personal | ninguno | ninguno |
-| Pronombres clíticos | Sí (lo, la, le) | No | No |
-| Omisión de objetos | Rara | Rara | Común |
-| Alternancia dativa | No | Sí | Limitada |
-
----
+英语主要通过词序区分直接和间接宾语。在双及物结构中，间接宾语通常在直接宾语之前：'She gave him the book'。汉语通过动词'给'作为介动词处理：'我给了他一本书'，其中'给'编码转移意义，'他'标记接收者。西班牙语附着代词系统同时编码人称和格：Se lo dio。'se lo'结构特别具有挑战性：当第三人称间接宾语le与直接宾语lo/la共现时，le变为se。
 
 ## Ejemplos
 
-### En contexto
-
 | Español | Inglés | Chino |
 |---------|---------|---------|
-| *Se lo doy.* / *Le doy el libro.* | *I give him the book.* / *I give the book to him.* | <ruby>我<rt>wǒ</rt></ruby><ruby>给<rt>gěi</rt></ruby><ruby>他<rt>tā</rt></ruby><ruby>一<rt>yī</rt></ruby><ruby>本<rt>běn</rt></ruby><ruby>书<rt>shū</rt></ruby>。 |
-| *La vi.* | *I saw her.* | <ruby>我<rt>wǒ</rt></ruby><ruby>看<rt>kàn</rt></ruby><ruby>见<rt>jiàn</rt></ruby><ruby>她<rt>tā</rt></ruby><ruby>了<rt>le</rt></ruby>。 |
-| *Me contó una historia.* | *He told me a story.* / *He told a story to me.* | <ruby>他<rt>tā</rt></ruby><ruby>给<rt>gěi</rt></ruby><ruby>我<rt>wǒ</rt></ruby><ruby>讲<rt>jiǎng</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>一<rt>yī</rt></ruby><ruby>个<rt>gè</rt></ruby><ruby>故<rt>gù</rt></ruby><ruby>事<rt>shì</rt></ruby>。 |
+| Leo el periódico. | I read the newspaper. | 我看报纸。 |
+| Lo leo todos los días. | I read it every day. | 我每天都看（它）。 |
+| Doy el libro a María. | I give the book to María. | 我把书给了玛丽亚。 |
+| Se lo doy. | I give it to her. | 我把它给她了。 |
+| Veo a Juan en el parque. | I see Juan in the park. | 我在公园看见了胡安。 |
+| Le escribo una carta a mi abuela. | I write a letter to my grandmother. | 我给奶奶写了一封信。 |
+| Me lo dijo ayer. | He told me it yesterday. | 他昨天把那件事告诉我了。 |
 
-## Errores comunes
-
-1. **Angloparlantes aprendiendo español**: Omitir la a personal: *Veo Juan* → *Veo **a** Juan*
-
-2. **Angloparlantes aprendiendo español**: Usar leísmo: *Le vi* (por lo) → *Lo vi*
-
-3. **Hispanohablantes aprendiendo inglés**: Omitir preposición: *I gave him the book* es correcto, pero *I explained him* → *I explained **to** him*
-
-4. **Hispanohablantes aprendiendo chino**: Añadir pronombres innecesariamente: *<ruby>我<rt>wǒ</rt></ruby><ruby>给<rt>gěi</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>他<rt>tā</rt></ruby><ruby>它<rt>tā</rt></ruby>* → *<ruby>我<rt>wǒ</rt></ruby><ruby>给<rt>gěi</rt></ruby><ruby>他<rt>tā</rt></ruby><ruby>了<rt>le</rt></ruby>* (objeto inferido)
-
----
-
-## Temas relacionados
-
-- **Pronouns**: Cómo encajan los pronombres de objeto en el sistema pronominal
-- **Word Order**: Cómo varía la posición del objeto entre idiomas
-- **Prepositions**: Cómo a, to y <ruby>给<rt>gěi</rt></ruby> marcan los objetos
-- **Reflexives**: Cómo interactúan los pronombres reflexivos con los objetos

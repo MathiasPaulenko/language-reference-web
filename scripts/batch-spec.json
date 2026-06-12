@@ -1,522 +1,521 @@
 [
   {
-    "topic": "ser-vs-estar",
+    "topic": "preterite-vs-imperfect",
     "template": "verbal",
     "titles": {
-      "en": "Ser vs Estar",
-      "es": "Ser y Estar",
-      "zh": "Ser与Estar的区别"
+      "en": "Preterite vs Imperfect",
+      "es": "Pretérito vs Imperfecto",
+      "zh": "过去时与未完成时的区别"
     },
     "description": {
-      "en": "The fundamental distinction between Spanish copulative verbs and how English and Chinese handle equivalent meanings.",
-      "es": "La distinción fundamental entre los verbos copulativos del español y cómo el inglés y el chino manejan significados equivalentes.",
-      "zh": "西班牙语系动词之间的根本区别，以及英语和汉语如何处理同等意义。"
+      "en": "The distinction between Spanish past tenses and how English and Chinese express completed versus ongoing past actions.",
+      "es": "La distinción entre los tiempos pasados del español y cómo el inglés y el chino expresan acciones pasadas completadas versus en desarrollo.",
+      "zh": "西班牙语过去时态之间的区别，以及英语和汉语如何表达已完成与进行中的过去动作。"
     },
     "difficulty": "beginner",
     "overview": {
-      "en": "The distinction between ser and estar is one of the most fundamental and challenging aspects of Spanish grammar for learners from English and Chinese backgrounds. While English uses a single verb 'to be' for all copulative functions, Spanish divides these meanings between two verbs: ser for permanent, essential, or defining characteristics, and estar for temporary states, locations, and conditions. Chinese takes yet another approach, using entirely different grammatical strategies including the verb 是 for identity, 在 for location, and often no copula at all for descriptive states. Understanding when to use each verb is critical for achieving fluency in Spanish and avoiding common translation errors.",
-      "es": "La distinción entre ser y estar constituye uno de los aspectos fundamentales y más desafiantes de la gramática española para hablantes de inglés y chino. Mientras que el inglés emplea un único verbo 'to be' para todas las funciones copulativas, el español distribuye estos significados entre dos verbos: ser para características permanentes, esenciales o definitorias, y estar para estados temporales, ubicaciones y condiciones. El chino utiliza estrategias gramaticales completamente diferentes, empleando el verbo 是 para la identidad, 在 para la ubicación, y frecuentemente omitiendo el verbo copulativo para estados descriptivos.",
-      "zh": "ser和estar的区别是西班牙语语法中最基本且最具挑战性的方面之一，对于英语和汉语背景的学习者尤其如此。英语使用单一的动词'to be'来承担所有系动词功能，而西班牙语则将这类意义分配给两个不同的动词：ser用于永久性、本质性或定义性特征，而estar用于临时状态、位置和条件。汉语则采用完全不同的语法策略，使用'是'表示身份，'在'表示位置，而描述状态时常常完全不需要系动词。"
+      "en": "The preterite and imperfect distinction is one of the most challenging aspects of Spanish verb grammar. While English uses a single simple past tense, Spanish grammatically encodes a distinction between completed, bounded actions (preterite) and ongoing, habitual, or background actions (imperfect). Chinese handles past time through aspect particles like 了, 过, and 在, without verb conjugation. Choosing the wrong tense fundamentally alters the temporal framing of an event.",
+      "es": "La distinción entre pretérito e imperfecto es uno de los aspectos más desafiantes de la gramática verbal española. Mientras que el inglés usa un único pasado simple, el español codifica una distinción entre acciones completadas (pretérito) y acciones en desarrollo o habituales (imperfecto). El chino maneja el tiempo pasado mediante partículas aspectuales sin conjugación verbal.",
+      "zh": "过去时与未完成时的区别是西班牙语动词语法中最具挑战性的方面之一。英语使用单一的简单过去时，而西班牙语在语法上编码了已完成动作（过去时）与进行中或习惯性动作（未完成时）的区别。汉语通过体貌助词处理过去时间，无需动词变位。"
     },
     "overviewExtra": {
-      "en": "This distinction carries significant communicative weight in Spanish. Using ser when estar is expected can imply a permanent trait where only a temporary condition was intended, potentially causing offense or confusion. Conversely, using estar with an adjective like 'guapo' suggests an unusual or unexpected state rather than an inherent quality. For multilingual learners, mastering ser and estar represents a crucial milestone in developing native-like grammatical intuition.",
-      "es": "Esta distinción posee un peso comunicativo significativo en español. Usar ser cuando se espera estar puede implicar un rasgo permanente donde solo se pretendía una condición temporal, causando potencialmente ofensa o confusión. A la inversa, usar estar con un adjetivo como 'guapo' sugiere un estado inusual o inesperado en lugar de una cualidad inherente.",
-      "zh": "这种区别在西班牙语中具有重要的交际分量。在应该用estar的地方使用ser，可能会暗示一种永久特征，而说话者原本只想表达临时状态，这可能会引起冒犯或困惑。相反，将estar与像'帅'这样的形容词连用，则暗示一种不寻常或意外的状态，而非固有品质。"
+      "en": "This distinction reflects a deeper cognitive framing: every past-tense narration involves a decision about whether the action is presented as completed or as an open-ended process. English speakers often default to the preterite because it resembles the English simple past, but this produces abrupt, chronologically disjointed narrative when the imperfect would provide background texture.",
+      "es": "Esta distinción refleja un encuadre cognitivo profundo: toda narración en pasado implica decidir si la acción se presenta como completada o como proceso abierto. Los angloparlantes recurren frecuentemente al pretérito por su similitud superficial con el pasado simple inglés.",
+      "zh": "这种区别反映了更深层次的认知框架：每个过去时叙事都涉及一个决定——动作是被呈现为已完成的还是作为开放式过程。英语母语者经常默认使用过去时，因为它表面上类似于英语的简单过去时。"
     },
     "explanation": {
-      "spanish": "En español, el verbo **ser** expresa identidad, esencia, naturaleza o cualidades inherentes que definen al sujeto. Se utiliza para: (1) identidad y profesión — *Soy médico*; (2) origen y nacionalidad — *Es de España*; (3) materia y composición — *La mesa es de madera*; (4) posesión y pertenencia — *Este libro es mío*; (5) hora y fecha — *Son las tres*; (6) características permanentes — *Es alto*; (7) lugar de eventos — *La fiesta es en mi casa*. Por el contrario, **estar** indica estados transitorios, posición geográfica o resultados de procesos: (1) ubicación física — *Estoy en Madrid*; (2) estados emocionales — *Está feliz*; (3) condiciones temporales — *Está enfermo*; (4) acciones en progreso — *Estoy comiendo*; (5) resultados de acciones — *La puerta está abierta*. La diferencia se resume en el acrónimo DOCTOR para ser y PLACE para estar.",
-      "english": "English employs the single verb **'to be'** as a universal copula without any inherent grammatical distinction between permanent and temporary states. English speakers must rely entirely on context, adverbs, and lexical choice to convey nuances that Spanish encodes grammatically through ser and estar. When translating from English to Spanish, learners must consciously analyze whether the attribute being described is inherent (ser) or contingent (estar). Chinese adds further complexity by frequently omitting the copula entirely for descriptive adjectives, creating additional cognitive load for Chinese speakers learning Spanish.",
-      "chinese": "汉语没有与西班牙语ser和estar直接对应的语法范畴。相反，汉语根据语义功能采用完全不同的句法手段：（1）身份和职业使用'是'——我是医生；（2）位置使用'在'——我在马德里；（3）描述状态和性质时，形容词直接充当谓语，无需系动词——他很高、他累了；（4）进行中的动作使用'在'加动词——我在吃饭；（5）时间用'是'或'了'——现在是三点。这种差异意味着汉语母语者学习西班牙语时，必须建立全新的语法范畴意识：何时描述本质属性，何时描述临时状态。"
+      "spanish": "El **pretérito indefinido** expresa acciones pasadas completadas en un momento específico: *Ayer comí paella*; *Llegué, saludé y me senté*; *De pronto, decidió irse*; *Viví en Madrid durante tres años*. El **pretérito imperfecto** expresa acciones habituales, en progreso o descriptivas: *Cuando era niño, jugaba en el parque*; *El cielo era azul*; *Leía cuando sonó el teléfono*; *Tenía veinte años*. Regla mnemotécnica: pretérito = ¿qué pasó?; imperfecto = ¿cómo era? o ¿qué estaba pasando?",
+      "english": "English lacks a direct equivalent for the Spanish imperfect. The simple past covers both preterite and some imperfect uses. For habitual actions, English uses 'used to' or 'would' — 'I used to play' = *jugaba*. For ongoing interrupted actions, English uses past progressive — 'I was reading' = *leía*. Chinese aspect particles (了, 过, 在) distribute marking across the sentence rather than in verb conjugation.",
+      "chinese": "汉语没有与西班牙语未完成时直接对应的语法形式。英语简单过去时涵盖西班牙语过去时和部分未完成时的用法。英语对习惯性动作用'used to'或'would'，对进行中被中断的动作用过去进行时。汉语通过体貌助词（了、过、在）将标记分散在句子中。过去时回答'发生了什么'，未完成时回答'是什么样的'或'当时正在发生什么'。"
     },
     "examples": [
       {
-        "spanish": "Soy profesor de español.",
-        "english": "I am a Spanish teacher.",
-        "chinese": "我是西班牙语老师。"
+        "spanish": "Ayer comí paella en el restaurante.",
+        "english": "Yesterday I ate paella at the restaurant.",
+        "chinese": "昨天我在餐厅吃了海鲜饭。"
       },
       {
-        "spanish": "Estoy en la biblioteca.",
-        "english": "I am in the library.",
-        "chinese": "我在图书馆。"
+        "spanish": "Cuando era niño, jugaba en el parque.",
+        "english": "When I was a child, I used to play in the park.",
+        "chinese": "我小时候常在公园玩。"
       },
       {
-        "spanish": "Es muy inteligente.",
-        "english": "He is very intelligent.",
-        "chinese": "他很聪明。"
+        "spanish": "Llegué a casa y mi hermana estaba durmiendo.",
+        "english": "I arrived home and my sister was sleeping.",
+        "chinese": "我到家时，我妹妹正在睡觉。"
       },
       {
-        "spanish": "Está cansado después del trabajo.",
-        "english": "He is tired after work.",
-        "chinese": "他下班后累了。"
+        "spanish": "De pronto, empezó a llover.",
+        "english": "Suddenly, it started to rain.",
+        "chinese": "突然，开始下雨了。"
       },
       {
-        "spanish": "La sopa está caliente.",
-        "english": "The soup is hot.",
-        "chinese": "汤很热。"
+        "spanish": "El cielo era azul y los pájaros cantaban.",
+        "english": "The sky was blue and the birds were singing.",
+        "chinese": "天很蓝，鸟儿在唱歌。"
       },
       {
-        "spanish": "Son las diez de la mañana.",
-        "english": "It is ten in the morning.",
-        "chinese": "现在是上午十点。"
+        "spanish": "Viví en Madrid durante tres años.",
+        "english": "I lived in Madrid for three years (and then left).",
+        "chinese": "我在马德里住了三年（然后离开了）。"
       },
       {
-        "spanish": "Estamos estudiando para el examen.",
-        "english": "We are studying for the exam.",
-        "chinese": "我们在准备考试。"
+        "spanish": "Vivía en Madrid cuando conocí a María.",
+        "english": "I was living in Madrid when I met María.",
+        "chinese": "我（当时）住在马德里时认识了玛丽亚。"
       }
     ],
     "comparisonTable": [
       {
         "concept": {
-          "en": "Permanent identity",
-          "es": "Identidad permanente",
-          "zh": "永久身份"
+          "en": "Completed action",
+          "es": "Acción completada",
+          "zh": "已完成的动作"
         },
         "values": {
-          "spanish": "ser",
-          "english": "to be",
-          "chinese": "是"
+          "spanish": "pretérito",
+          "english": "simple past",
+          "chinese": "动词 + 了"
         }
       },
       {
         "concept": {
-          "en": "Physical location",
-          "es": "Ubicación física",
-          "zh": "物理位置"
+          "en": "Habitual past",
+          "es": "Pasado habitual",
+          "zh": "习惯性过去"
         },
         "values": {
-          "spanish": "estar",
-          "english": "to be",
-          "chinese": "在"
+          "spanish": "imperfecto",
+          "english": "used to / would",
+          "chinese": "小时候 / 以前 + 动词"
         }
       },
       {
         "concept": {
-          "en": "Temporary condition",
-          "es": "Condición temporal",
-          "zh": "临时状态"
+          "en": "Ongoing interrupted action",
+          "es": "Acción en progreso interrumpida",
+          "zh": "进行中被中断的动作"
         },
         "values": {
-          "spanish": "estar",
-          "english": "to be",
-          "chinese": "形容词直接谓语"
+          "spanish": "imperfecto + pretérito",
+          "english": "past progressive + simple past",
+          "chinese": "正在 + 动词 + 的时候"
         }
       },
       {
         "concept": {
-          "en": "Time / hour",
-          "es": "Hora",
-          "zh": "时间"
+          "en": "Background description",
+          "es": "Descripción de fondo",
+          "zh": "背景描述"
         },
         "values": {
-          "spanish": "ser",
-          "english": "to be",
-          "chinese": "是 / 了"
+          "spanish": "imperfecto",
+          "english": "past progressive / simple past",
+          "chinese": "形容词谓语 / 着"
         }
       },
       {
         "concept": {
-          "en": "Material composition",
-          "es": "Material",
-          "zh": "材质"
+          "en": "Sudden change of state",
+          "es": "Cambio súbito de estado",
+          "zh": "状态突变"
         },
         "values": {
-          "spanish": "ser",
-          "english": "to be",
-          "chinese": "是...做的"
+          "spanish": "pretérito",
+          "english": "simple past",
+          "chinese": "突然 + 动词 + 了"
         }
       },
       {
         "concept": {
-          "en": "Ongoing action",
-          "es": "Acción en progreso",
-          "zh": "进行中的动作"
+          "en": "Mental state in the past",
+          "es": "Estado mental en el pasado",
+          "zh": "过去的心理状态"
         },
         "values": {
-          "spanish": "estar + gerundio",
-          "english": "to be + -ing",
-          "chinese": "在 + 动词"
+          "spanish": "imperfecto",
+          "english": "simple past / felt",
+          "chinese": "当时 + 形容词"
         }
       }
     ],
     "commonMistakes": [
       {
         "mistake": {
-          "en": "Using 'estar' for profession",
-          "es": "Usar 'estar' para profesión",
-          "zh": "用estar表示职业"
+          "en": "Using preterite for habitual actions",
+          "es": "Usar pretérito para acciones habituales",
+          "zh": "用过去时表示习惯性动作"
         },
         "correction": {
-          "en": "Use 'ser' for inherent identity",
-          "es": "Usar 'ser' para identidad inherente",
-          "zh": "用ser表示固有身份"
+          "en": "Use imperfect for repeated or habitual past actions",
+          "es": "Usar imperfecto para acciones repetidas o habituales",
+          "zh": "用未完成时表示重复或习惯性的过去动作"
         },
         "note": {
-          "en": "Professions define who someone is, not their temporary state.",
-          "es": "Las profesiones definen la identidad, no un estado temporal.",
-          "zh": "职业定义的是人的身份，不是临时状态。"
+          "en": "'Jugué' implies one instance; 'jugaba' implies a regular habit.",
+          "es": "'Jugué' implica una instancia; 'jugaba' implica un hábito regular.",
+          "zh": "Jugué暗示一个实例；jugaba暗示一个常规习惯。"
         }
       },
       {
         "mistake": {
-          "en": "Using 'ser' for current location of people",
-          "es": "Usar 'ser' para ubicación actual",
-          "zh": "用ser表示人的当前位置"
+          "en": "Using imperfect for completed events",
+          "es": "Usar imperfecto para eventos completados",
+          "zh": "用未完成时表示已完成事件"
         },
         "correction": {
-          "en": "Use 'estar' for physical presence",
-          "es": "Usar 'estar' para presencia física",
-          "zh": "用estar表示物理存在"
+          "en": "Use preterite for completed, bounded actions",
+          "es": "Usar pretérito para acciones completadas",
+          "zh": "用过去时表示已完成、有界限的动作"
         },
         "note": {
-          "en": "People use 'estar' even for long-term residence; 'ser' is only for event locations.",
-          "es": "Las personas usan 'estar' incluso para residencia prolongada; 'ser' solo para eventos.",
-          "zh": "即使是长期居住，人也用estar；ser只用于活动发生的地点。"
+          "en": "'Comía ayer' sounds like background; 'comí' indicates the meal was finished.",
+          "es": "'Comía' suena como fondo; 'comí' indica que la comida terminó.",
+          "zh": "Comía ayer听起来像背景描述；comí表示餐已吃完。"
         }
       },
       {
         "mistake": {
-          "en": "Translating English 'to be' directly without analyzing permanence",
-          "es": "Traducir 'to be' directamente sin analizar permanencia",
-          "zh": "直接翻译英语的to be而不分析永久性"
+          "en": "Translating English simple past directly",
+          "es": "Traducir el pasado simple inglés directamente",
+          "zh": "直接翻译英语简单过去时"
         },
         "correction": {
-          "en": "Ask: Is this inherent or temporary?",
-          "es": "Preguntar: ¿Es inherente o temporal?",
-          "zh": "问自己：这是固有的还是临时的？"
+          "en": "Ask: Was this completed or ongoing/background?",
+          "es": "Preguntar: ¿Fue completada o en desarrollo?",
+          "zh": "问自己：这是已完成的还是进行中/背景性的？"
         },
         "note": {
-          "en": "This mental check prevents most ser/estar errors.",
-          "es": "Esta verificación mental evita la mayoría de errores.",
-          "zh": "这种思维检查可以避免大多数ser/estar错误。"
+          "en": "This check resolves most preterite-imperfect errors.",
+          "es": "Esta verificación resuelve la mayoría de errores.",
+          "zh": "这种思维检查可以解决大多数过去时-未完成时错误。"
         }
       }
     ],
     "keyTakeaways": [
       {
-        "en": "Ser describes inherent, defining attributes; estar describes temporary states and locations.",
-        "es": "Ser describe atributos inherentes; estar describe estados temporales y ubicaciones.",
-        "zh": "ser描述固有定义性特征；estar描述临时状态和位置。"
+        "en": "Preterite = completed, bounded actions (what happened); Imperfect = ongoing, habitual, background (how things were).",
+        "es": "Pretérito = acciones completadas; Imperfecto = en desarrollo, habitual, fondo.",
+        "zh": "过去时 = 已完成、有界限的动作（发生了什么）；未完成时 = 进行中、习惯性、背景性（是什么样的）。"
       },
       {
-        "en": "English 'to be' covers both, requiring context analysis when translating to Spanish.",
-        "es": "El inglés 'to be' cubre ambos, requiriendo análisis contextual al traducir al español.",
-        "zh": "英语的to be涵盖两者，翻译成西班牙语时需要语境分析。"
+        "en": "English simple past covers both; learners must analyze aspect consciously.",
+        "es": "El pasado simple inglés cubre ambos; los aprendices deben analizar el aspecto.",
+        "zh": "英语简单过去时涵盖两者；学习者必须自觉地分析体貌。"
       },
       {
-        "en": "Chinese frequently omits the copula entirely, making the ser/estar distinction especially challenging.",
-        "es": "El chino frecuentemente omite el verbo copulativo, dificultando la distinción ser/estar.",
-        "zh": "汉语经常完全省略系动词，这使得ser/estar的区别特别具有挑战性。"
+        "en": "Chinese aspect particles distribute marking across the sentence, not in verb conjugation.",
+        "es": "Las partículas aspectuales chinas distribuyen la marca en la oración.",
+        "zh": "汉语的体貌助词将标记分散在句子中，而不是集中在动词变位上。"
       }
     ],
     "relatedTopics": [
-      "copula",
       "verb-tenses",
-      "mood",
-      "pronouns"
+      "aspect",
+      "mood"
     ],
     "prerequisites": [],
     "faq": [
       {
         "question": {
-          "en": "Can 'estar' ever be used with adjectives normally used with 'ser'?",
-          "es": "¿Se puede usar 'estar' con adjetivos de 'ser'?",
-          "zh": "estar可以和通常与ser搭配的形容词一起使用吗？"
+          "en": "Can both tenses appear in the same sentence?",
+          "es": "¿Pueden ambos tiempos aparecer en la misma oración?",
+          "zh": "两种时态可以在同一个句子中出现吗？"
         },
         "answer": {
-          "en": "Yes, to emphasize a temporary deviation: 'Está guapo hoy' (He looks handsome today — unusually so).",
-          "es": "Sí, para enfatizar una desviación temporal: 'Está guapo hoy'.",
-          "zh": "可以，用来强调暂时的偏离：'他今天看起来很帅（不同寻常地）'。"
+          "en": "Yes — the imperfect provides background while the preterite advances narrative: 'Mientras leía, sonó el teléfono'.",
+          "es": "Sí — el imperfecto da fondo mientras el pretérito avanza: 'Mientras leía, sonó el teléfono'.",
+          "zh": "可以——未完成时提供背景，而过去时推进叙事：'我看书的时候，电话响了。'"
         }
       },
       {
         "question": {
-          "en": "Why does Spanish have two verbs when other languages manage with one?",
-          "es": "¿Por qué español tiene dos verbos cuando otros idiomas usan uno?",
-          "zh": "为什么西班牙语有两个动词，而其他语言用一个就够了？"
+          "en": "How do I choose with time expressions?",
+          "es": "¿Cómo elegir con expresiones temporales?",
+          "zh": "如何根据时间表达选择？"
         },
         "answer": {
-          "en": "Spanish inherited this distinction from Latin (esse vs stare). It provides grammatical precision that context-based languages convey through other means.",
-          "es": "El español heredó esta distinción del latín (esse vs stare). Proporciona precisión gramatical que otros idiomas transmiten por contexto.",
-          "zh": "西班牙语从拉丁语继承了这一区别（esse vs stare）。它提供了基于语境的语言通过其他方式传达的语法精确性。"
+          "en": "Specific completed timeframes (ayer) trigger preterite. Vague/habitual (siempre, a menudo) trigger imperfect.",
+          "es": "Marcos específicos (ayer) activan pretérito. Marcos vagos o habituales activan imperfecto.",
+          "zh": "特定的已完成时间框架（昨天）触发过去时。模糊或习惯性的（总是、经常）触发未完成时。"
         }
       }
     ],
     "references": [
       {
-        "title": "Real Academia Española - Diccionario Panhispánico de Dudas",
-        "url": "https://www.rae.es/dpd/ser",
-        "description": "Official RAE guidance on ser and estar usage"
+        "title": "StudySpanish.com - Preterite vs Imperfect",
+        "url": "https://studyspanish.com/grammar/lessons/pretimp1",
+        "description": "Comprehensive lesson with practice"
       },
       {
-        "title": "SpanishDict - Ser vs Estar",
-        "url": "https://www.spanishdict.com/guide/ser-vs-estar",
-        "description": "Comprehensive learner guide with quizzes"
+        "title": "SpanishDict - Preterite vs Imperfect",
+        "url": "https://www.spanishdict.com/guide/preterite-vs-imperfect",
+        "description": "Detailed rules and conjugation charts"
       },
       {
         "title": "Grammar Atlas Comparative Reference",
         "url": "https://grammarnavigator.com",
-        "description": "Cross-linguistic analysis of copular verbs"
+        "description": "Cross-linguistic analysis of past tense systems"
       }
     ]
   },
   {
-    "topic": "por-vs-para",
+    "topic": "direct-indirect-objects",
     "template": "syntactic",
     "titles": {
-      "en": "Por vs Para",
-      "es": "Por y Para",
-      "zh": "Por与Para的区别"
+      "en": "Direct and Indirect Objects",
+      "es": "Objetos Directos e Indirectos",
+      "zh": "直接宾语与间接宾语"
     },
     "description": {
-      "en": "The distinction between Spanish prepositions por and para and how English and Chinese express equivalent semantic relationships.",
-      "es": "La distinción entre las preposiciones por y para y cómo el inglés y el chino expresan relaciones semánticas equivalentes.",
-      "zh": "西班牙语介词por和para的区别，以及英语和汉语如何表达同等语义关系。"
+      "en": "The distinction between Spanish direct and indirect objects, their pronouns, and how English and Chinese express equivalent relationships.",
+      "es": "La distinción entre objetos directos e indirectos en español, sus pronombres, y cómo el inglés y el chino expresan relaciones equivalentes.",
+      "zh": "西班牙语直接宾语与间接宾语的区别、它们的代词，以及英语和汉语如何表达同等关系。"
     },
-    "difficulty": "intermediate",
+    "difficulty": "beginner",
     "overview": {
-      "en": "The prepositions **por** and **para** are among the most frequently used and most commonly confused words in Spanish. Both frequently translate to 'for' in English, yet they encode fundamentally different semantic relationships: por conveys cause, motive, medium, substitution, duration, and route, while para expresses purpose, destination, recipient, intended use, and deadlines. English lacks this grammatical distinction, relying on context and various prepositions to convey these nuances. Chinese employs an even more analytic approach, using specific verbs and postpositions such as 为了 for purpose, 通过 for medium, 给 for recipient, and 代替 for substitution.",
-      "es": "Las preposiciones **por** y **para** figuran entre las palabras más frecuentes y más confusas del español. Ambas suelen traducirse como 'for' en inglés, pero codifican relaciones semánticas fundamentalmente distintas: por expresa causa, motivo, medio, sustitución, duración y ruta, mientras que para indica propósito, destinatario, destino, uso previsto y plazos temporales. El inglés carece de esta distinción gramatical, confiando en el contexto y diversas preposiciones para transmitir estos matices. El chino utiliza un enfoque aún más analítico, empleando verbos específicos y postposiciones.",
-      "zh": "介词por和para是西班牙语中使用频率最高且最容易混淆的词汇之一。两者在英语中经常都被翻译为'for'，但它们编码了根本不同的语义关系：por表示原因、动机、媒介、替代、持续时间和路线，而para表示目的、目的地、接收者、预期用途和期限。英语缺乏这种语法区别，依赖语境和各种介词来传达这些细微差别。汉语采用更加分析性的方法，使用特定动词和后置词，如'为了'表示目的、'通过'表示媒介、'给'表示接收者、'代替'表示替代。"
+      "en": "The distinction between direct and indirect objects is fundamental in Spanish and particularly challenging for English and Chinese learners. Spanish encodes this through case-marking prepositions (a) and clitic pronouns (lo/la vs le/les) that attach to the verb. English relies on word order, with indirect objects before direct objects. Chinese handles these through word order and 给 (gěi) constructions, without pronominal clitics. The 'se lo' construction is especially searched by intermediate learners.",
+      "es": "La distinción entre OD y OI es fundamental en español y particularmente desafiante para aprendices de inglés y chino. El español la codifica mediante preposiciones de caso (a) y pronombres átonos (lo/la vs le/les). El inglés depende del orden de palabras. El chino maneja estas relaciones mediante el orden y la preposición 给, sin pronombres átonos.",
+      "zh": "直接宾语与间接宾语的区别在西班牙语中至关重要，对英语和汉语学习者尤其具有挑战性。西班牙语通过格标记介词（a）和附着代词（lo/la vs le/les）来编码这一区别。英语依靠词序。汉语通过词序和介词'给'来处理，没有附着代词系统。"
     },
     "overviewExtra": {
-      "en": "Mastering por and para requires more than memorizing rules; it demands developing an intuitive sense of temporal and causal orientation. Spanish encodes a conceptual distinction that English leaves to pragmatics and Chinese distributes across the verbal system. For search-driven traffic, this topic represents high-intent queries from learners actively struggling with a concrete grammatical obstacle. Providing clear, contrastive examples across all three languages transforms a confusing abstraction into a navigable decision tree.",
-      "es": "Dominar por y para requiere más que memorizar reglas; exige desarrollar una intuición sobre orientación temporal y causal. El español codifica una distinción conceptual que el inglés deja a la pragmática y el chino distribuye en el sistema verbal. Para tráfico de búsqueda, este tema representa consultas de alta intención de aprendices que luchan activamente con un obstáculo gramatical concreto.",
-      "zh": "掌握por和para不仅仅是记忆规则；它需要培养对时间和因果方向的直觉。西班牙语编码了一种概念区别，而英语将其留给语用学，汉语则将其分布在动词系统中。对于搜索流量来说，这个话题代表了学习者积极 struggling with a concrete grammatical obstacle 的高意图查询。"
+      "en": "Search volume for 'Spanish indirect object pronouns' and 'se lo vs le lo' is consistently high. English speakers struggle with clitic redundancy, while Chinese speakers must acquire the concept of pronominal clitics and case-marking prepositions. This topic generates high-intent traffic because learners cannot avoid these pronouns in production.",
+      "es": "El volumen de búsqueda para 'pronombres de objeto indirecto' y 'se lo vs le lo' es consistentemente alto. Los angloparlantes luchan con la redundancia de clíticos; los hablantes de chino deben adquirir el concepto de pronombres átonos.",
+      "zh": "'西班牙语间接宾语代词'和'se lo vs le lo'的搜索量一直很高。英语母语者 struggling with 附着代词的冗余性，而汉语母语者必须掌握附着代词的概念。"
     },
     "explanation": {
-      "spanish": "En español, **por** funciona como preposición de causa, medio y circunstancia: (1) causa y motivo — *Lo hice por ti*; (2) medio y agente — *Viajamos por tren*; *Fue escrito por Cervantes*; (3) duración de tiempo — *Estudié por tres horas*; (4) precio y cantidad — *Lo compré por diez euros*; (5) lugar a través del cual se pasa — *Pasamos por el parque*; (6) sustitución de alguien — *Trabajo por mi hermana*. En contraste, **para** indica propósito, dirección y finalidad: (1) propósito e intención — *Estudio para ser médico*; (2) destinatario — *Este regalo es para ti*; (3) dirección y destino — *Salgo para Madrid*; (4) uso previsto — *Es una silla para niños*; (5) plazo límite — *Necesito el informe para mañana*; (6) opinión subjetiva — *Para mí, es difícil*. La regla mnemotécnica clásica resume: por = mirando hacia atrás (causa, origen), para = mirando hacia adelante (propósito, meta).",
-      "english": "English speakers struggle with por and para because both frequently map to the single preposition **'for.'** However, English does possess nuanced equivalents: 'by' for agent (*por Cervantes*), 'through' for route (*por el parque*), 'in exchange for' for substitution (*por diez euros*), 'in order to' for purpose (*para ser médico*), and 'to' for destination (*para Madrid*). The critical distinction lies in temporal orientation: por looks backward to causes, origins, and means, while para looks forward to purposes, goals, and intended outcomes. Chinese speakers face additional complexity because Chinese typically places purpose and recipient information in the verb phrase itself rather than in prepositions.",
-      "chinese": "汉语学习者在掌握por和para时面临特殊挑战，因为汉语不使用前置词系统来表达这些关系，而是将相同的功能融入动词和后置结构中。（1）原因和动机用'因为'、'由于'或'为了'——我因为你而做（por ti）；（2）媒介和工具用'通过'、'用'——我们乘火车旅行（por tren）；（3）持续时间直接放在动词后——我学习了三个小时；（4）替代用'替'、'代替'——我替我妹妹工作；（5）目的用'为了'——我学习为了当医生；（6）接收者用'给'——这个礼物是给你的；（7）目的地用'去'或'到'——我去马德里。por和para的区别可以用时间方向来理解：por向后看（原因、来源），para向前看（目的、目标）。"
+      "spanish": "El **objeto directo** (OD) responde a '¿qué?' o '¿a quién?': *Leo **el libro***; *Veo **a María*** (requiere 'a' por ser persona). Pronombres: me, te, lo/la, nos, os, los/las. El **objeto indirecto** (OI) responde a '¿a quién?' o '¿para quién?': *Doy el libro **a María***; *Le escribo **a mi madre***. Pronombres: me, te, le, nos, os, les. Cuando ambos aparecen juntos, el OI precede al OD: *Se lo doy* (le + lo → se lo). La preposición 'a' marca el OD humano (*Veo a Juan*) y siempre marca el OI (*Doy el libro a Juan*).",
+      "english": "English distinguishes direct and indirect objects through **word order**. In ditransitive constructions, the indirect object precedes the direct: 'She gave **him** the book.' English also allows: 'She gave the book **to him**.' When both are pronouns: 'She gave **it to him**' — no case distinction. This contrasts with Spanish clitics encoding person and case: *Se lo dio*. Chinese uses 给 (gěi) as coverb: '我给了他一本书' (wǒ gěi le tā yì běn shū), where 给 encodes transfer and 他 marks the recipient.",
+      "chinese": "英语主要通过词序区分直接和间接宾语。在双及物结构中，间接宾语通常在直接宾语之前：'She gave him the book'。汉语通过动词'给'作为介动词处理：'我给了他一本书'，其中'给'编码转移意义，'他'标记接收者。西班牙语附着代词系统同时编码人称和格：Se lo dio。'se lo'结构特别具有挑战性：当第三人称间接宾语le与直接宾语lo/la共现时，le变为se。"
     },
     "examples": [
       {
-        "spanish": "Lo hice por ti.",
-        "english": "I did it for you (because of you).",
-        "chinese": "我因为你而做的。"
+        "spanish": "Leo el periódico.",
+        "english": "I read the newspaper.",
+        "chinese": "我看报纸。"
       },
       {
-        "spanish": "Este libro es para ti.",
-        "english": "This book is for you (intended recipient).",
-        "chinese": "这本书是给你的。"
+        "spanish": "Lo leo todos los días.",
+        "english": "I read it every day.",
+        "chinese": "我每天都看（它）。"
       },
       {
-        "spanish": "Viajamos por tren.",
-        "english": "We travel by train.",
-        "chinese": "我们乘火车旅行。"
+        "spanish": "Doy el libro a María.",
+        "english": "I give the book to María.",
+        "chinese": "我把书给了玛丽亚。"
       },
       {
-        "spanish": "Estudio para ser médico.",
-        "english": "I study to become a doctor.",
-        "chinese": "我学习为了当医生。"
+        "spanish": "Se lo doy.",
+        "english": "I give it to her.",
+        "chinese": "我把它给她了。"
       },
       {
-        "spanish": "Lo compré por diez euros.",
-        "english": "I bought it for ten euros.",
-        "chinese": "我十欧元买的。"
+        "spanish": "Veo a Juan en el parque.",
+        "english": "I see Juan in the park.",
+        "chinese": "我在公园看见了胡安。"
       },
       {
-        "spanish": "Salgo para Madrid mañana.",
-        "english": "I leave for Madrid tomorrow.",
-        "chinese": "我明天去马德里。"
+        "spanish": "Le escribo una carta a mi abuela.",
+        "english": "I write a letter to my grandmother.",
+        "chinese": "我给奶奶写了一封信。"
       },
       {
-        "spanish": "Para mí, es demasiado difícil.",
-        "english": "For me, it's too difficult.",
-        "chinese": "对我来说，这太难了。"
+        "spanish": "Me lo dijo ayer.",
+        "english": "He told me it yesterday.",
+        "chinese": "他昨天把那件事告诉我了。"
       }
     ],
     "comparisonTable": [
       {
         "concept": {
-          "en": "Cause / reason",
-          "es": "Causa / motivo",
-          "zh": "原因 / 动机"
+          "en": "Direct object marking",
+          "es": "Marcado del OD",
+          "zh": "直接宾语标记"
         },
         "values": {
-          "spanish": "por",
-          "english": "because of, for",
-          "chinese": "因为、由于"
+          "spanish": "lo/la/los/las (person: a + pronoun)",
+          "english": "word order / it/him/her",
+          "chinese": "word order / 把"
         }
       },
       {
         "concept": {
-          "en": "Recipient / beneficiary",
-          "es": "Destinatario",
-          "zh": "接收者 / 受益者"
+          "en": "Indirect object marking",
+          "es": "Marcado del OI",
+          "zh": "间接宾语标记"
         },
         "values": {
-          "spanish": "para",
-          "english": "for",
-          "chinese": "给、为"
+          "spanish": "le/les (always with a)",
+          "english": "to + noun/pronoun",
+          "chinese": "给 + recipient"
         }
       },
       {
         "concept": {
-          "en": "Medium / transport",
-          "es": "Medio / transporte",
-          "zh": "媒介 / 交通工具"
+          "en": "Double pronouns (IO + DO)",
+          "es": "Pronombres dobles",
+          "zh": "双代词"
         },
         "values": {
-          "spanish": "por",
-          "english": "by, through",
-          "chinese": "通过、乘、用"
+          "spanish": "se lo / se la / se los / se las",
+          "english": "to him/her + it/them",
+          "chinese": "给 + 他/她 + 它"
         }
       },
       {
         "concept": {
-          "en": "Purpose / goal",
-          "es": "Propósito / meta",
-          "zh": "目的 / 目标"
+          "en": "Redundant clitic with full NP",
+          "es": "Clítico redundante",
+          "zh": "冗余附着代词"
         },
         "values": {
-          "spanish": "para",
-          "english": "in order to, to",
-          "chinese": "为了、要"
+          "spanish": "Le doy el libro a María",
+          "english": "I give María the book",
+          "chinese": "我给玛丽亚书"
         }
       },
       {
         "concept": {
-          "en": "Duration",
-          "es": "Duración",
-          "zh": "持续时间"
+          "en": "Human direct object",
+          "es": "OD humano",
+          "zh": "人直接宾语"
         },
         "values": {
-          "spanish": "por",
-          "english": "for (time period)",
-          "chinese": "（时间段直接说）"
+          "spanish": "a + noun (personal a)",
+          "english": "no special marking",
+          "chinese": "no special marking"
         }
       },
       {
         "concept": {
-          "en": "Deadline",
-          "es": "Plazo",
-          "zh": "截止日期"
+          "en": "Ditransitive strategy",
+          "es": "Estrategia ditransitiva",
+          "zh": "双及物策略"
         },
         "values": {
-          "spanish": "para",
-          "english": "by",
-          "chinese": "在...之前"
+          "spanish": "Verb + IO clitic + DO clitic",
+          "english": "Verb + IO + DO / Verb + DO + to + IO",
+          "chinese": "给 + recipient + object"
         }
       }
     ],
     "commonMistakes": [
       {
         "mistake": {
-          "en": "Using 'para' for cause/reason",
-          "es": "Usar 'para' para causa",
-          "zh": "用para表示原因"
+          "en": "Using 'le' instead of 'lo' for masculine direct objects",
+          "es": "Usar 'le' en lugar de 'lo' para OD masculino",
+          "zh": "对阳性直接宾语用le代替lo"
         },
         "correction": {
-          "en": "Use 'por' for motives and causes",
-          "es": "Usar 'por' para motivos y causas",
-          "zh": "用por表示动机和原因"
+          "en": "Use 'lo' for masculine DO; 'le' is only for indirect objects",
+          "es": "Usar 'lo' para OD masculino; 'le' solo para OI",
+          "zh": "阳性直接宾语用lo；le只用于间接宾语"
         },
         "note": {
-          "en": "'Para ti' means intended for you; 'por ti' means because of you.",
-          "es": "'Para ti' = destinado a ti; 'por ti' = a causa de ti.",
-          "zh": "para ti 表示给你的；por ti 表示因为你的。"
+          "en": "'Le vi' is incorrect unless 'le' is IO; 'Lo vi' = I saw him.",
+          "es": "'Le vi' es incorrecto salvo que 'le' sea OI; 'Lo vi' = Lo vi.",
+          "zh": "Le vi 是错误的，除非le是间接宾语；Lo vi = 我看见了他。"
         }
       },
       {
         "mistake": {
-          "en": "Using 'por' for purpose/goal",
-          "es": "Usar 'por' para propósito",
-          "zh": "用por表示目的"
+          "en": "Omitting the redundant clitic with explicit noun phrases",
+          "es": "Omitir el clítico redundante",
+          "zh": "在有明确名词短语时省略冗余附着代词"
         },
         "correction": {
-          "en": "Use 'para' + infinitive for purpose",
-          "es": "Usar 'para' + infinitivo para propósito",
-          "zh": "用para加动词原形表示目的"
+          "en": "Include the clitic even when the full noun is present: 'Le doy el libro a María'",
+          "es": "Incluir el pronombre átono aun con SN presente",
+          "zh": "即使完整名词存在，也要包含附着代词"
         },
         "note": {
-          "en": "'Estudio por ser médico' is incorrect; the goal requires 'para'.",
-          "es": "'Estudio por ser médico' es incorrecto; la meta requiere 'para'.",
-          "zh": "Estudio por ser médico是错误的；目标需要用para。"
+          "en": "Spanish requires clitic doubling with human indirect objects.",
+          "es": "El español requiere duplicación de clíticos con OI humanos.",
+          "zh": "西班牙语要求对人间接宾语进行代词复制。"
         }
       },
       {
         "mistake": {
-          "en": "Translating English 'for' directly without analyzing the relationship",
-          "es": "Traducir 'for' directamente sin analizar la relación",
-          "zh": "直接翻译英语的for而不分析关系"
+          "en": "Saying 'le lo' instead of 'se lo'",
+          "es": "Decir 'le lo' en lugar de 'se lo'",
+          "zh": "说le lo而不是se lo"
         },
         "correction": {
-          "en": "Ask: Is this cause/medium (por) or purpose/recipient (para)?",
-          "es": "Preguntar: ¿Es causa/medio (por) o propósito/destinatario (para)?",
-          "zh": "问自己：这是原因/媒介（por）还是目的/接收者（para）？"
+          "en": "Change 'le' to 'se' when combined with lo/la/los/las",
+          "es": "Cambiar 'le' a 'se' al combinar con lo/la/los/las",
+          "zh": "当le与lo/la/los/las组合时，将le变为se"
         },
         "note": {
-          "en": "The temporal orientation test (backward vs forward) resolves most cases.",
-          "es": "La prueba de orientación temporal resuelve la mayoría de casos.",
-          "zh": "时间方向测试（向后vs向前）可以解决大多数情况。"
+          "en": "Mandatory phonetic change; 'le lo' is ungrammatical.",
+          "es": "Cambio fonético obligatorio; 'le lo' es agramatical.",
+          "zh": "强制性语音变化；le lo是不合语法的。"
         }
       }
     ],
     "keyTakeaways": [
       {
-        "en": "Por = backward-looking (cause, origin, means); para = forward-looking (purpose, destination).",
-        "es": "Por = mirando hacia atrás; para = mirando hacia adelante.",
-        "zh": "por = 向后看（原因、来源、手段）；para = 向前看（目的、目的地）。"
+        "en": "Direct object = what/whom the verb acts upon; Indirect object = beneficiary/recipient.",
+        "es": "OD = sobre qué/quién actúa el verbo; OI = beneficiario/destinatario.",
+        "zh": "直接宾语 = 动词作用的对象；间接宾语 = 动作的受益者/接收者。"
       },
       {
-        "en": "Both often translate to English 'for', making the distinction especially challenging for English speakers.",
-        "es": "Ambas suelen traducirse como 'for', dificultando la distinción para angloparlantes.",
-        "zh": "两者在英语中经常都翻译为for，这使得英语母语者很难区分。"
+        "en": "Spanish uses clitic pronouns that attach to or precede the verb; English relies on word order.",
+        "es": "El español usa pronombres átonos; el inglés depende del orden.",
+        "zh": "西班牙语使用附着在动词上的代词；英语依靠词序。"
       },
       {
-        "en": "Chinese restructures these concepts into verbs and postpositions, requiring conceptual realignment.",
-        "es": "El chino reestructura estos conceptos en verbos y postposiciones.",
-        "zh": "汉语将这些概念重构为动词和后置词，需要概念上的重新调整。"
+        "en": "The 'se lo' construction is mandatory when IO le/les combines with DO lo/la/los/las.",
+        "es": "'Se lo' es obligatorio cuando OI le/les se combina con OD lo/la/los/las.",
+        "zh": "当间接宾语le/les与直接宾语lo/la/los/las组合时，se lo结构是强制性的。"
       }
     ],
     "relatedTopics": [
+      "pronouns",
       "prepositions",
-      "directional-verbs",
       "verb-complementation"
     ],
     "prerequisites": [],
     "faq": [
       {
         "question": {
-          "en": "Can 'por' and 'para' ever be interchangeable?",
-          "es": "¿Por y para son intercambiables alguna vez?",
-          "zh": "por和para有时可以互换吗？"
+          "en": "When is the 'personal a' required?",
+          "es": "¿Cuándo es obligatoria la 'a personal'?",
+          "zh": "何时需要'a personal'？"
         },
         "answer": {
-          "en": "Rarely. Some fixed expressions allow both with different meanings: 'por la mañana' (in the morning) vs 'para la mañana' (by morning).",
-          "es": "Raramente. Algunas expresiones fijas permiten ambas con significados distintos.",
-          "zh": "很少。一些固定搭配允许两者使用但意义不同：por la mañana（在早上）vs para la mañana（在早上之前）。"
+          "en": "When the direct object is a specific animate being (person or pet): 'Veo a María' but 'Veo la casa.'",
+          "es": "Cuando el OD es un ser animado específico: 'Veo a María' pero 'Veo la casa.'",
+          "zh": "当直接宾语是特定的有生命体时：'我看见玛丽亚'但'我看见房子'。"
         }
       },
       {
         "question": {
-          "en": "How can I remember the difference quickly?",
-          "es": "¿Cómo recordar la diferencia rápidamente?",
-          "zh": "如何快速记住两者的区别？"
+          "en": "Can I omit the clitic if I include the full noun?",
+          "es": "¿Puedo omitir el clítico con el sustantivo completo?",
+          "zh": "有完整名词时可以省略附着代词吗？"
         },
         "answer": {
-          "en": "Use the destination test: if you can substitute 'in order to' or 'destination,' use para. If you can substitute 'because of' or 'through,' use por.",
-          "es": "Use la prueba de destino: si puede sustituir por 'a fin de' o 'destino', use para. Si puede sustituir por 'a causa de' o 'a través de', use por.",
-          "zh": "使用目的地测试：如果能替换为'in order to'或'目的地'，用para；如果能替换为'because of'或'through'，用por。"
+          "en": "No — Spanish requires clitic doubling with human indirect objects. 'Le doy el libro a María' is correct; omitting 'le' sounds unnatural.",
+          "es": "No — el español requiere duplicación de clíticos con OI humanos. Omitir 'le' suena antinatural.",
+          "zh": "不可以——西班牙语要求对人间接宾语进行代词复制。省略le听起来不自然。"
         }
       }
     ],
     "references": [
       {
-        "title": "Real Academia Española - Por",
-        "url": "https://www.rae.es/dpd/por",
-        "description": "Official RAE definition and usage of por"
+        "title": "SpanishDict - Direct Object Pronouns",
+        "url": "https://www.spanishdict.com/guide/direct-object-pronouns",
+        "description": "Comprehensive guide with conjugation charts"
       },
       {
-        "title": "StudySpanish.com - Por vs Para",
-        "url": "https://studyspanish.com/grammar/lessons/porpara",
-        "description": "Detailed lesson with practice exercises"
+        "title": "StudySpanish.com - Indirect Object Pronouns",
+        "url": "https://studyspanish.com/grammar/lessons/iopro1",
+        "description": "Lesson with practice exercises"
       },
       {
         "title": "Grammar Atlas Comparative Reference",
         "url": "https://grammarnavigator.com",
-        "description": "Cross-linguistic preposition analysis"
+        "description": "Cross-linguistic analysis of object systems"
       }
     ]
   }

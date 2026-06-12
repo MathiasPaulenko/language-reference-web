@@ -251,6 +251,8 @@ function buildBody(data, locale) {
 
   // ── Examples ──
   body += `\n---\n\n${examplesHeader}\n\n`;
+  const inContextHeader = isZh ? '### 语境中的例子' : (isEs ? '### En contexto' : '### In Context');
+  body += `${inContextHeader}\n\n`;
   body += `| ${spLabel} | ${enLabel} | ${zhLabel} |\n`;
   body += `|---------|---------|---------|\n`;
   for (const ex of data.examples) {
@@ -268,8 +270,13 @@ function buildBody(data, locale) {
       const mistake    = typeof m.mistake === 'string' ? m.mistake : (m.mistake[locale] || m.mistake.en || '');
       const correction = typeof m.correction === 'string' ? m.correction : (m.correction[locale] || m.correction.en || '');
       const note       = typeof m.note === 'string' ? m.note : (m.note[locale] || m.note.en || '');
+      const who        = typeof m.who === 'string' ? m.who : (m.who?.[locale] || m.who?.en || '');
 
-      body += `${i + 1}. **${mistake}**\n\n   → ${correction}\n\n   ${note}\n\n`;
+      if (who) {
+        body += `${i + 1}. **${who}**: ${mistake}\n\n   → ${correction}\n\n   ${note}\n\n`;
+      } else {
+        body += `${i + 1}. **${mistake}**\n\n   → ${correction}\n\n   ${note}\n\n`;
+      }
     }
   }
 

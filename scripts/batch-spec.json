@@ -24,9 +24,11 @@
       "zh": "这种区别反映了更深层次的认知框架：每个过去时叙事都涉及一个决定——动作是被呈现为已完成的还是作为开放式过程。英语母语者经常默认使用过去时，因为它表面上类似于英语的简单过去时。"
     },
     "explanation": {
-      "spanish": "El **pretérito indefinido** expresa acciones pasadas completadas en un momento específico: *Ayer comí paella*; *Llegué, saludé y me senté*; *De pronto, decidió irse*; *Viví en Madrid durante tres años*. El **pretérito imperfecto** expresa acciones habituales, en progreso o descriptivas: *Cuando era niño, jugaba en el parque*; *El cielo era azul*; *Leía cuando sonó el teléfono*; *Tenía veinte años*. Regla mnemotécnica: pretérito = ¿qué pasó?; imperfecto = ¿cómo era? o ¿qué estaba pasando?",
-      "english": "English lacks a direct equivalent for the Spanish imperfect. The simple past covers both preterite and some imperfect uses. For habitual actions, English uses 'used to' or 'would' — 'I used to play' = *jugaba*. For ongoing interrupted actions, English uses past progressive — 'I was reading' = *leía*. Chinese aspect particles (了, 过, 在) distribute marking across the sentence rather than in verb conjugation.",
-      "chinese": "汉语没有与西班牙语未完成时直接对应的语法形式。英语简单过去时涵盖西班牙语过去时和部分未完成时的用法。英语对习惯性动作用'used to'或'would'，对进行中被中断的动作用过去进行时。汉语通过体貌助词（了、过、在）将标记分散在句子中。过去时回答'发生了什么'，未完成时回答'是什么样的'或'当时正在发生什么'。"
+      "spanish": "### Formas y conjugación\n\nEl **pretérito indefinido** se forma a partir de la raíz verbal más las terminaciones de pasado: *-é, -aste, -ó, -amos, -asteis, -aron* (AR) / *-í, -iste, -ió, -imos, -isteis, -ieron* (ER/IR). Expresa acciones pasadas completadas en un momento específico.\n\n- *Ayer **comí** paella* → acción terminada\n- *Llegué, saludé y me senté* → secuencia de acciones completadas\n- *Viví en Madrid durante tres años* → período concluido\n\nEl **pretérito imperfecto** usa las terminaciones *-aba, -abas, -aba, -ábamos, -abais, -aban* (AR) / *-ía, -ías, -ía, -íamos, -íais, -ían* (ER/IR). Expresa acciones habituales, en progreso o descriptivas.\n\n- *Cuando era niño, **jugaba** en el parque* → hábito pasado\n- *El cielo **era** azul* → descripción de fondo\n- *Tenía veinte años* → estado en el pasado\n\n### Distinciones clave\n\n|| Contexto | Pretérito | Imperfecto |\n|---|---|---|---|\n|| Acción única, completada | *Ayer comí* | — |\n|| Hábito, repetición | — | *Siempre jugaba* |\n|| Descripción de fondo | — | *Era de noche* |\n|| Acción interrumpida | *Sonó el teléfono* | *Leía* |\n\nRegla mnemotécnica: **pretérito = ¿qué pasó?**; **imperfecto = ¿cómo era?** o **¿qué estaba pasando?**\n\n### Usos específicos\n\nEl pretérito aparece con expresiones de tiempo concretas: *ayer, anoche, el año pasado, de pronto*. El imperfecto acompaña estados mentales, descripciones, hábitos y acciones en progreso: *siempre, a menudo, todos los días, mientras*.\n\n- *De **pronto**, empezó a llover* → cambio súbito (pretérito)\n- *Mientras **leía**, sonó el teléfono* → fondo + interrupción (imperfecto + pretérito)\n\n### Casos especiales y excepciones\n\n- **Mental verbs** (*querer, saber, conocer, pensar*): el cambio de imperfecto a pretérito altera el significado: *Quería ir* (deseo en el pasado) vs *Quise ir* (intento/fracaso).\n- **Ser vs estar en pasado**: *Era alto* (descripción permanente, imperfecto) vs *Estuvo enfermo* (estado temporal, pretérito).\n- **Tiempo y hora**: siempre pretérito — *Eran las tres* (imperfecto: descripción) vs *Fueron las tres* (pretérito: momento puntual).",
+
+      "english": "### Formation and structure\n\nEnglish does not conjugate verbs for aspect; it uses **periphrastic constructions** instead. The simple past covers both completed and ongoing past actions, requiring the speaker to rely on context or additional words.\n\n- *I **ate** paella* → simple past (covers both preterite and some imperfect uses)\n- *I **used to** play* → habitual past (equivalent to imperfecto)\n- *I **was reading*** → past progressive (equivalent to imperfecto de acción en progreso)\n\n### Key distinctions\n\n|| Context | English strategy | Spanish equivalent |\n|---|---|---|---|\n|| Completed action | simple past | pretérito |\n|| Habitual past | used to / would | imperfecto |\n|| Ongoing interrupted | past progressive | imperfecto |\n|| Background description | past progressive / simple past | imperfecto |\n|| Sudden change | simple past | pretérito |\n\nEnglish learners must **consciously analyze aspect**: ask *Was this completed or ongoing/background?* before choosing the Spanish tense.\n\n### Position and usage contexts\n\nEnglish time expressions do not trigger tense shifts the way Spanish ones do. English speakers often default to the preterite because it superficially resembles the simple past, producing abrupt narratives when the imperfect would provide background texture.\n\n- *When I **was** a child, I **used to** play* → imperfecto feel, but two English constructions needed\n- *The sky **was** blue and the birds **were** singing* → English past progressive for Spanish imperfecto description\n\n### Special cases\n\n- **Mental state verbs**: English uses simple past for both, but Spanish distinguishes: *Quería* (imperfecto: desire) vs *Quise* (pretérito: attempted and failed).\n- **Age and time**: English simple past for both, Spanish uses imperfecto for description (*Era la una*) and pretérito for the moment an action occurred (*Fue entonces cuando...*).",
+
+      "chinese": "### 构成与表达\n\n汉语没有动词变位系统，通过**体貌助词**和**语境**来表达过去时态。主要的助词有：了（完成）、过（经历）、在（进行）。\n\n- 我吃了饭 → 动作完成（类似 pretérito）\n- 我以前常去公园 → 习惯过去（类似 imperfecto）\n- 我正在看书的时候 → 进行中被中断（类似 imperfecto + pretérito）\n\n### 关键区别\n\n|| 语境 | 汉语策略 | 西班牙语对应 |\n|---|---|---|---|\n|| 已完成动作 | 动词 + 了 | pretérito |\n|| 习惯性过去 | 以前/小时候 + 动词 | imperfecto |\n|| 进行中被中断 | 正在 + 动词 + 的时候 | imperfecto + pretérito |\n|| 背景描述 | 形容词谓语 | imperfecto |\n|| 状态突变 | 突然 + 动词 + 了 | pretérito |\n\n### 使用语境\n\n汉语母语者必须**放弃依赖词序和助词的思维**，转而根据动作的**体貌性质**（完成 vs 进行/背景）选择西班牙语时态。汉语没有直接的 imperfecto 对应形式，这使得区分特别困难。\n\n- 天很蓝，鸟儿在唱歌 → 汉语无标记背景描述，西班牙语需用 imperfecto\n- 我到家时，妹妹正在睡觉 → 汉语用'正在'表示进行，西班牙语用 imperfecto\n\n### 特殊情况\n\n- **心理动词**：汉语用简单句式，但西班牙语区分 *Quería*（未实现的愿望，imperfecto）和 *Quise*（尝试但失败，pretérito）。\n- **年龄和时间**：汉语说'那时我二十岁'无标记，西班牙语必须用 imperfecto (*Tenía veinte años*)。"
     },
     "examples": [
       {
@@ -141,6 +143,11 @@
     ],
     "commonMistakes": [
       {
+        "who": {
+          "en": "English speakers learning Spanish",
+          "es": "Angloparlantes aprendiendo español",
+          "zh": "英语母语者学习西班牙语"
+        },
         "mistake": {
           "en": "Using preterite for habitual actions",
           "es": "Usar pretérito para acciones habituales",
@@ -158,6 +165,11 @@
         }
       },
       {
+        "who": {
+          "en": "English speakers learning Spanish",
+          "es": "Angloparlantes aprendiendo español",
+          "zh": "英语母语者学习西班牙语"
+        },
         "mistake": {
           "en": "Using imperfect for completed events",
           "es": "Usar imperfecto para eventos completados",
@@ -175,6 +187,11 @@
         }
       },
       {
+        "who": {
+          "en": "Chinese speakers learning Spanish",
+          "es": "Hispanohablantes de chino aprendiendo español",
+          "zh": "汉语母语者学习西班牙语"
+        },
         "mistake": {
           "en": "Translating English simple past directly",
           "es": "Traducir el pasado simple inglés directamente",
@@ -308,9 +325,11 @@
       "zh": "'西班牙语间接宾语代词'和'se lo vs le lo'的搜索量一直很高。英语母语者 struggling with 附着代词的冗余性，而汉语母语者必须掌握附着代词的概念。"
     },
     "explanation": {
-      "spanish": "El **objeto directo** (OD) responde a '¿qué?' o '¿a quién?': *Leo **el libro***; *Veo **a María*** (requiere 'a' por ser persona). Pronombres: me, te, lo/la, nos, os, los/las. El **objeto indirecto** (OI) responde a '¿a quién?' o '¿para quién?': *Doy el libro **a María***; *Le escribo **a mi madre***. Pronombres: me, te, le, nos, os, les. Cuando ambos aparecen juntos, el OI precede al OD: *Se lo doy* (le + lo → se lo). La preposición 'a' marca el OD humano (*Veo a Juan*) y siempre marca el OI (*Doy el libro a Juan*).",
-      "english": "English distinguishes direct and indirect objects through **word order**. In ditransitive constructions, the indirect object precedes the direct: 'She gave **him** the book.' English also allows: 'She gave the book **to him**.' When both are pronouns: 'She gave **it to him**' — no case distinction. This contrasts with Spanish clitics encoding person and case: *Se lo dio*. Chinese uses 给 (gěi) as coverb: '我给了他一本书' (wǒ gěi le tā yì běn shū), where 给 encodes transfer and 他 marks the recipient.",
-      "chinese": "英语主要通过词序区分直接和间接宾语。在双及物结构中，间接宾语通常在直接宾语之前：'She gave him the book'。汉语通过动词'给'作为介动词处理：'我给了他一本书'，其中'给'编码转移意义，'他'标记接收者。西班牙语附着代词系统同时编码人称和格：Se lo dio。'se lo'结构特别具有挑战性：当第三人称间接宾语le与直接宾语lo/la共现时，le变为se。"
+      "spanish": "### Orden canónico\n\nEl orden básico en español es **V + OD + OI**: *Doy el libro a María*. Sin embargo, cuando ambos objetos son pronombres, el **OI precede al OD**: *Se lo doy*.\n\n- **OD humano**: requiere preposición 'a' (*Veo **a** Juan*)\n- **OI**: siempre lleva 'a' (*Doy el libro **a** Juan*)\n- **Pronombres OD**: me, te, lo/la, nos, os, los/las\n- **Pronombres OI**: me, te, le, nos, os, les\n\n### Variaciones permitidas\n\n|| Estructura | Ejemplo | Uso |\n|---|---|---|---|\n|| V + OD + a + OI | *Doy el libro a María* | Énfasis en el destinatario |\n|| V + OI pronombre + OD | *Se lo doy* | Clíticos, orden fijo |\n|| V + a + OI + OD | *Le doy el libro* | OI como tópico |\n\n### Señales estructurales clave\n\n- **'a' personal**: distingue OD humano de sujeto → *Veo **a** Juan* (OD) vs *Juan ve* (sujeto)\n- **Redundancia pronominal**: el pronombre clítico puede repetir el OI para claridad → *Le doy el libro **a María*** (a María = redundante pero válido)\n- **Cambio le → se**: cuando OI (*le*) y OD (*lo/la*) coinciden en tercera persona, *le* se convierte en *se* → *Se lo doy* (no *Le lo doy*)\n\n### Complejidad y casos especiales\n\n- **Verbos con OI obligatorio**: *Decirle algo a alguien*, *Contarle algo* — el OI es parte del marco argumental\n- **Doble dativo ético**: *Le comí la manzana* (para mí / a mí mismo) — OI posesivo o beneficiario\n- **Ambigüedad con 'a'**: *Veo a María* (OD humano) vs *Hablo a María* (destinatario = OI) — el verbo determina la función",
+
+      "english": "### Canonical order\n\nEnglish canonical order is **V + indirect object + direct object**: 'She gave him the book.' When the indirect object follows, it requires 'to': 'She gave the book to him.'\n\n- **No case-marking prepositions** for direct objects (unlike Spanish 'a' personal)\n- **Word order is the primary signal**: indirect object before direct object in ditransitives\n- **Both objects can be pronouns**: 'She gave it to him' — English places the direct object pronoun first when using 'to'\n\n### Permissible variations\n\n|| Structure | Example | Nuance |\n|---|---|---|---|\n|| V + IO + DO | 'She gave him the book' | Neutral, most common |\n|| V + DO + to + IO | 'She gave the book to him' | Slightly more formal |\n|| V + DO + IO (both pronouns) | 'She gave him it' | Informal, sometimes awkward |\n\n### Key structural signals\n\n- **'to' marks the indirect object** when it follows the direct object: 'give the book **to** him'\n- **No clitic pronouns**: English does not have pronominal clitics like Spanish *me/te/le/lo*\n- **Pronoun case**: English uses objective case for both (him, her, them), unlike Spanish which distinguishes OD (*lo*) from OI (*le*)\n\n### Processing complexity for learners\n\n- **English speakers learning Spanish** must acquire the concept of pronominal clitics and the 'a' personal for human direct objects.\n- **The 'se lo' construction** is especially challenging because English has no equivalent stacking of pronouns.\n- **Redundancy**: Spanish allows doubling (*Le doy el libro a María*), which sounds redundant to English ears but is grammatically valid and common.",
+
+      "chinese": "### 语序规范\n\n汉语的基本语序是**动词 + 间接宾语 + 直接宾语**：'我给了他一本书'。通过介词'给'引入接收者，不需要格变化或附着代词。\n\n- **直接宾语**：通过语序确定，无形态标记\n- **间接宾语**：通常用'给'引出 → '给 + 接收者'\n- **把字句**：可将直接宾语提前强调 → '我把书给了他'\n\n### 允许的变体\n\n|| 结构 | 例子 | 用法 |\n|---|---|---|---|\n|| 主 + 给 + 接收者 + 动词 + 事物 | '我给他一本书' | 中性，最常见 |\n|| 主 + 把 + 事物 + 动词 + 给 + 接收者 | '我把书给了他' | 强调直接宾语 |\n|| 主 + 动词 + 事物 + 给 + 接收者 | '我送了一本书给他' | 书面语，较正式 |\n\n### 关键结构信号\n\n- **'给'作为介动词**：同时编码转移方向和接收者 → '我给**他**一本书'\n- **无语序灵活性限制**：汉语语序相对灵活，但'给'的位置固定了接收者的角色\n- **无附着代词系统**：汉语没有西班牙语式的me/te/le/lo代词堆叠\n\n### 学习难点与复杂性\n\n- **汉语母语者**必须从零开始习得西班牙语附着代词系统，汉语没有等价概念。\n- **'a'人称标记**：汉语学习者容易遗漏人名前的'a'（*Veo Juan* 错误，应为 *Veo a Juan*）。\n- **'se lo'结构**：当汉语母语者遇到*Se lo doy*时，需要理解这是le+lo的语音合并，不是新的代词。\n- **冗余代词**：西班牙语允许'Le doy el libro a María'（代词+名词重复），这在汉语中极为罕见，学习者会觉得多余。"
     },
     "examples": [
       {
@@ -425,6 +444,11 @@
     ],
     "commonMistakes": [
       {
+        "who": {
+          "en": "English speakers learning Spanish",
+          "es": "Angloparlantes aprendiendo español",
+          "zh": "英语母语者学习西班牙语"
+        },
         "mistake": {
           "en": "Using 'le' instead of 'lo' for masculine direct objects",
           "es": "Usar 'le' en lugar de 'lo' para OD masculino",
@@ -442,6 +466,11 @@
         }
       },
       {
+        "who": {
+          "en": "English speakers learning Spanish",
+          "es": "Angloparlantes aprendiendo español",
+          "zh": "英语母语者学习西班牙语"
+        },
         "mistake": {
           "en": "Omitting the redundant clitic with explicit noun phrases",
           "es": "Omitir el clítico redundante",
@@ -459,6 +488,11 @@
         }
       },
       {
+        "who": {
+          "en": "Chinese speakers learning Spanish",
+          "es": "Hispanohablantes de chino aprendiendo español",
+          "zh": "汉语母语者学习西班牙语"
+        },
         "mistake": {
           "en": "Saying 'le lo' instead of 'se lo'",
           "es": "Decir 'le lo' en lugar de 'se lo'",
